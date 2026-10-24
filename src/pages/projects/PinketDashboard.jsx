@@ -1,11 +1,42 @@
+import React from 'react'
+import ProjectHeader from '../../components/pinket-dashboard/ProjectHeader'
+import ProjectHero from '../../components/pinket-dashboard/ProjectHero'
+import ProjectDescription from '../../components/pinket-dashboard/ProjectDescription'
+import ProjectImpact from '../../components/pinket-dashboard/ProjectImpact'
+import ProjectTimeline from '../../components/pinket-dashboard/ProjectTimeline'
+import ProjectShowcase from '../../components/pinket-dashboard/ProjectShowcase'
+import ProjectComments from '../../components/pinket-dashboard/ProjectComments'
+import ProjectNav from '../../components/pinket-dashboard/ProjectNav'
+import ProjectFooter from '../../components/pinket-dashboard/ProjectFooter'
+import { useCaseStudyInteractions } from '../../hooks/useCaseStudyInteractions'
+
 export default function PinketDashboard() {
+  useCaseStudyInteractions()
+
   return (
-    <main style={{ width: '100vw', height: '100vh', margin: 0, padding: 0, overflow: 'hidden' }}>
-      <iframe
-        src="/pages/pinket-dashboard.html"
-        style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
-        title="Pinket Dashboard"
-      />
-    </main>
+    <div
+      id="top"
+      style={{
+        overflowX: 'clip',
+        backgroundColor: '#F5F5F5',
+        backgroundImage: 'radial-gradient(#D4D4D4 1px, transparent 1px)',
+        backgroundSize: '24px 24px',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+    >
+      <ProjectHeader />
+      <main id="pgs" className="pgs">
+        <ProjectHero />
+        <ProjectDescription />
+        <ProjectImpact />
+        <ProjectTimeline />
+        <ProjectShowcase />
+        <ProjectComments />
+        <ProjectNav />
+        <ProjectFooter />
+      </main>
+    </div>
   )
 }

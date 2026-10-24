@@ -1,11 +1,42 @@
+import React from 'react'
+import ProjectHeader from '../../components/pinket-customer/ProjectHeader'
+import ProjectHero from '../../components/pinket-customer/ProjectHero'
+import ProjectDescription from '../../components/pinket-customer/ProjectDescription'
+import ProjectImpact from '../../components/pinket-customer/ProjectImpact'
+import ProjectTimeline from '../../components/pinket-customer/ProjectTimeline'
+import ProjectShowcase from '../../components/pinket-customer/ProjectShowcase'
+import ProjectComments from '../../components/pinket-customer/ProjectComments'
+import ProjectNav from '../../components/pinket-customer/ProjectNav'
+import ProjectFooter from '../../components/pinket-customer/ProjectFooter'
+import { useCaseStudyInteractions } from '../../hooks/useCaseStudyInteractions'
+
 export default function PinketCustomer() {
+  useCaseStudyInteractions()
+
   return (
-    <main style={{ width: '100vw', height: '100vh', margin: 0, padding: 0, overflow: 'hidden' }}>
-      <iframe
-        src="/pages/pinket-customer.html"
-        style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
-        title="Pinket Customer App"
-      />
-    </main>
+    <div
+      id="top"
+      style={{
+        overflowX: 'clip',
+        backgroundColor: '#F5F5F5',
+        backgroundImage: 'radial-gradient(#D4D4D4 1px, transparent 1px)',
+        backgroundSize: '24px 24px',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+    >
+      <ProjectHeader />
+      <main id="pgs" className="pgs">
+        <ProjectHero />
+        <ProjectDescription />
+        <ProjectImpact />
+        <ProjectTimeline />
+        <ProjectShowcase />
+        <ProjectComments />
+        <ProjectNav />
+        <ProjectFooter />
+      </main>
+    </div>
   )
 }

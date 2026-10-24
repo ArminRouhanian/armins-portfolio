@@ -1,11 +1,42 @@
+import React from 'react'
+import ProjectHeader from '../../components/metamondial3d/ProjectHeader'
+import ProjectHero from '../../components/metamondial3d/ProjectHero'
+import ProjectDescription from '../../components/metamondial3d/ProjectDescription'
+import ProjectImpact from '../../components/metamondial3d/ProjectImpact'
+import ProjectTimeline from '../../components/metamondial3d/ProjectTimeline'
+import ProjectShowcase from '../../components/metamondial3d/ProjectShowcase'
+import ProjectComments from '../../components/metamondial3d/ProjectComments'
+import ProjectNav from '../../components/metamondial3d/ProjectNav'
+import ProjectFooter from '../../components/metamondial3d/ProjectFooter'
+import { useCaseStudyInteractions } from '../../hooks/useCaseStudyInteractions'
+
 export default function MetaMondial3D() {
+  useCaseStudyInteractions()
+
   return (
-    <main style={{ width: '100vw', height: '100vh', margin: 0, padding: 0, overflow: 'hidden' }}>
-      <iframe
-        src="/pages/metamondial3d.html"
-        style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
-        title="MetaMondial3D"
-      />
-    </main>
+    <div
+      id="top"
+      style={{
+        overflowX: 'clip',
+        backgroundColor: '#F5F5F5',
+        backgroundImage: 'radial-gradient(#D4D4D4 1px, transparent 1px)',
+        backgroundSize: '24px 24px',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+    >
+      <ProjectHeader />
+      <main id="pgs" className="pgs">
+        <ProjectHero />
+        <ProjectDescription />
+        <ProjectImpact />
+        <ProjectTimeline />
+        <ProjectShowcase />
+        <ProjectComments />
+        <ProjectNav />
+        <ProjectFooter />
+      </main>
+    </div>
   )
 }
