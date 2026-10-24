@@ -1,7 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Header() {
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+
   return (
     <header
       style={{
@@ -31,7 +34,11 @@ export default function Header() {
         <img
           src="/assets/logo.svg"
           alt=""
-          style={{ height: '28px', width: 'auto', display: 'block' }}
+          style={{
+            height: '28px',
+            width: 'auto',
+            display: 'block'
+          }}
         />
         Armin Rouhanian
       </Link>
@@ -44,9 +51,21 @@ export default function Header() {
           fontWeight: '500'
         }}
       >
-        <a href="#work">Work</a>
-        <a href="#cases">Case studies</a>
-        <a href="#contact" className="bt dk">
+        {isHome ? (
+          <>
+            <a href="#work">Work</a>
+            <a href="#cases">Case studies</a>
+          </>
+        ) : (
+          <>
+            <Link to="/#work">Work</Link>
+            <Link to="/#cases">Case studies</Link>
+          </>
+        )}
+        <a
+          href="#contact"
+          className="bt dk"
+        >
           Contact me
         </a>
       </nav>

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import Header from '../components/home/Header'
+import Header from '../components/common/Header'
 import Hero from '../components/home/Hero'
 import SelectedWork from '../components/home/SelectedWork'
 import Tools from '../components/home/Tools'
 import CaseStudies from '../components/home/CaseStudies'
-import Footer from '../components/home/Footer'
+import Footer from '../components/common/Footer'
 
 export default function Home() {
   useEffect(() => {
@@ -67,7 +67,10 @@ export default function Home() {
       }}
     >
       <Header />
-      <main id="pgs" className="pgs">
+      <main
+        id="pgs"
+        className="pgs"
+      >
         <Hero />
         <SelectedWork />
         <Tools />

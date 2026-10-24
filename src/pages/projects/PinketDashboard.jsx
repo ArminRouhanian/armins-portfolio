@@ -1,5 +1,5 @@
 import React from 'react'
-import ProjectHeader from '../../components/pinket-dashboard/ProjectHeader'
+import Header from '../../components/common/Header'
 import ProjectHero from '../../components/pinket-dashboard/ProjectHero'
 import ProjectDescription from '../../components/pinket-dashboard/ProjectDescription'
 import ProjectImpact from '../../components/pinket-dashboard/ProjectImpact'
@@ -7,7 +7,7 @@ import ProjectTimeline from '../../components/pinket-dashboard/ProjectTimeline'
 import ProjectShowcase from '../../components/pinket-dashboard/ProjectShowcase'
 import ProjectComments from '../../components/pinket-dashboard/ProjectComments'
 import ProjectNav from '../../components/pinket-dashboard/ProjectNav'
-import ProjectFooter from '../../components/pinket-dashboard/ProjectFooter'
+import Footer from '../../components/common/Footer'
 import { useCaseStudyInteractions } from '../../hooks/useCaseStudyInteractions'
 
 export default function PinketDashboard() {
@@ -26,8 +26,11 @@ export default function PinketDashboard() {
         flexDirection: 'column'
       }}
     >
-      <ProjectHeader />
-      <main id="pgs" className="pgs">
+      <Header />
+      <main
+        id="pgs"
+        className="pgs"
+      >
         <ProjectHero />
         <ProjectDescription />
         <ProjectImpact />
@@ -35,7 +38,7 @@ export default function PinketDashboard() {
         <ProjectShowcase />
         <ProjectComments />
         <ProjectNav />
-        <ProjectFooter />
+        <Footer />
       </main>
     </div>
   )

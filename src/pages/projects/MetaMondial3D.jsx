@@ -1,5 +1,5 @@
 import React from 'react'
-import ProjectHeader from '../../components/metamondial3d/ProjectHeader'
+import Header from '../../components/common/Header'
 import ProjectHero from '../../components/metamondial3d/ProjectHero'
 import ProjectDescription from '../../components/metamondial3d/ProjectDescription'
 import ProjectImpact from '../../components/metamondial3d/ProjectImpact'
@@ -7,7 +7,7 @@ import ProjectTimeline from '../../components/metamondial3d/ProjectTimeline'
 import ProjectShowcase from '../../components/metamondial3d/ProjectShowcase'
 import ProjectComments from '../../components/metamondial3d/ProjectComments'
 import ProjectNav from '../../components/metamondial3d/ProjectNav'
-import ProjectFooter from '../../components/metamondial3d/ProjectFooter'
+import Footer from '../../components/common/Footer'
 import { useCaseStudyInteractions } from '../../hooks/useCaseStudyInteractions'
 
 export default function MetaMondial3D() {
@@ -26,8 +26,11 @@ export default function MetaMondial3D() {
         flexDirection: 'column'
       }}
     >
-      <ProjectHeader />
-      <main id="pgs" className="pgs">
+      <Header />
+      <main
+        id="pgs"
+        className="pgs"
+      >
         <ProjectHero />
         <ProjectDescription />
         <ProjectImpact />
@@ -35,7 +38,7 @@ export default function MetaMondial3D() {
         <ProjectShowcase />
         <ProjectComments />
         <ProjectNav />
-        <ProjectFooter />
+        <Footer />
       </main>
     </div>
   )

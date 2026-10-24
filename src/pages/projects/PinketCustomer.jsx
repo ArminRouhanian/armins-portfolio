@@ -1,5 +1,5 @@
 import React from 'react'
-import ProjectHeader from '../../components/pinket-customer/ProjectHeader'
+import Header from '../../components/common/Header'
 import ProjectHero from '../../components/pinket-customer/ProjectHero'
 import ProjectDescription from '../../components/pinket-customer/ProjectDescription'
 import ProjectImpact from '../../components/pinket-customer/ProjectImpact'
@@ -7,7 +7,7 @@ import ProjectTimeline from '../../components/pinket-customer/ProjectTimeline'
 import ProjectShowcase from '../../components/pinket-customer/ProjectShowcase'
 import ProjectComments from '../../components/pinket-customer/ProjectComments'
 import ProjectNav from '../../components/pinket-customer/ProjectNav'
-import ProjectFooter from '../../components/pinket-customer/ProjectFooter'
+import Footer from '../../components/common/Footer'
 import { useCaseStudyInteractions } from '../../hooks/useCaseStudyInteractions'
 
 export default function PinketCustomer() {
@@ -26,8 +26,11 @@ export default function PinketCustomer() {
         flexDirection: 'column'
       }}
     >
-      <ProjectHeader />
-      <main id="pgs" className="pgs">
+      <Header />
+      <main
+        id="pgs"
+        className="pgs"
+      >
         <ProjectHero />
         <ProjectDescription />
         <ProjectImpact />
@@ -35,7 +38,7 @@ export default function PinketCustomer() {
         <ProjectShowcase />
         <ProjectComments />
         <ProjectNav />
-        <ProjectFooter />
+        <Footer />
       </main>
     </div>
   )
