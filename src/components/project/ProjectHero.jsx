@@ -33,8 +33,8 @@ export default function ProjectHero({ hero }) {
             key={tag}
             className="tg"
             style={{
-              background: '#fff',
-              border: '1px solid #E5E5E5'
+              background: 'var(--color-surface)',
+              border: '1px solid var(--color-border)'
             }}
           >
             {tag}
@@ -44,9 +44,9 @@ export default function ProjectHero({ hero }) {
       <h1
         style={{
           marginTop: '16px',
-          fontSize: 'clamp(44px,8vw,96px)',
-          lineHeight: '1',
-          fontWeight: '700',
+          fontSize: 'var(--font-size-hero)',
+          lineHeight: 'var(--line-height-hero)',
+          fontWeight: 'var(--font-weight-bold)',
           letterSpacing: '-.02em'
         }}
       >

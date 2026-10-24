@@ -13,7 +13,10 @@ export default function Hero() {
     >
       <span
         className="tg"
-        style={{ background: '#fff', border: '1px solid #E5E5E5' }}
+        style={{
+          background: 'var(--color-surface)',
+          border: '1px solid var(--color-border)'
+        }}
       >
         Product designer
       </span>
@@ -22,7 +25,7 @@ export default function Hero() {
           marginTop: '24px',
           fontSize: 'clamp(40px,7vw,84px)',
           lineHeight: '1.15',
-          fontWeight: '700'
+          fontWeight: 'var(--font-weight-bold)'
         }}
       >
         I bring&nbsp;

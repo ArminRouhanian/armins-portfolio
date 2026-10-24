@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Design Tokens - Color Palette
+   ========================================================================== */
+
+:root {
+  /* Surfaces & Backgrounds */
+  --color-bg: #faf9f5;
+  --color-bg-alt: #f5f5f5;
+  --color-bg-subtle: #f0f0f0;
+  --color-surface: #ffffff;
+  --color-surface-dark: #1e1e1e;
+  --color-surface-dark-alt: #202026;
+  --color-surface-dark-hover: #333333;
+
+  /* Borders & Dividers */
+  --color-border: #e5e5e5;
+  --color-border-subtle: #d0d0d0;
+  --color-border-dark: rgba(255, 255, 255, 0.12);
+
+  /* Typography Colors */
+  --color-text-primary: #1e1e1e;
+  --color-text-secondary: #444444;
+  --color-text-muted: #555555;
+  --color-text-caption: #777777;
+  --color-text-dim: #9a9a9a;
+  --color-text-placeholder: #a0a0a0;
+  --color-text-light: #ffffff;
+  --color-text-card-dark: #222222;
+
+  /* Primary Brand (Blue) */
+  --color-primary: #0d99ff;
+  --color-primary-dark: #0c7bd1;
+  --color-primary-light: #1abcfe;
+  --color-primary-tint: rgba(13, 153, 255, 0.15);
+
+  /* Secondary & Semantic Accents */
+  /* Purple */
+  --color-purple: #8a3ff0;
+  --color-purple-light: #a259ff;
+  --color-purple-subtle: #c39bff;
+  --color-purple-tint: rgba(162, 89, 255, 0.15);
+
+  /* Green */
+  --color-green: #0acf83;
+  --color-green-dark: #07875a;
+  --color-green-light: #3ddc9b;
+  --color-green-tint: rgba(10, 207, 131, 0.15);
+
+  /* Orange / Coral */
+  --color-orange: #f24e1e;
+  --color-orange-dark: #e03e12;
+  --color-orange-light: #ff7262;
+  --color-orange-subtle: #ff7a59;
+  --color-orange-tint: rgba(242, 78, 30, 0.15);
+
+  /* Overlays & Shadows */
+  --color-overlay-hover: rgba(0, 0, 0, 0.06);
+  --color-overlay-lightbox: rgba(20, 20, 20, 0.88);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.18);
+  --shadow-dark: 0 24px 48px rgba(0, 0, 0, 0.45);
+}

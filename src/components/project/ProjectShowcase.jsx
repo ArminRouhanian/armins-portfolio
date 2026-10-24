@@ -50,7 +50,7 @@ export default function ProjectShowcase({ showcase }) {
           backgroundImage: 'radial-gradient(#3A3A3A 1px,transparent 1px)',
           backgroundSize: '24px 24px',
           padding: '96px 0 120px',
-          color: '#fff',
+          color: 'var(--color-text-light)',
           marginTop: '48px'
         }}
       >
@@ -63,9 +63,9 @@ export default function ProjectShowcase({ showcase }) {
         >
           <p
             style={{
-              fontSize: '13px',
-              fontWeight: '700',
-              color: '#1ABCFE'
+              fontSize: 'var(--font-size-caption)',
+              fontWeight: 'var(--font-weight-bold)',
+              color: 'var(--color-primary-light)'
             }}
           >
             04 · SHOWCASE
@@ -73,7 +73,7 @@ export default function ProjectShowcase({ showcase }) {
           <h2
             style={{
               marginTop: '8px',
-              fontSize: '36px'
+              fontSize: 'var(--font-size-h1)'
             }}
           >
             Design mockups

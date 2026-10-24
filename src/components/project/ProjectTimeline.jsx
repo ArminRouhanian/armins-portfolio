@@ -14,9 +14,9 @@ export default function ProjectTimeline({ timeline }) {
     >
       <p
         style={{
-          fontSize: '13px',
-          fontWeight: '700',
-          color: '#8A3FF0'
+          fontSize: 'var(--font-size-caption)',
+          fontWeight: 'var(--font-weight-bold)',
+          color: 'var(--color-purple)'
         }}
       >
         03 · TIMELINE
@@ -24,7 +24,7 @@ export default function ProjectTimeline({ timeline }) {
       <h2
         style={{
           margin: '8px 0 40px',
-          fontSize: '36px'
+          fontSize: 'var(--font-size-h1)'
         }}
       >
         How the work evolved
@@ -33,7 +33,7 @@ export default function ProjectTimeline({ timeline }) {
         style={{
           marginLeft: '8px',
           paddingLeft: '32px',
-          borderLeft: '2px solid #D0D0D0',
+          borderLeft: '2px solid var(--color-border-subtle)',
           display: 'flex',
           flexDirection: 'column',
           gap: '40px'

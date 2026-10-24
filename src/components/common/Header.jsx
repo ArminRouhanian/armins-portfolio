@@ -23,7 +23,7 @@ export default function Header() {
         padding: '0 32px',
         background: 'rgba(255, 255, 255, 0.95)',
         backdropFilter: 'blur(8px)',
-        borderBottom: '1px solid #E5E5E5'
+        borderBottom: '1px solid var(--color-border)'
       }}
     >
       <Link

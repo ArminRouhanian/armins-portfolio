@@ -86,9 +86,9 @@ export default function Tools() {
         <div>
           <p
             style={{
-              fontSize: '13px',
-              fontWeight: '700',
-              color: '#0C7BD1'
+              fontSize: 'var(--font-size-caption)',
+              fontWeight: 'var(--font-weight-bold)',
+              color: 'var(--color-primary-dark)'
             }}
           >
             02 · TOOLS
@@ -96,17 +96,17 @@ export default function Tools() {
           <h2
             style={{
               margin: '8px 0 20px',
-              fontSize: '36px',
-              lineHeight: '1.15'
+              fontSize: 'var(--font-size-h1)',
+              lineHeight: 'var(--line-height-h1)'
             }}
           >
             Tools I use to make things clear
           </h2>
           <p
             style={{
-              fontSize: '18px',
-              lineHeight: '1.6',
-              color: '#444'
+              fontSize: 'var(--font-size-body-lg)',
+              lineHeight: 'var(--line-height-body-lg)',
+              color: 'var(--color-text-secondary)'
             }}
           >
             I use AI, including Claude Code and Claude Design, to speed up
@@ -115,9 +115,9 @@ export default function Tools() {
           <p
             style={{
               marginTop: '16px',
-              fontSize: '18px',
-              lineHeight: '1.6',
-              color: '#444'
+              fontSize: 'var(--font-size-body-lg)',
+              lineHeight: 'var(--line-height-body-lg)',
+              color: 'var(--color-text-secondary)'
             }}
           >
             Figma carries ideas from sketch to prototype, Notion, Jira and Trello keep
@@ -127,9 +127,9 @@ export default function Tools() {
           <p
             style={{
               marginTop: '16px',
-              fontSize: '18px',
-              lineHeight: '1.6',
-              color: '#444'
+              fontSize: 'var(--font-size-body-lg)',
+              lineHeight: 'var(--line-height-body-lg)',
+              color: 'var(--color-text-secondary)'
             }}
           >
             My background as a developer lets me use Cursor, VS Code and n8n to
@@ -138,9 +138,9 @@ export default function Tools() {
           <p
             style={{
               marginTop: '20px',
-              fontSize: '14px',
+              fontSize: 'var(--font-size-body-sm)',
               lineHeight: '1.7',
-              color: '#777'
+              color: 'var(--color-text-caption)'
             }}
           >
             Figma · Figma Make · Claude Design · Claude Code · Notion · Trello · Jira ·

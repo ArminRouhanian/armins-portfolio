@@ -12,10 +12,16 @@ export default function SelectedWork() {
         scrollMarginTop: '0px'
       }}
     >
-      <p style={{ fontSize: '13px', fontWeight: '700', color: '#0C7BD1' }}>
+      <p
+        style={{
+          fontSize: 'var(--font-size-caption)',
+          fontWeight: 'var(--font-weight-bold)',
+          color: 'var(--color-primary-dark)'
+        }}
+      >
         01 · SELECTED WORK
       </p>
-      <h2 style={{ margin: '8px 0 24px', fontSize: '36px' }}>
+      <h2 style={{ margin: '8px 0 24px', fontSize: 'var(--font-size-h1)' }}>
         <p></p>
         <p>Products I've helped shape</p>
       </h2>

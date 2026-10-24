@@ -60,8 +60,8 @@ export default function ProjectNav({ nav }) {
             >
               <span
                 style={{
-                  fontSize: '13px',
-                  color: 'rgb(85, 85, 85)'
+                  fontSize: 'var(--font-size-caption)',
+                  color: 'var(--color-text-muted)'
                 }}
               >
                 {nav.prev.label}
@@ -69,7 +69,7 @@ export default function ProjectNav({ nav }) {
               <br />
               <b
                 style={{
-                  fontSize: '24px'
+                  fontSize: 'var(--font-size-h3)'
                 }}
               >
                 {nav.prev.title}
@@ -97,8 +97,8 @@ export default function ProjectNav({ nav }) {
             >
               <span
                 style={{
-                  fontSize: '13px',
-                  color: 'rgb(85, 85, 85)'
+                  fontSize: 'var(--font-size-caption)',
+                  color: 'var(--color-text-muted)'
                 }}
               >
                 {nav.next.label}
@@ -106,7 +106,7 @@ export default function ProjectNav({ nav }) {
               <br />
               <b
                 style={{
-                  fontSize: '24px'
+                  fontSize: 'var(--font-size-h3)'
                 }}
               >
                 {nav.next.title}

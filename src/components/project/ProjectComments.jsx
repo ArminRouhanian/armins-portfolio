@@ -12,9 +12,9 @@ export default function ProjectComments() {
     >
       <p
         style={{
-          fontSize: '13px',
-          fontWeight: '700',
-          color: '#0ACF83'
+          fontSize: 'var(--font-size-caption)',
+          fontWeight: 'var(--font-weight-bold)',
+          color: 'var(--color-green)'
         }}
       >
         05 · FEEDBACK
@@ -22,7 +22,7 @@ export default function ProjectComments() {
       <h2
         style={{
           margin: '8px 0 40px',
-          fontSize: '36px'
+          fontSize: 'var(--font-size-h1)'
         }}
       >
         What the team says

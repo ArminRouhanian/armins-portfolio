@@ -7,10 +7,10 @@ export default function Footer() {
       id="contact"
       style={{
         marginTop: '48px',
-        backgroundColor: '#1E1E1E',
+        backgroundColor: 'var(--color-surface-dark)',
         backgroundImage: 'radial-gradient(#3A3A3A 1px,transparent 1px)',
         backgroundSize: '24px 24px',
-        color: '#fff',
+        color: 'var(--color-text-light)',
         position: 'relative',
         overflow: 'hidden'
       }}

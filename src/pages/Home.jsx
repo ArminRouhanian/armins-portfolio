@@ -58,7 +58,7 @@ export default function Home() {
       id="top"
       style={{
         overflowX: 'clip',
-        backgroundColor: '#F5F5F5',
+        backgroundColor: 'var(--color-bg-alt)',
         backgroundImage: 'radial-gradient(#D4D4D4 1px, transparent 1px)',
         backgroundSize: '24px 24px',
         minHeight: '100vh',

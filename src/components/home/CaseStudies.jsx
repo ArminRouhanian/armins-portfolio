@@ -12,10 +12,16 @@ export default function CaseStudies() {
         scrollMarginTop: '0px'
       }}
     >
-      <p style={{ fontSize: '13px', fontWeight: '700', color: '#0C7BD1' }}>
+      <p
+        style={{
+          fontSize: 'var(--font-size-caption)',
+          fontWeight: 'var(--font-weight-bold)',
+          color: 'var(--color-primary-dark)'
+        }}
+      >
         03 · CASE STUDIES
       </p>
-      <h2 style={{ margin: '8px 0 24px', fontSize: '36px' }}>
+      <h2 style={{ margin: '8px 0 24px', fontSize: 'var(--font-size-h1)' }}>
         How I approach problems
       </h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -30,15 +36,15 @@ export default function CaseStudies() {
             padding: '24px 28px'
           }}
         >
-          <span style={{ fontWeight: '700', color: '#F24E1E', width: '40px' }}>
+          <span style={{ fontWeight: 'var(--font-weight-bold)', color: 'var(--color-orange)', width: '40px' }}>
             01
           </span>
-          <h3 style={{ flex: '1', minWidth: '200px', fontSize: '24px' }}>
+          <h3 style={{ flex: '1', minWidth: '200px', fontSize: 'var(--font-size-h3)' }}>
             [Case study title]
           </h3>
           <span className="tg">[Role]</span>
           <span className="tg">[Year]</span>
-          <span style={{ fontSize: '24px' }}>→</span>
+          <span style={{ fontSize: 'var(--font-size-h3)' }}>→</span>
         </a>
         <a
           href="#"
@@ -51,15 +57,15 @@ export default function CaseStudies() {
             padding: '24px 28px'
           }}
         >
-          <span style={{ fontWeight: '700', color: '#A259FF', width: '40px' }}>
+          <span style={{ fontWeight: 'var(--font-weight-bold)', color: 'var(--color-purple-light)', width: '40px' }}>
             02
           </span>
-          <h3 style={{ flex: '1', minWidth: '200px', fontSize: '24px' }}>
+          <h3 style={{ flex: '1', minWidth: '200px', fontSize: 'var(--font-size-h3)' }}>
             [Case study title]
           </h3>
           <span className="tg">[Role]</span>
           <span className="tg">[Year]</span>
-          <span style={{ fontSize: '24px' }}>→</span>
+          <span style={{ fontSize: 'var(--font-size-h3)' }}>→</span>
         </a>
         <a
           href="#"
@@ -72,10 +78,10 @@ export default function CaseStudies() {
             padding: '24px 28px'
           }}
         >
-          <span style={{ fontWeight: '700', color: '#0ACF83', width: '40px' }}>
+          <span style={{ fontWeight: 'var(--font-weight-bold)', color: 'var(--color-green)', width: '40px' }}>
             03
           </span>
-          <h3 style={{ flex: '1', minWidth: '200px', fontSize: '24px' }}>
+          <h3 style={{ flex: '1', minWidth: '200px', fontSize: 'var(--font-size-h3)' }}>
             [Case study title]
           </h3>
           <span className="tg">[Role]</span>

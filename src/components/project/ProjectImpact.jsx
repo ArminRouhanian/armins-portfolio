@@ -30,14 +30,20 @@ export default function ProjectImpact({ impact }) {
             >
               <p
                 className="i-lb"
-                style={{ fontSize: '13px', fontWeight: '700' }}
+                style={{
+                  fontSize: 'var(--font-size-caption)',
+                  fontWeight: 'var(--font-weight-bold)'
+                }}
               >
                 02 · IMPACT
               </p>
             </div>
             <h2
               className="i-t1"
-              style={{ marginTop: '8px', fontSize: '36px' }}
+              style={{
+                marginTop: '8px',
+                fontSize: 'var(--font-size-h1)'
+              }}
             >
               Impact at a glance
             </h2>
@@ -45,8 +51,8 @@ export default function ProjectImpact({ impact }) {
               className="i-t2"
               style={{
                 marginTop: '12px',
-                fontSize: '18px',
-                lineHeight: '1.55'
+                fontSize: 'var(--font-size-body-lg)',
+                lineHeight: 'var(--line-height-body-lg)'
               }}
             >
               {impact.intro}
@@ -135,10 +141,10 @@ export default function ProjectImpact({ impact }) {
                 <div
                   style={{
                     position: 'relative',
-                    background: '#fff',
+                    background: 'var(--color-surface)',
                     borderRadius: '16px',
-                    border: '1px solid #E5E5E5',
-                    boxShadow: '0 24px 48px rgba(0,0,0,.12)',
+                    border: '1px solid var(--color-border)',
+                    boxShadow: 'var(--shadow-md)',
                     overflow: 'hidden',
                     padding: '36px 28px 28px',
                     height: '300px',
@@ -154,7 +160,7 @@ export default function ProjectImpact({ impact }) {
                       right: '0',
                       top: '0',
                       height: '16px',
-                      background: m.barColor || '#0D99FF'
+                      background: m.barColor || 'var(--color-primary)'
                     }}
                   ></div>
                   <div
@@ -167,24 +173,29 @@ export default function ProjectImpact({ impact }) {
                     <span
                       className="tg"
                       style={{
-                        background: m.cardTagBg || '#0D99FF26',
-                        color: m.cardTagColor || '#0C7BD1'
+                        background: m.cardTagBg || 'var(--color-primary-tint)',
+                        color: m.cardTagColor || 'var(--color-primary-dark)'
                       }}
                     >
                       {m.cardLabel}
                     </span>
-                    <span style={{ fontSize: '13px', color: '#777' }}>
+                    <span
+                      style={{
+                        fontSize: 'var(--font-size-caption)',
+                        color: 'var(--color-text-caption)'
+                      }}
+                    >
                       {m.cardPeriod}
                     </span>
                   </div>
                   <p
                     style={{
                       margin: 'auto 0 0',
-                      fontSize: 'clamp(72px,10vw,120px)',
-                      fontWeight: '700',
-                      lineHeight: '1',
+                      fontSize: 'var(--font-size-stat)',
+                      fontWeight: 'var(--font-weight-bold)',
+                      lineHeight: 'var(--line-height-stat)',
                       letterSpacing: '-.03em',
-                      color: m.cardValueColor || '#0C7BD1'
+                      color: m.cardValueColor || 'var(--color-primary-dark)'
                     }}
                   >
                     {m.cardValue}

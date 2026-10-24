@@ -18,9 +18,9 @@ export default function ProjectDescription({ overview }) {
       <div>
         <p
           style={{
-            fontSize: '13px',
-            fontWeight: '700',
-            color: '#0C7BD1'
+            fontSize: 'var(--font-size-caption)',
+            fontWeight: 'var(--font-weight-bold)',
+            color: 'var(--color-primary-dark)'
           }}
         >
           01 · OVERVIEW
@@ -28,8 +28,8 @@ export default function ProjectDescription({ overview }) {
         <h2
           style={{
             marginTop: '8px',
-            fontSize: '36px',
-            lineHeight: '1.15'
+            fontSize: 'var(--font-size-h1)',
+            lineHeight: 'var(--line-height-h1)'
           }}
         >
           About the business
