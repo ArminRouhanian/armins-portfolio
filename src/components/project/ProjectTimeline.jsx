@@ -1,0 +1,94 @@
+import React from 'react'
+
+export default function ProjectTimeline({ timeline }) {
+  if (!timeline) return null
+
+  return (
+    <section
+      id="timeline"
+      style={{
+        maxWidth: '1120px',
+        margin: '0 auto',
+        padding: '96px 32px',
+        scrollMarginTop: '0px',
+        paddingTop: '96px'
+      }}
+    >
+      <p
+        style={{
+          fontSize: '13px',
+          fontWeight: '700',
+          color: '#8A3FF0'
+        }}
+      >
+        03 · TIMELINE
+      </p>
+      <h2
+        style={{
+          margin: '8px 0 40px',
+          fontSize: '36px'
+        }}
+      >
+        How the work evolved
+      </h2>
+      <div
+        style={{
+          marginLeft: '8px',
+          paddingLeft: '32px',
+          borderLeft: '2px solid #D0D0D0',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '40px'
+        }}
+      >
+        {timeline.steps.map((step, index) => (
+          <div
+            key={index}
+            style={{ position: 'relative' }}
+          >
+            <i
+              style={{
+                position: 'absolute',
+                left: '-41px',
+                top: '4px',
+                width: '16px',
+                height: '16px',
+                borderRadius: '50%',
+                background: step.dotColor || '#A259FF',
+                border: '3px solid #F5F5F5'
+              }}
+            ></i>
+            <p
+              style={{
+                fontSize: '13px',
+                fontWeight: '700',
+                color: '#555'
+              }}
+            >
+              {step.period}
+            </p>
+            <h3
+              style={{
+                marginTop: '4px',
+                fontSize: '24px'
+              }}
+            >
+              {step.title}
+            </h3>
+            <p
+              style={{
+                marginTop: '8px',
+                fontSize: '17px',
+                lineHeight: '1.55',
+                color: '#444',
+                maxWidth: '640px'
+              }}
+            >
+              {step.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
