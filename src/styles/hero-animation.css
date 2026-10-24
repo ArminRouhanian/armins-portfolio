@@ -1,0 +1,230 @@
+/* ==========================================================================
+   Hero Stage Animation Styles
+   ========================================================================== */
+
+.sh {
+  position: absolute;
+  right: 32px;
+  bottom: 36px;
+  width: 340px;
+  height: 220px;
+  pointer-events: none;
+}
+
+.sh > * {
+  position: absolute;
+}
+
+.ac {
+  z-index: 2;
+  animation: mv 12s ease-in-out infinite;
+}
+
+.rc {
+  animation: rw 12s ease-in-out infinite;
+}
+
+.ar {
+  animation: ah 12s ease-in-out infinite;
+}
+
+.sq {
+  animation: sq 12s ease-in-out infinite;
+}
+
+.sb {
+  z-index: 1;
+  box-sizing: border-box;
+  border: 1.5px solid var(--color-primary);
+  opacity: 0;
+}
+
+.sb1 {
+  animation:
+    rw 12s ease-in-out infinite,
+    o1 12s ease-in-out infinite;
+}
+
+.sb2 {
+  animation:
+    ah 12s ease-in-out infinite,
+    o2 12s ease-in-out infinite;
+}
+
+.sb3 {
+  animation:
+    sq 12s ease-in-out infinite,
+    o3 12s ease-in-out infinite;
+}
+
+.ac span {
+  position: absolute;
+  left: 12px;
+  top: 16px;
+  white-space: nowrap;
+  background: var(--color-purple);
+  color: var(--color-text-light);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+.hn {
+  z-index: 1;
+}
+
+@keyframes mv {
+  0%,
+  100% {
+    left: 330px;
+    top: 250px;
+  }
+  8% {
+    left: 240px;
+    top: 60px;
+  }
+  16% {
+    left: 60px;
+    top: 95px;
+  }
+  24% {
+    left: 209px;
+    top: 194px;
+  }
+  34%,
+  38% {
+    left: 259px;
+    top: 194px;
+  }
+  48% {
+    left: 250px;
+    top: 264px;
+  }
+  58%,
+  62% {
+    left: 250px;
+    top: 300px;
+  }
+  70% {
+    left: 60px;
+    top: 215px;
+  }
+  80%,
+  84% {
+    left: 90px;
+    top: 215px;
+  }
+  96% {
+    left: 330px;
+    top: 250px;
+  }
+}
+
+@keyframes rw {
+  0%,
+  24% {
+    width: 165px;
+  }
+  34%,
+  90% {
+    width: 215px;
+  }
+  98%,
+  100% {
+    width: 165px;
+  }
+}
+
+@keyframes ah {
+  0%,
+  48% {
+    height: 131px;
+  }
+  58%,
+  90% {
+    height: 167px;
+  }
+  98%,
+  100% {
+    height: 131px;
+  }
+}
+
+@keyframes sq {
+  0%,
+  70% {
+    left: 15px;
+  }
+  80%,
+  90% {
+    left: 45px;
+  }
+  98%,
+  100% {
+    left: 15px;
+  }
+}
+
+@keyframes o1 {
+  0%,
+  16% {
+    opacity: 0;
+  }
+  18%,
+  38% {
+    opacity: 1;
+  }
+  40%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes o2 {
+  0%,
+  46% {
+    opacity: 0;
+  }
+  48%,
+  62% {
+    opacity: 1;
+  }
+  64%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes o3 {
+  0%,
+  68% {
+    opacity: 0;
+  }
+  70%,
+  84% {
+    opacity: 1;
+  }
+  86%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .sh {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac,
+  .rc,
+  .ar,
+  .sq,
+  .sb1,
+  .sb2,
+  .sb3 {
+    animation: none;
+  }
+}

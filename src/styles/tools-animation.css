@@ -1,0 +1,333 @@
+/* ==========================================================================
+   Tools Orbit Stage Animation Styles
+   ========================================================================== */
+
+.tstage {
+  position: relative;
+  height: 440px;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: var(--color-text-primary);
+  background-image: radial-gradient(#3a3a3a 1px, transparent 1px);
+  background-size: 24px 24px;
+  box-shadow: var(--shadow-lg);
+}
+
+.tscene {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 560px;
+  height: 440px;
+  margin: -220px 0 0 -280px;
+  transform-origin: center;
+}
+
+.ox {
+  position: absolute;
+  left: 280px;
+  top: 220px;
+  width: 0;
+  height: 0;
+  animation:
+    tax var(--h) ease-in-out infinite alternate,
+    taz var(--h) ease-in-out infinite alternate;
+  animation-delay: var(--dx), var(--dy);
+}
+
+.oy {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  animation: tay var(--h) ease-in-out infinite alternate;
+  animation-delay: var(--dy);
+}
+
+.tl {
+  position: absolute;
+  left: -28px;
+  top: -28px;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes tax {
+  from {
+    transform: translateX(calc(var(--rx) * -1));
+  }
+  to {
+    transform: translateX(var(--rx));
+  }
+}
+
+@keyframes tay {
+  from {
+    transform: translateY(calc(var(--ry) * -1)) scale(var(--s0));
+    opacity: 0.5;
+    filter: blur(1.5px);
+  }
+  to {
+    transform: translateY(var(--ry)) scale(var(--s1));
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes taz {
+  from {
+    z-index: 1;
+  }
+  to {
+    z-index: 20;
+  }
+}
+
+.core {
+  position: absolute;
+  left: 280px;
+  top: 220px;
+  width: 0;
+  height: 0;
+  z-index: 10;
+}
+
+.glow {
+  position: absolute;
+  left: -80px;
+  top: -80px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #fff 0,
+    #c39bff 22%,
+    rgba(162, 89, 255, 0.55) 45%,
+    rgba(26, 188, 254, 0.18) 62%,
+    transparent 72%
+  );
+  animation: tgl 3s ease-in-out infinite;
+}
+
+@keyframes tgl {
+  0%,
+  100% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+.sp1,
+.sp2,
+.sp3 {
+  position: absolute;
+  display: block;
+  line-height: 0;
+}
+
+.sp1 {
+  left: -35px;
+  top: -35px;
+  animation: tsp 4s ease-in-out infinite;
+}
+
+.sp2,
+.sp3 {
+  animation: ttw 2s ease-in-out infinite;
+}
+
+.sp3 {
+  animation-delay: -1s;
+}
+
+@keyframes tsp {
+  0%,
+  100% {
+    transform: rotate(0) scale(0.8);
+  }
+  50% {
+    transform: rotate(90deg) scale(1.15);
+  }
+}
+
+@keyframes ttw {
+  0%,
+  100% {
+    transform: scale(0.4);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.pt {
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: tpr 5.6s ease-out infinite;
+  animation-delay: var(--pd);
+}
+
+@keyframes tpr {
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--px), -120px) scale(1);
+    opacity: 0;
+  }
+}
+
+.tcur {
+  position: absolute;
+  z-index: 30;
+  pointer-events: none;
+  animation: tcm 14s ease-in-out infinite;
+}
+
+@keyframes tcm {
+  0%,
+  100% {
+    left: 430px;
+    top: 350px;
+  }
+  10% {
+    left: 340px;
+    top: 130px;
+  }
+  16%,
+  19% {
+    left: 340px;
+    top: 130px;
+  }
+  25% {
+    left: 170px;
+    top: 110px;
+  }
+  30% {
+    left: 176px;
+    top: 116px;
+  }
+  34% {
+    left: 150px;
+    top: 270px;
+  }
+  42%,
+  46% {
+    left: 270px;
+    top: 340px;
+  }
+  50% {
+    left: 278px;
+    top: 334px;
+  }
+  58% {
+    left: 400px;
+    top: 240px;
+  }
+  66%,
+  70% {
+    left: 300px;
+    top: 205px;
+  }
+  74% {
+    left: 306px;
+    top: 210px;
+  }
+  82% {
+    left: 200px;
+    top: 170px;
+  }
+  92% {
+    left: 410px;
+    top: 320px;
+  }
+}
+
+.think {
+  position: absolute;
+  left: 12px;
+  top: 44px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--color-surface);
+  border-radius: 99px;
+  padding: 5px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+.think i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-purple);
+  animation: tdt 1.2s ease-in-out infinite;
+}
+
+.think i:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.think i:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes tdt {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 640px) {
+  .tstage {
+    height: 320px;
+  }
+  .tscene {
+    transform: scale(0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ox,
+  .oy,
+  .glow,
+  .sp1,
+  .sp2,
+  .sp3,
+  .pt,
+  .tcur,
+  .think i {
+    animation-play-state: paused;
+  }
+}
