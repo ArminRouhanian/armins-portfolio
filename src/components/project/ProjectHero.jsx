@@ -15,9 +15,10 @@ export default function ProjectHero({ hero }) {
     >
       <Link
         to="/"
+        className="back-link"
         style={{ fontWeight: '500' }}
       >
-        ← Back to work
+        ← Back to home
       </Link>
       <div
         style={{

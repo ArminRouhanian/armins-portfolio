@@ -609,10 +609,12 @@ html {
 .bt.dk:hover {
   background: #333;
 }
-header nav a:not(.bt) {
+header nav a:not(.bt),
+.back-link {
   transition: color 0.2s;
 }
-header nav a:not(.bt):hover {
+header nav a:not(.bt):hover,
+.back-link:hover {
   color: #0c7bd1;
 }
 @media (prefers-reduced-motion: reduce) {
