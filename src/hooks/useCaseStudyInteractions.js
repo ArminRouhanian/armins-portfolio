@@ -6,7 +6,7 @@ export function useCaseStudyInteractions() {
 
   useEffect(() => {
     // 1. Smooth scroll for in-page anchors (#preview, #description, #top, etc.)
-    const handleAnchorClick = (e) => {
+    const handleAnchorClick = e => {
       const a = e.target.closest && e.target.closest('a[href^="#"]')
       if (!a) return
       const href = a.getAttribute('href')
@@ -28,30 +28,44 @@ export function useCaseStudyInteractions() {
     const cta = document.querySelector('.fcta')
     let timeoutId
     let io
-    if (cta && window.IntersectionObserver && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      cta &&
+      window.IntersectionObserver &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       let seen = false
-      io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            if (seen) return
-            seen = true
-            clearTimeout(timeoutId)
-            timeoutId = setTimeout(() => {
-              cta.classList.remove('nudge')
-              void cta.offsetWidth
-              cta.classList.add('nudge')
-            }, 2000)
-          } else {
-            seen = false
-            clearTimeout(timeoutId)
-          }
-        })
-      }, { threshold: 0.6 })
+      io = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (seen) return
+              seen = true
+              clearTimeout(timeoutId)
+              timeoutId = setTimeout(() => {
+                cta.classList.remove('nudge')
+                void cta.offsetWidth
+                cta.classList.add('nudge')
+              }, 2000)
+            } else {
+              seen = false
+              clearTimeout(timeoutId)
+            }
+          })
+        },
+        { threshold: 0.6 }
+      )
       if (cta.parentElement) io.observe(cta.parentElement)
     }
 
     // 3. Floating Navbar Scroll Spy & Pill indicator
-    const ids = ['preview', 'description', 'impact', 'timeline', 'showcase', 'comments']
+    const ids = [
+      'preview',
+      'description',
+      'impact',
+      'timeline',
+      'showcase',
+      'comments'
+    ]
     const handleScrollSpy = () => {
       const nav = document.querySelector('.tb')
       if (!nav) return
@@ -105,14 +119,18 @@ export function useCaseStudyInteractions() {
 
       const clamp = (v, a, b) => Math.max(a, Math.min(b, v))
       const paint = () => {
-        ;[ds, cs].forEach(list => list.forEach((el, i) => {
-          const d = cur - i
-          const a = Math.abs(d)
-          const x = clamp((a - 0.25) / 0.25, 0, 1)
-          el.style.opacity = calm ? (a < 0.5 ? 1 : 0) : 1 - x
-          el.style.transform = calm ? 'none' : `translateY(${(d < 0 ? 1 : -1) * x * 36}px)`
-          el.style.pointerEvents = a < 0.5 ? 'auto' : 'none'
-        }))
+        ;[ds, cs].forEach(list =>
+          list.forEach((el, i) => {
+            const d = cur - i
+            const a = Math.abs(d)
+            const x = clamp((a - 0.25) / 0.25, 0, 1)
+            el.style.opacity = calm ? (a < 0.5 ? 1 : 0) : 1 - x
+            el.style.transform = calm
+              ? 'none'
+              : `translateY(${(d < 0 ? 1 : -1) * x * 36}px)`
+            el.style.pointerEvents = a < 0.5 ? 'auto' : 'none'
+          })
+        )
         const t = (cur / Math.max(1, n - 1)) * n
         ps.forEach((el, i) => {
           const f = Math.round(clamp(t - i, 0, 1) * 100)
@@ -157,7 +175,7 @@ export function useCaseStudyInteractions() {
       const cap = lb.querySelector('.lbc')
       const n = slides.length
 
-      const show = (i) => {
+      const show = i => {
         cur = (i + n) % n
         slides.forEach((el, k) => el.classList.toggle('on', k === cur))
         ths.forEach((el, k) => el.classList.toggle('on', k === cur))
@@ -169,7 +187,7 @@ export function useCaseStudyInteractions() {
         }
       }
 
-      const open = (i) => {
+      const open = i => {
         lb.classList.add('open')
         show(i)
         document.documentElement.style.overflow = 'hidden'
@@ -180,7 +198,7 @@ export function useCaseStudyInteractions() {
         document.documentElement.style.overflow = ''
       }
 
-      const handleLbClick = (e) => {
+      const handleLbClick = e => {
         const target = e.target
         if (!target.closest) return
         const trigger = target.closest('[data-i]')
@@ -201,7 +219,7 @@ export function useCaseStudyInteractions() {
         }
       }
 
-      const handleKeyDown = (e) => {
+      const handleKeyDown = e => {
         if (!lb.classList.contains('open')) return
         if (e.key === 'Escape') close()
         else if (e.key === 'ArrowLeft') show(cur - 1)

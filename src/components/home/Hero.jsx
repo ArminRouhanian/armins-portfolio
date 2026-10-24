@@ -3,9 +3,183 @@ import { Link } from 'react-router-dom'
 
 export default function Hero() {
   return (
-    <section style={{"position":"relative","maxWidth":"1120px","margin":"0 auto","padding":"96px 32px 72px"}}><span className="tg" style={{"background":"#fff","border":"1px solid #E5E5E5"}}>Product designer</span>
-<h1 style={{"marginTop":"24px","fontSize":"clamp(40px,7vw,84px)","lineHeight":"1.15","fontWeight":"700"}}>I bring&nbsp;<span className="sel"><i className="hn" style={{"left":"-10px","top":"-10px"}}></i><i className="hn" style={{"right":"-10px","top":"-10px"}}></i><i className="hn" style={{"left":"-10px","bottom":"-10px"}}></i><i className="hn" style={{"right":"-10px","bottom":"-10px"}}></i><span className="cyc"><span><b style={{"color":"rgb(12, 123, 209)"}}>Clarity</b><b style={{"color":"rgb(138, 63, 240)"}}>Structure</b><b style={{"color":"rgb(7, 135, 90)"}}>Value</b><b style={{"color":"rgb(224, 62, 18)"}}>Design</b></span></span></span> <br />to your product</h1>
-<p style={{"marginTop":"24px","maxWidth":"560px","fontSize":"20px","lineHeight":"1.5","color":"#444","fontWeight":"500"}}>Hi, I am Armin. I turn fuzzy ideas into products people understand and want to use.</p>
-<div style={{"marginTop":"32px","display":"flex","flexWrap":"wrap","gap":"12px","position":"relative"}}><a href="#work" className="bt dk">View work</a><a href="#contact" className="bt">Contact me</a></div><div className="sh" aria-hidden="true" style={{"right":"61px","bottom":"170px","position":"absolute","height":"281px","width":"346px"}}><div style={{"left":"166px","top":"10px","width":"147px","height":"143px","borderRadius":"50%","background":"#A259FF","position":"absolute"}}></div><div className="sb sb1" style={{"left":"44px","top":"79px","width":"165px","height":"115px"}}><i className="hn" style={{"left":"-6px","top":"-6px"}}></i><i className="hn" style={{"right":"-6px","top":"-6px"}}></i><i className="hn" style={{"left":"-6px","bottom":"-6px"}}></i><i className="hn" style={{"right":"-6px","bottom":"-6px"}}></i></div><div className="sb sb2" style={{"left":"166px","top":"133px","width":"167px","height":"131px"}}><i className="hn" style={{"left":"-6px","top":"-6px"}}></i><i className="hn" style={{"right":"-6px","top":"-6px"}}></i><i className="hn" style={{"left":"-6px","bottom":"-6px"}}></i><i className="hn" style={{"right":"-6px","bottom":"-6px"}}></i></div><div className="sb sb3" style={{"left":"15px","top":"172px","width":"93px","height":"88px"}}><i className="hn" style={{"left":"-6px","top":"-6px"}}></i><i className="hn" style={{"right":"-6px","top":"-6px"}}></i><i className="hn" style={{"left":"-6px","bottom":"-6px"}}></i><i className="hn" style={{"right":"-6px","bottom":"-6px"}}></i></div><div className="ac"><svg width="16" height="18" viewBox="0 0 16 18"><path d="M1 1 L1 15.5 L5 12 L11.5 12 Z" fill="#8A3FF0" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round" /></svg><span>Armin Rohanian</span></div><div className="rc" style={{"left":"44px","top":"79px","width":"165px","height":"115px","background":"#F24E1E","borderRadius":"8px","position":"absolute"}}></div><div className="sq" style={{"left":"15px","top":"172px","width":"93px","height":"88px","borderRadius":"20px","background":"#1ABCFE","position":"absolute"}}></div><div className="ar" style={{"boxSizing":"border-box","display":"flex","flexDirection":"column","width":"167px","height":"131px","backgroundColor":"#0acf83","borderRadius":"8px","position":"absolute","left":"166px","top":"133px","borderTopLeftRadius":"100px","borderTopRightRadius":"100px"}}></div></div></section>
+    <section
+      style={{
+        position: 'relative',
+        maxWidth: '1120px',
+        margin: '0 auto',
+        padding: '96px 32px 72px'
+      }}
+    >
+      <span
+        className="tg"
+        style={{ background: '#fff', border: '1px solid #E5E5E5' }}
+      >
+        Product designer
+      </span>
+      <h1
+        style={{
+          marginTop: '24px',
+          fontSize: 'clamp(40px,7vw,84px)',
+          lineHeight: '1.15',
+          fontWeight: '700'
+        }}
+      >
+        I bring&nbsp;
+        <span className="sel">
+          <i className="hn" style={{ left: '-10px', top: '-10px' }}></i>
+          <i className="hn" style={{ right: '-10px', top: '-10px' }}></i>
+          <i className="hn" style={{ left: '-10px', bottom: '-10px' }}></i>
+          <i className="hn" style={{ right: '-10px', bottom: '-10px' }}></i>
+          <span className="cyc">
+            <span>
+              <b style={{ color: 'rgb(12, 123, 209)' }}>Clarity</b>
+              <b style={{ color: 'rgb(138, 63, 240)' }}>Structure</b>
+              <b style={{ color: 'rgb(7, 135, 90)' }}>Value</b>
+              <b style={{ color: 'rgb(224, 62, 18)' }}>Design</b>
+            </span>
+          </span>
+        </span>{' '}
+        <br />
+        to your product
+      </h1>
+      <p
+        style={{
+          marginTop: '24px',
+          maxWidth: '560px',
+          fontSize: '20px',
+          lineHeight: '1.5',
+          color: '#444',
+          fontWeight: '500'
+        }}
+      >
+        Hi, I am Armin. I turn fuzzy ideas into products people understand and
+        want to use.
+      </p>
+      <div
+        style={{
+          marginTop: '32px',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '12px',
+          position: 'relative'
+        }}
+      >
+        <a href="#work" className="bt dk">
+          View work
+        </a>
+        <a href="#contact" className="bt">
+          Contact me
+        </a>
+      </div>
+      <div
+        className="sh"
+        aria-hidden="true"
+        style={{
+          right: '61px',
+          bottom: '170px',
+          position: 'absolute',
+          height: '281px',
+          width: '346px'
+        }}
+      >
+        <div
+          style={{
+            left: '166px',
+            top: '10px',
+            width: '147px',
+            height: '143px',
+            borderRadius: '50%',
+            background: '#A259FF',
+            position: 'absolute'
+          }}
+        ></div>
+        <div
+          className="sb sb1"
+          style={{ left: '44px', top: '79px', width: '165px', height: '115px' }}
+        >
+          <i className="hn" style={{ left: '-6px', top: '-6px' }}></i>
+          <i className="hn" style={{ right: '-6px', top: '-6px' }}></i>
+          <i className="hn" style={{ left: '-6px', bottom: '-6px' }}></i>
+          <i className="hn" style={{ right: '-6px', bottom: '-6px' }}></i>
+        </div>
+        <div
+          className="sb sb2"
+          style={{
+            left: '166px',
+            top: '133px',
+            width: '167px',
+            height: '131px'
+          }}
+        >
+          <i className="hn" style={{ left: '-6px', top: '-6px' }}></i>
+          <i className="hn" style={{ right: '-6px', top: '-6px' }}></i>
+          <i className="hn" style={{ left: '-6px', bottom: '-6px' }}></i>
+          <i className="hn" style={{ right: '-6px', bottom: '-6px' }}></i>
+        </div>
+        <div
+          className="sb sb3"
+          style={{ left: '15px', top: '172px', width: '93px', height: '88px' }}
+        >
+          <i className="hn" style={{ left: '-6px', top: '-6px' }}></i>
+          <i className="hn" style={{ right: '-6px', top: '-6px' }}></i>
+          <i className="hn" style={{ left: '-6px', bottom: '-6px' }}></i>
+          <i className="hn" style={{ right: '-6px', bottom: '-6px' }}></i>
+        </div>
+        <div className="ac">
+          <svg width="16" height="18" viewBox="0 0 16 18">
+            <path
+              d="M1 1 L1 15.5 L5 12 L11.5 12 Z"
+              fill="#8A3FF0"
+              stroke="#fff"
+              strokeWidth="1.5"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span>Armin Rohanian</span>
+        </div>
+        <div
+          className="rc"
+          style={{
+            left: '44px',
+            top: '79px',
+            width: '165px',
+            height: '115px',
+            background: '#F24E1E',
+            borderRadius: '8px',
+            position: 'absolute'
+          }}
+        ></div>
+        <div
+          className="sq"
+          style={{
+            left: '15px',
+            top: '172px',
+            width: '93px',
+            height: '88px',
+            borderRadius: '20px',
+            background: '#1ABCFE',
+            position: 'absolute'
+          }}
+        ></div>
+        <div
+          className="ar"
+          style={{
+            boxSizing: 'border-box',
+            display: 'flex',
+            flexDirection: 'column',
+            width: '167px',
+            height: '131px',
+            backgroundColor: '#0acf83',
+            borderRadius: '8px',
+            position: 'absolute',
+            left: '166px',
+            top: '133px',
+            borderTopLeftRadius: '100px',
+            borderTopRightRadius: '100px'
+          }}
+        ></div>
+      </div>
+    </section>
   )
 }

@@ -4,8 +4,162 @@ import { Link } from 'react-router-dom'
 export default function ProjectTimeline() {
   return (
     <>
-      <section id="timeline" style={{"maxWidth":"1120px","margin":"0 auto","padding":"96px 32px","scrollMarginTop":"0px","paddingTop":"96px"}}><p style={{"fontSize":"13px","fontWeight":"700","color":"#8A3FF0"}}>03 · TIMELINE</p><h2 style={{"margin":"8px 0 40px","fontSize":"36px"}}>How the work evolved</h2>
-<div style={{"marginLeft":"8px","paddingLeft":"32px","borderLeft":"2px solid #D0D0D0","display":"flex","flexDirection":"column","gap":"40px"}}><div style={{"position":"relative"}}><i style={{"position":"absolute","left":"-41px","top":"4px","width":"16px","height":"16px","borderRadius":"50%","background":"#F24E1E","border":"3px solid #F5F5F5"}}></i><p style={{"fontSize":"13px","fontWeight":"700","color":"#555"}}>[Phase 1] · Discovery</p><h3 style={{"marginTop":"4px","fontSize":"24px"}}>Competitor Analysis &amp; Foundation</h3><p style={{"marginTop":"8px","fontSize":"17px","lineHeight":"1.55","color":"#444","maxWidth":"640px"}}>I've spent 4 days to check competitors &amp; Ideas given to me. My Client wanted to have something similar to ArtStation, but focus on AI, NFT &amp; Metaverse. In this phase, I managed to analyze 4 similar companies related to metaverse to learn how they behave and what do they target.&nbsp; [Add the outcome in one line.]</p></div><div style={{"position":"relative"}}><i style={{"position":"absolute","left":"-41px","top":"4px","width":"16px","height":"16px","borderRadius":"50%","background":"#A259FF","border":"3px solid #F5F5F5"}}></i><p style={{"fontSize":"13px","fontWeight":"700","color":"#555"}}>[Phase 2] · Design</p><h3 style={{"marginTop":"4px","fontSize":"24px"}}>Sketching &amp; Wireframing</h3><p style={{"marginTop":"8px","fontSize":"17px","lineHeight":"1.55","color":"#444","maxWidth":"640px"}}>[What happened in this phase]. [Add the outcome in one line.]</p></div><div style={{"position":"relative"}}><i style={{"position":"absolute","left":"-41px","top":"4px","width":"16px","height":"16px","borderRadius":"50%","background":"#0ACF83","border":"3px solid #F5F5F5"}}></i><p style={{"fontSize":"13px","fontWeight":"700","color":"#555"}}>[Phase 3] · Delivery</p><h3 style={{"marginTop":"4px","fontSize":"24px"}}>Revision &amp; Implementation</h3><p style={{"marginTop":"8px","fontSize":"17px","lineHeight":"1.55","color":"#444","maxWidth":"640px"}}>[What happened in this phase]. [Add the outcome in one line.]</p></div><div style={{"position":"relative"}}><i style={{"position":"absolute","left":"-41px","top":"4px","width":"16px","height":"16px","borderRadius":"50%","background":"#1ABCFE","border":"3px solid #F5F5F5"}}></i><p style={{"fontSize":"13px","fontWeight":"700","color":"#555"}}>[Phase 4] · Outcome</p><h3 style={{"marginTop":"4px","fontSize":"24px"}}>Mistakes, Lessons &amp; Reflections</h3><p style={{"marginTop":"8px","fontSize":"17px","lineHeight":"1.55","color":"#444","maxWidth":"640px"}}>[What happened in this phase]. [Add the outcome in one line.]</p></div></div></section>
+      <section
+        id="timeline"
+        style={{
+          maxWidth: '1120px',
+          margin: '0 auto',
+          padding: '96px 32px',
+          scrollMarginTop: '0px',
+          paddingTop: '96px'
+        }}
+      >
+        <p style={{ fontSize: '13px', fontWeight: '700', color: '#8A3FF0' }}>
+          03 · TIMELINE
+        </p>
+        <h2 style={{ margin: '8px 0 40px', fontSize: '36px' }}>
+          How the work evolved
+        </h2>
+        <div
+          style={{
+            marginLeft: '8px',
+            paddingLeft: '32px',
+            borderLeft: '2px solid #D0D0D0',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '40px'
+          }}
+        >
+          <div style={{ position: 'relative' }}>
+            <i
+              style={{
+                position: 'absolute',
+                left: '-41px',
+                top: '4px',
+                width: '16px',
+                height: '16px',
+                borderRadius: '50%',
+                background: '#F24E1E',
+                border: '3px solid #F5F5F5'
+              }}
+            ></i>
+            <p style={{ fontSize: '13px', fontWeight: '700', color: '#555' }}>
+              [Phase 1] · Discovery
+            </p>
+            <h3 style={{ marginTop: '4px', fontSize: '24px' }}>
+              Competitor Analysis &amp; Foundation
+            </h3>
+            <p
+              style={{
+                marginTop: '8px',
+                fontSize: '17px',
+                lineHeight: '1.55',
+                color: '#444',
+                maxWidth: '640px'
+              }}
+            >
+              I've spent 4 days to check competitors &amp; Ideas given to me. My
+              Client wanted to have something similar to ArtStation, but focus
+              on AI, NFT &amp; Metaverse. In this phase, I managed to analyze 4
+              similar companies related to metaverse to learn how they behave
+              and what do they target.&nbsp; [Add the outcome in one line.]
+            </p>
+          </div>
+          <div style={{ position: 'relative' }}>
+            <i
+              style={{
+                position: 'absolute',
+                left: '-41px',
+                top: '4px',
+                width: '16px',
+                height: '16px',
+                borderRadius: '50%',
+                background: '#A259FF',
+                border: '3px solid #F5F5F5'
+              }}
+            ></i>
+            <p style={{ fontSize: '13px', fontWeight: '700', color: '#555' }}>
+              [Phase 2] · Design
+            </p>
+            <h3 style={{ marginTop: '4px', fontSize: '24px' }}>
+              Sketching &amp; Wireframing
+            </h3>
+            <p
+              style={{
+                marginTop: '8px',
+                fontSize: '17px',
+                lineHeight: '1.55',
+                color: '#444',
+                maxWidth: '640px'
+              }}
+            >
+              [What happened in this phase]. [Add the outcome in one line.]
+            </p>
+          </div>
+          <div style={{ position: 'relative' }}>
+            <i
+              style={{
+                position: 'absolute',
+                left: '-41px',
+                top: '4px',
+                width: '16px',
+                height: '16px',
+                borderRadius: '50%',
+                background: '#0ACF83',
+                border: '3px solid #F5F5F5'
+              }}
+            ></i>
+            <p style={{ fontSize: '13px', fontWeight: '700', color: '#555' }}>
+              [Phase 3] · Delivery
+            </p>
+            <h3 style={{ marginTop: '4px', fontSize: '24px' }}>
+              Revision &amp; Implementation
+            </h3>
+            <p
+              style={{
+                marginTop: '8px',
+                fontSize: '17px',
+                lineHeight: '1.55',
+                color: '#444',
+                maxWidth: '640px'
+              }}
+            >
+              [What happened in this phase]. [Add the outcome in one line.]
+            </p>
+          </div>
+          <div style={{ position: 'relative' }}>
+            <i
+              style={{
+                position: 'absolute',
+                left: '-41px',
+                top: '4px',
+                width: '16px',
+                height: '16px',
+                borderRadius: '50%',
+                background: '#1ABCFE',
+                border: '3px solid #F5F5F5'
+              }}
+            ></i>
+            <p style={{ fontSize: '13px', fontWeight: '700', color: '#555' }}>
+              [Phase 4] · Outcome
+            </p>
+            <h3 style={{ marginTop: '4px', fontSize: '24px' }}>
+              Mistakes, Lessons &amp; Reflections
+            </h3>
+            <p
+              style={{
+                marginTop: '8px',
+                fontSize: '17px',
+                lineHeight: '1.55',
+                color: '#444',
+                maxWidth: '640px'
+              }}
+            >
+              [What happened in this phase]. [Add the outcome in one line.]
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

@@ -16,7 +16,10 @@ export default function App() {
         <Route path="/works/pinket-customer" element={<PinketCustomer />} />
         <Route path="/works/metamondial3d" element={<MetaMondial3D />} />
         {/* Backward-compatibility aliases */}
-        <Route path="/projects/pinket-dashboard" element={<PinketDashboard />} />
+        <Route
+          path="/projects/pinket-dashboard"
+          element={<PinketDashboard />}
+        />
         <Route path="/projects/pinket-customer" element={<PinketCustomer />} />
         <Route path="/projects/metamondial3d" element={<MetaMondial3D />} />
       </Routes>
