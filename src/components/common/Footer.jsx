@@ -16,7 +16,6 @@ export default function Footer() {
         overflow: 'hidden'
       }}
     >
-      <FooterAnimation />
       <div
         style={{
           maxWidth: '1120px',
@@ -25,6 +24,7 @@ export default function Footer() {
           position: 'relative'
         }}
       >
+        <FooterAnimation />
         <p
           style={{
             fontSize: '13px',
@@ -42,7 +42,7 @@ export default function Footer() {
             lineHeight: '1',
             fontWeight: '700',
             letterSpacing: '-.02em',
-            maxWidth: '760px'
+            maxWidth: '640px'
           }}
         >
           Let us work together!

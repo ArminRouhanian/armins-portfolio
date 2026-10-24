@@ -2,6 +2,15 @@
    Footer Animation Styles
    ========================================================================== */
 
+.fdeco {
+  position: absolute;
+  right: 32px;
+  top: 120px;
+  width: 320px;
+  height: 260px;
+  pointer-events: none;
+}
+
 @media (max-width: 1000px) {
   .fdeco {
     display: none;

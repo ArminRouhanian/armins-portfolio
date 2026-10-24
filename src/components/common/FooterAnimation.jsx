@@ -5,13 +5,6 @@ export default function FooterAnimation() {
     <div
       className="fdeco"
       aria-hidden="true"
-      style={{
-        position: 'absolute',
-        right: '72px',
-        top: '88px',
-        width: '300px',
-        height: '260px'
-      }}
     >
       <div
         style={{
