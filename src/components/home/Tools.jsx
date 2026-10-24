@@ -1,5 +1,69 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
+const ORBITS = [
+  {
+    id: 1,
+    rx: '230px',
+    ry: '92px',
+    h: '12.0s',
+    s0: '0.72',
+    s1: '1.18',
+    tools: [
+      { name: 'Figma', icon: '/assets/logo-figma.svg' },
+      { name: 'Claude Code', icon: '/assets/logo-claude.svg' },
+      { name: 'Notion', icon: '/assets/logo-notion.svg' },
+      { name: 'Google Analytics', icon: '/assets/logo-google-analytics.svg' },
+      { name: 'Jira', icon: '/assets/logo-jira.svg' }
+    ],
+    delays: [
+      { dx: '-0.00s', dy: '-6.00s' },
+      { dx: '-4.80s', dy: '-10.80s' },
+      { dx: '-9.60s', dy: '-15.60s' },
+      { dx: '-14.40s', dy: '-20.40s' },
+      { dx: '-19.20s', dy: '-25.20s' }
+    ]
+  },
+  {
+    id: 2,
+    rx: '165px',
+    ry: '64px',
+    h: '9.0s',
+    s0: '0.58',
+    s1: '1.02',
+    tools: [
+      { name: 'Figma Make', icon: '/assets/logo-figma-make.svg' },
+      { name: 'Cursor', icon: '/assets/logo-cursor.svg' },
+      { name: 'Hotjar', icon: '/assets/logo-hotjar.svg' },
+      { name: 'n8n', icon: '/assets/logo-n8n.svg' }
+    ],
+    delays: [
+      { dx: '-0.00s', dy: '4.50s' },
+      { dx: '-4.50s', dy: '0.00s' },
+      { dx: '-9.00s', dy: '-4.50s' },
+      { dx: '-13.50s', dy: '-9.00s' }
+    ]
+  },
+  {
+    id: 3,
+    rx: '105px',
+    ry: '42px',
+    h: '6.5s',
+    s0: '0.46',
+    s1: '0.86',
+    tools: [
+      { name: 'Claude Design', icon: '/assets/logo-claude-design.svg' },
+      { name: 'Trello', icon: '/assets/logo-trello.svg' },
+      { name: 'ChatGPT', icon: '/assets/logo-chatgpt.svg' },
+      { name: 'VS Code', icon: '/assets/logo-vscode.svg' }
+    ],
+    delays: [
+      { dx: '-0.00s', dy: '-3.25s' },
+      { dx: '-3.25s', dy: '-6.50s' },
+      { dx: '-6.50s', dy: '-9.75s' },
+      { dx: '-9.75s', dy: '-13.00s' }
+    ]
+  }
+]
 
 export default function Tools() {
   return (
@@ -8,8 +72,7 @@ export default function Tools() {
       style={{
         maxWidth: '1120px',
         margin: '0 auto',
-        padding: '48px 32px',
-        scrollMarginTop: '0px'
+        padding: '48px 32px'
       }}
     >
       <div
@@ -21,7 +84,13 @@ export default function Tools() {
         }}
       >
         <div>
-          <p style={{ fontSize: '13px', fontWeight: '700', color: '#0C7BD1' }}>
+          <p
+            style={{
+              fontSize: '13px',
+              fontWeight: '700',
+              color: '#0C7BD1'
+            }}
+          >
             02 · TOOLS
           </p>
           <h2
@@ -33,7 +102,13 @@ export default function Tools() {
           >
             Tools I use to make things clear
           </h2>
-          <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#444' }}>
+          <p
+            style={{
+              fontSize: '18px',
+              lineHeight: '1.6',
+              color: '#444'
+            }}
+          >
             I use AI, including Claude Code and Claude Design, to speed up
             ideation and execution without lowering the quality of the design.
           </p>
@@ -45,7 +120,7 @@ export default function Tools() {
               color: '#444'
             }}
           >
-            Figma carries ideas from sketch to prototype, Notion and Trello keep
+            Figma carries ideas from sketch to prototype, Notion, Jira and Trello keep
             decisions and delivery organized, and Google Analytics and Hotjar
             show me what people actually do.
           </p>
@@ -68,503 +143,61 @@ export default function Tools() {
               color: '#777'
             }}
           >
-            Figma · Figma Make · Claude Design · Claude Code · Notion · Trello ·
+            Figma · Figma Make · Claude Design · Claude Code · Notion · Trello · Jira ·
             Cursor · Google Analytics · Hotjar · ChatGPT · n8n · VS Code
           </p>
         </div>
         <div className="tstage">
           <div className="tscene">
-            <div
-              className="ox"
-              style={{
-                '--rx': '230px',
-                '--h': '12.0s',
-                '--dx': '-0.00s',
-                '--dy': '-6.00s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '92px', '--s0': '0.72', '--s1': '1.18' }}
-              >
-                <div
-                  className="tl"
-                  title="Figma"
-                  aria-label="Figma"
-                  style={{ background: '#1E1E1E' }}
-                >
-                  <svg
-                    viewBox="0 0 24 36"
-                    width="20"
-                    height="30"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 0H6a6 6 0 000 12h6z" fill="#F24E1E" />
-                    <path d="M12 0h6a6 6 0 010 12h-6z" fill="#FF7262" />
-                    <path d="M12 12H6a6 6 0 000 12h6z" fill="#A259FF" />
-                    <circle cx="18" cy="18" r="6" fill="#1ABCFE" />
-                    <path d="M6 24h6v6a6 6 0 11-6-6z" fill="#0ACF83" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '230px',
-                '--h': '12.0s',
-                '--dx': '-6.00s',
-                '--dy': '-12.00s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '92px', '--s0': '0.72', '--s1': '1.18' }}
-              >
-                <div
-                  className="tl"
-                  title="Claude Code"
-                  aria-label="Claude Code"
-                  style={{ background: '#D97757' }}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="26"
-                    height="26"
-                    aria-hidden="true"
-                  >
-                    <g stroke="#fff" strokeWidth="2.4" strokeLinecap="round">
-                      <path d="M12 12L22.0 12.0" />
-                      <path d="M12 12L19.1 19.1" />
-                      <path d="M12 12L12.0 22.0" />
-                      <path d="M12 12L4.9 19.1" />
-                      <path d="M12 12L2.0 12.0" />
-                      <path d="M12 12L4.9 4.9" />
-                      <path d="M12 12L12.0 2.0" />
-                      <path d="M12 12L19.1 4.9" />
-                    </g>
-                  </svg>
-                  <span
-                    style={{
-                      fontSize: '9px',
-                      fontWeight: '700',
-                      color: '#fff',
-                      marginTop: '1px',
-                      letterSpacing: '.02em'
-                    }}
-                  >
-                    Code
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '230px',
-                '--h': '12.0s',
-                '--dx': '-12.00s',
-                '--dy': '-18.00s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '92px', '--s0': '0.72', '--s1': '1.18' }}
-              >
-                <div
-                  className="tl"
-                  title="Notion"
-                  aria-label="Notion"
-                  style={{ background: '#fff', border: '1px solid #E5E5E5' }}
-                >
-                  <span
-                    style={{
-                      fontSize: '26px',
-                      fontWeight: '700',
-                      color: '#1E1E1E',
-                      border: '2.5px solid #1E1E1E',
-                      borderRadius: '6px',
-                      width: '30px',
-                      height: '30px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontFamily: 'Georgia,serif'
-                    }}
-                  >
-                    N
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '230px',
-                '--h': '12.0s',
-                '--dx': '-18.00s',
-                '--dy': '-24.00s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '92px', '--s0': '0.72', '--s1': '1.18' }}
-              >
-                <div
-                  className="tl"
-                  title="Google Analytics"
-                  aria-label="Google Analytics"
-                  style={{ background: '#fff', border: '1px solid #E5E5E5' }}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="28"
-                    height="28"
-                    aria-hidden="true"
-                  >
-                    <rect
-                      x="16"
-                      y="2"
-                      width="6"
-                      height="20"
-                      rx="3"
-                      fill="#F9AB00"
-                    />
-                    <rect
-                      x="9"
-                      y="9"
-                      width="6"
-                      height="13"
-                      rx="3"
-                      fill="#E37400"
-                    />
-                    <circle cx="4.5" cy="19" r="3" fill="#E37400" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '165px',
-                '--h': '9.0s',
-                '--dx': '-0.00s',
-                '--dy': '4.50s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '64px', '--s0': '0.58', '--s1': '1.02' }}
-              >
-                <div
-                  className="tl"
-                  title="Figma Make"
-                  aria-label="Figma Make"
-                  style={{ background: '#1E1E1E' }}
-                >
-                  <svg
-                    viewBox="0 0 24 36"
-                    width="16"
-                    height="24"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 0H6a6 6 0 000 12h6z" fill="#F24E1E" />
-                    <path d="M12 0h6a6 6 0 010 12h-6z" fill="#FF7262" />
-                    <path d="M12 12H6a6 6 0 000 12h6z" fill="#A259FF" />
-                    <circle cx="18" cy="18" r="6" fill="#1ABCFE" />
-                    <path d="M6 24h6v6a6 6 0 11-6-6z" fill="#0ACF83" />
-                  </svg>
-                  <span
-                    style={{ position: 'absolute', right: '6px', top: '5px' }}
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="12"
-                      height="12"
-                      aria-hidden="true"
+            {ORBITS.map(orbit => (
+              <React.Fragment key={orbit.id}>
+                {orbit.tools.map((tool, index) => {
+                  const delays = orbit.delays[index]
+                  return (
+                    <div
+                      key={tool.name}
+                      className="ox"
+                      style={{
+                        '--rx': orbit.rx,
+                        '--h': orbit.h,
+                        '--dx': delays.dx,
+                        '--dy': delays.dy
+                      }}
                     >
-                      <path
-                        d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                        fill="#fff"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '165px',
-                '--h': '9.0s',
-                '--dx': '-4.50s',
-                '--dy': '0.00s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '64px', '--s0': '0.58', '--s1': '1.02' }}
-              >
-                <div
-                  className="tl"
-                  title="Cursor"
-                  aria-label="Cursor"
-                  style={{ background: '#1E1E1E' }}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="26"
-                    height="26"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 3l15 8-6.5 2L10 20z" fill="#fff" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '165px',
-                '--h': '9.0s',
-                '--dx': '-9.00s',
-                '--dy': '-4.50s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '64px', '--s0': '0.58', '--s1': '1.02' }}
-              >
-                <div
-                  className="tl"
-                  title="Hotjar"
-                  aria-label="Hotjar"
-                  style={{ background: '#FD3A5C' }}
-                >
-                  <span
-                    style={{
-                      fontSize: '22px',
-                      fontWeight: '700',
-                      color: '#fff',
-                      letterSpacing: '-.04em'
-                    }}
-                  >
-                    hj
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '165px',
-                '--h': '9.0s',
-                '--dx': '-13.50s',
-                '--dy': '-9.00s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '64px', '--s0': '0.58', '--s1': '1.02' }}
-              >
-                <div
-                  className="tl"
-                  title="n8n"
-                  aria-label="n8n"
-                  style={{ background: '#EA4B71' }}
-                >
-                  <span
-                    style={{
-                      fontSize: '18px',
-                      fontWeight: '700',
-                      color: '#fff',
-                      letterSpacing: '-.03em'
-                    }}
-                  >
-                    n8n
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '105px',
-                '--h': '6.5s',
-                '--dx': '-0.00s',
-                '--dy': '-3.25s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '42px', '--s0': '0.46', '--s1': '0.86' }}
-              >
-                <div
-                  className="tl"
-                  title="Claude Design"
-                  aria-label="Claude Design"
-                  style={{ background: '#D97757' }}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="26"
-                    height="26"
-                    aria-hidden="true"
-                  >
-                    <g stroke="#fff" strokeWidth="2.4" strokeLinecap="round">
-                      <path d="M12 12L22.0 12.0" />
-                      <path d="M12 12L19.1 19.1" />
-                      <path d="M12 12L12.0 22.0" />
-                      <path d="M12 12L4.9 19.1" />
-                      <path d="M12 12L2.0 12.0" />
-                      <path d="M12 12L4.9 4.9" />
-                      <path d="M12 12L12.0 2.0" />
-                      <path d="M12 12L19.1 4.9" />
-                    </g>
-                  </svg>
-                  <span
-                    style={{
-                      fontSize: '9px',
-                      fontWeight: '700',
-                      color: '#fff',
-                      marginTop: '1px',
-                      letterSpacing: '.02em'
-                    }}
-                  >
-                    Design
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '105px',
-                '--h': '6.5s',
-                '--dx': '-3.25s',
-                '--dy': '-6.50s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '42px', '--s0': '0.46', '--s1': '0.86' }}
-              >
-                <div
-                  className="tl"
-                  title="Trello"
-                  aria-label="Trello"
-                  style={{ background: '#0C66E4' }}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="28"
-                    height="28"
-                    aria-hidden="true"
-                  >
-                    <rect
-                      x="1.5"
-                      y="1.5"
-                      width="21"
-                      height="21"
-                      rx="4"
-                      fill="none"
-                      stroke="#fff"
-                      strokeWidth="2"
-                    />
-                    <rect
-                      x="5.5"
-                      y="5.5"
-                      width="5"
-                      height="11"
-                      rx="1.2"
-                      fill="#fff"
-                    />
-                    <rect
-                      x="13.5"
-                      y="5.5"
-                      width="5"
-                      height="6.5"
-                      rx="1.2"
-                      fill="#fff"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '105px',
-                '--h': '6.5s',
-                '--dx': '-6.50s',
-                '--dy': '-9.75s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '42px', '--s0': '0.46', '--s1': '0.86' }}
-              >
-                <div
-                  className="tl"
-                  title="ChatGPT"
-                  aria-label="ChatGPT"
-                  style={{ background: '#10A37F' }}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="28"
-                    height="28"
-                    aria-hidden="true"
-                  >
-                    <polygon
-                      points="12,2.5 20.2,7.2 20.2,16.8 12,21.5 3.8,16.8 3.8,7.2"
-                      fill="none"
-                      stroke="#fff"
-                      strokeWidth="2"
-                      strokeLinejoin="round"
-                    />
-                    <circle cx="12" cy="12" r="2.6" fill="#fff" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div
-              className="ox"
-              style={{
-                '--rx': '105px',
-                '--h': '6.5s',
-                '--dx': '-9.75s',
-                '--dy': '-13.00s'
-              }}
-            >
-              <div
-                className="oy"
-                style={{ '--ry': '42px', '--s0': '0.46', '--s1': '0.86' }}
-              >
-                <div
-                  className="tl"
-                  title="VS Code"
-                  aria-label="VS Code"
-                  style={{ background: '#007ACC' }}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="28"
-                    height="28"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M9 6l-6 6 6 6M15 6l6 6-6 6"
-                      fill="none"
-                      stroke="#fff"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
+                      <div
+                        className="oy"
+                        style={{
+                          '--ry': orbit.ry,
+                          '--s0': orbit.s0,
+                          '--s1': orbit.s1
+                        }}
+                      >
+                        <div
+                          className="tl"
+                          title={tool.name}
+                          aria-label={tool.name}
+                          style={{
+                            overflow: 'hidden',
+                            padding: 0,
+                            border: '1px solid rgba(255, 255, 255, 0.12)'
+                          }}
+                        >
+                          <img
+                            src={tool.icon}
+                            alt={tool.name}
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              display: 'block'
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </React.Fragment>
+            ))}
             <div className="core">
               <div className="glow"></div>
               <span className="sp1">
@@ -580,7 +213,13 @@ export default function Tools() {
                   />
                 </svg>
               </span>
-              <span className="sp2" style={{ left: '-62px', top: '-46px' }}>
+              <span
+                className="sp2"
+                style={{
+                  left: '-62px',
+                  top: '-46px'
+                }}
+              >
                 <svg
                   viewBox="0 0 24 24"
                   width="18"
@@ -593,7 +232,13 @@ export default function Tools() {
                   />
                 </svg>
               </span>
-              <span className="sp3" style={{ left: '50px', top: '-58px' }}>
+              <span
+                className="sp3"
+                style={{
+                  left: '50px',
+                  top: '-58px'
+                }}
+              >
                 <svg
                   viewBox="0 0 24 24"
                   width="14"
@@ -608,7 +253,11 @@ export default function Tools() {
               </span>
               <span
                 className="sp2"
-                style={{ left: '46px', top: '40px', animationDelay: '-.8s' }}
+                style={{
+                  left: '46px',
+                  top: '40px',
+                  animationDelay: '-.8s'
+                }}
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -624,7 +273,11 @@ export default function Tools() {
               </span>
               <i
                 className="pt"
-                style={{ '--px': '-40px', '--pd': '0s', background: '#F24E1E' }}
+                style={{
+                  '--px': '-40px',
+                  '--pd': '0s',
+                  background: '#F24E1E'
+                }}
               ></i>
               <i
                 className="pt"
@@ -660,7 +313,11 @@ export default function Tools() {
               ></i>
               <i
                 className="pt"
-                style={{ '--px': '10px', '--pd': '3.5s', background: '#fff' }}
+                style={{
+                  '--px': '10px',
+                  '--pd': '3.5s',
+                  background: '#fff'
+                }}
               ></i>
               <i
                 className="pt"
@@ -679,8 +336,15 @@ export default function Tools() {
                 }}
               ></i>
             </div>
-            <div className="tcur" aria-hidden="true">
-              <svg width="16" height="18" viewBox="0 0 16 18">
+            <div
+              className="tcur"
+              aria-hidden="true"
+            >
+              <svg
+                width="16"
+                height="18"
+                viewBox="0 0 16 18"
+              >
                 <path
                   d="M1 1 L1 15.5 L5 12 L11.5 12 Z"
                   fill="#8A3FF0"
