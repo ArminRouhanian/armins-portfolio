@@ -1,7 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 export default function ProjectShowcase({ showcase }) {
-  if (!showcase) return null
+  const [activeIdx, setActiveIdx] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const items = showcase?.items || []
+  const count = items.length
+
+  const openLightbox = useCallback((index) => {
+    setActiveIdx(index)
+    setIsOpen(true)
+    document.documentElement.style.overflow = 'hidden'
+  }, [])
+
+  const closeLightbox = useCallback(() => {
+    setIsOpen(false)
+    document.documentElement.style.overflow = ''
+  }, [])
+
+  const nextSlide = useCallback(() => {
+    setActiveIdx((prev) => (prev + 1) % count)
+  }, [count])
+
+  const prevSlide = useCallback(() => {
+    setActiveIdx((prev) => (prev - 1 + count) % count)
+  }, [count])
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeLightbox()
+      else if (e.key === 'ArrowRight') nextSlide()
+      else if (e.key === 'ArrowLeft') prevSlide()
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isOpen, closeLightbox, nextSlide, prevSlide])
+
+  if (!showcase || count === 0) return null
 
   return (
     <>
@@ -62,11 +100,11 @@ export default function ProjectShowcase({ showcase }) {
             gap: '24px'
           }}
         >
-          {showcase.items.map((item, index) => (
+          {items.map((item, index) => (
             <div
               key={index}
               className="fr"
-              data-i={String(index)}
+              onClick={() => openLightbox(index)}
               style={{ cursor: 'pointer' }}
             >
               <div className="bar">
@@ -95,90 +133,118 @@ export default function ProjectShowcase({ showcase }) {
       </section>
 
       {/* Lightbox Modal */}
-      <div
-        id="lb"
-        className="lb"
-      >
-        <div className="lbs">
-          {showcase.items.map((item, index) => (
-            <div
-              key={index}
-              className={`sl${index === 0 ? ' on' : ''}`}
-              data-n={item.label}
-            >
-              <div className="fr">
-                <div className="bar">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <span>yourproduct.com</span>
-                </div>
-                <div
-                  style={{
-                    height: 'clamp(280px,50vh,620px)',
-                    background: item.image
-                      ? `url("${item.image}") center / cover no-repeat`
-                      : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#fff',
-                    fontWeight: '500',
-                    fontSize: '20px'
-                  }}
-                >
-                  {item.label}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="lbn">
+      {isOpen && (
+        <div
+          id="lb"
+          className="lb open"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mockup viewer"
+          onClick={(e) => {
+            if (e.target.id === 'lb') closeLightbox()
+          }}
+        >
           <button
             type="button"
-            className="lbp"
-            aria-label="Previous slide"
-          >
-            ‹
-          </button>
-          <span className="lbc">
-            1 / {showcase.items.length} · {showcase.items[0]?.label || ''}
-          </span>
-          <button
-            type="button"
-            className="lbq"
-            aria-label="Next slide"
-          >
-            ›
-          </button>
-          <button
-            type="button"
-            className="lbx"
-            aria-label="Close viewer"
+            className="lbn lbx"
+            aria-label="Close"
+            onClick={closeLightbox}
+            style={{
+              top: '20px',
+              right: '20px',
+              transform: 'none',
+              zIndex: 60
+            }}
           >
             ✕
           </button>
-        </div>
-        <div className="lbt">
-          {showcase.items.map((item, index) => (
-            <div
-              key={index}
-              className={`th${index === 0 ? ' on' : ''}`}
-              data-k={String(index)}
-            >
+
+          <button
+            type="button"
+            className="lbn lbp"
+            aria-label="Previous"
+            onClick={prevSlide}
+            style={{
+              left: '20px',
+              zIndex: 60
+            }}
+          >
+            ‹
+          </button>
+
+          <button
+            type="button"
+            className="lbn lbq"
+            aria-label="Next"
+            onClick={nextSlide}
+            style={{
+              right: '20px',
+              zIndex: 60
+            }}
+          >
+            ›
+          </button>
+
+          <div className="lbs">
+            {items.map((item, index) => (
               <div
+                key={index}
+                className={`sl${index === activeIdx ? ' on' : ''}`}
+                data-n={item.label}
+              >
+                <div
+                  className="fr"
+                  style={{ boxShadow: '0 32px 64px rgba(0,0,0,.5)' }}
+                >
+                  <div className="bar">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <span>yourproduct.com</span>
+                  </div>
+                  <div
+                    style={{
+                      height: 'min(58vh,620px)',
+                      background: item.image
+                        ? `url("${item.image}") center / cover no-repeat`
+                        : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#fff',
+                      fontWeight: '500',
+                      fontSize: '20px'
+                    }}
+                  >
+                    {item.label}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="lbc">
+            {activeIdx + 1} / {count} · {items[activeIdx]?.label || ''}
+          </p>
+
+          <div className="lbt">
+            {items.map((item, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`th${index === activeIdx ? ' on' : ''}`}
+                aria-label={item.label}
+                onClick={() => setActiveIdx(index)}
                 style={{
-                  width: '100%',
-                  height: '100%',
                   background: item.image
                     ? `url("${item.image}") center / cover no-repeat`
                     : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)'
                 }}
-              ></div>
-            </div>
-          ))}
+              ></button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </>
   )
 }

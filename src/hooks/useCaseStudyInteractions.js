@@ -1,9 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 export function useCaseStudyInteractions() {
-  const [curLightbox, setCurLightbox] = useState(0)
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-
   useEffect(() => {
     // 1. Smooth scroll for in-page anchors (#preview, #description, #top, etc.)
     const handleAnchorClick = e => {
@@ -166,82 +163,6 @@ export function useCaseStudyInteractions() {
       paint()
     }
 
-    // 5. Lightbox open/close & slide transitions
-    const lb = document.getElementById('lb')
-    if (lb) {
-      let cur = 0
-      const slides = lb.querySelectorAll('.sl')
-      const ths = lb.querySelectorAll('.th')
-      const cap = lb.querySelector('.lbc')
-      const n = slides.length
-
-      const show = i => {
-        cur = (i + n) % n
-        slides.forEach((el, k) => el.classList.toggle('on', k === cur))
-        ths.forEach((el, k) => el.classList.toggle('on', k === cur))
-        if (cap && slides[cur]) {
-          cap.textContent = `${cur + 1} / ${n} · ${slides[cur].getAttribute('data-n') || ''}`
-        }
-        if (ths[cur]) {
-          ths[cur].scrollIntoView({ block: 'nearest', inline: 'center' })
-        }
-      }
-
-      const open = i => {
-        lb.classList.add('open')
-        show(i)
-        document.documentElement.style.overflow = 'hidden'
-      }
-
-      const close = () => {
-        lb.classList.remove('open')
-        document.documentElement.style.overflow = ''
-      }
-
-      const handleLbClick = e => {
-        const target = e.target
-        if (!target.closest) return
-        const trigger = target.closest('[data-i]')
-        if (trigger && !lb.contains(trigger)) {
-          open(+trigger.getAttribute('data-i'))
-          return
-        }
-        if (!lb.classList.contains('open')) return
-        const th = target.closest('.th')
-        if (th) {
-          show(+th.getAttribute('data-k'))
-        } else if (target.closest('.lbp')) {
-          show(cur - 1)
-        } else if (target.closest('.lbq')) {
-          show(cur + 1)
-        } else if (target.closest('.lbx') || target === lb) {
-          close()
-        }
-      }
-
-      const handleKeyDown = e => {
-        if (!lb.classList.contains('open')) return
-        if (e.key === 'Escape') close()
-        else if (e.key === 'ArrowLeft') show(cur - 1)
-        else if (e.key === 'ArrowRight') show(cur + 1)
-      }
-
-      document.addEventListener('click', handleLbClick)
-      document.addEventListener('keydown', handleKeyDown)
-
-      return () => {
-        document.removeEventListener('click', handleAnchorClick)
-        if (io) io.disconnect()
-        clearTimeout(timeoutId)
-        window.removeEventListener('scroll', handleScrollSpy)
-        window.removeEventListener('resize', handleScrollSpy)
-        cancelAnimationFrame(rafId)
-        document.removeEventListener('click', handleLbClick)
-        document.removeEventListener('keydown', handleKeyDown)
-        document.documentElement.style.overflow = ''
-      }
-    }
-
     return () => {
       document.removeEventListener('click', handleAnchorClick)
       if (io) io.disconnect()
@@ -251,6 +172,4 @@ export function useCaseStudyInteractions() {
       cancelAnimationFrame(rafId)
     }
   }, [])
-
-  return { curLightbox, lightboxOpen }
 }
