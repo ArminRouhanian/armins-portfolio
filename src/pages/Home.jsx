@@ -70,6 +70,7 @@ export default function Home() {
       <main
         id="pgs"
         className="pgs"
+        style={{ paddingTop: '65px' }}
       >
         <Hero />
         <SelectedWork />

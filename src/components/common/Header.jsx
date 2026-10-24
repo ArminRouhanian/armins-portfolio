@@ -8,16 +8,21 @@ export default function Header() {
   return (
     <header
       style={{
-        position: 'relative',
-        flex: 'none',
-        zIndex: '30',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '65px',
+        boxSizing: 'border-box',
+        zIndex: 100,
         display: 'flex',
         flexWrap: 'wrap',
         gap: '12px',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '16px 32px',
-        background: '#fff',
+        padding: '0 32px',
+        background: 'rgba(255, 255, 255, 0.95)',
+        backdropFilter: 'blur(8px)',
         borderBottom: '1px solid #E5E5E5'
       }}
     >

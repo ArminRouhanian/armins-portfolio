@@ -32,6 +32,7 @@ export default function ProjectLayout({ project }) {
       <main
         id="pgs"
         className="pgs"
+        style={{ paddingTop: '65px' }}
       >
         <ProjectHero hero={project.hero} />
         <ProjectDescription overview={project.overview} />
