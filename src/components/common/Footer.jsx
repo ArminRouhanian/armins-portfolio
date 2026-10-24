@@ -12,8 +12,7 @@ export default function Footer() {
         backgroundSize: '24px 24px',
         color: '#fff',
         position: 'relative',
-        overflow: 'hidden',
-        scrollMarginTop: '0px'
+        overflow: 'hidden'
       }}
     >
       <div

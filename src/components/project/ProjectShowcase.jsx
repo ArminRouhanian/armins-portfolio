@@ -46,7 +46,6 @@ export default function ProjectShowcase({ showcase }) {
       <section
         id="showcase"
         style={{
-          scrollMarginTop: '0px',
           backgroundColor: '#1E1E1E',
           backgroundImage: 'radial-gradient(#3A3A3A 1px,transparent 1px)',
           backgroundSize: '24px 24px',

@@ -7,8 +7,7 @@ export default function ProjectComments() {
       style={{
         maxWidth: '1120px',
         margin: '0 auto',
-        padding: '96px 32px 120px',
-        scrollMarginTop: '0px'
+        padding: '96px 32px 120px'
       }}
     >
       <p

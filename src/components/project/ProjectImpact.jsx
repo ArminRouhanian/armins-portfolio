@@ -15,8 +15,7 @@ export default function ProjectImpact({ impact }) {
           zIndex: '1',
           maxWidth: '1120px',
           margin: '0 auto',
-          padding: '96px 32px',
-          scrollMarginTop: '0px'
+          padding: '96px 32px'
         }}
       >
         <div className="stk">

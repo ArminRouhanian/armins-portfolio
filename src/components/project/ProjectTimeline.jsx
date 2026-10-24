@@ -9,9 +9,7 @@ export default function ProjectTimeline({ timeline }) {
       style={{
         maxWidth: '1120px',
         margin: '0 auto',
-        padding: '96px 32px',
-        scrollMarginTop: '0px',
-        paddingTop: '96px'
+        padding: '96px 32px'
       }}
     >
       <p

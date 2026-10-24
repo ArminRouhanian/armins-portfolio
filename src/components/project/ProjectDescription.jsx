@@ -10,7 +10,6 @@ export default function ProjectDescription({ overview }) {
         maxWidth: '1120px',
         margin: '0 auto',
         padding: '96px 32px',
-        scrollMarginTop: '0px',
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))',
         gap: '32px 64px'

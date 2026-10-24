@@ -2,7 +2,14 @@ import { useEffect } from 'react'
 
 export function useCaseStudyInteractions() {
   useEffect(() => {
-    // 1. Smooth scroll for in-page anchors (#preview, #description, #top, etc.)
+    // 1. Smooth scroll for in-page anchors with precise header offset
+    const syncHeaderHeight = () => {
+      const headerH = document.querySelector('header')?.offsetHeight || 65
+      document.documentElement.style.setProperty('--header-height', `${headerH}px`)
+      return headerH
+    }
+    syncHeaderHeight()
+
     const handleAnchorClick = e => {
       const a = e.target.closest && e.target.closest('a[href^="#"]')
       if (!a) return
@@ -16,7 +23,12 @@ export function useCaseStudyInteractions() {
       const target = document.querySelector(href)
       if (target) {
         e.preventDefault()
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        const headerH = syncHeaderHeight()
+        const targetTop = target.getBoundingClientRect().top + window.scrollY
+        window.scrollTo({
+          top: Math.max(0, targetTop - headerH),
+          behavior: 'smooth'
+        })
       }
     }
     document.addEventListener('click', handleAnchorClick)
@@ -78,14 +90,14 @@ export function useCaseStudyInteractions() {
 
       const links = nav.querySelectorAll('a')
       const pill = nav.querySelector('i')
-      const headerH = document.querySelector('header')?.offsetHeight || 78
+      const headerH = syncHeaderHeight()
 
       let k = 0
       for (let i = 0; i < ids.length; i++) {
         const el = document.getElementById(ids[i])
         if (el) {
           const rect = el.getBoundingClientRect()
-          if (rect.top <= headerH + 80) {
+          if (rect.top <= headerH + 20) {
             k = i
           }
         }
@@ -161,7 +173,7 @@ export function useCaseStudyInteractions() {
 
       const handleImpactScroll = () => {
         const r = impactSec.getBoundingClientRect()
-        const hh = document.querySelector('header')?.offsetHeight || 78
+        const hh = syncHeaderHeight()
         target = clamp((hh - 72 - r.top) / step, 0, n - 1)
         if (!run) {
           run = true
