@@ -364,10 +364,11 @@ export default function Tools() {
                   fontSize: '12px',
                   fontWeight: '700',
                   padding: '4px 10px',
-                  borderRadius: '99px'
+                  borderRadius: '99px',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)'
                 }}
               >
-                Armin Rohanian
+                Armin Rouhanian
               </span>
               <span className="think">
                 <i></i>

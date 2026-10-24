@@ -871,13 +871,16 @@ header nav a:not(.bt):hover,
 }
 .think {
   position: absolute;
-  left: 108px;
-  top: 14px;
+  left: 12px;
+  top: 44px;
   display: flex;
+  align-items: center;
   gap: 3px;
   background: #fff;
   border-radius: 99px;
-  padding: 6px 8px;
+  padding: 5px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
 }
 .think i {
   width: 5px;
