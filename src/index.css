@@ -95,21 +95,6 @@ p {
   border-radius: 99px;
   background: var(--color-bg-subtle);
 }
-.cyc {
-  display: inline-block;
-  height: 1.15em;
-  overflow: hidden;
-  vertical-align: top;
-  padding: 0 0.1em;
-}
-.sel {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  outline: 2px solid var(--color-primary);
-  outline-offset: 4px;
-  margin: 0 0.15em;
-}
 .hn {
   position: absolute;
   width: 10px;
@@ -117,36 +102,6 @@ p {
   box-sizing: border-box;
   background: var(--color-surface);
   border: 1.5px solid var(--color-primary);
-}
-.cyc > span {
-  display: block;
-  animation: sl 4.7s ease-in-out infinite;
-}
-.cyc b {
-  display: block;
-  height: 1.15em;
-  line-height: 1.15em;
-}
-@keyframes sl {
-  0%,
-  6.38% {
-    transform: translateY(0);
-  }
-  10.64%,
-  17.02% {
-    transform: translateY(-1.15em);
-  }
-  21.28%,
-  27.66% {
-    transform: translateY(-2.3em);
-  }
-  31.91%,
-  95.74% {
-    transform: translateY(-3.45em);
-  }
-  100% {
-    transform: translateY(-4.6em);
-  }
 }
 body {
   cursor:
@@ -326,46 +281,6 @@ p {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 16px;
-}
-.tg {
-  font-size: 13px;
-  font-weight: var(--font-weight-medium);
-  padding: 4px 10px;
-  border-radius: 99px;
-  background: var(--color-bg-subtle);
-}
-.cyc {
-  display: inline-block;
-  height: 1.15em;
-  overflow: hidden;
-  vertical-align: top;
-  padding: 0 0.1em;
-}
-.cyc > span {
-  display: block;
-  animation: sl 9s ease-in-out infinite;
-}
-.cyc b {
-  display: block;
-  height: 1.15em;
-  line-height: 1.15em;
-}
-@keyframes sl {
-  0%,
-  28% {
-    transform: translateY(0);
-  }
-  33%,
-  61% {
-    transform: translateY(-1.15em);
-  }
-  66%,
-  94% {
-    transform: translateY(-2.3em);
-  }
-  100% {
-    transform: translateY(-3.45em);
-  }
 }
 html {
   scroll-behavior: smooth;

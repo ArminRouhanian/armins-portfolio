@@ -211,6 +211,65 @@
   }
 }
 
+/* ==========================================================================
+   Hero Heading Cycling Text Animation
+   ========================================================================== */
+
+.cyc {
+  display: inline-block;
+  height: 1.15em;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0 0.1em;
+}
+
+.sel {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  margin: 0 0.15em;
+}
+
+.cyc > span {
+  display: block;
+  animation: sl 8.9s ease-in-out infinite;
+}
+
+.cyc b {
+  display: block;
+  height: 1.15em;
+  line-height: 1.15em;
+}
+
+@keyframes sl {
+  /* Clarity: stay 500ms */
+  0%,
+  5.62% {
+    transform: translateY(0);
+  }
+  /* Clarity -> Structure: 600ms change (to 1100ms) & stay 500ms (to 1600ms) */
+  12.36%,
+  17.98% {
+    transform: translateY(-1.15em);
+  }
+  /* Structure -> Value: 600ms change (to 2200ms) & stay 500ms (to 2700ms) */
+  24.72%,
+  30.34% {
+    transform: translateY(-2.3em);
+  }
+  /* Value -> Design: 600ms change (to 3300ms) & stay 5s (to 8300ms) */
+  37.08%,
+  93.26% {
+    transform: translateY(-3.45em);
+  }
+  /* Design -> Clarity: 600ms change & seamless loop back */
+  100% {
+    transform: translateY(-4.6em);
+  }
+}
+
 @media (max-width: 1000px) {
   .sh {
     display: none;
@@ -224,7 +283,8 @@
   .sq,
   .sb1,
   .sb2,
-  .sb3 {
+  .sb3,
+  .cyc > span {
     animation: none;
   }
 }

@@ -37,10 +37,21 @@ export default function Hero() {
           <i className="hn" style={{ right: '-10px', bottom: '-10px' }}></i>
           <span className="cyc">
             <span>
-              <b style={{ color: 'rgb(12, 123, 209)' }}>Clarity</b>
-              <b style={{ color: 'rgb(138, 63, 240)' }}>Structure</b>
-              <b style={{ color: 'rgb(7, 135, 90)' }}>Value</b>
-              <b style={{ color: 'rgb(224, 62, 18)' }}>Design</b>
+              <b style={{ color: 'rgb(12, 123, 209)' }}>
+                Clarity
+              </b>
+              <b style={{ color: 'rgb(138, 63, 240)' }}>
+                Structure
+              </b>
+              <b style={{ color: 'rgb(7, 135, 90)' }}>
+                Value
+              </b>
+              <b style={{ color: 'rgb(224, 62, 18)' }}>
+                Design
+              </b>
+              <b style={{ color: 'rgb(12, 123, 209)' }}>
+                Clarity
+              </b>
             </span>
           </span>
         </span>{' '}
