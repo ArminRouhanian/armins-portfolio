@@ -8,6 +8,7 @@ import ProjectTimeline from './ProjectTimeline'
 import ProjectShowcase from './ProjectShowcase'
 import ProjectComments from './ProjectComments'
 import ProjectNav from './ProjectNav'
+import ProjectFloatingNav from './ProjectFloatingNav'
 import { useCaseStudyInteractions } from '../../hooks/useCaseStudyInteractions'
 
 export default function ProjectLayout({ project }) {
@@ -41,6 +42,7 @@ export default function ProjectLayout({ project }) {
         <ProjectShowcase showcase={project.showcase} />
         <ProjectComments />
         <ProjectNav nav={project.nav} />
+        <ProjectFloatingNav />
         <Footer />
       </main>
     </div>

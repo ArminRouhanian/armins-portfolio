@@ -54,7 +54,7 @@ export function useCaseStudyInteractions() {
       if (cta.parentElement) io.observe(cta.parentElement)
     }
 
-    // 3. Floating Navbar Scroll Spy & Pill indicator
+    // 3. Floating Navbar Scroll Spy, Pill indicator & Sticky position above footer
     const ids = [
       'preview',
       'description',
@@ -66,6 +66,16 @@ export function useCaseStudyInteractions() {
     const handleScrollSpy = () => {
       const nav = document.querySelector('.tb')
       if (!nav) return
+
+      // Keep navbar floating at bottom, but dock cleanly above footer when reached
+      const footer = document.querySelector('footer')
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect()
+        const overlap = window.innerHeight - footerRect.top
+        const bottomOffset = overlap > 0 ? overlap + 24 : 24
+        nav.style.bottom = `${bottomOffset}px`
+      }
+
       const links = nav.querySelectorAll('a')
       const pill = nav.querySelector('i')
       const headerH = document.querySelector('header')?.offsetHeight || 78
@@ -96,6 +106,7 @@ export function useCaseStudyInteractions() {
     }
     window.addEventListener('scroll', handleScrollSpy, { passive: true })
     window.addEventListener('resize', handleScrollSpy)
+    handleScrollSpy()
     setTimeout(handleScrollSpy, 100)
     setTimeout(handleScrollSpy, 500)
 

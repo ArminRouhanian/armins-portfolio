@@ -6,6 +6,7 @@ export default function ProjectHero({ hero }) {
 
   return (
     <section
+      id="preview"
       style={{
         maxWidth: '1120px',
         margin: '0 auto',
