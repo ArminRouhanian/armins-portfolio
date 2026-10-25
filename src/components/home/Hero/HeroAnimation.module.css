@@ -80,19 +80,6 @@
   animation: moveCursor 12s ease-in-out infinite;
 }
 
-.cursorTag {
-  position: absolute;
-  left: 12px;
-  top: 16px;
-  white-space: nowrap;
-  background: var(--color-purple);
-  color: var(--color-text-light);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  padding: 4px 10px;
-  border-radius: 99px;
-}
-
 .orangeRect {
   left: 44px;
   top: 79px;

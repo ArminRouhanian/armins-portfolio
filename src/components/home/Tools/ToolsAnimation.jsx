@@ -1,4 +1,5 @@
 import React from 'react'
+import Cursor from '../../common/Cursor/Cursor'
 import styles from './ToolsAnimation.module.css'
 
 const ORBITS = [
@@ -248,29 +249,10 @@ export default function ToolsAnimation() {
             }}
           />
         </div>
-        <div className={styles.cursorStage} aria-hidden="true">
-          <svg
-            width="16"
-            height="18"
-            viewBox="0 0 16 18"
-          >
-            <path
-              d="M1 1 L1 15.5 L5 12 L11.5 12 Z"
-              fill="var(--color-purple)"
-              stroke="#fff"
-              strokeWidth="1.5"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <span className={styles.cursorTag}>
-            Armin Rouhanian
-          </span>
-          <span className={styles.thinkingBubble}>
-            <i />
-            <i />
-            <i />
-          </span>
-        </div>
+        <Cursor
+          thinking
+          className={styles.cursorStage}
+        />
       </div>
     </div>
   )
