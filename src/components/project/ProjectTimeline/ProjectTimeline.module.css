@@ -9,9 +9,12 @@
 }
 
 .track {
+  --line-width: 1px;
+  --track-gap: 32px;
+  --dot-size: 19px;
   margin-left: 8px;
-  padding-left: 32px;
-  border-left: 2px solid var(--color-border-subtle);
+  padding-left: var(--track-gap);
+  border-left: var(--line-width) solid var(--color-border-subtle);
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -23,12 +26,13 @@
 
 .dot {
   position: absolute;
-  left: -41px;
-  top: 4px;
-  width: 16px;
-  height: 16px;
+  left: calc(-1 * var(--track-gap) - (var(--dot-size) + var(--line-width)) / 2);
+  top: -2px;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  box-sizing: border-box;
   border-radius: 50%;
-  border: 3px solid var(--color-bg-alt);
+  border: 3px solid var(--color-bg);
 }
 
 .period {
@@ -65,13 +69,9 @@
   }
 
   .track {
+    --track-gap: 24px;
     margin-left: 6px;
-    padding-left: 20px;
-    gap: 32px;
-  }
-
-  .dot {
-    left: -29px;
+    gap: 48px;
   }
 
   .title {
