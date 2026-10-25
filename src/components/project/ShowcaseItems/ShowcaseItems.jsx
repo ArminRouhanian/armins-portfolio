@@ -26,7 +26,7 @@ const ShowcaseItems = forwardRef(function ShowcaseItems(
         const bgStyle = {
           background: item.image
             ? `url("${item.image}") center / cover no-repeat`
-            : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)'
+            : item.gradient || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
         }
 
         if (isMobile) {

@@ -4,7 +4,7 @@
   border-radius: 24px;
   overflow: hidden;
   background-color: var(--color-text-primary);
-  background-image: radial-gradient(#3a3a3a 1px, transparent 1px);
+  background-image: radial-gradient(var(--color-dot-dark) 1px, transparent 1px);
   background-size: 24px 24px;
   box-shadow: var(--shadow-lg);
 }
@@ -114,8 +114,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    #fff 0,
-    #c39bff 22%,
+    var(--color-surface) 0,
+    var(--color-purple-subtle) 22%,
     rgba(162, 89, 255, 0.55) 45%,
     rgba(26, 188, 254, 0.18) 62%,
     transparent 72%

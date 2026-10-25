@@ -33,7 +33,7 @@ export default function ProjectHero({ hero }) {
       <div
         className={styles.mockupWrapper}
         style={{
-          background: hero.mockupGradient || 'linear-gradient(135deg, #A259FF, #1ABCFE)'
+          background: hero.mockupGradient || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
         }}
       >
         <div
@@ -53,7 +53,7 @@ export default function ProjectHero({ hero }) {
             style={{
               background: thumbnail
                 ? `url("${thumbnail}") center / cover no-repeat`
-                : hero.mockupGradient || 'linear-gradient(135deg, #F24E1E, #FF7262)'
+                : hero.mockupGradient || 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))'
             }}
           >
             {thumbnail ? null : (hero.mockupContent || null)}

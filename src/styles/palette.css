@@ -60,4 +60,12 @@
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.18);
   --shadow-dark: 0 24px 48px rgba(0, 0, 0, 0.45);
+
+  /* Pattern & Frame Tokens */
+  --color-black: #000000;
+  --color-frame-dark: #2a2a30;
+  --color-dot-dark: #3a3a3a;
+  --color-dot-light: #d4d4d4;
+  --color-text-light-muted: #c4c4c4;
+  --color-text-light-subtle: #e0e0e0;
 }

@@ -1,7 +1,7 @@
 .pageContainer {
   overflow-x: clip;
   background-color: var(--color-bg-alt);
-  background-image: radial-gradient(#d4d4d4 1px, transparent 1px);
+  background-image: radial-gradient(var(--color-dot-light) 1px, transparent 1px);
   background-size: 24px 24px;
   min-height: 100vh;
   display: flex;

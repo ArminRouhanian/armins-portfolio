@@ -1,7 +1,7 @@
 .wrapper {
   --dk: 1;
   --f: 1;
-  --pgc: color-mix(in srgb, #444 calc(var(--dk) * 100%), #d0d0d0);
+  --pgc: color-mix(in srgb, var(--color-text-secondary) calc(var(--dk) * 100%), var(--color-border-subtle));
   position: relative;
 }
 
@@ -15,7 +15,7 @@
 .backgroundGrid {
   height: 100%;
   background-color: var(--color-text-primary);
-  background-image: radial-gradient(#3a3a3a 1px, transparent 1px);
+  background-image: radial-gradient(var(--color-dot-dark) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -55,7 +55,7 @@
 .textSecondary {
   color: color-mix(
     in srgb,
-    #c4c4c4 calc(var(--dk) * 100%),
+    var(--color-text-light-muted) calc(var(--dk) * 100%),
     var(--color-text-secondary)
   );
 }

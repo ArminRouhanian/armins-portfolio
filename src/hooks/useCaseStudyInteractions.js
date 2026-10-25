@@ -250,7 +250,7 @@ export function useCaseStudyInteractions() {
           const f = Math.round(clamp(t - i, 0, 1) * 100)
           if (el._lastF !== f) {
             el._lastF = f
-            el.style.background = `linear-gradient(90deg, #0D99FF ${f}%, var(--pgc, #E5E5E5) ${f}%)`
+            el.style.background = `linear-gradient(90deg, var(--color-primary) ${f}%, var(--pgc, var(--color-border)) ${f}%)`
           }
         })
         const activeNum = Math.round(cur) + 1

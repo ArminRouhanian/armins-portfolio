@@ -233,7 +233,7 @@ export default function ProjectShowcase({ showcase }) {
                     style={{
                       background: item.image
                         ? `url("${item.image}") center / cover no-repeat`
-                        : item.gradient || 'linear-gradient(135deg, #A259FF, #1ABCFE)'
+                        : item.gradient || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
                     }}
                   />
                 ) : (
@@ -249,7 +249,7 @@ export default function ProjectShowcase({ showcase }) {
                       style={{
                         background: item.image
                           ? `url("${item.image}") center / cover no-repeat`
-                          : item.gradient || 'linear-gradient(135deg, #A259FF, #1ABCFE)'
+                          : item.gradient || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
                       }}
                     />
                   </div>
@@ -280,7 +280,7 @@ export default function ProjectShowcase({ showcase }) {
                 style={{
                   background: item.image
                     ? `url("${item.image}") center / cover no-repeat`
-                    : item.gradient || 'linear-gradient(135deg, #A259FF, #1ABCFE)'
+                    : item.gradient || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
                 }}
               />
             ))}
