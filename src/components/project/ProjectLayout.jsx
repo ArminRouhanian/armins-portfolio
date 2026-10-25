@@ -40,7 +40,7 @@ export default function ProjectLayout({ project }) {
         <ProjectImpact impact={project.impact} />
         <ProjectTimeline timeline={project.timeline} />
         <ProjectShowcase showcase={project.showcase} />
-        <ProjectComments />
+        <ProjectComments comments={project.comments} />
         <ProjectNav nav={project.nav} />
         <ProjectFloatingNav />
         <Footer />

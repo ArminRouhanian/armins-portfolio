@@ -169,6 +169,29 @@ export const projectsData = {
         }
       ]
     },
+    comments: [
+      {
+        initials: 'PM',
+        avatarBg: 'primary',
+        name: '[Teammate Name]',
+        role: 'Product Manager',
+        quote: '[Replace with a short, honest quote from a colleague about how it was to work with you on this project.]'
+      },
+      {
+        initials: 'FE',
+        avatarBg: 'purple',
+        name: '[Teammate Name]',
+        role: 'Frontend Developer',
+        quote: '[Replace with a quote about handoff, communication, design system clarity, or edge-case handling.]'
+      },
+      {
+        initials: 'TL',
+        avatarBg: 'green',
+        name: '[Teammate Name]',
+        role: 'Team Lead / Engineering',
+        quote: '[Replace with a quote on speed, initiative, business impact, or how the work moved the team forward.]'
+      }
+    ],
     nav: {
       prev: {
         to: '/works/pinket-customer',
@@ -353,6 +376,29 @@ export const projectsData = {
         }
       ]
     },
+    comments: [
+      {
+        initials: 'PM',
+        avatarBg: 'primary',
+        name: '[Teammate Name]',
+        role: 'Product Manager',
+        quote: '[Replace with a short, honest quote from a colleague about how it was to work with you on this project.]'
+      },
+      {
+        initials: 'FE',
+        avatarBg: 'purple',
+        name: '[Teammate Name]',
+        role: 'Frontend Developer',
+        quote: '[Replace with a quote about handoff, communication, design system clarity, or edge-case handling.]'
+      },
+      {
+        initials: 'TL',
+        avatarBg: 'green',
+        name: '[Teammate Name]',
+        role: 'Team Lead / Engineering',
+        quote: '[Replace with a quote on speed, initiative, business impact, or how the work moved the team forward.]'
+      }
+    ],
     nav: {
       next: {
         to: '/works/pinket-dashboard',
@@ -512,6 +558,29 @@ export const projectsData = {
         }
       ]
     },
+    comments: [
+      {
+        initials: 'PM',
+        avatarBg: 'primary',
+        name: '[Teammate Name]',
+        role: 'Product Manager',
+        quote: '[Replace with a short, honest quote from a colleague about how it was to work with you on this project.]'
+      },
+      {
+        initials: 'FE',
+        avatarBg: 'purple',
+        name: '[Teammate Name]',
+        role: 'Frontend Developer',
+        quote: '[Replace with a quote about handoff, communication, design system clarity, or edge-case handling.]'
+      },
+      {
+        initials: 'TL',
+        avatarBg: 'green',
+        name: '[Teammate Name]',
+        role: 'Team Lead / Engineering',
+        quote: '[Replace with a quote on speed, initiative, business impact, or how the work moved the team forward.]'
+      }
+    ],
     nav: {
       prev: {
         to: '/works/pinket-dashboard',

@@ -1,7 +1,10 @@
 import React from 'react'
 import SectionHeader from '../common/SectionHeader/SectionHeader'
+import CommentCard from '../common/CommentCard/CommentCard'
 
-export default function ProjectComments() {
+export default function ProjectComments({ comments }) {
+  if (!comments || comments.length === 0) return null
+
   return (
     <section
       id="comments"
@@ -23,168 +26,16 @@ export default function ProjectComments() {
           gap: '24px'
         }}
       >
-        <div
-          className="cd"
-          style={{
-            padding: '32px 28px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px'
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px'
-            }}
-          >
-            <span
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: '#0D99FF',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: '700',
-                color: '#fff'
-              }}
-            >
-              PM
-            </span>
-            <div>
-              <p style={{ fontWeight: '700' }}>[Teammate Name]</p>
-              <p
-                style={{
-                  fontSize: '13px',
-                  color: '#666'
-                }}
-              >
-                Product Manager
-              </p>
-            </div>
-          </div>
-          <p
-            style={{
-              fontSize: '16px',
-              lineHeight: '1.6',
-              color: '#333'
-            }}
-          >
-            &quot;[Replace with a short, honest quote from a colleague about
-            how it was to work with you on this project.]&quot;
-          </p>
-        </div>
-        <div
-          className="cd"
-          style={{
-            padding: '32px 28px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px'
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px'
-            }}
-          >
-            <span
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: '#A259FF',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: '700',
-                color: '#fff'
-              }}
-            >
-              FE
-            </span>
-            <div>
-              <p style={{ fontWeight: '700' }}>[Teammate Name]</p>
-              <p
-                style={{
-                  fontSize: '13px',
-                  color: '#666'
-                }}
-              >
-                Frontend Developer
-              </p>
-            </div>
-          </div>
-          <p
-            style={{
-              fontSize: '16px',
-              lineHeight: '1.6',
-              color: '#333'
-            }}
-          >
-            &quot;[Replace with a quote about handoff, communication, design
-            system clarity, or edge-case handling.]&quot;
-          </p>
-        </div>
-        <div
-          className="cd"
-          style={{
-            padding: '32px 28px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px'
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px'
-            }}
-          >
-            <span
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: '#0ACF83',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: '700',
-                color: '#fff'
-              }}
-            >
-              TL
-            </span>
-            <div>
-              <p style={{ fontWeight: '700' }}>[Teammate Name]</p>
-              <p
-                style={{
-                  fontSize: '13px',
-                  color: '#666'
-                }}
-              >
-                Team Lead / Engineering
-              </p>
-            </div>
-          </div>
-          <p
-            style={{
-              fontSize: '16px',
-              lineHeight: '1.6',
-              color: '#333'
-            }}
-          >
-            &quot;[Replace with a quote on speed, initiative, business impact,
-            or how the work moved the team forward.]&quot;
-          </p>
-        </div>
+        {comments.map((item, index) => (
+          <CommentCard
+            key={index}
+            initials={item.initials}
+            avatarBg={item.avatarBg}
+            name={item.name}
+            role={item.role}
+            quote={item.quote}
+          />
+        ))}
       </div>
     </section>
   )
