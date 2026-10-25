@@ -1,5 +1,5 @@
 import React from 'react'
-import ProjectLayout from '../../components/project/ProjectLayout'
+import ProjectLayout from '../../components/project/ProjectLayout/ProjectLayout'
 import { projectsData } from '../../data/projectsData'
 
 export default function PinketDashboard() {

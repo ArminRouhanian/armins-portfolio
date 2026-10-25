@@ -1,8 +1,4 @@
-/* ==========================================================================
-   Tools Orbit Stage Animation Styles
-   ========================================================================== */
-
-.tstage {
+.stage {
   position: relative;
   height: 440px;
   border-radius: 24px;
@@ -13,7 +9,7 @@
   box-shadow: var(--shadow-lg);
 }
 
-.tscene {
+.scene {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -23,29 +19,29 @@
   transform-origin: center;
 }
 
-.ox {
+.orbitX {
   position: absolute;
   left: 280px;
   top: 220px;
   width: 0;
   height: 0;
   animation:
-    tax var(--h) ease-in-out infinite alternate,
-    taz var(--h) ease-in-out infinite alternate;
+    orbitAnimX var(--h) ease-in-out infinite alternate,
+    orbitAnimZ var(--h) ease-in-out infinite alternate;
   animation-delay: var(--dx), var(--dy);
 }
 
-.oy {
+.orbitY {
   position: absolute;
   left: 0;
   top: 0;
   width: 0;
   height: 0;
-  animation: tay var(--h) ease-in-out infinite alternate;
+  animation: orbitAnimY var(--h) ease-in-out infinite alternate;
   animation-delay: var(--dy);
 }
 
-.tl {
+.toolIcon {
   position: absolute;
   left: -28px;
   top: -28px;
@@ -58,9 +54,18 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-@keyframes tax {
+.toolImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes orbitAnimX {
   from {
     transform: translateX(calc(var(--rx) * -1));
   }
@@ -69,7 +74,7 @@
   }
 }
 
-@keyframes tay {
+@keyframes orbitAnimY {
   from {
     transform: translateY(calc(var(--ry) * -1)) scale(var(--s0));
     opacity: 0.5;
@@ -82,7 +87,7 @@
   }
 }
 
-@keyframes taz {
+@keyframes orbitAnimZ {
   from {
     z-index: 1;
   }
@@ -115,10 +120,10 @@
     rgba(26, 188, 254, 0.18) 62%,
     transparent 72%
   );
-  animation: tgl 3s ease-in-out infinite;
+  animation: glowAnim 3s ease-in-out infinite;
 }
 
-@keyframes tgl {
+@keyframes glowAnim {
   0%,
   100% {
     transform: scale(0.85);
@@ -130,30 +135,30 @@
   }
 }
 
-.sp1,
-.sp2,
-.sp3 {
+.sparkleBig,
+.sparkleMedium,
+.sparkleSmall {
   position: absolute;
   display: block;
   line-height: 0;
 }
 
-.sp1 {
+.sparkleBig {
   left: -35px;
   top: -35px;
-  animation: tsp 4s ease-in-out infinite;
+  animation: spinSparkle 4s ease-in-out infinite;
 }
 
-.sp2,
-.sp3 {
-  animation: ttw 2s ease-in-out infinite;
+.sparkleMedium,
+.sparkleSmall {
+  animation: twinkleSparkle 2s ease-in-out infinite;
 }
 
-.sp3 {
+.sparkleSmall {
   animation-delay: -1s;
 }
 
-@keyframes tsp {
+@keyframes spinSparkle {
   0%,
   100% {
     transform: rotate(0) scale(0.8);
@@ -163,7 +168,7 @@
   }
 }
 
-@keyframes ttw {
+@keyframes twinkleSparkle {
   0%,
   100% {
     transform: scale(0.4);
@@ -175,7 +180,7 @@
   }
 }
 
-.pt {
+.particle {
   position: absolute;
   left: -2px;
   top: -2px;
@@ -183,11 +188,11 @@
   height: 4px;
   border-radius: 50%;
   opacity: 0;
-  animation: tpr 5.6s ease-out infinite;
+  animation: particleRise 5.6s ease-out infinite;
   animation-delay: var(--pd);
 }
 
-@keyframes tpr {
+@keyframes particleRise {
   0% {
     transform: translate(0, 0) scale(0.4);
     opacity: 0;
@@ -201,14 +206,70 @@
   }
 }
 
-.tcur {
+.cursorStage {
   position: absolute;
   z-index: 30;
   pointer-events: none;
-  animation: tcm 14s ease-in-out infinite;
+  animation: cursorMove 14s ease-in-out infinite;
 }
 
-@keyframes tcm {
+.cursorTag {
+  position: absolute;
+  left: 12px;
+  top: 16px;
+  white-space: nowrap;
+  background: var(--color-purple);
+  color: var(--color-text-light);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 4px 10px;
+  border-radius: 99px;
+  box-shadow: var(--shadow-sm);
+}
+
+.thinkingBubble {
+  position: absolute;
+  left: 12px;
+  top: 44px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--color-surface);
+  border-radius: 99px;
+  padding: 5px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+.thinkingBubble i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-purple);
+  animation: thinkingDot 1.2s ease-in-out infinite;
+}
+
+.thinkingBubble i:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinkingBubble i:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes thinkingDot {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes cursorMove {
   0%,
   100% {
     left: 430px;
@@ -267,67 +328,25 @@
   }
 }
 
-.think {
-  position: absolute;
-  left: 12px;
-  top: 44px;
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  background: var(--color-surface);
-  border-radius: 99px;
-  padding: 5px 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-}
-
-.think i {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-purple);
-  animation: tdt 1.2s ease-in-out infinite;
-}
-
-.think i:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.think i:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes tdt {
-  0%,
-  100% {
-    opacity: 0.25;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-2px);
-  }
-}
-
 @media (max-width: 640px) {
-  .tstage {
+  .stage {
     height: 320px;
   }
-  .tscene {
+  .scene {
     transform: scale(0.6);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ox,
-  .oy,
+  .orbitX,
+  .orbitY,
   .glow,
-  .sp1,
-  .sp2,
-  .sp3,
-  .pt,
-  .tcur,
-  .think i {
+  .sparkleBig,
+  .sparkleMedium,
+  .sparkleSmall,
+  .particle,
+  .cursorStage,
+  .thinkingBubble i {
     animation-play-state: paused;
   }
 }

@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import styles from './ToolsAnimation.module.css'
 
 const ORBITS = [
   {
@@ -63,20 +64,20 @@ const ORBITS = [
       { dx: '-9.75s', dy: '-13.00s' }
     ]
   }
-];
+]
 
 export default function ToolsAnimation() {
   return (
-    <div className="tstage">
-      <div className="tscene">
+    <div className={styles.stage}>
+      <div className={styles.scene}>
         {ORBITS.map((orbit) => (
           <React.Fragment key={orbit.id}>
             {orbit.tools.map((tool, index) => {
-              const delays = orbit.delays[index];
+              const delays = orbit.delays[index]
               return (
                 <div
                   key={tool.name}
-                  className="ox"
+                  className={styles.orbitX}
                   style={{
                     '--rx': orbit.rx,
                     '--h': orbit.h,
@@ -85,7 +86,7 @@ export default function ToolsAnimation() {
                   }}
                 >
                   <div
-                    className="oy"
+                    className={styles.orbitY}
                     style={{
                       '--ry': orbit.ry,
                       '--s0': orbit.s0,
@@ -93,34 +94,25 @@ export default function ToolsAnimation() {
                     }}
                   >
                     <div
-                      className="tl"
+                      className={styles.toolIcon}
                       title={tool.name}
                       aria-label={tool.name}
-                      style={{
-                        overflow: 'hidden',
-                        padding: 0,
-                        border: '1px solid rgba(255, 255, 255, 0.12)'
-                      }}
                     >
                       <img
                         src={tool.icon}
                         alt={tool.name}
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          display: 'block'
-                        }}
+                        className={styles.toolImage}
                       />
                     </div>
                   </div>
                 </div>
-              );
+              )
             })}
           </React.Fragment>
         ))}
-        <div className="core">
-          <div className="glow"></div>
-          <span className="sp1">
+        <div className={styles.core}>
+          <div className={styles.glow} />
+          <span className={styles.sparkleBig}>
             <svg
               viewBox="0 0 24 24"
               width="70"
@@ -134,7 +126,7 @@ export default function ToolsAnimation() {
             </svg>
           </span>
           <span
-            className="sp2"
+            className={styles.sparkleMedium}
             style={{
               left: '-62px',
               top: '-46px'
@@ -148,12 +140,12 @@ export default function ToolsAnimation() {
             >
               <path
                 d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="#C39BFF"
+                fill="var(--color-purple-subtle)"
               />
             </svg>
           </span>
           <span
-            className="sp3"
+            className={styles.sparkleSmall}
             style={{
               left: '50px',
               top: '-58px'
@@ -167,12 +159,12 @@ export default function ToolsAnimation() {
             >
               <path
                 d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="#1ABCFE"
+                fill="var(--color-primary-light)"
               />
             </svg>
           </span>
           <span
-            className="sp2"
+            className={styles.sparkleMedium}
             style={{
               left: '46px',
               top: '40px',
@@ -187,79 +179,76 @@ export default function ToolsAnimation() {
             >
               <path
                 d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="#3DDC9B"
+                fill="var(--color-green-light)"
               />
             </svg>
           </span>
           <i
-            className="pt"
+            className={styles.particle}
             style={{
               '--px': '-40px',
               '--pd': '0s',
-              background: '#F24E1E'
+              background: 'var(--color-orange)'
             }}
-          ></i>
+          />
           <i
-            className="pt"
+            className={styles.particle}
             style={{
               '--px': '30px',
               '--pd': '0.7s',
-              background: '#1ABCFE'
+              background: 'var(--color-primary-light)'
             }}
-          ></i>
+          />
           <i
-            className="pt"
+            className={styles.particle}
             style={{
               '--px': '-15px',
               '--pd': '1.4s',
-              background: '#0ACF83'
+              background: 'var(--color-green)'
             }}
-          ></i>
+          />
           <i
-            className="pt"
+            className={styles.particle}
             style={{
               '--px': '50px',
               '--pd': '2.1s',
-              background: '#FF7262'
+              background: 'var(--color-orange-light)'
             }}
-          ></i>
+          />
           <i
-            className="pt"
+            className={styles.particle}
             style={{
               '--px': '-55px',
               '--pd': '2.8s',
-              background: '#A259FF'
+              background: 'var(--color-purple-light)'
             }}
-          ></i>
+          />
           <i
-            className="pt"
+            className={styles.particle}
             style={{
               '--px': '10px',
               '--pd': '3.5s',
               background: '#fff'
             }}
-          ></i>
+          />
           <i
-            className="pt"
+            className={styles.particle}
             style={{
               '--px': '-30px',
               '--pd': '4.2s',
-              background: '#1ABCFE'
+              background: 'var(--color-primary-light)'
             }}
-          ></i>
+          />
           <i
-            className="pt"
+            className={styles.particle}
             style={{
               '--px': '40px',
               '--pd': '4.9s',
-              background: '#F24E1E'
+              background: 'var(--color-orange)'
             }}
-          ></i>
+          />
         </div>
-        <div
-          className="tcur"
-          aria-hidden="true"
-        >
+        <div className={styles.cursorStage} aria-hidden="true">
           <svg
             width="16"
             height="18"
@@ -267,36 +256,22 @@ export default function ToolsAnimation() {
           >
             <path
               d="M1 1 L1 15.5 L5 12 L11.5 12 Z"
-              fill="#8A3FF0"
+              fill="var(--color-purple)"
               stroke="#fff"
               strokeWidth="1.5"
               strokeLinejoin="round"
             />
           </svg>
-          <span
-            style={{
-              position: 'absolute',
-              left: '12px',
-              top: '16px',
-              whiteSpace: 'nowrap',
-              background: '#8A3FF0',
-              color: '#fff',
-              fontSize: '12px',
-              fontWeight: '700',
-              padding: '4px 10px',
-              borderRadius: '99px',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)'
-            }}
-          >
+          <span className={styles.cursorTag}>
             Armin Rouhanian
           </span>
-          <span className="think">
-            <i></i>
-            <i></i>
-            <i></i>
+          <span className={styles.thinkingBubble}>
+            <i />
+            <i />
+            <i />
           </span>
         </div>
       </div>
     </div>
-  );
+  )
 }

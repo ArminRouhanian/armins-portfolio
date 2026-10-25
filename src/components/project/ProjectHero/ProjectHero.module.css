@@ -1,0 +1,113 @@
+.section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 32px 0;
+}
+
+.backButton {
+  font-weight: var(--font-weight-medium);
+}
+
+.tags {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.title {
+  margin-top: 16px;
+  font-size: var(--font-size-hero);
+  line-height: var(--line-height-hero);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin-top: 16px;
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  color: var(--color-text-secondary);
+}
+
+.mockupWrapper {
+  margin-top: 40px;
+  border-radius: 24px;
+  padding: clamp(16px, 4vw, 56px);
+}
+
+.browserFrame {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: 0 32px 64px rgba(30, 30, 30, 0.35);
+  outline: 2px solid transparent;
+  transition:
+    outline-color 0.2s,
+    transform 0.3s;
+}
+
+.browserFrame:hover {
+  outline-color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+.browserBar {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--color-bg-subtle);
+}
+
+.browserDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-border-subtle);
+}
+
+.browserUrl {
+  margin-left: 12px;
+  flex: 1;
+  background: var(--color-surface);
+  border-radius: 6px;
+  font-size: 11px;
+  padding: 3px 10px;
+  color: var(--color-text-caption);
+}
+
+.mockupContent {
+  height: clamp(220px, 40vw, 460px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+  font-weight: var(--font-weight-medium);
+}
+
+.metaGrid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.metaItem {
+  padding: 20px 24px;
+}
+
+.metaLabel {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-muted);
+}
+
+.metaValue {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-body-lg);
+  margin-top: 4px;
+  color: var(--color-text-primary);
+}

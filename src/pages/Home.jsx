@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
-import Header from '../components/common/Header'
-import Hero from '../components/home/Hero'
-import SelectedWork from '../components/home/SelectedWork'
-import Tools from '../components/home/Tools'
-import CaseStudies from '../components/home/CaseStudies'
-import Footer from '../components/common/Footer'
+import Header from '../components/common/Header/Header'
+import Hero from '../components/home/Hero/Hero'
+import SelectedWork from '../components/home/SelectedWork/SelectedWork'
+import Tools from '../components/home/Tools/Tools'
+import CaseStudies from '../components/home/CaseStudies/CaseStudies'
+import Footer from '../components/common/Footer/Footer'
+import styles from './Home.module.css'
 
 export default function Home() {
   useEffect(() => {
@@ -54,23 +55,11 @@ export default function Home() {
   }, [])
 
   return (
-    <div
-      id="top"
-      style={{
-        overflowX: 'clip',
-        backgroundColor: 'var(--color-bg-alt)',
-        backgroundImage: 'radial-gradient(#D4D4D4 1px, transparent 1px)',
-        backgroundSize: '24px 24px',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column'
-      }}
-    >
+    <div id="top" className={styles.pageContainer}>
       <Header />
       <main
         id="pgs"
-        className="pgs"
-        style={{ paddingTop: '65px' }}
+        className={`${styles.mainContent} pgs`}
       >
         <Hero />
         <SelectedWork />

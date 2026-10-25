@@ -1,12 +1,13 @@
 import React from 'react'
+import styles from './ProjectFloatingNav.module.css'
 
 export default function ProjectFloatingNav() {
   return (
     <nav
-      className="tb"
+      className={`${styles.nav} tb`}
       aria-label="Sections"
     >
-      <i></i>
+      <i aria-hidden="true" />
       <a href="#preview">
         Preview
       </a>

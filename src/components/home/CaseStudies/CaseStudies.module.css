@@ -1,0 +1,65 @@
+.section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  scroll-margin-top: 0px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  outline: 2px solid transparent;
+  transition:
+    outline-color 0.2s,
+    transform 0.3s;
+}
+
+.card:hover {
+  outline-color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+.number {
+  font-weight: var(--font-weight-bold);
+  width: 40px;
+}
+
+.numOrange {
+  color: var(--color-orange);
+}
+
+.numPurple {
+  color: var(--color-purple-light);
+}
+
+.numGreen {
+  color: var(--color-green);
+}
+
+.title {
+  flex: 1;
+  min-width: 200px;
+  font-size: var(--font-size-h3);
+  color: var(--color-text-primary);
+}
+
+.arrow {
+  font-size: var(--font-size-h3);
+  color: var(--color-text-primary);
+}

@@ -1,31 +1,19 @@
 import React from 'react'
-import SectionHeader from '../common/SectionHeader/SectionHeader'
-import CommentCard from '../common/CommentCard/CommentCard'
+import SectionHeader from '../../common/SectionHeader/SectionHeader'
+import CommentCard from '../../common/CommentCard/CommentCard'
+import styles from './ProjectComments.module.css'
 
 export default function ProjectComments({ comments }) {
   if (!comments || comments.length === 0) return null
 
   return (
-    <section
-      id="comments"
-      style={{
-        maxWidth: '1120px',
-        margin: '0 auto',
-        padding: '96px 32px 120px'
-      }}
-    >
+    <section id="comments" className={styles.section}>
       <SectionHeader
         label="05 · FEEDBACK"
         title="What the team says"
-        style={{ marginBottom: '40px' }}
+        className={styles.header}
       />
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))',
-          gap: '24px'
-        }}
-      >
+      <div className={styles.grid}>
         {comments.map((item, index) => (
           <CommentCard
             key={index}

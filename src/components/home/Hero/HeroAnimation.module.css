@@ -1,0 +1,281 @@
+.stage {
+  position: absolute;
+  right: 61px;
+  bottom: 170px;
+  width: 346px;
+  height: 281px;
+  pointer-events: none;
+}
+
+@media (max-width: 1000px) {
+  .stage {
+    display: none;
+  }
+}
+
+.stage > * {
+  position: absolute;
+}
+
+.purpleCircle {
+  left: 166px;
+  top: 10px;
+  width: 147px;
+  height: 143px;
+  border-radius: 50%;
+  background: var(--color-purple-light);
+  position: absolute;
+}
+
+.selectionBox {
+  z-index: 1;
+  box-sizing: border-box;
+  border: 1.5px solid var(--color-primary);
+  opacity: 0;
+  position: absolute;
+}
+
+.box1 {
+  left: 44px;
+  top: 79px;
+  width: 165px;
+  height: 115px;
+  animation:
+    rectWidth 12s ease-in-out infinite,
+    opacity1 12s ease-in-out infinite;
+}
+
+.box2 {
+  left: 166px;
+  top: 133px;
+  width: 167px;
+  height: 131px;
+  animation:
+    pillHeight 12s ease-in-out infinite,
+    opacity2 12s ease-in-out infinite;
+}
+
+.box3 {
+  left: 15px;
+  top: 172px;
+  width: 93px;
+  height: 88px;
+  animation:
+    squarePos 12s ease-in-out infinite,
+    opacity3 12s ease-in-out infinite;
+}
+
+.handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  box-sizing: border-box;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-primary);
+  z-index: 1;
+}
+
+.cursor {
+  z-index: 2;
+  animation: moveCursor 12s ease-in-out infinite;
+}
+
+.cursorTag {
+  position: absolute;
+  left: 12px;
+  top: 16px;
+  white-space: nowrap;
+  background: var(--color-purple);
+  color: var(--color-text-light);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+.orangeRect {
+  left: 44px;
+  top: 79px;
+  width: 165px;
+  height: 115px;
+  background: var(--color-orange);
+  border-radius: 8px;
+  position: absolute;
+  animation: rectWidth 12s ease-in-out infinite;
+}
+
+.blueSquare {
+  left: 15px;
+  top: 172px;
+  width: 93px;
+  height: 88px;
+  border-radius: 20px;
+  background: var(--color-primary-light);
+  position: absolute;
+  animation: squarePos 12s ease-in-out infinite;
+}
+
+.greenPill {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 167px;
+  height: 131px;
+  background-color: var(--color-green);
+  border-radius: 8px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  position: absolute;
+  left: 166px;
+  top: 133px;
+  animation: pillHeight 12s ease-in-out infinite;
+}
+
+@keyframes moveCursor {
+  0%,
+  100% {
+    left: 330px;
+    top: 250px;
+  }
+  8% {
+    left: 240px;
+    top: 60px;
+  }
+  16% {
+    left: 60px;
+    top: 95px;
+  }
+  24% {
+    left: 209px;
+    top: 194px;
+  }
+  34%,
+  38% {
+    left: 259px;
+    top: 194px;
+  }
+  48% {
+    left: 250px;
+    top: 264px;
+  }
+  58%,
+  62% {
+    left: 250px;
+    top: 300px;
+  }
+  70% {
+    left: 60px;
+    top: 215px;
+  }
+  80%,
+  84% {
+    left: 90px;
+    top: 215px;
+  }
+  96% {
+    left: 330px;
+    top: 250px;
+  }
+}
+
+@keyframes rectWidth {
+  0%,
+  24% {
+    width: 165px;
+  }
+  34%,
+  90% {
+    width: 215px;
+  }
+  98%,
+  100% {
+    width: 165px;
+  }
+}
+
+@keyframes pillHeight {
+  0%,
+  48% {
+    height: 131px;
+  }
+  58%,
+  90% {
+    height: 167px;
+  }
+  98%,
+  100% {
+    height: 131px;
+  }
+}
+
+@keyframes squarePos {
+  0%,
+  70% {
+    left: 15px;
+  }
+  80%,
+  90% {
+    left: 45px;
+  }
+  98%,
+  100% {
+    left: 15px;
+  }
+}
+
+@keyframes opacity1 {
+  0%,
+  16% {
+    opacity: 0;
+  }
+  18%,
+  38% {
+    opacity: 1;
+  }
+  40%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes opacity2 {
+  0%,
+  46% {
+    opacity: 0;
+  }
+  48%,
+  62% {
+    opacity: 1;
+  }
+  64%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes opacity3 {
+  0%,
+  68% {
+    opacity: 0;
+  }
+  70%,
+  84% {
+    opacity: 1;
+  }
+  86%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor,
+  .orangeRect,
+  .blueSquare,
+  .greenPill,
+  .box1,
+  .box2,
+  .box3 {
+    animation: none;
+  }
+}

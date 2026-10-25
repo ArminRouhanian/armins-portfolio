@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import SectionHeader from '../common/SectionHeader/SectionHeader'
-import Button from '../common/Button/Button'
-import ShowcaseItems from './ShowcaseItems/ShowcaseItems'
+import SectionHeader from '../../common/SectionHeader/SectionHeader'
+import Button from '../../common/Button/Button'
+import ShowcaseItems from '../ShowcaseItems/ShowcaseItems'
+import styles from './ProjectShowcase.module.css'
 
 export default function ProjectShowcase({ showcase }) {
   const [activeIdx, setActiveIdx] = useState(0)
@@ -48,36 +49,14 @@ export default function ProjectShowcase({ showcase }) {
 
   return (
     <>
-      <section
-        id="showcase"
-        style={{
-          backgroundColor: '#1E1E1E',
-          backgroundImage: 'radial-gradient(#3A3A3A 1px,transparent 1px)',
-          backgroundSize: '24px 24px',
-          padding: '96px 0 120px',
-          color: 'var(--color-text-light)',
-          marginTop: '48px'
-        }}
-      >
-        <div
-          style={{
-            maxWidth: '1120px',
-            margin: '0 auto',
-            padding: '0 32px 32px'
-          }}
-        >
+      <section id="showcase" className={styles.section}>
+        <div className={styles.headerContainer}>
           <SectionHeader
             dark
             label="04 · SHOWCASE"
             title="Design mockups"
           />
-          <p
-            style={{
-              marginTop: '8px',
-              color: '#888',
-              fontSize: '15px'
-            }}
-          >
+          <p className={styles.subtitle}>
             Click any mockup to open the viewer. Use arrow keys to step
             through.
           </p>
@@ -89,15 +68,13 @@ export default function ProjectShowcase({ showcase }) {
         />
       </section>
 
-      {/* Lightbox Modal */}
       {isOpen && (
         <div
           id="lb"
-          className="lb open"
+          className={styles.lightbox}
           role="dialog"
           aria-modal="true"
           aria-label="Mockup viewer"
-          style={{ zIndex: 1000 }}
           onClick={(e) => {
             if (e.target.id === 'lb') closeLightbox()
           }}
@@ -108,12 +85,7 @@ export default function ProjectShowcase({ showcase }) {
             icon="/assets/icons/close.svg"
             iconSize={20}
             onClick={closeLightbox}
-            style={{
-              position: 'absolute',
-              top: '24px',
-              right: '24px',
-              zIndex: 1010
-            }}
+            className={styles.closeButton}
           />
 
           <Button
@@ -122,13 +94,7 @@ export default function ProjectShowcase({ showcase }) {
             icon="/assets/icons/chevron-left.svg"
             iconSize={22}
             onClick={prevSlide}
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '24px',
-              transform: 'translateY(-50%)',
-              zIndex: 1010
-            }}
+            className={styles.prevButton}
           />
 
           <Button
@@ -137,53 +103,39 @@ export default function ProjectShowcase({ showcase }) {
             icon="/assets/icons/chevron-right.svg"
             iconSize={22}
             onClick={nextSlide}
-            style={{
-              position: 'absolute',
-              top: '50%',
-              right: '24px',
-              transform: 'translateY(-50%)',
-              zIndex: 1010
-            }}
+            className={styles.nextButton}
           />
 
-          <div className="lbs">
+          <div className={styles.lightboxStage}>
             {items.map((item, index) => (
               <div
                 key={index}
-                className={`sl${index === activeIdx ? ' on' : ''}`}
+                className={`${styles.slide}${index === activeIdx ? ` ${styles.slideActive}` : ''}`}
                 data-n={item.label}
               >
                 {isMobile ? (
                   <div
+                    className={styles.mobileFrame}
                     style={{
-                      height: 'min(72vh, 660px)',
-                      aspectRatio: '9 / 19.5',
-                      borderRadius: '24px',
-                      overflow: 'hidden',
-                      boxShadow: '0 32px 64px rgba(0,0,0,0.6)',
                       background: item.image
                         ? `url("${item.image}") center / cover no-repeat`
-                        : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)',
-                      margin: '0 auto'
+                        : item.gradient || 'linear-gradient(135deg, #A259FF, #1ABCFE)'
                     }}
                   />
                 ) : (
-                  <div
-                    className="fr"
-                    style={{ boxShadow: '0 32px 64px rgba(0,0,0,.5)' }}
-                  >
-                    <div className="bar">
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                      <span>yourproduct.com</span>
+                  <div className={styles.browserFrame}>
+                    <div className={styles.browserBar}>
+                      <span className={styles.browserDot} aria-hidden="true" />
+                      <span className={styles.browserDot} aria-hidden="true" />
+                      <span className={styles.browserDot} aria-hidden="true" />
+                      <span className={styles.browserUrl}>yourproduct.com</span>
                     </div>
                     <div
+                      className={styles.browserImage}
                       style={{
-                        height: 'min(58vh,620px)',
                         background: item.image
                           ? `url("${item.image}") center / cover no-repeat`
-                          : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)'
+                          : item.gradient || 'linear-gradient(135deg, #A259FF, #1ABCFE)'
                       }}
                     />
                   </div>
@@ -192,16 +144,16 @@ export default function ProjectShowcase({ showcase }) {
             ))}
           </div>
 
-          <p className="lbc">
+          <p className={styles.caption}>
             {activeIdx + 1} / {count} · {items[activeIdx]?.label || ''}
           </p>
 
-          <div className="lbt">
+          <div className={styles.thumbnailStrip}>
             {items.map((item, index) => (
               <button
                 key={index}
                 type="button"
-                className={`th${index === activeIdx ? ' on' : ''}`}
+                className={`${styles.thumbnail}${index === activeIdx ? ` ${styles.thumbnailActive}` : ''}`}
                 aria-label={item.label}
                 onClick={() => setActiveIdx(index)}
                 style={{
@@ -209,7 +161,7 @@ export default function ProjectShowcase({ showcase }) {
                   height: '60px',
                   background: item.image
                     ? `url("${item.image}") center / cover no-repeat`
-                    : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)'
+                    : item.gradient || 'linear-gradient(135deg, #A259FF, #1ABCFE)'
                 }}
               />
             ))}

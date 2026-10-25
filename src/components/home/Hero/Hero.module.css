@@ -1,0 +1,112 @@
+.section {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 96px 32px 72px;
+}
+
+.title {
+  margin-top: 24px;
+  font-size: clamp(40px, 7vw, 84px);
+  line-height: 1.15;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.selectionWrapper {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  margin: 0 0.15em;
+}
+
+.handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  box-sizing: border-box;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-primary);
+}
+
+.cyclingText {
+  display: inline-block;
+  height: 1.15em;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0 0.1em;
+}
+
+.cyclingText > span {
+  display: block;
+  animation: slideText 8.9s ease-in-out infinite;
+}
+
+.cyclingText b {
+  display: block;
+  height: 1.15em;
+  line-height: 1.15em;
+}
+
+.cycleClarity {
+  color: var(--color-primary-dark);
+}
+
+.cycleStructure {
+  color: var(--color-purple);
+}
+
+.cycleValue {
+  color: var(--color-green-dark);
+}
+
+.cycleDesign {
+  color: var(--color-orange-dark);
+}
+
+@keyframes slideText {
+  0%,
+  5.62% {
+    transform: translateY(0);
+  }
+  12.36%,
+  17.98% {
+    transform: translateY(-1.15em);
+  }
+  24.72%,
+  30.34% {
+    transform: translateY(-2.3em);
+  }
+  37.08%,
+  93.26% {
+    transform: translateY(-3.45em);
+  }
+  100% {
+    transform: translateY(-4.6em);
+  }
+}
+
+.subtitle {
+  margin-top: 24px;
+  max-width: 560px;
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-body);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.actions {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cyclingText > span {
+    animation: none;
+  }
+}

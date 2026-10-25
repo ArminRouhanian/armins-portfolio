@@ -1,0 +1,54 @@
+.nav {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  width: max-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+}
+
+.nav a {
+  position: relative;
+  z-index: 1;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition:
+    color 0.25s,
+    background-color 0.25s;
+}
+
+.nav :global(a.on) {
+  color: var(--color-text-light);
+}
+
+.nav i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-radius: 8px;
+  background: var(--color-primary);
+  opacity: 0;
+  z-index: 0;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s;
+}
+
+.nav :global(a:not(.on)):hover {
+  background-color: var(--color-overlay-hover);
+}

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import FooterAnimation from './FooterAnimation'
-import Button from './Button/Button'
-import SocialButton from './SocialButton/SocialButton'
+import Button from '../Button/Button'
+import SocialButton from '../SocialButton/SocialButton'
+import styles from './Footer.module.css'
 
 const SOCIAL_LINKS = [
   {
@@ -34,86 +34,30 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer
-      id="contact"
-      style={{
-        marginTop: '48px',
-        backgroundColor: 'var(--color-surface-dark)',
-        backgroundImage: 'radial-gradient(#3A3A3A 1px,transparent 1px)',
-        backgroundSize: '24px 24px',
-        color: 'var(--color-text-light)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1120px',
-          margin: '0 auto',
-          padding: '96px 32px 32px',
-          position: 'relative'
-        }}
-      >
+    <footer id="contact" className={styles.footer}>
+      <div className={styles.container}>
         <FooterAnimation />
-        <p
-          style={{
-            fontSize: '13px',
-            fontWeight: '700',
-            color: '#1ABCFE',
-            letterSpacing: '.08em'
-          }}
-        >
+        <p className={styles.label}>
           CONTACT
         </p>
-        <h2
-          style={{
-            marginTop: '16px',
-            fontSize: 'clamp(44px,8vw,104px)',
-            lineHeight: '1',
-            fontWeight: '700',
-            letterSpacing: '-.02em',
-            maxWidth: '640px'
-          }}
-        >
+        <h2 className={styles.heading}>
           Let us work together!
         </h2>
-        <p
-          style={{
-            marginTop: '24px',
-            fontSize: 'clamp(20px,3vw,28px)',
-            fontWeight: '500'
-          }}
-        >
-          <span style={{ color: '#1ABCFE' }}>Clarity.</span>{' '}
-          <span style={{ color: '#C39BFF' }}>Structure.</span>{' '}
-          <span style={{ color: '#3DDC9B' }}>Value.</span>
+        <p className={styles.values}>
+          <span className={styles.valClarity}>Clarity.</span>{' '}
+          <span className={styles.valStructure}>Structure.</span>{' '}
+          <span className={styles.valValue}>Value.</span>
         </p>
-        <p
-          style={{
-            marginTop: '16px',
-            fontSize: '18px',
-            lineHeight: '1.55',
-            color: '#C4C4C4',
-            maxWidth: '520px'
-          }}
-        >
+        <p className={styles.description}>
           Tell me what you are building and where it feels unclear. I will help
           you find the next step.
         </p>
-        <div
-          style={{
-            marginTop: '40px',
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            gap: '20px 28px'
-          }}
-        >
+        <div className={styles.actionRow}>
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://mail.google.com/mail/?view=cm&amp;to=armin.rouhanian@gmail.com"
-            className="fcta"
+            className={`${styles.ctaButton} fcta`}
           >
             Contact me{' '}
             <svg
@@ -134,34 +78,17 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             href="https://mail.google.com/mail/?view=cm&amp;to=armin.rouhanian@gmail.com"
-            style={{
-              color: '#E0E0E0',
-              fontSize: '18px',
-              borderBottom: '1px solid #777'
-            }}
+            className={styles.emailLink}
           >
             armin.rouhanian@gmail.com
           </a>
         </div>
-        <div
-          style={{
-            marginTop: '96px',
-            paddingTop: '24px',
-            borderTop: '1px solid #3A3A3A',
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '20px 32px',
-            color: '#C4C4C4',
-            fontSize: '14px'
-          }}
-        >
-          <span>
+        <div className={styles.bottomBar}>
+          <span className={styles.copyright}>
             © Designed By Armin <br />
             Developed by Claude Code
           </span>
-          <span style={{ display: 'flex', gap: '12px' }}>
+          <span className={styles.socialRow}>
             {SOCIAL_LINKS.map(link => (
               <SocialButton
                 key={link.name}
@@ -175,6 +102,7 @@ export default function Footer() {
             variant="tertiary"
             theme="dark"
             href="#top"
+            className={styles.backToTop}
           >
             Back to top{' '}
             <svg

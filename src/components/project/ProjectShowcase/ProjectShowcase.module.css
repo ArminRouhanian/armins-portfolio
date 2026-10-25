@@ -1,0 +1,162 @@
+.section {
+  background-color: var(--color-surface-dark);
+  background-image: radial-gradient(#3a3a3a 1px, transparent 1px);
+  background-size: 24px 24px;
+  padding: 96px 0 120px;
+  color: var(--color-text-light);
+  margin-top: 48px;
+}
+
+.headerContainer {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px 32px;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: var(--color-text-dim);
+  font-size: var(--font-size-body-alt);
+}
+
+/* Lightbox Modal */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 48px 24px 24px;
+  background: var(--color-overlay-lightbox);
+  backdrop-filter: blur(8px);
+  box-sizing: border-box;
+}
+
+.closeButton {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 1010;
+}
+
+.prevButton {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  z-index: 1010;
+}
+
+.nextButton {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  z-index: 1010;
+}
+
+.lightboxStage {
+  width: min(1100px, calc(100% - 112px));
+}
+
+.slide {
+  display: none;
+}
+
+.slideActive {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mobileFrame {
+  height: min(72vh, 660px);
+  aspect-ratio: 9 / 19.5;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
+}
+
+.browserFrame {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+}
+
+.browserBar {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--color-bg-subtle);
+}
+
+.browserDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-border-subtle);
+}
+
+.browserUrl {
+  margin-left: 12px;
+  flex: 1;
+  background: var(--color-surface);
+  border-radius: 6px;
+  font-size: 11px;
+  padding: 3px 10px;
+  color: var(--color-text-caption);
+}
+
+.browserImage {
+  height: min(58vh, 620px);
+}
+
+.caption {
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.thumbnailStrip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 8px 6px;
+}
+
+.thumbnail {
+  flex: none;
+  border-radius: 8px;
+  border: 0;
+  padding: 0;
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+  opacity: 0.55;
+  cursor: pointer;
+  transition:
+    opacity 0.2s,
+    outline-color 0.2s;
+}
+
+.thumbnailActive {
+  outline-color: var(--color-primary);
+  opacity: 1;
+}

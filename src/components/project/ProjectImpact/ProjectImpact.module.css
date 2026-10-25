@@ -1,0 +1,233 @@
+.wrapper {
+  --dk: 1;
+  --f: 1;
+  --pgc: color-mix(in srgb, #444 calc(var(--dk) * 100%), #d0d0d0);
+  position: relative;
+}
+
+.backgroundWrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.backgroundGrid {
+  height: 100%;
+  background-color: var(--color-text-primary);
+  background-image: radial-gradient(#3a3a3a 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.section {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 96px 32px;
+}
+
+.stickyLayout {
+  position: sticky;
+  top: calc(var(--header-height, 65px) + 24px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 48px;
+  align-items: center;
+}
+
+.textPrimary {
+  color: color-mix(
+    in srgb,
+    var(--color-text-light) calc(var(--dk) * 100%),
+    var(--color-text-primary)
+  );
+}
+
+.textSecondary {
+  color: color-mix(
+    in srgb,
+    #c4c4c4 calc(var(--dk) * 100%),
+    var(--color-text-secondary)
+  );
+}
+
+.textMuted {
+  color: color-mix(
+    in srgb,
+    var(--color-text-dim) calc(var(--dk) * 100%),
+    var(--color-text-caption)
+  );
+}
+
+.k0 {
+  color: color-mix(
+    in srgb,
+    var(--color-primary-light) calc(var(--dk) * 100%),
+    var(--color-primary-dark)
+  );
+}
+
+.k1 {
+  color: color-mix(
+    in srgb,
+    var(--color-purple-subtle) calc(var(--dk) * 100%),
+    var(--color-purple)
+  );
+}
+
+.k2 {
+  color: color-mix(
+    in srgb,
+    var(--color-green-light) calc(var(--dk) * 100%),
+    var(--color-green-dark)
+  );
+}
+
+.k3 {
+  color: color-mix(
+    in srgb,
+    var(--color-orange-subtle) calc(var(--dk) * 100%),
+    var(--color-orange-dark)
+  );
+}
+
+.intro {
+  margin-top: 12px;
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+}
+
+.descContainer {
+  position: relative;
+  height: 210px;
+  margin-top: 32px;
+}
+
+.descSlide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.descNumLabel {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-bold);
+}
+
+.descTitle {
+  margin-top: 8px;
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+  font-weight: var(--font-weight-bold);
+}
+
+.descBody {
+  margin-top: 12px;
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+}
+
+.progressRail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.progressTicks {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+}
+
+.progressTick {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-border-subtle);
+}
+
+.progressCounter {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.progressHint {
+  margin-top: 16px;
+  font-size: var(--font-size-caption);
+}
+
+.cardsContainer {
+  position: relative;
+  height: 360px;
+}
+
+.cardSlide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.cardIndexLabel {
+  margin: 0 0 10px;
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+}
+
+.metricCard {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  padding: 36px 28px 28px;
+  height: 300px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTopAccent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardPeriod {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-caption);
+}
+
+.cardStatValue {
+  margin: auto 0 0;
+  font-size: var(--font-size-stat);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-stat);
+  letter-spacing: -0.03em;
+}
+
+.cardSub {
+  margin-top: 8px;
+  color: var(--color-text-secondary);
+}
+
+.spacer {
+  height: 1380px;
+}

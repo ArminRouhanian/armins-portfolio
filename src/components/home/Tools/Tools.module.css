@@ -1,0 +1,36 @@
+.section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 32px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px 56px;
+  align-items: center;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.bodyText {
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+  color: var(--color-text-secondary);
+}
+
+.bodyTextSpaced {
+  margin-top: 16px;
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+  color: var(--color-text-secondary);
+}
+
+.toolListCaption {
+  margin-top: 20px;
+  font-size: var(--font-size-body-sm);
+  line-height: 1.7;
+  color: var(--color-text-caption);
+}
