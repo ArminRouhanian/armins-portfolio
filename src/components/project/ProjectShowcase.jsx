@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import SectionHeader from '../common/SectionHeader/SectionHeader'
 import Button from '../common/Button/Button'
+import ShowcaseItems from './ShowcaseItems/ShowcaseItems'
 
 export default function ProjectShowcase({ showcase }) {
   const [activeIdx, setActiveIdx] = useState(0)
@@ -8,6 +9,8 @@ export default function ProjectShowcase({ showcase }) {
 
   const items = showcase?.items || []
   const count = items.length
+  const type = showcase?.type || 'desktop'
+  const isMobile = type === 'mobile'
 
   const openLightbox = useCallback((index) => {
     setActiveIdx(index)
@@ -79,59 +82,11 @@ export default function ProjectShowcase({ showcase }) {
             through.
           </p>
         </div>
-        <div
-          style={{
-            maxWidth: '1120px',
-            margin: '0 auto',
-            padding: '0 32px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))',
-            gap: '24px'
-          }}
-        >
-          {items.map((item, index) => (
-            <div
-              key={index}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '8px'
-              }}
-            >
-              <span
-                onClick={() => openLightbox(index)}
-                style={{
-                  fontSize: 'var(--font-size-caption)',
-                  fontWeight: 'var(--font-weight-medium)',
-                  color: '#C4C4C4',
-                  lineHeight: '1.2',
-                  cursor: 'pointer'
-                }}
-              >
-                {item.label}
-              </span>
-              <div
-                className="fr"
-                onClick={() => openLightbox(index)}
-                style={{ cursor: 'pointer' }}
-              >
-                <div className="bar">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-                <div
-                  style={{
-                    height: '240px',
-                    background: item.image
-                      ? `url("${item.image}") center / cover no-repeat`
-                      : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)'
-                  }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+        <ShowcaseItems
+          items={items}
+          type={type}
+          onItemClick={openLightbox}
+        />
       </section>
 
       {/* Lightbox Modal */}
@@ -198,25 +153,41 @@ export default function ProjectShowcase({ showcase }) {
                 className={`sl${index === activeIdx ? ' on' : ''}`}
                 data-n={item.label}
               >
-                <div
-                  className="fr"
-                  style={{ boxShadow: '0 32px 64px rgba(0,0,0,.5)' }}
-                >
-                  <div className="bar">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <span>yourproduct.com</span>
-                  </div>
+                {isMobile ? (
                   <div
                     style={{
-                      height: 'min(58vh,620px)',
+                      height: 'min(72vh, 660px)',
+                      aspectRatio: '9 / 19.5',
+                      borderRadius: '24px',
+                      overflow: 'hidden',
+                      boxShadow: '0 32px 64px rgba(0,0,0,0.6)',
                       background: item.image
                         ? `url("${item.image}") center / cover no-repeat`
-                        : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)'
+                        : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)',
+                      margin: '0 auto'
                     }}
                   />
-                </div>
+                ) : (
+                  <div
+                    className="fr"
+                    style={{ boxShadow: '0 32px 64px rgba(0,0,0,.5)' }}
+                  >
+                    <div className="bar">
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                      <span>yourproduct.com</span>
+                    </div>
+                    <div
+                      style={{
+                        height: 'min(58vh,620px)',
+                        background: item.image
+                          ? `url("${item.image}") center / cover no-repeat`
+                          : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)'
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -234,11 +205,13 @@ export default function ProjectShowcase({ showcase }) {
                 aria-label={item.label}
                 onClick={() => setActiveIdx(index)}
                 style={{
+                  width: isMobile ? '38px' : '96px',
+                  height: '60px',
                   background: item.image
                     ? `url("${item.image}") center / cover no-repeat`
                     : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)'
                 }}
-              ></button>
+              />
             ))}
           </div>
         </div>

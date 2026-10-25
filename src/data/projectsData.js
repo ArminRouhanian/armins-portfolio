@@ -142,6 +142,7 @@ export const projectsData = {
       ]
     },
     showcase: {
+      type: 'desktop',
       items: [
         {
           gradient: 'linear-gradient(135deg,#A259FF,#1ABCFE)',
@@ -349,6 +350,7 @@ export const projectsData = {
       ]
     },
     showcase: {
+      type: 'mobile',
       items: [
         {
           gradient: 'linear-gradient(135deg,#F24E1E,#FF7262)',
@@ -531,6 +533,7 @@ export const projectsData = {
       ]
     },
     showcase: {
+      type: 'desktop',
       items: [
         {
           image: '/assets/metamondial3d-dd748f47-82ad-4f06-89c7-89f18b64fa1e.png',
