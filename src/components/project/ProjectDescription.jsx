@@ -1,4 +1,5 @@
 import React from 'react'
+import SectionHeader from '../common/SectionHeader/SectionHeader'
 
 export default function ProjectDescription({ overview }) {
   if (!overview) return null
@@ -15,26 +16,10 @@ export default function ProjectDescription({ overview }) {
         gap: '32px 64px'
       }}
     >
-      <div>
-        <p
-          style={{
-            fontSize: 'var(--font-size-caption)',
-            fontWeight: 'var(--font-weight-bold)',
-            color: 'var(--color-primary-dark)'
-          }}
-        >
-          01 · OVERVIEW
-        </p>
-        <h2
-          style={{
-            marginTop: '8px',
-            fontSize: 'var(--font-size-h1)',
-            lineHeight: 'var(--line-height-h1)'
-          }}
-        >
-          About the business
-        </h2>
-      </div>
+      <SectionHeader
+        label="01 · OVERVIEW"
+        title="About the business"
+      />
       <div
         style={{
           gridColumn: 'span 2',

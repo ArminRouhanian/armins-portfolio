@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import SectionHeader from '../common/SectionHeader/SectionHeader'
 
 export default function ProjectShowcase({ showcase }) {
   const [activeIdx, setActiveIdx] = useState(0)
@@ -61,23 +62,11 @@ export default function ProjectShowcase({ showcase }) {
             padding: '0 32px 32px'
           }}
         >
-          <p
-            style={{
-              fontSize: 'var(--font-size-caption)',
-              fontWeight: 'var(--font-weight-bold)',
-              color: 'var(--color-primary-light)'
-            }}
-          >
-            04 · SHOWCASE
-          </p>
-          <h2
-            style={{
-              marginTop: '8px',
-              fontSize: 'var(--font-size-h1)'
-            }}
-          >
-            Design mockups
-          </h2>
+          <SectionHeader
+            dark
+            label="04 · SHOWCASE"
+            title="Design mockups"
+          />
           <p
             style={{
               marginTop: '8px',

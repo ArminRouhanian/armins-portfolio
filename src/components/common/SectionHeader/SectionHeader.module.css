@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-dark);
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-h1);
+  margin: 8px 0 0;
+  color: var(--color-text-primary);
+}
+
+/* Dark variant for sections on dark backgrounds */
+.containerDark .label {
+  color: var(--color-primary-light);
+}
+
+.containerDark .title {
+  color: var(--color-text-light);
+}

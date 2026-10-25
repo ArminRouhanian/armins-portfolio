@@ -1,4 +1,5 @@
 import React from 'react'
+import SectionHeader from '../common/SectionHeader/SectionHeader'
 
 export default function ProjectComments() {
   return (
@@ -10,23 +11,11 @@ export default function ProjectComments() {
         padding: '96px 32px 120px'
       }}
     >
-      <p
-        style={{
-          fontSize: 'var(--font-size-caption)',
-          fontWeight: 'var(--font-weight-bold)',
-          color: 'var(--color-green)'
-        }}
-      >
-        05 · FEEDBACK
-      </p>
-      <h2
-        style={{
-          margin: '8px 0 40px',
-          fontSize: 'var(--font-size-h1)'
-        }}
-      >
-        What the team says
-      </h2>
+      <SectionHeader
+        label="05 · FEEDBACK"
+        title="What the team says"
+        style={{ marginBottom: '40px' }}
+      />
       <div
         style={{
           display: 'grid',

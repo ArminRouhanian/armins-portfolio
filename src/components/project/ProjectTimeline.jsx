@@ -1,4 +1,5 @@
 import React from 'react'
+import SectionHeader from '../common/SectionHeader/SectionHeader'
 
 export default function ProjectTimeline({ timeline }) {
   if (!timeline) return null
@@ -12,23 +13,11 @@ export default function ProjectTimeline({ timeline }) {
         padding: '96px 32px'
       }}
     >
-      <p
-        style={{
-          fontSize: 'var(--font-size-caption)',
-          fontWeight: 'var(--font-weight-bold)',
-          color: 'var(--color-purple)'
-        }}
-      >
-        03 · TIMELINE
-      </p>
-      <h2
-        style={{
-          margin: '8px 0 40px',
-          fontSize: 'var(--font-size-h1)'
-        }}
-      >
-        How the work evolved
-      </h2>
+      <SectionHeader
+        label="03 · TIMELINE"
+        title="How the work evolved"
+        style={{ marginBottom: '40px' }}
+      />
       <div
         style={{
           marginLeft: '8px',

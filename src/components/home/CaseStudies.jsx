@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Badge from '../common/Badge/Badge'
+import SectionHeader from '../common/SectionHeader/SectionHeader'
 
 export default function CaseStudies() {
   return (
@@ -13,18 +14,11 @@ export default function CaseStudies() {
         scrollMarginTop: '0px'
       }}
     >
-      <p
-        style={{
-          fontSize: 'var(--font-size-caption)',
-          fontWeight: 'var(--font-weight-bold)',
-          color: 'var(--color-primary-dark)'
-        }}
-      >
-        03 · CASE STUDIES
-      </p>
-      <h2 style={{ margin: '8px 0 24px', fontSize: 'var(--font-size-h1)' }}>
-        How I approach problems
-      </h2>
+      <SectionHeader
+        label="03 · CASE STUDIES"
+        title="How I approach problems"
+        style={{ marginBottom: '24px' }}
+      />
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <a
           href="#"

@@ -1,5 +1,6 @@
 import React from 'react'
 import Badge from '../common/Badge/Badge'
+import SectionHeader from '../common/SectionHeader/SectionHeader'
 
 export default function ProjectImpact({ impact }) {
   if (!impact) return null
@@ -21,33 +22,12 @@ export default function ProjectImpact({ impact }) {
       >
         <div className="stk">
           <div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '12px'
-              }}
-            >
-              <p
-                className="i-lb"
-                style={{
-                  fontSize: 'var(--font-size-caption)',
-                  fontWeight: 'var(--font-weight-bold)'
-                }}
-              >
-                02 · IMPACT
-              </p>
-            </div>
-            <h2
-              className="i-t1"
-              style={{
-                marginTop: '8px',
-                fontSize: 'var(--font-size-h1)'
-              }}
-            >
-              Impact at a glance
-            </h2>
+            <SectionHeader
+              dark
+              label="02 · IMPACT"
+              title="Impact at a glance"
+              titleClassName="i-t1"
+            />
             <p
               className="i-t2"
               style={{

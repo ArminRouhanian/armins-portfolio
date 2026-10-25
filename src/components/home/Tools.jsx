@@ -1,5 +1,6 @@
 import React from 'react'
 import ToolsAnimation from './ToolsAnimation'
+import SectionHeader from '../common/SectionHeader/SectionHeader'
 
 export default function Tools() {
   return (
@@ -20,24 +21,11 @@ export default function Tools() {
         }}
       >
         <div>
-          <p
-            style={{
-              fontSize: 'var(--font-size-caption)',
-              fontWeight: 'var(--font-weight-bold)',
-              color: 'var(--color-primary-dark)'
-            }}
-          >
-            02 · TOOLS
-          </p>
-          <h2
-            style={{
-              margin: '8px 0 20px',
-              fontSize: 'var(--font-size-h1)',
-              lineHeight: 'var(--line-height-h1)'
-            }}
-          >
-            Tools I use to make things clear
-          </h2>
+          <SectionHeader
+            label="02 · TOOLS"
+            title="Tools I use to make things clear"
+            style={{ marginBottom: '20px' }}
+          />
           <p
             style={{
               fontSize: 'var(--font-size-body-lg)',
