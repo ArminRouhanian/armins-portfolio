@@ -1,0 +1,56 @@
+.section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 96px 32px;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.track {
+  margin-left: 8px;
+  padding-left: 32px;
+  border-left: 2px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.step {
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  left: -41px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--color-bg-alt);
+}
+
+.period {
+  margin: 0;
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-caption);
+  color: var(--color-text-muted);
+}
+
+.title {
+  margin: 4px 0 0;
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.desc {
+  margin: 8px 0 0;
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+  color: var(--color-text-secondary);
+  max-width: 640px;
+}

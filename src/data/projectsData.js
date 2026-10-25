@@ -116,25 +116,25 @@ export const projectsData = {
     timeline: {
       steps: [
         {
-          dotColor: '#F24E1E',
+          dotColor: 'var(--color-orange)',
           period: 'June 2021 · Developer',
           title: 'Joined Pinket as a backend and full-stack developer',
           desc: 'Built backend features with Java and PostgreSQL, working with APIs, business logic, and data architecture, then expanded into React.js.'
         },
         {
-          dotColor: '#A259FF',
+          dotColor: 'var(--color-purple-light)',
           period: 'June 2022 · Designer',
           title: 'Moved into UI/UX design',
           desc: 'Took over product design across B2B and B2C products and became the owner of all design files and the approver of internal design decisions.'
         },
         {
-          dotColor: '#0ACF83',
+          dotColor: 'var(--color-green)',
           period: '[Year] · First theme',
           title: 'Updated the first dashboards theme',
           desc: 'Refreshed the original dashboard theme and workflows. [Add what changed and the outcome.]'
         },
         {
-          dotColor: '#1ABCFE',
+          dotColor: 'var(--color-primary-light)',
           period: 'April – June 2025 · Design system',
           title: 'Applied UntitledUI across all dashboards',
           desc: 'Rebuilt the design system for the admin, vendor, and organization dashboards. It made them responsive and easier to scale, and components and colors stopped being daily design work.'
@@ -172,11 +172,11 @@ export const projectsData = {
     },
     comments: [
       {
-        initials: 'PM',
+        initials: 'APM',
         avatarBg: 'primary',
-        name: '[Teammate Name]',
-        role: 'Product Manager',
-        quote: '[Replace with a short, honest quote from a colleague about how it was to work with you on this project.]'
+        name: 'Erfan Zamani',
+        role: ' Associate Product Manager',
+        quote: 'He keeps users’ needs and feedback at the heart of his work, creating intuitive, easy-to-use experiences. He also has a great eye for visual design, balancing aesthetics with functionality to deliver thoughtful, cohesive solutions.'
       },
       {
         initials: 'FE',
@@ -324,25 +324,25 @@ export const projectsData = {
     timeline: {
       steps: [
         {
-          dotColor: '#F24E1E',
+          dotColor: 'var(--color-orange)',
           period: 'June 2021 · Developer',
           title: 'Joined Pinket as a backend and full-stack developer',
           desc: 'Built backend features with Java and PostgreSQL, working with APIs, business logic, and data architecture, then expanded into React.js.'
         },
         {
-          dotColor: '#A259FF',
+          dotColor: 'var(--color-purple-light)',
           period: 'June 2022 · Designer',
           title: 'Moved into UI/UX design',
           desc: 'Took over product design across B2B and B2C products and became the owner of all design files and the approver of internal design decisions.'
         },
         {
-          dotColor: '#0ACF83',
+          dotColor: 'var(--color-green)',
           period: '[Year] · Customer app',
           title: 'Evolved the app through repeated product changes',
           desc: 'The app and the idea changed many times over the years, so the design evolved continuously while staying unified.'
         },
         {
-          dotColor: '#1ABCFE',
+          dotColor: 'var(--color-primary-light)',
           period: '[Year] · Pivot',
           title: 'Unified the UI after the B2B2C pivot',
           desc: 'Moved away from the older UI kit, updated journeys based on new competitors, and brought new values to the app.'
@@ -507,25 +507,25 @@ export const projectsData = {
     timeline: {
       steps: [
         {
-          dotColor: '#F24E1E',
+          dotColor: 'var(--color-orange)',
           period: '[Phase 1] · Discovery',
           title: 'Competitor Analysis & Foundation',
           desc: "I've spent 4 days to check competitors & Ideas given to me. My Client wanted to have something similar to ArtStation, but focus on AI, NFT & Metaverse. In this phase, I managed to analyze 4 similar companies related to metaverse to learn how they behave and what do they target. [Add the outcome in one line.]"
         },
         {
-          dotColor: '#A259FF',
+          dotColor: 'var(--color-purple-light)',
           period: '[Phase 2] · Design',
           title: 'Sketching & Wireframing',
           desc: '[What happened in this phase]. [Add the outcome in one line.]'
         },
         {
-          dotColor: '#0ACF83',
+          dotColor: 'var(--color-green)',
           period: '[Phase 3] · Delivery',
           title: 'Revision & Implementation',
           desc: '[What happened in this phase]. [Add the outcome in one line.]'
         },
         {
-          dotColor: '#1ABCFE',
+          dotColor: 'var(--color-primary-light)',
           period: '[Phase 4] · Outcome',
           title: 'Mistakes, Lessons & Reflections',
           desc: '[What happened in this phase]. [Add the outcome in one line.]'
