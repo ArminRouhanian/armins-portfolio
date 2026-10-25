@@ -3,8 +3,10 @@ import { useEffect } from 'react'
 export function useCaseStudyInteractions() {
   useEffect(() => {
     // 1. Smooth scroll for in-page anchors with precise header offset
+    let cachedHeaderH = 65
     const syncHeaderHeight = () => {
       const headerH = document.querySelector('header')?.offsetHeight || 65
+      cachedHeaderH = headerH
       document.documentElement.style.setProperty('--header-height', `${headerH}px`)
       return headerH
     }
@@ -136,7 +138,7 @@ export function useCaseStudyInteractions() {
 
       const links = nav.querySelectorAll('a')
       const pill = nav.querySelector('i')
-      const headerH = syncHeaderHeight()
+      const headerH = cachedHeaderH
 
       let k = 0
       for (let i = 0; i < ids.length; i++) {
@@ -185,6 +187,7 @@ export function useCaseStudyInteractions() {
     }
 
     const handleResize = () => {
+      syncHeaderHeight()
       prevActiveK = -1
       handleScrollSpy()
     }
@@ -218,21 +221,24 @@ export function useCaseStudyInteractions() {
       const clamp = (val, min, max) => Math.min(Math.max(val, min), max)
 
       const paint = () => {
-        ds.forEach((el, i) => {
-          const d = cur - i
-          const a = clamp(Math.abs(d), 0, 1)
-          const x = 1 - a
-          el.style.opacity = Math.max(0.12, x)
-          el.style.transform = calm
-            ? 'none'
-            : `translateY(${(d < 0 ? 1 : -1) * a * 20}px)`
-        })
-        cs.forEach((el, i) =>
-          requestAnimationFrame(() => {
+        ;[ds, cs].forEach((list) =>
+          list.forEach((el, i) => {
             const d = cur - i
             const a = Math.abs(d)
-            const x = Math.min(a, 1)
-            el.style.opacity = String(clamp(1 - x * 1.5, 0, 1))
+            const x = clamp((a - 0.25) / 0.25, 0, 1)
+            const opacity = calm ? (a < 0.5 ? 1 : 0) : 1 - x
+
+            if (opacity <= 0.001) {
+              if (el.style.visibility !== 'hidden') {
+                el.style.opacity = '0'
+                el.style.visibility = 'hidden'
+                el.style.pointerEvents = 'none'
+              }
+              return
+            }
+
+            el.style.visibility = 'visible'
+            el.style.opacity = String(opacity)
             el.style.transform = calm
               ? 'none'
               : `translateY(${(d < 0 ? 1 : -1) * x * 36}px)`
@@ -242,15 +248,26 @@ export function useCaseStudyInteractions() {
         const t = (cur / Math.max(1, n - 1)) * n
         ps.forEach((el, i) => {
           const f = Math.round(clamp(t - i, 0, 1) * 100)
-          el.style.background = `linear-gradient(90deg, #0D99FF ${f}%, var(--pgc, #E5E5E5) ${f}%)`
+          if (el._lastF !== f) {
+            el._lastF = f
+            el.style.background = `linear-gradient(90deg, #0D99FF ${f}%, var(--pgc, #E5E5E5) ${f}%)`
+          }
         })
-        if (cnt) cnt.textContent = `0${Math.round(cur) + 1} / 0${n}`
+        const activeNum = Math.round(cur) + 1
+        if (cnt && cnt._lastNum !== activeNum) {
+          cnt._lastNum = activeNum
+          cnt.textContent = `0${activeNum} / 0${n}`
+        }
       }
 
       const tick = () => {
         const diff = target - cur
-        cur += calm ? diff : clamp(diff * 0.16, -0.06, 0.06)
-        if (Math.abs(target - cur) < 0.002) cur = target
+        if (calm) {
+          cur = target
+        } else {
+          cur += diff * 0.35
+          if (Math.abs(diff) < 0.001) cur = target
+        }
         paint()
         if (cur !== target) {
           rafId = requestAnimationFrame(tick)
@@ -261,8 +278,7 @@ export function useCaseStudyInteractions() {
 
       const handleImpactScroll = () => {
         const r = impactSec.getBoundingClientRect()
-        const hh = syncHeaderHeight()
-        target = clamp((hh - 72 - r.top) / step, 0, n - 1)
+        target = clamp((cachedHeaderH - 72 - r.top) / step, 0, n - 1)
         if (!run) {
           run = true
           rafId = requestAnimationFrame(tick)

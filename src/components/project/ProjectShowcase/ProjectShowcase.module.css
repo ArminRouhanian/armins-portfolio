@@ -71,6 +71,11 @@
   z-index: 1010;
 }
 
+.prevButton:hover,
+.nextButton:hover {
+  transform: translateY(-50%) !important;
+}
+
 .lightboxStage {
   width: min(1100px, calc(100% - 112px));
 }
