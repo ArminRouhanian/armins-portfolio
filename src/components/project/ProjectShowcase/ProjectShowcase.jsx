@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
 import Button from '../../common/Button/Button'
 import ShowcaseItems from '../ShowcaseItems/ShowcaseItems'
@@ -6,7 +6,14 @@ import styles from './ProjectShowcase.module.css'
 
 export default function ProjectShowcase({ showcase }) {
   const [activeIdx, setActiveIdx] = useState(0)
+  const [slideDirection, setSlideDirection] = useState('next')
   const [isOpen, setIsOpen] = useState(false)
+  const [listActiveIdx, setListActiveIdx] = useState(0)
+
+  const listTrackRef = useRef(null)
+  const touchStartRef = useRef({ x: 0, y: 0, time: 0, valid: false })
+  const thumbStripRef = useRef(null)
+  const thumbRefs = useRef([])
 
   const items = showcase?.items || []
   const count = items.length
@@ -15,6 +22,7 @@ export default function ProjectShowcase({ showcase }) {
 
   const openLightbox = useCallback((index) => {
     setActiveIdx(index)
+    setSlideDirection('next')
     setIsOpen(true)
     document.documentElement.style.overflow = 'hidden'
   }, [])
@@ -25,12 +33,95 @@ export default function ProjectShowcase({ showcase }) {
   }, [])
 
   const nextSlide = useCallback(() => {
+    setSlideDirection('next')
     setActiveIdx((prev) => (prev + 1) % count)
   }, [count])
 
   const prevSlide = useCallback(() => {
+    setSlideDirection('prev')
     setActiveIdx((prev) => (prev - 1 + count) % count)
   }, [count])
+
+  // Track horizontal scroll of showcase list on mobile
+  const handleListScroll = useCallback(() => {
+    const el = listTrackRef.current
+    if (!el) return
+    const firstChild = el.firstElementChild
+    if (!firstChild) return
+    const itemWidth = firstChild.offsetWidth
+    const gap = 16
+    const totalItemWidth = itemWidth + gap
+    const scrollPos = el.scrollLeft
+    const idx = Math.round(scrollPos / totalItemWidth)
+    setListActiveIdx(Math.max(0, Math.min(count - 1, idx)))
+  }, [count])
+
+  const scrollToListSlide = (index) => {
+    const el = listTrackRef.current
+    if (!el) return
+    const firstChild = el.firstElementChild
+    if (!firstChild) return
+    const itemWidth = firstChild.offsetWidth
+    const gap = 16
+    const targetLeft = index * (itemWidth + gap)
+    el.scrollTo({ left: targetLeft, behavior: 'smooth' })
+    setListActiveIdx(index)
+  }
+
+  // Lightbox touch swipe handlers
+  const handleLightboxTouchStart = (e) => {
+    if (!e.touches || e.touches.length === 0) return
+    // Ignore touches initiated on the thumbnail strip or close button
+    if (
+      e.target.closest &&
+      (e.target.closest(`.${styles.thumbnailStrip}`) ||
+        e.target.closest(`.${styles.closeButton}`))
+    ) {
+      return
+    }
+    touchStartRef.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+      time: Date.now(),
+      valid: true
+    }
+  }
+
+  const handleLightboxTouchEnd = (e) => {
+    if (!touchStartRef.current.valid) return
+    touchStartRef.current.valid = false
+    if (!e.changedTouches || e.changedTouches.length === 0) return
+    const dx = e.changedTouches[0].clientX - touchStartRef.current.x
+    const dy = e.changedTouches[0].clientY - touchStartRef.current.y
+    const dt = Date.now() - touchStartRef.current.time
+
+    // Require horizontal movement greater than vertical movement
+    if (
+      Math.abs(dx) > Math.abs(dy) &&
+      (Math.abs(dx) > 35 || (Math.abs(dx) > 20 && dt < 300))
+    ) {
+      if (dx < 0) {
+        nextSlide()
+      } else {
+        prevSlide()
+      }
+    }
+  }
+
+  // Ensure active thumbnail is smoothly centered into view when activeIdx changes
+  useEffect(() => {
+    if (!isOpen) return
+    const selectedThumb = thumbRefs.current[activeIdx]
+    const strip = thumbStripRef.current
+    if (selectedThumb && strip) {
+      const targetScroll =
+        selectedThumb.offsetLeft - (strip.clientWidth / 2) + (selectedThumb.offsetWidth / 2)
+      strip.scrollTo({
+        left: Math.max(0, targetScroll),
+        behavior: 'smooth'
+      })
+    }
+  }, [activeIdx, isOpen])
 
   useEffect(() => {
     if (!isOpen) return
@@ -56,16 +147,31 @@ export default function ProjectShowcase({ showcase }) {
             label="04 · SHOWCASE"
             title="Design mockups"
           />
-          <p className={styles.subtitle}>
-            Click any mockup to open the viewer. Use arrow keys to step
-            through.
+          <p className={styles.subtitleDesktop}>
+            Click any mockup to open the viewer. Use arrow keys to step through.
+          </p>
+          <p className={styles.subtitleMobile}>
+            Tap any mockup to open viewer. Swipe to browse.
           </p>
         </div>
         <ShowcaseItems
+          ref={listTrackRef}
           items={items}
           type={type}
           onItemClick={openLightbox}
+          onScroll={handleListScroll}
         />
+        <div className={styles.dots} aria-label="Mockup pagination">
+          {items.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              className={`${styles.dot}${index === listActiveIdx ? ` ${styles.dotActive}` : ''}`}
+              aria-label={`Go to mockup ${index + 1}`}
+              onClick={() => scrollToListSlide(index)}
+            />
+          ))}
+        </div>
       </section>
 
       {isOpen && (
@@ -78,6 +184,8 @@ export default function ProjectShowcase({ showcase }) {
           onClick={(e) => {
             if (e.target.id === 'lb') closeLightbox()
           }}
+          onTouchStart={handleLightboxTouchStart}
+          onTouchEnd={handleLightboxTouchEnd}
         >
           <Button
             variant="iconOnly"
@@ -110,7 +218,13 @@ export default function ProjectShowcase({ showcase }) {
             {items.map((item, index) => (
               <div
                 key={index}
-                className={`${styles.slide}${index === activeIdx ? ` ${styles.slideActive}` : ''}`}
+                className={`${styles.slide}${
+                  index === activeIdx
+                    ? slideDirection === 'prev'
+                      ? ` ${styles.slideActivePrev}`
+                      : ` ${styles.slideActiveNext}`
+                    : ''
+                }`}
                 data-n={item.label}
               >
                 {isMobile ? (
@@ -148,17 +262,22 @@ export default function ProjectShowcase({ showcase }) {
             {activeIdx + 1} / {count} · {items[activeIdx]?.label || ''}
           </p>
 
-          <div className={styles.thumbnailStrip}>
+          <div
+            ref={thumbStripRef}
+            className={styles.thumbnailStrip}
+          >
             {items.map((item, index) => (
               <button
                 key={index}
+                ref={(el) => (thumbRefs.current[index] = el)}
                 type="button"
-                className={`${styles.thumbnail}${index === activeIdx ? ` ${styles.thumbnailActive}` : ''}`}
+                className={`${styles.thumbnail}${isMobile ? ` ${styles.thumbnailMobileType}` : ''}${index === activeIdx ? ` ${styles.thumbnailActive}` : ''}`}
                 aria-label={item.label}
-                onClick={() => setActiveIdx(index)}
+                onClick={() => {
+                  setSlideDirection(index > activeIdx ? 'next' : 'prev')
+                  setActiveIdx(index)
+                }}
                 style={{
-                  width: isMobile ? '38px' : '96px',
-                  height: '60px',
                   background: item.image
                     ? `url("${item.image}") center / cover no-repeat`
                     : item.gradient || 'linear-gradient(135deg, #A259FF, #1ABCFE)'

@@ -63,3 +63,19 @@
   font-size: var(--font-size-h3);
   color: var(--color-text-primary);
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 32px 16px;
+  }
+
+  .card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: var(--font-size-h4);
+    min-width: 140px;
+  }
+}

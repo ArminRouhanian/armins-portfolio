@@ -55,3 +55,27 @@
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 48px 16px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .content {
+    grid-column: auto;
+  }
+
+  .leadText {
+    font-size: var(--font-size-body);
+  }
+
+  .secondaryText {
+    font-size: var(--font-size-body-sm);
+  }
+
+  .checklistGrid {
+    grid-template-columns: 1fr;
+  }
+}

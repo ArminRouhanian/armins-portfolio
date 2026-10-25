@@ -8,8 +8,89 @@
   margin-bottom: 40px;
 }
 
-.grid {
+/* Desktop layout: multi-column grid with equal heights */
+.carouselTrack {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
+  align-items: stretch;
+}
+
+.cardSlide {
+  display: flex;
+}
+
+.commentCard {
+  flex: 1;
+  width: 100%;
+}
+
+.dots {
+  display: none;
+}
+
+/* Mobile layout: swipable left-to-right carousel with snap & equal card height */
+@media (max-width: 640px) {
+  .section {
+    padding: 48px 16px 64px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+  }
+
+  .carouselTrack {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin: 0 -16px;
+    padding: 0 16px 8px;
+    align-items: stretch;
+  }
+
+  .carouselTrack::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cardSlide {
+    flex: 0 0 calc(100% - 32px);
+    max-width: calc(100% - 32px);
+    scroll-snap-align: center;
+    display: flex;
+  }
+
+  .commentCard {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border-subtle);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .dotActive {
+    width: 22px;
+    border-radius: 99px;
+    background: var(--color-primary);
+  }
 }

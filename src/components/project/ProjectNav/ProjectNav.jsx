@@ -32,7 +32,6 @@ export default function ProjectNav({ nav }) {
               <span className={styles.label}>
                 {nav.prev.label}
               </span>
-              <br />
               <b className={styles.title}>
                 {nav.prev.title}
               </b>
@@ -42,13 +41,12 @@ export default function ProjectNav({ nav }) {
         {nav.next && (
           <Link
             to={nav.next.to}
-            className={`${styles.card} ${nav.prev ? styles.cardSplit : styles.cardFull}`}
+            className={`${styles.card} ${styles.cardNext} ${nav.prev ? styles.cardSplit : styles.cardFull}`}
           >
             <span className={styles.textGroup}>
               <span className={styles.label}>
                 {nav.next.label}
               </span>
-              <br />
               <b className={styles.title}>
                 {nav.next.title}
               </b>

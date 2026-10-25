@@ -5,6 +5,10 @@
   padding: 96px 32px 72px;
 }
 
+.badgeWrapper {
+  display: block;
+}
+
 .title {
   margin-top: 24px;
   font-size: clamp(40px, 7vw, 84px);
@@ -103,6 +107,48 @@
   flex-wrap: wrap;
   gap: 12px;
   position: relative;
+}
+
+@media (max-width: 1000px) {
+  .section {
+    padding: 32px 20px 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 24px 16px 40px;
+  }
+
+  .badgeWrapper {
+    margin-top: 12px;
+  }
+
+  .title {
+    margin-top: 16px;
+    font-size: clamp(32px, 8.5vw, 44px);
+  }
+
+  .subtitle {
+    margin-top: 16px;
+    font-size: var(--font-size-body);
+  }
+
+  .actions {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 440px) {
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actions > * {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

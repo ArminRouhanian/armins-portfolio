@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import styles from './ShowcaseItems.module.css'
 
-export default function ShowcaseItems({
-  items = [],
-  type = 'desktop',
-  onItemClick,
-  className = '',
-  style
-}) {
+const ShowcaseItems = forwardRef(function ShowcaseItems(
+  {
+    items = [],
+    type = 'desktop',
+    onItemClick,
+    onScroll,
+    className = '',
+    style
+  },
+  ref
+) {
   const isMobile = type === 'mobile'
   const gridClass = isMobile ? styles.gridMobile : styles.gridDesktop
 
   return (
     <div
+      ref={ref}
+      onScroll={onScroll}
       className={`${gridClass}${className ? ` ${className}` : ''}`}
       style={style}
     >
@@ -80,4 +86,6 @@ export default function ShowcaseItems({
       })}
     </div>
   )
-}
+})
+
+export default ShowcaseItems

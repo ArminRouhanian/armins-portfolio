@@ -10,11 +10,60 @@ export function useCaseStudyInteractions() {
     }
     syncHeaderHeight()
 
-    const handleAnchorClick = e => {
+    const ids = [
+      'preview',
+      'description',
+      'impact',
+      'timeline',
+      'showcase',
+      'comments'
+    ]
+    let prevActiveK = -1
+    let isNavLock = false
+    let navLockTimeout = null
+
+    const handleAnchorClick = (e) => {
       const a = e.target.closest && e.target.closest('a[href^="#"]')
       if (!a) return
       const href = a.getAttribute('href')
       if (!href || href === '#') return
+
+      const tbLink = e.target.closest && e.target.closest('.tb a')
+      if (tbLink) {
+        const nav = tbLink.closest('.tb')
+        const links = nav ? Array.from(nav.querySelectorAll('a')) : []
+        const clickedIdx = links.indexOf(tbLink)
+
+        if (clickedIdx !== -1) {
+          isNavLock = true
+          prevActiveK = clickedIdx
+          clearTimeout(navLockTimeout)
+          navLockTimeout = setTimeout(() => {
+            isNavLock = false
+          }, 900)
+
+          // Immediately highlight destination button & move pill directly
+          links.forEach((link, idx) => link.classList.toggle('on', idx === clickedIdx))
+          const pill = nav.querySelector('i')
+          if (pill) {
+            pill.style.opacity = '1'
+            pill.style.width = tbLink.offsetWidth + 'px'
+            pill.style.height = tbLink.offsetHeight + 'px'
+            pill.style.transform = `translate(${tbLink.offsetLeft}px, ${tbLink.offsetTop}px)`
+          }
+
+          // Smoothly scroll floating nav directly to destination button
+          if (nav.scrollWidth > nav.clientWidth) {
+            const targetScrollLeft =
+              tbLink.offsetLeft - (nav.clientWidth / 2) + (tbLink.offsetWidth / 2)
+            nav.scrollTo({
+              left: Math.max(0, targetScrollLeft),
+              behavior: 'smooth'
+            })
+          }
+        }
+      }
+
       if (href === '#top') {
         e.preventDefault()
         window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -44,8 +93,8 @@ export function useCaseStudyInteractions() {
     ) {
       let seen = false
       io = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
+        (entries) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
               if (seen) return
               seen = true
@@ -67,14 +116,6 @@ export function useCaseStudyInteractions() {
     }
 
     // 3. Floating Navbar Scroll Spy, Pill indicator & Sticky position above footer
-    const ids = [
-      'preview',
-      'description',
-      'impact',
-      'timeline',
-      'showcase',
-      'comments'
-    ]
     const handleScrollSpy = () => {
       const nav = document.querySelector('.tb')
       if (!nav) return
@@ -86,6 +127,11 @@ export function useCaseStudyInteractions() {
         const overlap = window.innerHeight - footerRect.top
         const bottomOffset = overlap > 0 ? overlap + 24 : 24
         nav.style.bottom = `${bottomOffset}px`
+      }
+
+      // If user clicked a floating nav button, skip intermediate horizontal scrolls
+      if (isNavLock) {
+        return
       }
 
       const links = nav.querySelectorAll('a')
@@ -115,9 +161,40 @@ export function useCaseStudyInteractions() {
         pill.style.height = activeLink.offsetHeight + 'px'
         pill.style.transform = `translate(${activeLink.offsetLeft}px, ${activeLink.offsetTop}px)`
       }
+
+      // Automatically scroll floating navbar to keep active button smoothly visible
+      if (activeLink && k !== prevActiveK) {
+        prevActiveK = k
+        if (nav.scrollWidth > nav.clientWidth) {
+          const targetScrollLeft =
+            activeLink.offsetLeft - (nav.clientWidth / 2) + (activeLink.offsetWidth / 2)
+          nav.scrollTo({
+            left: Math.max(0, targetScrollLeft),
+            behavior: 'smooth'
+          })
+        }
+      }
     }
+
+    const unlockNavLock = () => {
+      if (isNavLock) {
+        isNavLock = false
+        clearTimeout(navLockTimeout)
+        handleScrollSpy()
+      }
+    }
+
+    const handleResize = () => {
+      prevActiveK = -1
+      handleScrollSpy()
+    }
+
     window.addEventListener('scroll', handleScrollSpy, { passive: true })
-    window.addEventListener('resize', handleScrollSpy)
+    window.addEventListener('resize', handleResize)
+    window.addEventListener('scrollend', unlockNavLock)
+    window.addEventListener('wheel', unlockNavLock, { passive: true })
+    window.addEventListener('touchstart', unlockNavLock, { passive: true })
+
     handleScrollSpy()
     setTimeout(handleScrollSpy, 100)
     setTimeout(handleScrollSpy, 500)
@@ -133,18 +210,29 @@ export function useCaseStudyInteractions() {
       const n = ds.length
       const step = 460
       const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
       let cur = 0
       let target = 0
       let run = false
 
-      const clamp = (v, a, b) => Math.max(a, Math.min(b, v))
+      const clamp = (val, min, max) => Math.min(Math.max(val, min), max)
+
       const paint = () => {
-        ;[ds, cs].forEach(list =>
-          list.forEach((el, i) => {
+        ds.forEach((el, i) => {
+          const d = cur - i
+          const a = clamp(Math.abs(d), 0, 1)
+          const x = 1 - a
+          el.style.opacity = Math.max(0.12, x)
+          el.style.transform = calm
+            ? 'none'
+            : `translateY(${(d < 0 ? 1 : -1) * a * 20}px)`
+        })
+        cs.forEach((el, i) =>
+          requestAnimationFrame(() => {
             const d = cur - i
             const a = Math.abs(d)
-            const x = clamp((a - 0.25) / 0.25, 0, 1)
-            el.style.opacity = calm ? (a < 0.5 ? 1 : 0) : 1 - x
+            const x = Math.min(a, 1)
+            el.style.opacity = String(clamp(1 - x * 1.5, 0, 1))
             el.style.transform = calm
               ? 'none'
               : `translateY(${(d < 0 ? 1 : -1) * x * 36}px)`
@@ -190,8 +278,12 @@ export function useCaseStudyInteractions() {
       document.removeEventListener('click', handleAnchorClick)
       if (io) io.disconnect()
       clearTimeout(timeoutId)
+      clearTimeout(navLockTimeout)
       window.removeEventListener('scroll', handleScrollSpy)
-      window.removeEventListener('resize', handleScrollSpy)
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('scrollend', unlockNavLock)
+      window.removeEventListener('wheel', unlockNavLock)
+      window.removeEventListener('touchstart', unlockNavLock)
       cancelAnimationFrame(rafId)
     }
   }, [])

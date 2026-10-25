@@ -13,10 +13,23 @@
   padding: 0 32px 32px;
 }
 
-.subtitle {
+.subtitleDesktop {
+  display: block;
   margin-top: 8px;
   color: var(--color-text-dim);
   font-size: var(--font-size-body-alt);
+}
+
+.subtitleMobile {
+  display: none;
+  margin-top: 8px;
+  color: var(--color-text-dim);
+  font-size: var(--font-size-body-alt);
+}
+
+/* Dots for mobile on-page swipable showcase list */
+.dots {
+  display: none;
 }
 
 /* Lightbox Modal */
@@ -66,24 +79,40 @@
   display: none;
 }
 
-.slideActive {
+.slideActiveNext {
   display: block;
-  animation: fadeIn 0.3s ease-out;
+  animation: slideInNext 0.25s ease-out;
 }
 
-@keyframes fadeIn {
+.slideActivePrev {
+  display: block;
+  animation: slideInPrev 0.25s ease-out;
+}
+
+@keyframes slideInNext {
   from {
     opacity: 0;
-    transform: scale(0.98);
+    transform: translateX(20px);
   }
   to {
     opacity: 1;
-    transform: none;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInPrev {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
 .mobileFrame {
-  height: min(72vh, 660px);
+  height: min(68vh, 600px);
   aspect-ratio: 9 / 19.5;
   border-radius: 24px;
   overflow: hidden;
@@ -139,11 +168,36 @@
   gap: 12px;
   overflow-x: auto;
   max-width: 100%;
-  padding: 8px 6px;
+  padding: 8px 12px 16px;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.08);
+}
+
+.thumbnailStrip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.thumbnailStrip::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  margin: 0 16px;
+}
+
+.thumbnailStrip::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 99px;
+  transition: background-color 0.2s;
+}
+
+.thumbnailStrip::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .thumbnail {
   flex: none;
+  width: 96px;
+  height: 60px;
   border-radius: 8px;
   border: 0;
   padding: 0;
@@ -156,7 +210,173 @@
     outline-color 0.2s;
 }
 
+.thumbnailMobileType {
+  width: 38px;
+  height: 60px;
+}
+
 .thumbnailActive {
   outline-color: var(--color-primary);
   opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 48px 0 64px;
+    margin-top: 32px;
+  }
+
+  .headerContainer {
+    padding: 0 16px 20px;
+  }
+
+  .subtitleDesktop {
+    display: none;
+  }
+
+  .subtitleMobile {
+    display: block;
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .dotActive {
+    width: 22px;
+    border-radius: 99px;
+    background: var(--color-primary);
+  }
+
+  .lightbox {
+    padding: 44px 12px max(12px, env(safe-area-inset-bottom));
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .lightboxStage {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    touch-action: pan-y;
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+  }
+
+  .slideActiveNext,
+  .slideActivePrev {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* No next or prev buttons in mobile lightbox view */
+  .prevButton,
+  .nextButton {
+    display: none !important;
+  }
+
+  .closeButton {
+    top: 10px;
+    right: 12px;
+  }
+
+  .mobileFrame {
+    height: min(calc(100dvh - 160px), 580px);
+    max-height: 100%;
+    aspect-ratio: 9 / 19.5;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+    margin: 0 auto;
+    width: auto;
+    max-width: calc(100vw - 32px);
+  }
+
+  .browserFrame {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--color-surface);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+  }
+
+  .browserBar {
+    padding: 8px 10px;
+  }
+
+  .browserImage {
+    height: min(54vh, calc(100dvh - 210px));
+    width: 100%;
+  }
+
+  .caption {
+    font-size: var(--font-size-caption);
+    margin: 0;
+    flex-shrink: 0;
+    text-align: center;
+  }
+
+  .thumbnailStrip {
+    flex-shrink: 0;
+    margin: 0 auto;
+    width: max-content;
+    max-width: 100%;
+    gap: 6px;
+    padding: 4px 8px 8px;
+    box-sizing: border-box;
+  }
+
+  .thumbnail {
+    width: 48px;
+    height: 32px;
+    border-radius: 6px;
+    outline-offset: 2px;
+  }
+
+  .thumbnailMobileType {
+    width: 20px;
+    height: 34px;
+    border-radius: 6px;
+    outline-offset: 2px;
+  }
+
+  .thumbnailStrip::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .thumbnailStrip::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    margin: 0 12px;
+  }
+
+  .thumbnailStrip::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 99px;
+  }
 }

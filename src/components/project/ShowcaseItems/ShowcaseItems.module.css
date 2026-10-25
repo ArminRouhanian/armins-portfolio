@@ -31,7 +31,7 @@
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  max-width: 260px;
+  max-width: 220px;
 }
 
 /* Item Label above top-left */
@@ -144,4 +144,42 @@
   border-radius: 2px;
   z-index: 2;
   pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .gridDesktop,
+  .gridMobile {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 16px;
+    padding: 0 16px 12px;
+    justify-items: unset;
+  }
+
+  .gridDesktop::-webkit-scrollbar,
+  .gridMobile::-webkit-scrollbar {
+    display: none;
+  }
+
+  .itemWrapper {
+    flex: 0 0 calc(100% - 36px);
+    max-width: calc(100% - 36px);
+    scroll-snap-align: center;
+  }
+
+  .itemWrapperMobile {
+    flex: 0 0 195px;
+    max-width: 195px;
+    scroll-snap-align: center;
+  }
+
+  .desktopScreen {
+    height: 200px;
+  }
 }

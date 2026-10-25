@@ -56,3 +56,22 @@
   display: flex;
   gap: 8px;
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 32px 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cardBanner {
+    height: 160px;
+  }
+
+  .cardBody {
+    padding: 16px;
+  }
+}

@@ -9,7 +9,36 @@
 
 @media (max-width: 1000px) {
   .stage {
-    display: none;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 0 auto 20px;
+    transform-origin: top center;
+    transform: scale(0.85);
+    height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .stage {
+    margin: 0 auto 16px;
+    transform: scale(0.74);
+    height: 210px;
+  }
+}
+
+@media (max-width: 440px) {
+  .stage {
+    margin: 0 auto 12px;
+    transform: scale(0.68);
+    height: 190px;
+  }
+}
+
+@media (max-width: 375px) {
+  .stage {
+    transform: scale(0.62);
+    height: 175px;
   }
 }
 

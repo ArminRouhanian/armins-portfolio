@@ -11,8 +11,18 @@
   align-items: center;
 }
 
+.textContent {
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   margin-bottom: 20px;
+}
+
+.paragraphs {
+  display: flex;
+  flex-direction: column;
 }
 
 .bodyText {
@@ -33,4 +43,42 @@
   font-size: var(--font-size-body-sm);
   line-height: 1.7;
   color: var(--color-text-caption);
+}
+
+.animationSlot {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 32px 16px;
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textContent {
+    display: contents;
+  }
+
+  .header {
+    order: 1;
+    margin-bottom: 12px;
+  }
+
+  .animationSlot {
+    order: 2;
+    margin: 12px 0 24px;
+  }
+
+  .paragraphs {
+    order: 3;
+  }
+
+  .bodyText,
+  .bodyTextSpaced {
+    font-size: var(--font-size-body);
+  }
 }

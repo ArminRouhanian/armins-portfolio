@@ -14,3 +14,9 @@
   position: relative;
   padding-top: 65px;
 }
+
+@media (max-width: 640px) {
+  .mainContent {
+    padding-top: 60px;
+  }
+}

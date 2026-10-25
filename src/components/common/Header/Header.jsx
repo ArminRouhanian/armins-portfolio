@@ -15,43 +15,48 @@ export default function Header() {
           alt=""
           className={styles.logo}
         />
-        Armin Rouhanian
+        <span className={styles.brandName}>
+          Armin Rouhanian
+        </span>
       </Link>
       <nav className={styles.nav}>
-        {isHome ? (
-          <>
-            <Button
-              variant="tertiary"
-              href="#work"
-            >
-              Work
-            </Button>
-            <Button
-              variant="tertiary"
-              href="#cases"
-            >
-              Case studies
-            </Button>
-          </>
-        ) : (
-          <>
-            <Button
-              variant="tertiary"
-              to="/#work"
-            >
-              Work
-            </Button>
-            <Button
-              variant="tertiary"
-              to="/#cases"
-            >
-              Case studies
-            </Button>
-          </>
-        )}
+        <div className={styles.navLinks}>
+          {isHome ? (
+            <>
+              <Button
+                variant="tertiary"
+                href="#work"
+              >
+                Work
+              </Button>
+              <Button
+                variant="tertiary"
+                href="#cases"
+              >
+                Case studies
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                variant="tertiary"
+                to="/#work"
+              >
+                Work
+              </Button>
+              <Button
+                variant="tertiary"
+                to="/#cases"
+              >
+                Case studies
+              </Button>
+            </>
+          )}
+        </div>
         <Button
           variant="primary"
           href="#contact"
+          className={styles.contactButton}
         >
           Contact me
         </Button>

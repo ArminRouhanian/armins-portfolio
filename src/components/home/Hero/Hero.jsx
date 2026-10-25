@@ -7,9 +7,12 @@ import styles from './Hero.module.css'
 export default function Hero() {
   return (
     <section className={styles.section}>
-      <Badge variant="white">
-        Product designer
-      </Badge>
+      <HeroAnimation />
+      <div className={styles.badgeWrapper}>
+        <Badge variant="white">
+          Product designer
+        </Badge>
+      </div>
       <h1 className={styles.title}>
         I bring&nbsp;
         <span className={styles.selectionWrapper}>
@@ -52,7 +55,6 @@ export default function Hero() {
           Contact me
         </Button>
       </div>
-      <HeroAnimation />
     </section>
   )
 }

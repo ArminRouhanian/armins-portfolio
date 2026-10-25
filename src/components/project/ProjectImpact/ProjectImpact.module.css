@@ -27,6 +27,14 @@
   padding: 96px 32px;
 }
 
+.desktopStickyLayout {
+  display: block;
+}
+
+.mobileLayout {
+  display: none;
+}
+
 .stickyLayout {
   position: sticky;
   top: calc(var(--header-height, 65px) + 24px);
@@ -230,4 +238,89 @@
 
 .spacer {
   height: 1380px;
+}
+
+/* Mobile Layout Styles */
+.mobileList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 28px;
+}
+
+.mobileItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileItemTitle {
+  margin: 6px 0 0;
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-h3);
+}
+
+.compactCard {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  padding: 20px 16px 16px;
+  margin: 14px 0 12px;
+  box-sizing: border-box;
+}
+
+.compactCardBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 10px;
+}
+
+.compactCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.compactCardPeriod {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-caption);
+}
+
+.compactCardValue {
+  margin: 12px 0 4px;
+  font-size: clamp(34px, 8vw, 42px);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.compactCardSub {
+  margin: 0;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+}
+
+.mobileItemDesc {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body-lg);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 16px;
+  }
+
+  .desktopStickyLayout {
+    display: none;
+  }
+
+  .mobileLayout {
+    display: block;
+  }
 }

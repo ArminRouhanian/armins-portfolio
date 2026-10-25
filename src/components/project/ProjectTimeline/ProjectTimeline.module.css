@@ -54,3 +54,31 @@
   color: var(--color-text-secondary);
   max-width: 640px;
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 48px 16px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+  }
+
+  .track {
+    margin-left: 6px;
+    padding-left: 20px;
+    gap: 32px;
+  }
+
+  .dot {
+    left: -29px;
+  }
+
+  .title {
+    font-size: var(--font-size-h4);
+  }
+
+  .desc {
+    font-size: var(--font-size-body);
+  }
+}
