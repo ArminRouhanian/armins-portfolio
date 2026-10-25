@@ -7,10 +7,13 @@ export default function Button({
   theme = 'light',
   to,
   href,
+  icon,
+  iconSize = 20,
   onClick,
   children,
   className = '',
   type = 'button',
+  ariaLabel,
   ...props
 }) {
   let variantClass = '';
@@ -20,11 +23,28 @@ export default function Button({
   } else if (variant === 'tertiary' || variant === 'tertiary-dark') {
     const isDark = theme === 'dark' || variant === 'tertiary-dark';
     variantClass = `${styles.tertiary} ${isDark ? styles.tertiaryDark : styles.tertiaryLight}`;
+  } else if (variant === 'iconOnly' || variant === 'icon-only') {
+    const isDark = theme === 'dark';
+    variantClass = `${styles.iconOnly}${isDark ? ` ${styles.iconOnlyDark}` : ''}`;
   } else {
     variantClass = `${styles.button} ${styles.primary}`;
   }
 
   const combinedClass = className ? `${variantClass} ${className}` : variantClass;
+  const label = ariaLabel || props['aria-label'];
+
+  const content = icon ? (
+    <img
+      src={icon}
+      alt=""
+      width={iconSize}
+      height={iconSize}
+      aria-hidden="true"
+      className={styles.icon}
+    />
+  ) : (
+    children
+  );
 
   if (to) {
     return (
@@ -32,9 +52,10 @@ export default function Button({
         to={to}
         className={combinedClass}
         onClick={onClick}
+        aria-label={label}
         {...props}
       >
-        {children}
+        {content}
       </Link>
     );
   }
@@ -45,9 +66,10 @@ export default function Button({
         href={href}
         className={combinedClass}
         onClick={onClick}
+        aria-label={label}
         {...props}
       >
-        {children}
+        {content}
       </a>
     );
   }
@@ -57,9 +79,10 @@ export default function Button({
       type={type}
       className={combinedClass}
       onClick={onClick}
+      aria-label={label}
       {...props}
     >
-      {children}
+      {content}
     </button>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import SectionHeader from '../common/SectionHeader/SectionHeader'
+import Button from '../common/Button/Button'
 
 export default function ProjectShowcase({ showcase }) {
   const [activeIdx, setActiveIdx] = useState(0)
@@ -91,29 +92,42 @@ export default function ProjectShowcase({ showcase }) {
           {items.map((item, index) => (
             <div
               key={index}
-              className="fr"
-              onClick={() => openLightbox(index)}
-              style={{ cursor: 'pointer' }}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '8px'
+              }}
             >
-              <div className="bar">
-                <i></i>
-                <i></i>
-                <i></i>
-              </div>
-              <div
+              <span
+                onClick={() => openLightbox(index)}
                 style={{
-                  height: '240px',
-                  background: item.image
-                    ? `url("${item.image}") center / cover no-repeat`
-                    : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#fff',
-                  fontWeight: '500'
+                  fontSize: 'var(--font-size-caption)',
+                  fontWeight: 'var(--font-weight-medium)',
+                  color: '#C4C4C4',
+                  lineHeight: '1.2',
+                  cursor: 'pointer'
                 }}
               >
                 {item.label}
+              </span>
+              <div
+                className="fr"
+                onClick={() => openLightbox(index)}
+                style={{ cursor: 'pointer' }}
+              >
+                <div className="bar">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
+                <div
+                  style={{
+                    height: '240px',
+                    background: item.image
+                      ? `url("${item.image}") center / cover no-repeat`
+                      : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)'
+                  }}
+                />
               </div>
             </div>
           ))}
@@ -128,50 +142,54 @@ export default function ProjectShowcase({ showcase }) {
           role="dialog"
           aria-modal="true"
           aria-label="Mockup viewer"
+          style={{ zIndex: 1000 }}
           onClick={(e) => {
             if (e.target.id === 'lb') closeLightbox()
           }}
         >
-          <button
-            type="button"
-            className="lbn lbx"
+          <Button
+            variant="iconOnly"
             aria-label="Close"
+            icon="/assets/icons/close.svg"
+            iconSize={20}
             onClick={closeLightbox}
             style={{
-              top: '20px',
-              right: '20px',
-              transform: 'none',
-              zIndex: 60
+              position: 'absolute',
+              top: '24px',
+              right: '24px',
+              zIndex: 1010
             }}
-          >
-            ✕
-          </button>
+          />
 
-          <button
-            type="button"
-            className="lbn lbp"
+          <Button
+            variant="iconOnly"
             aria-label="Previous"
+            icon="/assets/icons/chevron-left.svg"
+            iconSize={22}
             onClick={prevSlide}
             style={{
-              left: '20px',
-              zIndex: 60
+              position: 'absolute',
+              top: '50%',
+              left: '24px',
+              transform: 'translateY(-50%)',
+              zIndex: 1010
             }}
-          >
-            ‹
-          </button>
+          />
 
-          <button
-            type="button"
-            className="lbn lbq"
+          <Button
+            variant="iconOnly"
             aria-label="Next"
+            icon="/assets/icons/chevron-right.svg"
+            iconSize={22}
             onClick={nextSlide}
             style={{
-              right: '20px',
-              zIndex: 60
+              position: 'absolute',
+              top: '50%',
+              right: '24px',
+              transform: 'translateY(-50%)',
+              zIndex: 1010
             }}
-          >
-            ›
-          </button>
+          />
 
           <div className="lbs">
             {items.map((item, index) => (
@@ -195,17 +213,9 @@ export default function ProjectShowcase({ showcase }) {
                       height: 'min(58vh,620px)',
                       background: item.image
                         ? `url("${item.image}") center / cover no-repeat`
-                        : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#fff',
-                      fontWeight: '500',
-                      fontSize: '20px'
+                        : item.gradient || 'linear-gradient(135deg,#A259FF,#1ABCFE)'
                     }}
-                  >
-                    {item.label}
-                  </div>
+                  />
                 </div>
               </div>
             ))}

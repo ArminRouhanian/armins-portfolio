@@ -8,27 +8,27 @@ const SOCIAL_LINKS = [
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/armin-rouhanian',
-    icon: '/assets/icon-linkedin.svg'
+    icon: '/assets/icons/icon-linkedin.svg'
   },
   {
     name: 'Medium',
     href: 'https://medium.com/@armin.rouhanian',
-    icon: '/assets/icon-medium.svg'
+    icon: '/assets/icons/icon-medium.svg'
   },
   {
     name: 'Figma',
     href: 'https://www.figma.com/@arminrouhanian',
-    icon: '/assets/icon-figma.svg'
+    icon: '/assets/icons/icon-figma.svg'
   },
   {
     name: 'Telegram',
     href: 'https://t.me/Armin_Rouhanian',
-    icon: '/assets/icon-telegram.svg'
+    icon: '/assets/icons/icon-telegram.svg'
   },
   {
     name: 'GitHub',
     href: 'https://github.com/ArminRouhanian',
-    icon: '/assets/icon-github.svg'
+    icon: '/assets/icons/icon-github.svg'
   }
 ]
 

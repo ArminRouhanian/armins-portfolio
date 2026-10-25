@@ -327,13 +327,13 @@ html {
 .lb {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: 1000;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 16px;
-  padding: 72px 24px 24px;
+  padding: 48px 24px 24px;
   background: rgba(20, 20, 20, 0.88);
   backdrop-filter: blur(8px);
   box-sizing: border-box;
@@ -360,37 +360,6 @@ html {
     opacity: 1;
     transform: none;
   }
-}
-.lbn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 0;
-  background: var(--color-surface);
-  color: var(--color-text-primary);
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  transition:
-    background-color 0.2s,
-    color 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  outline: none;
-}
-.lbn.lbx {
-  font-size: 18px;
-  font-weight: var(--font-weight-bold);
-}
-.lbn:hover {
-  background: var(--color-primary);
-  color: var(--color-text-light);
 }
 .lbc {
   margin: 0;
