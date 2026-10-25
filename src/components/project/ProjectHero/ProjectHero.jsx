@@ -6,6 +6,8 @@ import styles from './ProjectHero.module.css'
 export default function ProjectHero({ hero }) {
   if (!hero) return null
 
+  const thumbnail = hero.thumbnail || hero.mockupImage
+
   return (
     <section id="preview" className={styles.section}>
       <Button
@@ -49,12 +51,12 @@ export default function ProjectHero({ hero }) {
           <div
             className={styles.mockupContent}
             style={{
-              background: hero.mockupImage
-                ? `url("${hero.mockupImage}") center / cover no-repeat`
+              background: thumbnail
+                ? `url("${thumbnail}") center / cover no-repeat`
                 : hero.mockupGradient || 'linear-gradient(135deg, #F24E1E, #FF7262)'
             }}
           >
-            {hero.mockupContent || null}
+            {thumbnail ? null : (hero.mockupContent || null)}
           </div>
         </div>
       </div>

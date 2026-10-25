@@ -2,9 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Badge from '../../common/Badge/Badge'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
+import { projectsData } from '../../../data/projectsData'
 import styles from './SelectedWork.module.css'
 
 export default function SelectedWork() {
+  const customerThumbnail = projectsData['pinket-customer']?.thumbnail
+  const dashboardThumbnail = projectsData['pinket-dashboard']?.thumbnail
+  const metamondialThumbnail = projectsData['metamondial3d']?.thumbnail
+
   return (
     <section id="work" className={styles.section}>
       <SectionHeader
@@ -16,7 +21,11 @@ export default function SelectedWork() {
         <Link to="/works/pinket-customer" className={styles.card}>
           <div
             className={styles.cardBanner}
-            style={{ background: 'var(--color-purple-light)' }}
+            style={{
+              background: customerThumbnail
+                ? `url("${customerThumbnail}") center / cover no-repeat`
+                : 'var(--color-purple-light)'
+            }}
           />
           <div className={styles.cardBody}>
             <h3 className={styles.cardTitle}>
@@ -38,7 +47,11 @@ export default function SelectedWork() {
         <Link to="/works/pinket-dashboard" className={styles.card}>
           <div
             className={styles.cardBanner}
-            style={{ background: 'var(--color-green)' }}
+            style={{
+              background: dashboardThumbnail
+                ? `url("${dashboardThumbnail}") center / cover no-repeat`
+                : 'var(--color-green)'
+            }}
           />
           <div className={styles.cardBody}>
             <h3 className={styles.cardTitle}>
@@ -60,7 +73,11 @@ export default function SelectedWork() {
         <Link to="/works/metamondial3d" className={styles.card}>
           <div
             className={styles.cardBanner}
-            style={{ background: 'var(--color-orange)' }}
+            style={{
+              background: metamondialThumbnail
+                ? `url("${metamondialThumbnail}") center / cover no-repeat`
+                : 'var(--color-orange)'
+            }}
           />
           <div className={styles.cardBody}>
             <h3 className={styles.cardTitle}>

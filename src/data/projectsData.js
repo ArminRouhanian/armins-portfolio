@@ -1,13 +1,15 @@
 export const projectsData = {
   'pinket-dashboard': {
     id: 'pinket-dashboard',
+    thumbnail: null,
     hero: {
       tags: ['Responsive web', 'B2B', 'Case study'],
       title: 'Pinket: Dashboards',
       subtitle: 'Admin, vendor, and organization dashboards',
       mockupUrl: 'yourproduct.com',
-      mockupImage: '/assets/pinket-dashboard-b5e58b75-2dbd-4c87-87af-efe40ed76f30.png',
+      thumbnail: null,
       mockupGradient: 'linear-gradient(135deg,#0ACF83,#1ABCFE)',
+      mockupContent: 'Add mockup',
       meta: [
         { label: 'Role', value: 'UI/UX Designer' },
         { label: 'Timeline', value: 'June 2022 – June 2026' },
@@ -209,11 +211,13 @@ export const projectsData = {
 
   'pinket-customer': {
     id: 'pinket-customer',
+    thumbnail: null,
     hero: {
       tags: ['Mobile web', 'Research', 'Case study'],
       title: 'Pinket: Customer App',
       subtitle: 'B2B2C financial wallet for organizational welfare',
       mockupUrl: 'yourproduct.com',
+      thumbnail: null,
       mockupGradient: 'linear-gradient(135deg,#A259FF,#1ABCFE)',
       mockupContent: 'Add mockup',
       meta: [
@@ -412,12 +416,13 @@ export const projectsData = {
 
   metamondial3d: {
     id: 'metamondial3d',
+    thumbnail: '/assets/projects/metamondial3d/thumbnail.png',
     hero: {
       tags: ['Redesign', 'Responsive', 'Case study'],
       title: 'MetaMondial3D',
       subtitle: 'Metaverse & NFT Market',
       mockupUrl: 'metamondial3d.com',
-      mockupImage: '/assets/metamondial3d-dd748f47-82ad-4f06-89c7-89f18b64fa1e.png',
+      thumbnail: '/assets/projects/metamondial3d/thumbnail.png',
       mockupGradient: 'linear-gradient(135deg,#A259FF,#1ABCFE)',
       meta: [
         { label: 'Role', value: 'UI/UX Designer' },
@@ -536,8 +541,8 @@ export const projectsData = {
       type: 'desktop',
       items: [
         {
-          image: '/assets/metamondial3d-dd748f47-82ad-4f06-89c7-89f18b64fa1e.png',
-          label: 'NFT Marketplace Preview'
+          gradient: 'linear-gradient(135deg,#F24E1E,#FF7262)',
+          label: 'NFT Marketplace'
         },
         {
           gradient: 'linear-gradient(135deg,#F24E1E,#FF7262)',
