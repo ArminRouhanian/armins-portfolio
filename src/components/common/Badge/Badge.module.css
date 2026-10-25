@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Badge Component Styles
+   ========================================================================== */
+
+.badge {
+  display: inline-block;
+  font-size: var(--font-size-caption, 13px);
+  font-weight: var(--font-weight-medium, 500);
+  padding: 4px 10px;
+  border-radius: 99px;
+  line-height: normal;
+  box-sizing: border-box;
+  color: var(--color-text-primary, #1e1e1e);
+  white-space: nowrap;
+}
+
+/* White badge with border (e.g. Hero "Product designer", Project tags) */
+.white {
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e5e5e5);
+}
+
+/* Grey badge without border (e.g. SelectedWork & CaseStudies card tags) */
+.grey {
+  background: var(--color-bg-subtle, #f0f0f0);
+  border: 1px solid transparent;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Badge from '../common/Badge/Badge'
 
 export default function CaseStudies() {
   return (
@@ -42,8 +43,12 @@ export default function CaseStudies() {
           <h3 style={{ flex: '1', minWidth: '200px', fontSize: 'var(--font-size-h3)' }}>
             [Case study title]
           </h3>
-          <span className="tg">[Role]</span>
-          <span className="tg">[Year]</span>
+          <Badge variant="grey">
+            [Role]
+          </Badge>
+          <Badge variant="grey">
+            [Year]
+          </Badge>
           <span style={{ fontSize: 'var(--font-size-h3)' }}>→</span>
         </a>
         <a
@@ -63,8 +68,12 @@ export default function CaseStudies() {
           <h3 style={{ flex: '1', minWidth: '200px', fontSize: 'var(--font-size-h3)' }}>
             [Case study title]
           </h3>
-          <span className="tg">[Role]</span>
-          <span className="tg">[Year]</span>
+          <Badge variant="grey">
+            [Role]
+          </Badge>
+          <Badge variant="grey">
+            [Year]
+          </Badge>
           <span style={{ fontSize: 'var(--font-size-h3)' }}>→</span>
         </a>
         <a
@@ -84,8 +93,12 @@ export default function CaseStudies() {
           <h3 style={{ flex: '1', minWidth: '200px', fontSize: 'var(--font-size-h3)' }}>
             [Case study title]
           </h3>
-          <span className="tg">[Role]</span>
-          <span className="tg">[Year]</span>
+          <Badge variant="grey">
+            [Role]
+          </Badge>
+          <Badge variant="grey">
+            [Year]
+          </Badge>
           <span style={{ fontSize: '24px' }}>→</span>
         </a>
       </div>

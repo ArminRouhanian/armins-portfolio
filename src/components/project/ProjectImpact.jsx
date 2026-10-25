@@ -1,4 +1,5 @@
 import React from 'react'
+import Badge from '../common/Badge/Badge'
 
 export default function ProjectImpact({ impact }) {
   if (!impact) return null
@@ -170,15 +171,14 @@ export default function ProjectImpact({ impact }) {
                       alignItems: 'center'
                     }}
                   >
-                    <span
-                      className="tg"
+                    <Badge
                       style={{
                         background: m.cardTagBg || 'var(--color-primary-tint)',
                         color: m.cardTagColor || 'var(--color-primary-dark)'
                       }}
                     >
                       {m.cardLabel}
-                    </span>
+                    </Badge>
                     <span
                       style={{
                         fontSize: 'var(--font-size-caption)',

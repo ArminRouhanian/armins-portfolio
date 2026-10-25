@@ -1,0 +1,106 @@
+/* ==========================================================================
+   Button Component Styles
+   ========================================================================== */
+
+/* Primary & Secondary Base Shape */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: var(--font-weight-medium, 500);
+  font-family: inherit;
+  text-decoration: none;
+  cursor:
+    url("/assets/cursor.svg") 2 2,
+    pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 1. Primary: used in Header "Contact me", Hero "View work" */
+.primary {
+  background: var(--color-surface-dark, #1e1e1e);
+  color: var(--color-text-light, #ffffff);
+  border: 1.5px solid var(--color-surface-dark, #1e1e1e);
+}
+
+.primary:hover {
+  background: var(--color-surface-dark-hover, #333333);
+  border-color: var(--color-surface-dark-hover, #333333);
+  color: var(--color-text-light, #ffffff);
+}
+
+/* 2. Secondary: white with border, used in Hero "Contact me" */
+.secondary {
+  background: var(--color-surface, #ffffff);
+  color: var(--color-text-primary, #1e1e1e);
+  border: 1.5px solid var(--color-text-primary, #1e1e1e);
+}
+
+.secondary:hover {
+  background: var(--color-surface, #ffffff);
+  color: var(--color-text-primary, #1e1e1e);
+}
+
+/* 3. Tertiary: backgroundless */
+.tertiary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-weight: var(--font-weight-medium, 500);
+  font-family: inherit;
+  text-decoration: none;
+  cursor:
+    url("/assets/cursor.svg") 2 2,
+    pointer;
+  transition: color 0.2s;
+  box-sizing: border-box;
+}
+
+/* Tertiary light: used in Header nav "Work" and Project "Back to home" */
+.tertiaryLight {
+  color: var(--color-text-primary, #1e1e1e);
+}
+
+.tertiaryLight:hover {
+  color: var(--color-primary-dark, #0c7bd1);
+}
+
+/* Tertiary dark: used in Footer "Back to top" */
+.tertiaryDark {
+  color: var(--color-text-light, #ffffff);
+}
+
+.tertiaryDark:hover {
+  color: var(--color-primary-light, #1abcfe);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .tertiary {
+    transition: none;
+  }
+
+  .button:hover {
+    transform: none;
+  }
+}

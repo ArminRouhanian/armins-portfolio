@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../common/Button/Button'
+import Badge from '../common/Badge/Badge'
 
 export default function ProjectHero({ hero }) {
   if (!hero) return null
@@ -13,13 +15,13 @@ export default function ProjectHero({ hero }) {
         padding: '48px 32px 0'
       }}
     >
-      <Link
+      <Button
+        variant="tertiary"
         to="/"
-        className="back-link"
         style={{ fontWeight: '500' }}
       >
         ← Back to home
-      </Link>
+      </Button>
       <div
         style={{
           marginTop: '32px',
@@ -29,16 +31,12 @@ export default function ProjectHero({ hero }) {
         }}
       >
         {hero.tags.map(tag => (
-          <span
+          <Badge
             key={tag}
-            className="tg"
-            style={{
-              background: 'var(--color-surface)',
-              border: '1px solid var(--color-border)'
-            }}
+            variant="white"
           >
             {tag}
-          </span>
+          </Badge>
         ))}
       </div>
       <h1

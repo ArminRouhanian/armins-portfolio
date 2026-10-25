@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import FooterAnimation from './FooterAnimation'
+import Button from './Button/Button'
 
 export default function Footer() {
   return (
@@ -218,7 +219,11 @@ export default function Footer() {
               </svg>
             </a>
           </span>
-          <a href="#top" className="ftop">
+          <Button
+            variant="tertiary"
+            theme="dark"
+            href="#top"
+          >
             Back to top{' '}
             <svg
               width="18"
@@ -233,7 +238,7 @@ export default function Footer() {
             >
               <path d="M12 19V5M6 11l6-6 6 6" />
             </svg>
-          </a>
+          </Button>
         </div>
       </div>
     </footer>

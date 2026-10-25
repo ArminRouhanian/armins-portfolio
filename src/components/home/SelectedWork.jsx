@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Badge from '../common/Badge/Badge'
 
 export default function SelectedWork() {
   return (
@@ -49,8 +50,12 @@ export default function SelectedWork() {
             <h3 style={{ fontSize: '20px' }}>Pinket: Customer App</h3>
             <p style={{ color: '#555' }}>BNPL shopping network</p>
             <div style={{ display: 'flex', gap: '8px' }}>
-              <span className="tg">Mobile App</span>
-              <span className="tg">Research</span>
+              <Badge variant="grey">
+                Mobile App
+              </Badge>
+              <Badge variant="grey">
+                Research
+              </Badge>
             </div>
           </div>
         </Link>
@@ -71,8 +76,12 @@ export default function SelectedWork() {
             <h3 style={{ fontSize: '20px' }}>Pinket: Dashboards</h3>
             <p style={{ color: '#555' }}>[One-line outcome]</p>
             <div style={{ display: 'flex', gap: '8px' }}>
-              <span className="tg">Desktop</span>
-              <span className="tg">B2B</span>
+              <Badge variant="grey">
+                Desktop
+              </Badge>
+              <Badge variant="grey">
+                B2B
+              </Badge>
             </div>
           </div>
         </Link>
@@ -93,8 +102,12 @@ export default function SelectedWork() {
             <h3 style={{ fontSize: '20px' }}>MetaMondial3D</h3>
             <p style={{ color: '#555' }}>Metaverse &amp; NFT Market</p>
             <div style={{ display: 'flex', gap: '8px' }}>
-              <span className="tg">Redesign</span>
-              <span className="tg">Responsive</span>
+              <Badge variant="grey">
+                Redesign
+              </Badge>
+              <Badge variant="grey">
+                Responsive
+              </Badge>
             </div>
           </div>
         </Link>

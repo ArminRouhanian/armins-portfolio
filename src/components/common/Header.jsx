@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import Button from './Button/Button'
 
 export default function Header() {
   const location = useLocation()
@@ -58,21 +59,41 @@ export default function Header() {
       >
         {isHome ? (
           <>
-            <a href="#work">Work</a>
-            <a href="#cases">Case studies</a>
+            <Button
+              variant="tertiary"
+              href="#work"
+            >
+              Work
+            </Button>
+            <Button
+              variant="tertiary"
+              href="#cases"
+            >
+              Case studies
+            </Button>
           </>
         ) : (
           <>
-            <Link to="/#work">Work</Link>
-            <Link to="/#cases">Case studies</Link>
+            <Button
+              variant="tertiary"
+              to="/#work"
+            >
+              Work
+            </Button>
+            <Button
+              variant="tertiary"
+              to="/#cases"
+            >
+              Case studies
+            </Button>
           </>
         )}
-        <a
+        <Button
+          variant="primary"
           href="#contact"
-          className="bt dk"
         >
           Contact me
-        </a>
+        </Button>
       </nav>
     </header>
   )

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import HeroAnimation from './HeroAnimation'
+import Button from '../common/Button/Button'
+import Badge from '../common/Badge/Badge'
 
 export default function Hero() {
   return (
@@ -12,15 +14,9 @@ export default function Hero() {
         padding: '96px 32px 72px'
       }}
     >
-      <span
-        className="tg"
-        style={{
-          background: 'var(--color-surface)',
-          border: '1px solid var(--color-border)'
-        }}
-      >
+      <Badge variant="white">
         Product designer
-      </span>
+      </Badge>
       <h1
         style={{
           marginTop: '24px',
@@ -80,12 +76,18 @@ export default function Hero() {
           position: 'relative'
         }}
       >
-        <a href="#work" className="bt dk">
+        <Button
+          variant="primary"
+          href="#work"
+        >
           View work
-        </a>
-        <a href="#contact" className="bt">
+        </Button>
+        <Button
+          variant="secondary"
+          href="#contact"
+        >
           Contact me
-        </a>
+        </Button>
       </div>
       <HeroAnimation />
     </section>
