@@ -208,6 +208,7 @@
     font-size: var(--font-size-body-lg);
     border-radius: 12px;
     padding: 0 20px;
+    transform-origin: center center;
   }
 
   .ctaButton:hover {
@@ -215,7 +216,7 @@
     transform: none;
   }
 
-  /* Safe vertical nudge that never expands or rotates outside the screen */
+  /* Rotation wiggle animation without expanding width or shifting upward */
   :global(.fcta.nudge) {
     animation: nudgeMobile 1s ease-in-out;
   }
@@ -245,15 +246,18 @@
 @keyframes nudgeMobile {
   0%,
   100% {
-    transform: translateY(0);
+    transform: rotate(0deg);
   }
-  25% {
-    transform: translateY(-4px);
+  20% {
+    transform: rotate(-3.5deg);
   }
-  50% {
-    transform: translateY(2px);
+  45% {
+    transform: rotate(3.5deg);
   }
-  75% {
-    transform: translateY(-2px);
+  70% {
+    transform: rotate(-3deg);
+  }
+  85% {
+    transform: rotate(1.5deg);
   }
 }
