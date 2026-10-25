@@ -12,16 +12,18 @@ const defaultItems = [
 
 export default function ProjectFloatingNav({ items = defaultItems }) {
   return (
-    <nav
-      className={`${styles.nav} tb`}
-      aria-label="Sections"
-    >
-      <i aria-hidden="true" />
-      {items.map((item) => (
-        <a key={item.href} href={item.href}>
-          {item.label}
-        </a>
-      ))}
-    </nav>
+    <div className={styles.wrapper}>
+      <nav
+        className={`${styles.nav} tb`}
+        aria-label="Sections"
+      >
+        <i aria-hidden="true" />
+        {items.map((item) => (
+          <a key={item.href} href={item.href}>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </div>
   )
 }

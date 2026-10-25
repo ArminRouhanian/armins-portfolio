@@ -65,8 +65,8 @@ export default function Home() {
         <SelectedWork />
         <Tools />
         <CaseStudies />
-        <Footer />
       </main>
+      <Footer />
     </div>
   )
 }

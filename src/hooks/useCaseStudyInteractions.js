@@ -109,19 +109,10 @@ export function useCaseStudyInteractions() {
       if (cta.parentElement) io.observe(cta.parentElement)
     }
 
-    // 3. Floating Navbar Scroll Spy, Pill indicator & Sticky position above footer
+    // 3. Floating Navbar Scroll Spy & Pill indicator
     const handleScrollSpy = () => {
       const nav = document.querySelector('.tb')
       if (!nav) return
-
-      // Keep navbar floating at bottom, but dock cleanly above footer when reached
-      const footer = document.querySelector('footer')
-      if (footer) {
-        const footerRect = footer.getBoundingClientRect()
-        const overlap = window.innerHeight - footerRect.top
-        const bottomOffset = overlap > 0 ? overlap + 24 : 24
-        nav.style.bottom = `${bottomOffset}px`
-      }
 
       // If user clicked a floating nav button, skip intermediate horizontal scrolls
       if (isNavLock) {

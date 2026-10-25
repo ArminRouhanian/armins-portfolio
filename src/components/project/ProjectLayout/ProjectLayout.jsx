@@ -61,8 +61,8 @@ export default function ProjectLayout({ project }) {
         )}
         <ProjectNav nav={project.nav} />
         <ProjectFloatingNav items={isMetamondial ? metamondialNavItems : undefined} />
-        <Footer />
       </main>
+      <Footer />
     </div>
   )
 }

@@ -1,9 +1,17 @@
-.nav {
-  position: fixed;
+.wrapper {
+  position: sticky;
   bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-bottom: 24px;
   z-index: 40;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.nav {
+  pointer-events: auto;
+  position: relative;
   display: flex;
   gap: 4px;
   padding: 6px;
@@ -54,8 +62,12 @@
 }
 
 @media (max-width: 640px) {
-  .nav {
+  .wrapper {
     bottom: 16px;
+    margin-bottom: 16px;
+  }
+
+  .nav {
     padding: 4px;
     max-width: calc(100% - 16px);
     overflow-x: auto;
