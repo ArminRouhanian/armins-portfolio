@@ -12,14 +12,6 @@ export function useCaseStudyInteractions() {
     }
     syncHeaderHeight()
 
-    const ids = [
-      'preview',
-      'description',
-      'impact',
-      'timeline',
-      'showcase',
-      'comments'
-    ]
     let prevActiveK = -1
     let isNavLock = false
     let navLockTimeout = null
@@ -136,7 +128,8 @@ export function useCaseStudyInteractions() {
         return
       }
 
-      const links = nav.querySelectorAll('a')
+      const links = Array.from(nav.querySelectorAll('a'))
+      const ids = links.map((a) => a.getAttribute('href')?.replace('#', '')).filter(Boolean)
       const pill = nav.querySelector('i')
       const headerH = cachedHeaderH
 

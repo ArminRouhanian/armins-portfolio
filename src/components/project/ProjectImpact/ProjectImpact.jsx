@@ -3,7 +3,7 @@ import Badge from '../../common/Badge/Badge'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
 import styles from './ProjectImpact.module.css'
 
-export default function ProjectImpact({ impact }) {
+export default function ProjectImpact({ impact, label = '02 · IMPACT' }) {
   if (!impact) return null
 
   return (
@@ -18,7 +18,7 @@ export default function ProjectImpact({ impact }) {
             <div>
               <SectionHeader
                 dark
-                label="02 · IMPACT"
+                label={label}
                 title="Impact at a glance"
                 titleClassName={styles.textPrimary}
               />
@@ -109,7 +109,7 @@ export default function ProjectImpact({ impact }) {
         <div className={styles.mobileLayout}>
           <SectionHeader
             dark
-            label="02 · IMPACT"
+            label={label}
             title="Impact at a glance"
             titleClassName={styles.textPrimary}
           />

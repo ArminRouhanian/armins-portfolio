@@ -22,13 +22,13 @@ export default function ProjectDescription({ overview }) {
         )}
         {overview.checklists && overview.checklists.length > 0 && (
           <div className={styles.checklistGrid}>
-            {overview.checklists.map(item => (
-              <div key={item.num} className={styles.checklistItem}>
+            {overview.checklists.map((item, index) => (
+              <div key={item.text || index} className={styles.checklistItem}>
                 <b
                   className={styles.checkNumber}
                   style={{ background: item.bg || 'var(--color-surface-dark)' }}
                 >
-                  {item.num}
+                  {index + 1}
                 </b>
                 {item.text}
               </div>

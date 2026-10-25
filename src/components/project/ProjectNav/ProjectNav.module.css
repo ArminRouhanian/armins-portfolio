@@ -1,7 +1,7 @@
 .section {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 0 32px 96px;
+  padding: 96px 32px;
 }
 
 .container {
@@ -74,7 +74,7 @@
 
 @media (max-width: 640px) {
   .section {
-    padding: 0 16px 48px;
+    padding: 48px 16px;
   }
 
   .container {

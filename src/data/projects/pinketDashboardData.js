@@ -20,32 +20,26 @@ export const pinketDashboardData = {
     p2: 'Pinket has three dashboards: one for admins, one for vendors (markets), and one for organizations. The team behind them focused on financial transactions, making them safe, clear, and automatic. I owned the design files and approved internal design decisions, and although I focused mainly on the customer app, I strongly influenced the dashboards’ design systems and overall workflow. My work covered:',
     checklists: [
       {
-        num: '1',
         bg: 'var(--color-orange)',
         text: 'Update Admin dashboard aligned with technical refactoring, while making sure it is compatible with other operators on other panels.'
       },
       {
-        num: '2',
         bg: 'var(--color-purple-light)',
         text: "Vendor's Panel: A SaaS for creating and managing orders & stocks for online or in-store shopping via pinket."
       },
       {
-        num: '3',
         bg: 'var(--color-green)',
         text: 'Organization dashboard: For maintaining Employees & Their credit'
       },
       {
-        num: '4',
         bg: 'var(--color-primary-light)',
         text: 'Smart contract maker (vendor commission)'
       },
       {
-        num: '5',
         bg: 'var(--color-orange-light)',
         text: 'Responsive redesign for better moderation'
       },
       {
-        num: '6',
         bg: 'var(--color-surface-dark)',
         text: 'Updating design system (UntitledUI-based) & For scaling all 3 panels.'
       }

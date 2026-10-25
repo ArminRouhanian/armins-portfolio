@@ -2,33 +2,32 @@ export const metamondial3dData = {
   id: 'metamondial3d',
   thumbnail: '/assets/projects/metamondial3d/thumbnail.png',
   hero: {
-    tags: ['Redesign', 'Responsive', 'Case study'],
+    tags: ['Web3 Design', 'Design system', 'B2C'],
     title: 'MetaMondial3D',
-    subtitle: 'Metaverse & NFT Market',
+    subtitle: 'Metaverse & NFT Platform',
     mockupUrl: 'metamondial3d.com',
     thumbnail: '/assets/projects/metamondial3d/thumbnail.png',
     mockupGradient: 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))',
     meta: [
-      { label: 'Role', value: 'UI/UX Designer' },
+      { label: 'Role', value: 'Product Designer' },
       { label: 'Timeline', value: 'June - July 2022' },
-      { label: 'Team', value: 'Lone Freelancer :)' },
+      { label: 'Team', value: 'Freelancer' },
       { label: 'Platform', value: 'Desktop' }
     ]
   },
   overview: {
-    p1: 'I redesign their main products: Landing page, NFT market, Profile pages (individaul / school / studios), NFT preview and Metaverse explore, to be modern and ready to build. and prepared a design system to help developer implement it easier.',
+    p1: 'Meta Mondial 3D is an online 3D modeling tool specialized for creating NFT and metaverse-Friendly assets in an online platform. At the moment of project, the tool was in the beta version and my responsiblity was to create landings and platform pages for the fund-raising stage.',
     p2: 'Client brief is simple: they want to have a website, similiar to other 3D asset markets, while also have other features like Metaverse and NFT capabilities. It should look modern and easy to build. My work covered:',
     checklists: [
-      { num: '1', bg: 'var(--color-orange)', text: 'Landing Page' },
-      { num: '2', bg: 'var(--color-purple-light)', text: 'NFT Market' },
-      { num: '3', bg: 'var(--color-green)', text: 'NFT Preview' },
+      { bg: 'var(--color-orange)', text: 'Landing Page' },
+      { bg: 'var(--color-purple-light)', text: 'NFT Market' },
+      { bg: 'var(--color-green)', text: 'NFT Preview' },
       {
-        num: '4',
         bg: 'var(--color-primary-light)',
         text: 'Profiles (Individual / School / Studio)'
       },
-      { num: '5', bg: 'var(--color-orange-light)', text: 'Auction / Bidding states' },
-      { num: '6', bg: 'var(--color-surface-dark)', text: 'Metaverse Explore' }
+      { bg: 'var(--color-orange-light)', text: 'Auction / Bidding states' },
+      { bg: 'var(--color-surface-dark)', text: 'Metaverse Explore' }
     ]
   },
   impact: {
@@ -150,29 +149,6 @@ export const metamondial3dData = {
       }
     ]
   },
-  comments: [
-    {
-      initials: 'PM',
-      avatarBg: 'primary',
-      name: '[Teammate Name]',
-      role: 'Product Manager',
-      quote: '[Replace with a short, honest quote from a colleague about how it was to work with you on this project.]'
-    },
-    {
-      initials: 'FE',
-      avatarBg: 'purple',
-      name: '[Teammate Name]',
-      role: 'Frontend Developer',
-      quote: '[Replace with a quote about handoff, communication, design system clarity, or edge-case handling.]'
-    },
-    {
-      initials: 'TL',
-      avatarBg: 'green',
-      name: '[Teammate Name]',
-      role: 'Team Lead / Engineering',
-      quote: '[Replace with a quote on speed, initiative, business impact, or how the work moved the team forward.]'
-    }
-  ],
   nav: {
     prev: {
       to: '/works/pinket-dashboard',

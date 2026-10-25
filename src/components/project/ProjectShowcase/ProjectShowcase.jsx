@@ -4,7 +4,7 @@ import Button from '../../common/Button/Button'
 import ShowcaseItems from '../ShowcaseItems/ShowcaseItems'
 import styles from './ProjectShowcase.module.css'
 
-export default function ProjectShowcase({ showcase }) {
+export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) {
   const [activeIdx, setActiveIdx] = useState(0)
   const [slideDirection, setSlideDirection] = useState('next')
   const [isOpen, setIsOpen] = useState(false)
@@ -144,7 +144,7 @@ export default function ProjectShowcase({ showcase }) {
         <div className={styles.headerContainer}>
           <SectionHeader
             dark
-            label="04 · SHOWCASE"
+            label={label}
             title="Design mockups"
           />
           <p className={styles.subtitleDesktop}>

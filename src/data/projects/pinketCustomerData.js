@@ -21,32 +21,26 @@ export const pinketCustomerData = {
     p2: 'I joined Pinket in 2021 as a backend developer and moved into UI/UX design in June 2022. I owned all design files and approved internal design decisions, working mainly on the customer app: a React web app for employees and customers, designed for mobile only. The team had one PM, one APM, one or two frontend developers, and two to four backend developers. Product direction came mainly from product management, with limited data behind decisions, so I used usability tests and phone interviews to ground design choices in user evidence wherever the process allowed. My work covered:',
     checklists: [
       {
-        num: '1',
         bg: 'var(--color-orange)',
         text: 'Digital wallet for customers'
       },
       {
-        num: '2',
         bg: 'var(--color-purple-light)',
         text: 'Modeling BNPL & Credits'
       },
       {
-        num: '3',
         bg: 'var(--color-green)',
         text: 'Online shopping'
       },
       {
-        num: '4',
         bg: 'var(--color-primary-light)',
         text: 'In-store purchase Journey'
       },
       {
-        num: '5',
         bg: 'var(--color-orange-light)',
         text: 'Online & In-store payment'
       },
       {
-        num: '6',
         bg: 'var(--color-surface-dark)',
         text: 'Pivot redesign (old UI kit to new)'
       }

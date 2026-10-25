@@ -2,13 +2,13 @@ import React from 'react'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
 import styles from './ProjectTimeline.module.css'
 
-export default function ProjectTimeline({ timeline }) {
+export default function ProjectTimeline({ timeline, label = '03 · TIMELINE' }) {
   if (!timeline) return null
 
   return (
     <section id="timeline" className={styles.section}>
       <SectionHeader
-        label="03 · TIMELINE"
+        label={label}
         title="How the work evolved"
         className={styles.header}
       />

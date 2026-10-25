@@ -17,6 +17,16 @@ export default function ProjectLayout({ project }) {
 
   if (!project) return null
 
+  const isMetamondial = project.id === 'metamondial3d'
+
+  const metamondialNavItems = [
+    { href: '#preview', label: 'Preview' },
+    { href: '#description', label: 'Description' },
+    { href: '#showcase', label: 'Showcase' },
+    { href: '#timeline', label: 'Timeline' },
+    { href: '#impact', label: 'Impact' }
+  ]
+
   return (
     <div id="top" className={styles.pageContainer}>
       <Header />
@@ -26,12 +36,31 @@ export default function ProjectLayout({ project }) {
       >
         <ProjectHero hero={project.hero} />
         <ProjectDescription overview={project.overview} />
-        <ProjectImpact impact={project.impact} />
-        <ProjectTimeline timeline={project.timeline} />
-        <ProjectShowcase showcase={project.showcase} />
-        <ProjectComments comments={project.comments} />
+        {isMetamondial ? (
+          <>
+            <ProjectShowcase
+              showcase={project.showcase}
+              label="02 · SHOWCASE"
+            />
+            <ProjectTimeline
+              timeline={project.timeline}
+              label="03 · TIMELINE"
+            />
+            <ProjectImpact
+              impact={project.impact}
+              label="04 · IMPACT"
+            />
+          </>
+        ) : (
+          <>
+            <ProjectImpact impact={project.impact} />
+            <ProjectTimeline timeline={project.timeline} />
+            <ProjectShowcase showcase={project.showcase} />
+            <ProjectComments comments={project.comments} />
+          </>
+        )}
         <ProjectNav nav={project.nav} />
-        <ProjectFloatingNav />
+        <ProjectFloatingNav items={isMetamondial ? metamondialNavItems : undefined} />
         <Footer />
       </main>
     </div>
