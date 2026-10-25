@@ -22,15 +22,15 @@
 @media (max-width: 440px) {
   .stage {
     margin: 0 auto 16px;
-    transform: scale(0.72);
-    height: 190px;
+    transform: scale(0.82);
+    height: 220px;
   }
 }
 
 @media (max-width: 375px) {
   .stage {
-    transform: scale(0.64);
-    height: 170px;
+    transform: scale(0.76);
+    height: 200px;
   }
 }
 
