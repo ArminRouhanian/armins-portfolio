@@ -28,7 +28,11 @@ export const metamondial3dData = {
       },
       { bg: 'var(--color-orange-light)', text: 'Auction / Bidding states' },
       { bg: 'var(--color-surface-dark)', text: 'Metaverse Explore' }
-    ]
+    ],
+    alert: {
+      variant: 'info',
+      text: 'Following the market shift away from the metaverse trend, the company has ceased operations and its domain is no longer active. Archival information about the tool remains accessible online, though the live product and platform are no longer hosted.'
+    }
   },
   impact: {
     intro:

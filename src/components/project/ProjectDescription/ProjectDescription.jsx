@@ -1,5 +1,6 @@
 import React from 'react'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
+import Alert from '../../common/Alert/Alert'
 import styles from './ProjectDescription.module.css'
 
 export default function ProjectDescription({ overview }) {
@@ -33,6 +34,13 @@ export default function ProjectDescription({ overview }) {
                 {item.text}
               </div>
             ))}
+          </div>
+        )}
+        {overview.alert && (
+          <div className={styles.alertWrap}>
+            <Alert variant={overview.alert.variant || 'info'}>
+              {overview.alert.text || overview.alert}
+            </Alert>
           </div>
         )}
       </div>
