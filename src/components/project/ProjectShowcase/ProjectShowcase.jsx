@@ -4,6 +4,20 @@ import Button from '../../common/Button/Button'
 import ShowcaseItems from '../ShowcaseItems/ShowcaseItems'
 import styles from './ProjectShowcase.module.css'
 
+const getItemBackground = (item) => {
+  if (!item) return 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
+  const img = item.image || item.src || (item.bg && !item.bg.includes('gradient') ? item.bg : null)
+  if (img) {
+    return `url("${img}") top center / cover no-repeat`
+  }
+  return item.gradient || item.bg || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
+}
+
+const getItemImage = (item) => {
+  if (!item) return null
+  return item.image || item.src || (item.bg && !item.bg.includes('gradient') ? item.bg : null)
+}
+
 export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) {
   const [activeIdx, setActiveIdx] = useState(0)
   const [slideDirection, setSlideDirection] = useState('next')
@@ -108,7 +122,7 @@ export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) 
     }
   }
 
-  // Ensure active thumbnail is smoothly centered into view when activeIdx changes
+  // Ensure active thumbnail is smoothly centered into view and slide content resets to top when activeIdx changes
   useEffect(() => {
     if (!isOpen) return
     const selectedThumb = thumbRefs.current[activeIdx]
@@ -121,6 +135,11 @@ export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) 
         behavior: 'smooth'
       })
     }
+
+    const wraps = document.querySelectorAll(`.${styles.browserImageWrap}`)
+    wraps.forEach((w) => {
+      w.scrollTop = 0
+    })
   }, [activeIdx, isOpen])
 
   useEffect(() => {
@@ -231,9 +250,7 @@ export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) 
                   <div
                     className={styles.mobileFrame}
                     style={{
-                      background: item.image
-                        ? `url("${item.image}") center / cover no-repeat`
-                        : item.gradient || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
+                      background: getItemBackground(item)
                     }}
                   />
                 ) : (
@@ -244,14 +261,22 @@ export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) 
                       <span className={styles.browserDot} aria-hidden="true" />
                       <span className={styles.browserUrl}>yourproduct.com</span>
                     </div>
-                    <div
-                      className={styles.browserImage}
-                      style={{
-                        background: item.image
-                          ? `url("${item.image}") center / cover no-repeat`
-                          : item.gradient || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
-                      }}
-                    />
+                    <div className={styles.browserImageWrap}>
+                      {getItemImage(item) ? (
+                        <img
+                          src={getItemImage(item)}
+                          alt={item.label}
+                          className={styles.desktopImg}
+                        />
+                      ) : (
+                        <div
+                          className={styles.browserImage}
+                          style={{
+                            background: item.gradient || item.bg || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
+                          }}
+                        />
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
@@ -278,9 +303,7 @@ export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) 
                   setActiveIdx(index)
                 }}
                 style={{
-                  background: item.image
-                    ? `url("${item.image}") center / cover no-repeat`
-                    : item.gradient || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
+                  background: getItemBackground(item)
                 }}
               />
             ))}

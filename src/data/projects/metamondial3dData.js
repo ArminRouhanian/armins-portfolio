@@ -7,7 +7,7 @@ export const metamondial3dData = {
     subtitle: 'Metaverse & NFT Platform',
     mockupUrl: 'metamondial3d.com',
     thumbnail: '/assets/projects/metamondial3d/thumbnail.png',
-    mockupGradient: 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))',
+    mockupGradient: 'linear-gradient(135deg, var(--color-surface-dark), var(--color-surface-dark-alt))',
     meta: [
       { label: 'Role', value: 'Product Designer' },
       { label: 'Timeline', value: 'June - July 2022' },
@@ -132,7 +132,7 @@ export const metamondial3dData = {
         label: 'Metaverse Explore'
       },
       {
-        gradient: 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))',
+        bg: '/assets/projects/metamondial3d/mockups/showcase-profile-page.png',
         label: 'Artist Profile'
       },
       {
@@ -140,8 +140,8 @@ export const metamondial3dData = {
         label: 'Bidding System'
       },
       {
-        gradient: 'linear-gradient(135deg, var(--color-orange-light), var(--color-purple-light))',
-        label: 'Auction Details'
+        bg: '/assets/projects/metamondial3d/mockups/showcase-nft-page.png',
+        label: 'NFT Page'
       },
       {
         gradient: 'linear-gradient(135deg, var(--color-primary-light), var(--color-green))',
