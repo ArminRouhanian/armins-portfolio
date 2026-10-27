@@ -2,8 +2,24 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Badge from '../../common/Badge/Badge'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
+import useImageLoaded from '../../../hooks/useImageLoaded'
 import { projectsData } from '../../../data/projectsData'
 import styles from './SelectedWork.module.css'
+
+function WorkThumbnail({ thumbnail, fallbackColor }) {
+  const isLoaded = useImageLoaded(thumbnail)
+
+  return (
+    <div
+      className={`${styles.cardBanner}${!isLoaded ? ' skeletonDark' : ''}`}
+      style={{
+        background: isLoaded
+          ? (thumbnail ? `url("${thumbnail}") center / cover no-repeat` : fallbackColor)
+          : undefined
+      }}
+    />
+  )
+}
 
 export default function SelectedWork() {
   const customerThumbnail = projectsData['pinket-customer']?.thumbnail
@@ -19,13 +35,9 @@ export default function SelectedWork() {
       />
       <div className={styles.grid}>
         <Link to="/works/pinket-customer" className={styles.card}>
-          <div
-            className={styles.cardBanner}
-            style={{
-              background: customerThumbnail
-                ? `url("${customerThumbnail}") center / cover no-repeat`
-                : 'var(--color-purple-light)'
-            }}
+          <WorkThumbnail
+            thumbnail={customerThumbnail}
+            fallbackColor="var(--color-purple-light)"
           />
           <div className={styles.cardBody}>
             <h3 className={styles.cardTitle}>
@@ -45,13 +57,9 @@ export default function SelectedWork() {
           </div>
         </Link>
         <Link to="/works/pinket-dashboard" className={styles.card}>
-          <div
-            className={styles.cardBanner}
-            style={{
-              background: dashboardThumbnail
-                ? `url("${dashboardThumbnail}") center / cover no-repeat`
-                : 'var(--color-green)'
-            }}
+          <WorkThumbnail
+            thumbnail={dashboardThumbnail}
+            fallbackColor="var(--color-green)"
           />
           <div className={styles.cardBody}>
             <h3 className={styles.cardTitle}>
@@ -71,13 +79,9 @@ export default function SelectedWork() {
           </div>
         </Link>
         <Link to="/works/metamondial3d" className={styles.card}>
-          <div
-            className={styles.cardBanner}
-            style={{
-              background: metamondialThumbnail
-                ? `url("${metamondialThumbnail}") center / cover no-repeat`
-                : 'var(--color-orange)'
-            }}
+          <WorkThumbnail
+            thumbnail={metamondialThumbnail}
+            fallbackColor="var(--color-orange)"
           />
           <div className={styles.cardBody}>
             <h3 className={styles.cardTitle}>

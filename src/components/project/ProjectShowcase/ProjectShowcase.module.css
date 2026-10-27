@@ -197,11 +197,23 @@
   background: var(--color-text-dim);
 }
 
+.browserImageContainer {
+  width: 100%;
+  min-height: 100%;
+  aspect-ratio: 1440 / 900;
+  display: block;
+}
+
 .desktopImg {
   display: block;
   width: 100%;
   height: auto;
   vertical-align: top;
+  transition: opacity 0.2s ease;
+}
+
+.desktopImgLoading {
+  opacity: 0;
 }
 
 .browserImage {

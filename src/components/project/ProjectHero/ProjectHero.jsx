@@ -1,12 +1,14 @@
 import React from 'react'
 import Button from '../../common/Button/Button'
 import Badge from '../../common/Badge/Badge'
+import useImageLoaded from '../../../hooks/useImageLoaded'
 import styles from './ProjectHero.module.css'
 
 export default function ProjectHero({ hero }) {
   if (!hero) return null
 
   const thumbnail = hero.thumbnail || hero.mockupImage
+  const isLoaded = useImageLoaded(thumbnail)
 
   return (
     <section id="preview" className={styles.section}>
@@ -49,11 +51,13 @@ export default function ProjectHero({ hero }) {
             </span>
           </div>
           <div
-            className={styles.mockupContent}
+            className={`${styles.mockupContent}${thumbnail && !isLoaded ? ' skeletonDark' : ''}`}
             style={{
-              background: thumbnail
-                ? `url("${thumbnail}") center / cover no-repeat`
-                : hero.mockupGradient || 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))'
+              background: isLoaded
+                ? (thumbnail
+                    ? `url("${thumbnail}") center / cover no-repeat`
+                    : hero.mockupGradient || 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))')
+                : undefined
             }}
           >
             {thumbnail ? null : (hero.mockupContent || null)}
