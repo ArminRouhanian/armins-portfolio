@@ -39,6 +39,7 @@ const ShowcaseItems = forwardRef(function ShowcaseItems(
               <span
                 onClick={() => onItemClick && onItemClick(index)}
                 className={styles.label}
+                title={item.label}
               >
                 {item.label}
               </span>
@@ -65,6 +66,7 @@ const ShowcaseItems = forwardRef(function ShowcaseItems(
             <span
               onClick={() => onItemClick && onItemClick(index)}
               className={styles.label}
+              title={item.label}
             >
               {item.label}
             </span>

@@ -218,6 +218,11 @@
   color: var(--color-text-light);
   font-size: var(--font-size-body-sm);
   font-weight: var(--font-weight-medium);
+  max-width: min(100%, calc(100vw - 48px));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
 .thumbnailStrip {

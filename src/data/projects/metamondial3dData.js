@@ -1,12 +1,12 @@
 export const metamondial3dData = {
   id: 'metamondial3d',
-  thumbnail: '/assets/projects/metamondial3d/thumbnail.png',
+  thumbnail: '/assets/projects/metamondial3d/thumbnail.webp',
   hero: {
     tags: ['Web3 Design', 'Design system', 'B2C'],
     title: 'MetaMondial3D',
     subtitle: 'Metaverse & NFT Platform',
     mockupUrl: 'metamondial3d.com',
-    thumbnail: '/assets/projects/metamondial3d/thumbnail.png',
+    thumbnail: '/assets/projects/metamondial3d/thumbnail.webp',
     mockupGradient: 'linear-gradient(135deg, #E22469, #2c5de5)',
     meta: [
       { label: 'Role', value: 'Product Designer' },
@@ -119,27 +119,27 @@ export const metamondial3dData = {
     type: 'desktop',
     items: [
       {
-        bg: '/assets/projects/metamondial3d/mockups/showcase-landing-part-1.png',
+        bg: '/assets/projects/metamondial3d/mockups/showcase-landing-part-1.webp',
         label: 'Landing Part 1'
       },
       {
-        bg: '/assets/projects/metamondial3d/mockups/showcase-landing-part-2.png',
+        bg: '/assets/projects/metamondial3d/mockups/showcase-landing-part-2.webp',
         label: 'Landing Part 2'
       },
       {
-        bg: '/assets/projects/metamondial3d/mockups/showcase-metaverse-explore.png',
+        bg: '/assets/projects/metamondial3d/mockups/showcase-metaverse-explore.webp',
         label: 'Metaverse Explore'
       },
       {
-        bg: '/assets/projects/metamondial3d/mockups/showcase-collection-explore.png',
+        bg: '/assets/projects/metamondial3d/mockups/showcase-collection-explore.webp',
         label: 'NFT Marketplace'
       },
       {
-        bg: '/assets/projects/metamondial3d/mockups/showcase-profile-page.png',
+        bg: '/assets/projects/metamondial3d/mockups/showcase-profile-page.webp',
         label: 'Artist Profile'
       },
       {
-        bg: '/assets/projects/metamondial3d/mockups/showcase-nft-page.png',
+        bg: '/assets/projects/metamondial3d/mockups/showcase-nft-page.webp',
         label: 'NFT Page'
       }
     ]

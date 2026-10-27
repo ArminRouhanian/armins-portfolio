@@ -43,6 +43,12 @@
   cursor: pointer;
   align-self: flex-start;
   transition: color 0.2s;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  box-sizing: border-box;
 }
 
 .label:hover {

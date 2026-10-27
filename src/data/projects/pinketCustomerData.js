@@ -1,12 +1,12 @@
 export const pinketCustomerData = {
   id: 'pinket-customer',
-  thumbnail: '/assets/projects/pinket-customer/thumbnail.png',
+  thumbnail: '/assets/projects/pinket-customer/thumbnail.webp',
   hero: {
     tags: ['Mobile web', 'Research', 'Case study'],
     title: 'Pinket: Customer App',
     subtitle: 'B2B2C financial wallet for organizational welfare',
     mockupUrl: 'yourproduct.com',
-    thumbnail: '/assets/projects/pinket-customer/thumbnail.png',
+    thumbnail: '/assets/projects/pinket-customer/thumbnail.webp',
     mockupGradient: 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))',
     meta: [
       { label: 'Role', value: 'UI/UX Designer' },
@@ -149,28 +149,29 @@ export const pinketCustomerData = {
     },
     items: [
       {
-        gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))',
-        label: 'Customer Wallet'
-      },
-      {
-        gradient: 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))',
-        label: 'BNPL Checkout'
-      },
-      {
-        bg: '/assets/projects/pinket-customer/mockups/showcase-online-explore-translated.png',
+        bg: '/assets/projects/pinket-customer/mockups/showcase-online-explore-translated.webp',
         label: 'Marketplace Explore (Translated)'
       },
       {
-        bg: '/assets/projects/pinket-customer/mockups/showcase-map-store.png',
+        bg: '/assets/projects/pinket-customer/mockups/showcase-online-product-page.webp',
+        label: 'Product Page'
+      },
+      {
+        bg: '/assets/projects/pinket-customer/mockups/showcase-online-explore.webp',
+        label: 'Marketplace Explore (Native)'
+      },
+
+      {
+        bg: '/assets/projects/pinket-customer/mockups/showcase-map-store.webp',
         label: 'Finding Vendors by Maps'
       },
       {
-        gradient: 'linear-gradient(135deg, var(--color-primary-light), var(--color-green))',
+        bg: '/assets/projects/pinket-customer/mockups/showcase-bnpl-payment.webp',
         label: 'Payment Gateway'
       },
       {
-        gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-purple-light))',
-        label: 'Order Confirmation'
+        bg: '/assets/projects/pinket-customer/mockups/showcase-update-visual-identity-example.webp',
+        label: 'Visual Identity (From PopArt to Flat-Vector)'
       }
     ]
   },
