@@ -1,12 +1,12 @@
 export const pinketDashboardData = {
   id: 'pinket-dashboard',
-  thumbnail: null,
+  thumbnail: '/assets/projects/pinket-dashboard/thumbnail.webp',
   hero: {
-    tags: ['Responsive web', 'B2B', 'Case study'],
+    tags: ['B2B', 'Responsive', 'Design System'],
     title: 'Pinket: Dashboards',
-    subtitle: 'Admin, vendor, and organization dashboards',
+    subtitle: 'Admin, Vendor, & Organization Panels',
     mockupUrl: 'panel.pinket.com',
-    thumbnail: null,
+    thumbnail: '/assets/projects/pinket-dashboard/thumbnail.webp',
     mockupGradient: 'linear-gradient(135deg, var(--color-green), var(--color-primary-light))',
     meta: [
       { label: 'Role', value: 'UI/UX Designer' },
@@ -16,93 +16,93 @@ export const pinketDashboardData = {
     ]
   },
   overview: {
-    p1: 'Pinket is a B2B2C financial wallet for organizational welfare. It connects organizations, their employees, and retail partners through digital wallets, credit, online shopping, and in-store purchases. It pivoted from an online chain-store to this model, and three large organizations were set to bring about 4 million users, with roughly 2000 billion Toman (about $10M) a month in potential.',
-    p2: 'Pinket has three dashboards: one for admins, one for vendors (markets), and one for organizations. The team behind them focused on financial transactions, making them safe, clear, and automatic. I owned the design files and approved internal design decisions, and although I focused mainly on the customer app, I strongly influenced the dashboards’ design systems and overall workflow. My work covered:',
+    p1: 'Pinket is a B2B2C financial wallet for corporate welfare, connecting organizations, employees, and retail networks through digital credit, e-commerce, and in-store payments for over 4 million potential users. Originally an online chain-store marketplace, it completed two strategic business pivots to reach this enterprise model.',
+    p2: 'To power this enterprise ecosystem, Pinket operates three interconnected web portals: an Internal Admin Panel for operations and financial auditing, a Merchant SaaS Portal for catalog and order fulfillment, and an Organization Dashboard for corporate benefit and credit management. As the design lead, I established the multi dashboard design architecture, introducing a unified, UntitledUI-based design system and responsive layouts to ensure visual consistency, high precision data display, and accelerated developer handoffs across all three platforms. Key deliverables included:',
     checklists: [
       {
         bg: 'var(--color-orange)',
-        text: 'Update Admin dashboard aligned with technical refactoring, while making sure it is compatible with other operators on other panels.'
+        text: 'Admin portal refactoring & operator workflows'
       },
       {
         bg: 'var(--color-purple-light)',
-        text: "Vendor's Panel: A SaaS for creating and managing orders & stocks for online or in-store shopping via pinket."
+        text: 'Merchant SaaS portal for inventory & orders'
       },
       {
         bg: 'var(--color-green)',
-        text: 'Organization dashboard: For maintaining Employees & Their credit'
+        text: 'Organization portal for employee credit lines'
       },
       {
         bg: 'var(--color-primary-light)',
-        text: 'Smart contract maker (vendor commission)'
+        text: 'Automated vendor commission contract builder'
       },
       {
         bg: 'var(--color-orange-light)',
-        text: 'Responsive redesign for better moderation'
+        text: 'Responsive layouts for on-the-go moderation'
       },
       {
         bg: 'var(--color-surface-dark)',
-        text: 'Updating design system (UntitledUI-based) & For scaling all 3 panels.'
+        text: 'UntitledUI design system scaling all 3 portals'
       }
     ]
   },
   impact: {
     intro:
-      'I rebuilt the design system behind three dashboards so they could scale, and made them responsive. Components and colors stopped being daily design work, and developers reused elements instead of building new UI each time.',
+      'Unifying our tri-portal architecture under a shared design system eliminated redundant handoffs, accelerated sprint velocity, and streamlined complex enterprise operations.',
     metrics: [
       {
         numLabel: 'METRIC 1 OF 4',
         kClass: 'k0',
-        title: 'UI implementation cases dropped by 90%',
-        desc: 'Having 3 large products with different users could confuse any designer working on task in any of the products. Creating a unified library erased the confusion phase. We no longer needed to look back to previous designs to make sure things are consistent.',
-        cardLabel: '● UI implementation',
+        title: 'Drastic Reduction in One-Off UI Requests',
+        desc: 'Consolidating three disparate portals into a unified component library removed design ambiguity, eliminating 90% of custom UI rebuilds.',
+        cardLabel: '● Handoff Efficiency',
         cardTagBg: 'var(--color-primary-tint)',
         cardTagColor: 'var(--color-primary-dark)',
-        cardPeriod: '[Period]',
+        cardPeriod: 'Handoff efficiency',
         cardValue: '−90%',
         cardValueColor: 'var(--color-primary-dark)',
-        cardSub: 'UI implementation cases',
+        cardSub: 'Reduction in custom one-off UI rebuilds',
         barColor: 'var(--color-primary)'
       },
       {
         numLabel: 'METRIC 2 OF 4',
         kClass: 'k1',
-        title: 'Faster UI implementation Helped us Focus more on UX',
-        desc: 'With conducted an inside research, measuring time and effort for delivering high-fidelity design. Same people could do much more and think for better solutions and test it much faster than before.',
-        cardLabel: '● Design process',
+        title: '5x Acceleration in Screen Delivery Velocity',
+        desc: 'Pre-built responsive layouts and semantic tokens cut prototyping time fivefold, allowing the team to dedicate more sprint capacity to UX validation.',
+        cardLabel: '● Design Velocity',
         cardTagBg: 'var(--color-purple-tint)',
         cardTagColor: 'var(--color-purple)',
-        cardPeriod: '[Period]',
-        cardValue: '5 times',
+        cardPeriod: 'Delivery speed',
+        cardValue: '5x',
         cardValueColor: 'var(--color-purple)',
-        cardSub: 'Faster generating a UI for tasks.',
+        cardSub: 'Faster delivery from wireframe to developer handoff',
         barColor: 'var(--color-purple-light)'
       },
       {
         numLabel: 'METRIC 3 OF 4',
         kClass: 'k2',
-        title: 'Size of the library, its learning curve & its Scalabilty',
-        desc: 'With a multi-dimensional design system, switching between sub-brands and themes made one problem go away. Files got lighter, & many of redundant components got dismissed. While also gives us the ability to Finally deliver a responsive view in much faster way than just creating new designs in mobile view.',
-        cardLabel: '● Dashboards unified',
+        title: '67% Reduction in Design Debt & Redundant Assets',
+        desc: 'Pruned duplicate components into a centralized tokenized system, cutting library bloat by 67% while unlocking native responsive tablet and mobile views.',
+        cardLabel: '● Library Optimization',
         cardTagBg: 'var(--color-green-tint)',
         cardTagColor: 'var(--color-green-dark)',
         cardPeriod: 'Apr – Jun 2025',
-        cardValue: '-%67',
+        cardValue: '−67%',
         cardValueColor: 'var(--color-green-dark)',
-        cardSub: 'Size of library and components.',
+        cardSub: 'Pruned component bloat and redundant Figma files',
         barColor: 'var(--color-green)'
       },
       {
         numLabel: 'METRIC 4 OF 4',
         kClass: 'k3',
-        title: 'Task Duration for integrating contracts with vendors',
-        desc: 'Reducing integration time from 20 to only 5 days (from dealing to shipping their shopping page) by creating a contract tool that translates complex commission policies into code queries. We studied 20 contracts & managed to model a 5 dimensional model. reducing the time for developing proper queries for each exception and making it fully automatic, covering 95% cases.',
-        cardLabel: '● Contract maker',
+        title: '75% Faster Merchant Contract & Commission Onboarding',
+        desc: 'Designed an automated contract builder that translated 20 legacy commission models into a structured rule engine, cutting partner setup from 20 to 5 days.',
+        cardLabel: '● Operations Automation',
         cardTagBg: 'var(--color-orange-tint)',
         cardTagColor: 'var(--color-orange-dark)',
-        cardPeriod: '[Period]',
-        cardValue: '4 times',
+        cardPeriod: 'Merchant onboarding',
+        cardValue: '4x',
         cardValueColor: 'var(--color-orange-dark)',
-        cardSub: 'Faster making contracts with new vendors',
+        cardSub: 'Faster partner onboarding (from 20 to 5 days)',
         barColor: 'var(--color-orange)'
       }
     ]
@@ -179,16 +179,16 @@ export const pinketDashboardData = {
     {
       initials: 'FE',
       avatarBg: 'purple',
-      name: '[Teammate Name]',
+      name: 'Hossein Yadegari',
       role: 'Frontend Developer',
       quote: '[Replace with a quote about handoff, communication, design system clarity, or edge-case handling.]'
     },
     {
-      initials: 'TL',
+      initials: 'UXD',
       avatarBg: 'green',
-      name: '[Teammate Name]',
-      role: 'Team Lead / Engineering',
-      quote: '[Replace with a quote on speed, initiative, business impact, or how the work moved the team forward.]'
+      name: 'Amirhossein Karimi',
+      role: 'UI/UX Designer',
+      quote: 'I worked with Armin for three years across multiple product panels, and he consistently proved to be a reliable, thoughtful teammate. He excels at working with data, gathering targeted stakeholder feedback, and identifying the right people to move projects forward.\nArmin is also great at structuring clear design processes and breaking down next steps in a practical, organized way. I believe any team would benefit from having him on board.'
     }
   ],
   nav: {

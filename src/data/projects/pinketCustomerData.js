@@ -2,9 +2,9 @@ export const pinketCustomerData = {
   id: 'pinket-customer',
   thumbnail: '/assets/projects/pinket-customer/thumbnail.webp',
   hero: {
-    tags: ['Mobile web', 'Research', 'Case study'],
+    tags: ['B2B2C', 'Web app', 'Platform'],
     title: 'Pinket: Customer App',
-    subtitle: 'B2B2C financial wallet for organizational welfare',
+    subtitle: 'Smart Wallet for Organizational Welfare',
     mockupUrl: 'yourproduct.com',
     thumbnail: '/assets/projects/pinket-customer/thumbnail.webp',
     mockupGradient: 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))',
@@ -149,16 +149,16 @@ export const pinketCustomerData = {
     },
     items: [
       {
-        bg: '/assets/projects/pinket-customer/mockups/showcase-online-explore-translated.webp',
-        label: 'Marketplace Explore (Translated)'
+        bg: '/assets/projects/pinket-customer/mockups/showcase-online-explore.webp',
+        label: 'Online Explore'
       },
       {
-        bg: '/assets/projects/pinket-customer/mockups/showcase-online-product-page.webp',
+        bg: '/assets/projects/pinket-customer/mockups/showcase-product-page.webp',
         label: 'Product Page'
       },
       {
-        bg: '/assets/projects/pinket-customer/mockups/showcase-online-explore.webp',
-        label: 'Marketplace Explore (Native)'
+        bg: '/assets/projects/pinket-customer/mockups/showcase-in-store-explore.webp',
+        label: 'In Store Explore'
       },
 
       {

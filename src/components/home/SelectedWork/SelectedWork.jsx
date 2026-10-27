@@ -11,7 +11,7 @@ function WorkThumbnail({ thumbnail, fallbackColor }) {
 
   return (
     <div
-      className={`${styles.cardBanner}${!isLoaded ? ' skeletonDark' : ''}`}
+      className={`${styles.cardBanner}${thumbnail && !isLoaded ? ' skeletonDark' : ''}`}
       style={{
         background: isLoaded
           ? (thumbnail ? `url("${thumbnail}") center / cover no-repeat` : fallbackColor)
@@ -21,11 +21,25 @@ function WorkThumbnail({ thumbnail, fallbackColor }) {
   )
 }
 
-export default function SelectedWork() {
-  const customerThumbnail = projectsData['pinket-customer']?.thumbnail
-  const dashboardThumbnail = projectsData['pinket-dashboard']?.thumbnail
-  const metamondialThumbnail = projectsData['metamondial3d']?.thumbnail
+const PROJECT_LIST = [
+  {
+    key: 'pinket-customer',
+    to: '/works/pinket-customer',
+    fallbackColor: 'var(--color-purple-light)'
+  },
+  {
+    key: 'pinket-dashboard',
+    to: '/works/pinket-dashboard',
+    fallbackColor: 'var(--color-green)'
+  },
+  {
+    key: 'metamondial3d',
+    to: '/works/metamondial3d',
+    fallbackColor: 'var(--color-orange)'
+  }
+]
 
+export default function SelectedWork() {
   return (
     <section id="work" className={styles.section}>
       <SectionHeader
@@ -34,72 +48,48 @@ export default function SelectedWork() {
         className={styles.header}
       />
       <div className={styles.grid}>
-        <Link to="/works/pinket-customer" className={styles.card}>
-          <WorkThumbnail
-            thumbnail={customerThumbnail}
-            fallbackColor="var(--color-purple-light)"
-          />
-          <div className={styles.cardBody}>
-            <h3 className={styles.cardTitle}>
-              Pinket: Customer App
-            </h3>
-            <p className={styles.cardDescription}>
-              BNPL shopping network
-            </p>
-            <div className={styles.badgeRow}>
-              <Badge variant="grey">
-                Mobile App
-              </Badge>
-              <Badge variant="grey">
-                Research
-              </Badge>
-            </div>
-          </div>
-        </Link>
-        <Link to="/works/pinket-dashboard" className={styles.card}>
-          <WorkThumbnail
-            thumbnail={dashboardThumbnail}
-            fallbackColor="var(--color-green)"
-          />
-          <div className={styles.cardBody}>
-            <h3 className={styles.cardTitle}>
-              Pinket: Dashboards
-            </h3>
-            <p className={styles.cardDescription}>
-              [One-line outcome]
-            </p>
-            <div className={styles.badgeRow}>
-              <Badge variant="grey">
-                Desktop
-              </Badge>
-              <Badge variant="grey">
-                B2B
-              </Badge>
-            </div>
-          </div>
-        </Link>
-        <Link to="/works/metamondial3d" className={styles.card}>
-          <WorkThumbnail
-            thumbnail={metamondialThumbnail}
-            fallbackColor="var(--color-orange)"
-          />
-          <div className={styles.cardBody}>
-            <h3 className={styles.cardTitle}>
-              MetaMondial3D
-            </h3>
-            <p className={styles.cardDescription}>
-              Metaverse &amp; NFT Market
-            </p>
-            <div className={styles.badgeRow}>
-              <Badge variant="grey">
-                Redesign
-              </Badge>
-              <Badge variant="grey">
-                Responsive
-              </Badge>
-            </div>
-          </div>
-        </Link>
+        {PROJECT_LIST.map((p) => {
+          const project = projectsData[p.key]
+          if (!project) return null
+
+          const title = project.hero?.title || project.title
+          const subtitle = project.hero?.subtitle || project.subtitle
+          const tags = project.hero?.tags || []
+          const thumbnail = project.thumbnail || project.hero?.thumbnail
+          const fallback = project.hero?.mockupGradient || p.fallbackColor
+
+          return (
+            <Link
+              key={p.key}
+              to={p.to}
+              className={styles.card}
+            >
+              <WorkThumbnail
+                thumbnail={thumbnail}
+                fallbackColor={fallback}
+              />
+              <div className={styles.cardBody}>
+                <h3 className={styles.cardTitle}>
+                  {title}
+                </h3>
+                {subtitle && (
+                  <p className={styles.cardDescription}>
+                    {subtitle}
+                  </p>
+                )}
+                {tags.length > 0 && (
+                  <div className={styles.badgeRow}>
+                    {tags.map((tag) => (
+                      <Badge key={tag} variant="grey">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </Link>
+          )
+        })}
       </div>
     </section>
   )

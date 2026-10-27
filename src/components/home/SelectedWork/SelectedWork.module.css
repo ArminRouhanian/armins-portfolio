@@ -58,6 +58,7 @@
 .badgeRow {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 640px) {
