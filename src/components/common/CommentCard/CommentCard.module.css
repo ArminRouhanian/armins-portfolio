@@ -54,4 +54,6 @@
   font-size: var(--font-size-body);
   line-height: var(--line-height-body-lg);
   color: var(--color-text-secondary);
+  white-space: pre-line;
+  font-style: italic;
 }

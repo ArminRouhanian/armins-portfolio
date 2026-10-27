@@ -26,13 +26,13 @@ export default function ProjectImpact({ impact, label = '02 · IMPACT' }) {
                 {impact.intro}
               </p>
               <div className={styles.descContainer}>
-                {impact.metrics.map(m => (
+                {impact.metrics.map((m, i) => (
                   <div
-                    key={m.numLabel + m.title}
+                    key={m.numLabel || m.title || i}
                     className={`${styles.descSlide} is-desc`}
                   >
-                    <p className={`${styles.descNumLabel} ${styles[m.kClass] || ''}`}>
-                      {m.numLabel}
+                    <p className={`${styles.descNumLabel} ${styles[m.kClass] || styles[`k${i % 4}`] || ''}`}>
+                      {m.numLabel || `METRIC ${i + 1} OF ${impact.metrics.length}`}
                     </p>
                     <h3 className={`${styles.descTitle} ${styles.textPrimary}`}>
                       {m.title}
@@ -54,11 +54,11 @@ export default function ProjectImpact({ impact, label = '02 · IMPACT' }) {
                   ))}
                 </div>
                 <span className={`${styles.progressCounter} ${styles.textMuted} pgc`}>
-                  01 / 0{impact.metrics.length}
+                  01 / {String(impact.metrics.length).padStart(2, '0')}
                 </span>
               </div>
               <p className={`${styles.progressHint} ${styles.textMuted}`}>
-                Example metrics. Replace with your own. Keep scrolling to move through them.
+                {impact.hint || 'Keep scrolling to move through deliverables and impact.'}
               </p>
             </div>
             <div className={styles.cardsContainer}>
@@ -102,7 +102,10 @@ export default function ProjectImpact({ impact, label = '02 · IMPACT' }) {
               ))}
             </div>
           </div>
-          <div className={styles.spacer} />
+          <div
+            className={styles.spacer}
+            style={{ height: `${Math.max(0, (impact.metrics.length - 1) * 460)}px` }}
+          />
         </div>
 
         {/* Mobile vertical flow with compact cards under each title */}
@@ -119,8 +122,8 @@ export default function ProjectImpact({ impact, label = '02 · IMPACT' }) {
           <div className={styles.mobileList}>
             {impact.metrics.map((m, i) => (
               <div key={i} className={styles.mobileItem}>
-                <p className={`${styles.descNumLabel} ${styles[m.kClass] || ''}`}>
-                  {m.numLabel}
+                <p className={`${styles.descNumLabel} ${styles[m.kClass] || styles[`k${i % 4}`] || ''}`}>
+                  {m.numLabel || `METRIC ${i + 1} OF ${impact.metrics.length}`}
                 </p>
                 <h3 className={`${styles.mobileItemTitle} ${styles.textPrimary}`}>
                   {m.title}

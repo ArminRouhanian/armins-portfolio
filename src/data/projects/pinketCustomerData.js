@@ -180,11 +180,11 @@ export const pinketCustomerData = {
       quote: 'Armin has always paid close attention to detail and made collaboration between design and frontend teams a priority, doing both exceptionally well.\n His designs are always clear and well-documented, allowing frontend developers to start implementation with confidence and without ambiguity.'
     },
     {
-      initials: 'TL',
+      initials: 'BE',
       avatarBg: 'green',
-      name: '[Teammate Name]',
-      role: 'Team Lead / Engineering',
-      quote: '[Replace with a quote on speed, initiative, business impact, or how the work moved the team forward.]'
+      name: 'Amirhossein Sheikh',
+      role: 'Senior Backend Developer',
+      quote: 'Armin combines strong design expertise with an exceptional product mindset, contributing to product decisions and balancing user needs, business goals, and technical constraints. His attention to detail and commitment to quality consistently stand out.\n What truly sets Armin apart is his sense of ownership, leadership, and collaborative spirit. His dedication and genuine care for the product and the people behind it make him an invaluable teammate.'
     }
   ],
   nav: {

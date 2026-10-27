@@ -8,6 +8,11 @@
   margin-bottom: 40px;
 }
 
+.alertWrap {
+  margin-top: 20px;
+  max-width: 680px;
+}
+
 .track {
   --line-width: 1px;
   --track-gap: 32px;

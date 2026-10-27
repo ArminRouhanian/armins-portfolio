@@ -25,6 +25,10 @@ export default function CommentCard({
   children
 }) {
   const bg = resolveColor(avatarBg);
+  const formattedQuote =
+    typeof quote === 'string'
+      ? quote.replace(/^["“](.*)["”]$/s, '$1')
+      : quote;
 
   return (
     <div
@@ -55,9 +59,7 @@ export default function CommentCard({
       </div>
       {quote && (
         <p className={styles.quote}>
-          {quote.startsWith('"') || quote.startsWith('“') || quote.startsWith('&quot;')
-            ? quote
-            : `"${quote}"`}
+          {formattedQuote}
         </p>
       )}
       {children}

@@ -1,5 +1,6 @@
 import React from 'react'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
+import Alert from '../../common/Alert/Alert'
 import styles from './ProjectTimeline.module.css'
 
 export default function ProjectTimeline({ timeline, label = '03 · TIMELINE' }) {
@@ -11,7 +12,15 @@ export default function ProjectTimeline({ timeline, label = '03 · TIMELINE' }) 
         label={label}
         title="How the work evolved"
         className={styles.header}
-      />
+      >
+        {timeline.alert && (
+          <div className={styles.alertWrap}>
+            <Alert variant={timeline.alert.variant || 'warning'}>
+              {timeline.alert.text || timeline.alert}
+            </Alert>
+          </div>
+        )}
+      </SectionHeader>
       <div className={styles.track}>
         {timeline.steps.map((step, index) => (
           <div key={index} className={styles.step}>

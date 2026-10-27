@@ -7,7 +7,7 @@ export const metamondial3dData = {
     subtitle: 'Metaverse & NFT Platform',
     mockupUrl: 'metamondial3d.com',
     thumbnail: '/assets/projects/metamondial3d/thumbnail.png',
-    mockupGradient: 'linear-gradient(135deg, var(--color-surface-dark), var(--color-surface-dark-alt))',
+    mockupGradient: 'linear-gradient(135deg, #E22469, #2c5de5)',
     meta: [
       { label: 'Role', value: 'Product Designer' },
       { label: 'Timeline', value: 'June - July 2022' },
@@ -17,7 +17,7 @@ export const metamondial3dData = {
   },
   overview: {
     p1: 'Meta Mondial 3D is an online 3D modeling tool specialized for creating NFT and metaverse-Friendly assets in an online platform. At the moment of project, the tool was in the beta version and my responsiblity was to create landings and platform pages for the fund-raising stage.',
-    p2: 'Client brief is simple: they want to have a website, similiar to other 3D asset markets, while also have other features like Metaverse and NFT capabilities. It should look modern and easy to build. My work covered:',
+    p2: 'The brief called for a modern, scalable platform combining the familiarity of established 3D asset marketplaces with Web3, NFT, and metaverse capabilities. The interface needed to feel contemporary and visually engaging while remaining straightforward for engineering to implement during early-stage development. Key deliverables included:',
     checklists: [
       { bg: 'var(--color-orange)', text: 'Landing Page' },
       { bg: 'var(--color-purple-light)', text: 'NFT Market' },
@@ -36,91 +36,82 @@ export const metamondial3dData = {
   },
   impact: {
     intro:
-      '[Summarize the outcome in two or three sentences: who it helped and what changed.]',
+      'Navigating this fast-paced engagement highlighted key operational gaps in early-stage freelance projects. I channeled the experience into overhauling my workflow—transforming loose scoping and design handoffs into a structured, automated delivery system.',
+    hint: 'Keep scrolling to move through deliverables and process outcomes.',
     metrics: [
       {
-        numLabel: 'METRIC 1 OF 4',
+        numLabel: 'METRIC 1 OF 3',
         kClass: 'k0',
-        title: '[One-line headline about this result]',
-        desc: '[Explain how it was measured, the time period, and what drove the change.]',
-        cardLabel: '● [Metric name]',
+        title: 'Pitch-Ready Platform Deliverables',
+        desc: 'Designed 6 core modules—Landing, 3D Preview, NFT Marketplace, Artist Profiles, Bidding System, and Metaverse Explore—packaged into high-fidelity desktop prototypes for early fundraising.',
+        cardLabel: '● Deliverables',
         cardTagBg: 'var(--color-primary-tint)',
         cardTagColor: 'var(--color-primary-dark)',
-        cardPeriod: '[Period]',
-        cardValue: '[+00%]',
+        cardPeriod: 'June - July 2022',
+        cardValue: '6',
         cardValueColor: 'var(--color-primary-dark)',
-        cardSub: '[Key metric, e.g. activation]',
+        cardSub: 'Core platform modules designed',
         barColor: 'var(--color-primary)'
       },
       {
-        numLabel: 'METRIC 2 OF 4',
+        numLabel: 'METRIC 2 OF 3',
         kClass: 'k1',
-        title: '[One-line headline about this result]',
-        desc: '[Explain how it was measured, the time period, and what drove the change.]',
-        cardLabel: '● [Metric name]',
+        title: 'Standardized Project Template & Design Ops',
+        desc: 'Built a reusable Figma project template with modular page structures, dark-theme tokens, and layout grids to dramatically accelerate future kickoff and developer handoff times.',
+        cardLabel: '● Design Ops',
         cardTagBg: 'var(--color-purple-tint)',
         cardTagColor: 'var(--color-purple)',
-        cardPeriod: '[Period]',
-        cardValue: '[−00%]',
+        cardPeriod: 'Workflow template',
+        cardValue: '1',
         cardValueColor: 'var(--color-purple)',
-        cardSub: '[Key metric, e.g. time to complete a task]',
+        cardSub: 'Modular Figma project framework',
         barColor: 'var(--color-purple-light)'
       },
       {
-        numLabel: 'METRIC 3 OF 4',
+        numLabel: 'METRIC 3 OF 3',
         kClass: 'k2',
-        title: '[One-line headline about this result]',
-        desc: '[Explain how it was measured, the time period, and what drove the change.]',
-        cardLabel: '● [Metric name]',
+        title: 'Contract Scoping & Process Automation',
+        desc: 'Developed a formal freelance contract and scoping system with automated sprint milestones, explicit scope boundaries, and change-request guidelines to eliminate timeline misalignment.',
+        cardLabel: '● Operations',
         cardTagBg: 'var(--color-green-tint)',
         cardTagColor: 'var(--color-green-dark)',
-        cardPeriod: '[Period]',
-        cardValue: '[00]',
+        cardPeriod: 'Client workflow',
+        cardValue: '1',
         cardValueColor: 'var(--color-green-dark)',
-        cardSub: '[Screens or flows delivered]',
+        cardSub: 'Contract & scoping system established',
         barColor: 'var(--color-green)'
-      },
-      {
-        numLabel: 'METRIC 4 OF 4',
-        kClass: 'k3',
-        title: '[One-line headline about this result]',
-        desc: '[Explain how it was measured, the time period, and what drove the change.]',
-        cardLabel: '● [Metric name]',
-        cardTagBg: 'var(--color-orange-tint)',
-        cardTagColor: 'var(--color-orange-dark)',
-        cardPeriod: '[Period]',
-        cardValue: '[00]',
-        cardValueColor: 'var(--color-orange-dark)',
-        cardSub: '[Another outcome]',
-        barColor: 'var(--color-orange)'
       }
     ]
   },
   timeline: {
+    alert: {
+      variant: 'warning',
+      text: 'In full transparency, this engagement concluded after the first month due to misaligned expectations around project scope, timeline, and compensation. Despite the early conclusion, it served as an invaluable lesson in contract scoping, setting clear boundaries, and managing client expectations—as reflected below.'
+    },
     steps: [
       {
         dotColor: 'var(--color-orange)',
-        period: '[Phase 1] · Discovery',
+        period: 'Phase 1 · Discovery',
         title: 'Competitor Analysis & Foundation',
-        desc: "I've spent 4 days to check competitors & Ideas given to me. My Client wanted to have something similar to ArtStation, but focus on AI, NFT & Metaverse. In this phase, I managed to analyze 4 similar companies related to metaverse to learn how they behave and what do they target. [Add the outcome in one line.]"
+        desc: 'Analyzed direct competitors and industry benchmarks, evaluating ArtStation for creator showcase flows and asset discovery, alongside metaverse ecosystems like Decentraland for Web3 interaction patterns. Synthesized user mental models and target creator needs into a focused information architecture and MVP product scope.'
       },
       {
         dotColor: 'var(--color-purple-light)',
-        period: '[Phase 2] · Design',
+        period: 'Phase 2 · Design',
         title: 'Sketching & Wireframing',
-        desc: '[What happened in this phase]. [Add the outcome in one line.]'
+        desc: 'Translated requirements into low-to-mid-fidelity wireframes across core user journeys, including 3D asset exploration, auction/bidding states, and multi-tier profile layouts. Iterated rapidly with the client through weekly design syncs to align on visual hierarchy and interaction models before committing to high-fidelity styling.'
       },
       {
         dotColor: 'var(--color-green)',
-        period: '[Phase 3] · Delivery',
+        period: 'Phase 3 · Delivery',
         title: 'Revision & Implementation',
-        desc: '[What happened in this phase]. [Add the outcome in one line.]'
+        desc: 'Delivered high-fidelity UI screens and interactive desktop prototypes, establishing an exploratory dark-theme visual language suited for Web3 and 3D creators. Conducted feedback revisions and packaged developer-ready design specs, component styles, and asset exports to support engineering during the fundraising stage.'
       },
       {
         dotColor: 'var(--color-primary-light)',
-        period: '[Phase 4] · Outcome',
+        period: 'Phase 4 · Outcome',
         title: 'Mistakes, Lessons & Reflections',
-        desc: '[What happened in this phase]. [Add the outcome in one line.]'
+        desc: 'This engagement provided crucial freelance takeaways on project scoping, change management, and commercial alignment. As feature requests quickly expanded beyond initial timelines, it reinforced the necessity of establishing clear scope boundaries, written sign-offs, and staged sprint deliverables when navigating fast-paced client contracts.'
       }
     ]
   },
@@ -128,28 +119,28 @@ export const metamondial3dData = {
     type: 'desktop',
     items: [
       {
-        gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))',
-        label: 'NFT Marketplace'
+        bg: '/assets/projects/metamondial3d/mockups/showcase-landing-part-1.png',
+        label: 'Landing Part 1'
       },
       {
-        gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))',
+        bg: '/assets/projects/metamondial3d/mockups/showcase-landing-part-2.png',
+        label: 'Landing Part 2'
+      },
+      {
+        bg: '/assets/projects/metamondial3d/mockups/showcase-metaverse-explore.png',
         label: 'Metaverse Explore'
+      },
+      {
+        bg: '/assets/projects/metamondial3d/mockups/showcase-collection-explore.png',
+        label: 'NFT Marketplace'
       },
       {
         bg: '/assets/projects/metamondial3d/mockups/showcase-profile-page.png',
         label: 'Artist Profile'
       },
       {
-        gradient: 'linear-gradient(135deg, var(--color-green), var(--color-primary-light))',
-        label: 'Bidding System'
-      },
-      {
         bg: '/assets/projects/metamondial3d/mockups/showcase-nft-page.png',
         label: 'NFT Page'
-      },
-      {
-        gradient: 'linear-gradient(135deg, var(--color-primary-light), var(--color-green))',
-        label: 'Asset Library'
       }
     ]
   },
