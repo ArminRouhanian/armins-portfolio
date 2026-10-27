@@ -36,6 +36,19 @@
   color: var(--color-text-secondary);
 }
 
+/* Dark Mode Variants */
+.dark.info {
+  background: rgba(13, 153, 255, 0.12);
+  border: 1px solid rgba(13, 153, 255, 0.32);
+  color: var(--color-text-light-subtle);
+}
+
+.dark.warning {
+  background: rgba(242, 78, 30, 0.12);
+  border: 1px solid rgba(242, 78, 30, 0.32);
+  color: var(--color-text-light-subtle);
+}
+
 @media (max-width: 640px) {
   .alert {
     padding: 12px 14px;

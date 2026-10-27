@@ -11,13 +11,13 @@ export const pinketCustomerData = {
     meta: [
       { label: 'Role', value: 'UI/UX Designer' },
       { label: 'Timeline', value: 'April 2022 – June 2026' },
-      { label: 'Team', value: '7 people' },
+      { label: 'Team', value: 'Exp: 7 persons' },
       { label: 'Platform', value: 'Mobile web app' }
     ]
   },
   overview: {
-    p1: 'Pinket is a B2B2C financial wallet for organizational welfare. It connects organizations, their employees, and retail partners through digital wallets, credit, online shopping, and in-store purchases. It pivoted from an online chain-store to this model, and three large organizations were set to bring about 4 million users.',
-    p2: 'I joined Pinket in 2021 as a backend developer and moved into UI/UX design in April 2022. I owned all design files and approved internal design decisions, working mainly on the customer app: a React web app for employees and customers, designed for mobile only. The team had one PM, one APM, one or two frontend developers, and two to four backend developers. Product direction came mainly from product management, with limited data behind decisions, so I used usability tests and phone interviews to ground design choices in user evidence wherever the process allowed. My work covered:',
+    p1: 'Pinket is a B2B2C financial wallet for corporate welfare, connecting organizations, employees, and retail networks through digital credit, e-commerce, and in-store payments for over 4 million potential users. Originally an online chain-store marketplace, it completed two strategic business pivots to reach this enterprise model.',
+    p2: 'Transitioning from backend engineering to UI/UX design in April 2022, I took end-to-end ownership of the customer-facing mobile web application across cross-functional sprints. Because dedicated research budget was unavailable, I adopted lean, pragmatic discovery methods—conducting targeted guerrilla interviews and remote usability walkthroughs to ground design decisions in user evidence. Concurrently, I resolved years of design debt by restructuring chaotic Figma workspaces, consolidating disconnected local files, and creating Pinket’s first cohesive design system, color palette, and reusable UI kit to establish a sustainable foundation for current and future design teams. Key areas of ownership included:',
     checklists: [
       {
         bg: 'var(--color-orange)',
@@ -47,62 +47,62 @@ export const pinketCustomerData = {
   },
   impact: {
     intro:
-      'Pinket changed from an online chain-store to a B2B2C financial platform, so the customer app’s personas, journeys, and UI all had to change. By unifying design and making clear path for desired features based on new users, Here are few cases we achieved:',
+      'Re-architecting the customer app across Pinket’s business pivots required aligning core flows with enterprise employee habits while scaling our interface to support diverse retail models.',
     metrics: [
       {
         numLabel: 'METRIC 1 OF 4',
         kClass: 'k0',
-        title: 'Increase of order count by focusing on in-store journey',
-        desc: 'We found users tend to buy groceries in-person. To improve users access to their credit, we conducted a full in-store payment journey, tripling orders count per month.',
-        cardLabel: '● Potential reach',
+        title: 'Unlocking High-Volume In-Store Redemptions',
+        desc: 'Recognizing that employees preferred in-person grocery redemption, we designed an intuitive in-store barcode/QR payment flow, tripling monthly transaction volumes.',
+        cardLabel: '● Scaled Reach',
         cardTagBg: 'var(--color-primary-tint)',
         cardTagColor: 'var(--color-primary-dark)',
-        cardPeriod: 'Business case',
+        cardPeriod: 'Enterprise scale',
         cardValue: '4M',
         cardValueColor: 'var(--color-primary-dark)',
-        cardSub: 'Potential users with at least one purchace per month across 5 large organizations',
+        cardSub: 'Prospective employees across 5 anchor enterprise networks',
         barColor: 'var(--color-primary)'
       },
       {
         numLabel: 'METRIC 2 OF 4',
         kClass: 'k1',
-        title: 'Interviewed about 80 users to learn why purchases were not finished',
-        desc: 'Most problems came from vendors’ delivery range, users not finding the right vendor, and inconsistent data across market branches. This resulted an update in our in-store journey to fix the issue.',
-        cardLabel: '● User research',
+        title: 'Pragmatic Discovery to Diagnose Drop-Off',
+        desc: 'Conducted in-depth phone interviews with drop-off users, uncovering critical friction in branch delivery radius and vendor matching that led to an overhauled purchase journey.',
+        cardLabel: '● Lean Discovery',
         cardTagBg: 'var(--color-purple-tint)',
         cardTagColor: 'var(--color-purple)',
         cardPeriod: 'April 2023',
         cardValue: '~80',
         cardValueColor: 'var(--color-purple)',
-        cardSub: 'Phone interviews on purchase drop-off',
+        cardSub: 'Qualitative user interviews resolving purchase abandonment',
         barColor: 'var(--color-purple-light)'
       },
       {
         numLabel: 'METRIC 3 OF 4',
         kClass: 'k2',
-        title: 'One unified UI with Personalization for Organizations.',
-        desc: 'Most of the organizations we work with needed a personalized version of pinket for their brand. We updated our design system to be able to inherit themes without losing Identity.',
-        cardLabel: '● Unified UI',
+        title: 'Multi-Tenant Theming on One Shared System',
+        desc: 'Engineered a semantic design token hierarchy allowing our React web app to dynamically adopt corporate partner branding while maintaining usability consistency.',
+        cardLabel: '● Multi-Tenancy',
         cardTagBg: 'var(--color-green-tint)',
         cardTagColor: 'var(--color-green-dark)',
-        cardPeriod: '2024-2025',
+        cardPeriod: '2024 - 2025',
         cardValue: '12',
         cardValueColor: 'var(--color-green-dark)',
-        cardSub: 'Single UI adapting 12 brands (so far)',
+        cardSub: 'Enterprise client brands supported by one dynamic UI codebase',
         barColor: 'var(--color-green)'
       },
       {
         numLabel: 'METRIC 4 OF 4',
         kClass: 'k3',
-        title: 'From FMCG to 17 Categories & Services',
-        desc: 'Organizations demanded more diversity for how to use credits. The journey had to adapt new cases, shopping, entertainment, and a lot more.',
-        cardLabel: '● [Metric name]',
+        title: 'Scaling from FMCG to 17 Service Sectors',
+        desc: 'Expanded information architecture and credit allocation flows beyond grocery into comprehensive organizational welfare, encompassing retail, dining, and wellness.',
+        cardLabel: '● Ecosystem Growth',
         cardTagBg: 'var(--color-orange-tint)',
         cardTagColor: 'var(--color-orange-dark)',
-        cardPeriod: 'Jan 2024 - Mar 2026',
-        cardValue: '+5000',
+        cardPeriod: '2024 - 2026',
+        cardValue: '+5K',
         cardValueColor: 'var(--color-orange-dark)',
-        cardSub: 'added market branches & services across 17 different categories',
+        cardSub: 'Merchant locations and welfare services integrated across 17 categories',
         barColor: 'var(--color-orange)'
       }
     ]
@@ -111,32 +111,42 @@ export const pinketCustomerData = {
     steps: [
       {
         dotColor: 'var(--color-orange)',
-        period: 'June 2021 · Developer',
-        title: 'Joined Pinket as a backend and full-stack developer',
-        desc: 'Built backend features with Java and PostgreSQL, working with APIs, business logic, and data architecture, then expanded into React.js.'
+        period: 'June 2021 · Engineering',
+        title: 'Joined Pinket as a Backend & Full-Stack Developer',
+        desc: 'Built core backend services with Java and PostgreSQL, architecting API contracts and data models before expanding into React.js—establishing deep empathy for developer handoff constraints.'
       },
       {
         dotColor: 'var(--color-purple-light)',
-        period: 'June 2022 · Designer',
-        title: 'Moved into UI/UX design',
-        desc: 'Took over product design across B2B and B2C products and became the owner of all design files and the approver of internal design decisions.'
-      },
-      {
-        dotColor: 'var(--color-green)',
-        period: '[Year] · Customer app',
-        title: 'Evolved the app through repeated product changes',
-        desc: 'The app and the idea changed many times over the years, so the design evolved continuously while staying unified.'
+        period: 'April 2022 · Design Ops',
+        title: 'Transitioned to UI/UX & Resolved Design Debt',
+        desc: 'Took full ownership of product design, restructuring disorganized Figma workspaces, recovering scattered local files, and creating Pinket’s first cohesive component library, color tokens, and style guide.'
       },
       {
         dotColor: 'var(--color-primary-light)',
-        period: '[Year] · Pivot',
-        title: 'Unified the UI after the B2B2C pivot',
-        desc: 'Moved away from the older UI kit, updated journeys based on new competitors, and brought new values to the app.'
+        period: 'April 2023 · Lean Discovery',
+        title: 'Diagnosed Drop-Off & Launched In-Store Payments',
+        desc: 'With zero research budget, conducted ~80 phone interviews to uncover delivery radius barriers. Designed and rolled out a barcode-based in-store redemption flow that tripled monthly order volumes.'
+      },
+      {
+        dotColor: 'var(--color-green)',
+        period: '2024 · Strategic Pivot',
+        title: 'Architected B2B2C Welfare Wallet & Multi-Tenant Theming',
+        desc: 'Redesigned the customer experience for the enterprise welfare pivot, modeling corporate quota wallets and BNPL systems while implementing dynamic theming for 12 corporate client identities.'
+      },
+      {
+        dotColor: 'var(--color-orange-light)',
+        period: '2025 – 2026 · Ecosystem Scale',
+        title: 'Multi-Category Expansion & Enterprise Hardening',
+        desc: 'Scaled user journeys beyond FMCG into 17 distinct service sectors spanning +5,000 merchant branches, continuously refining mobile performance, edge cases, and cross-functional design handoffs.'
       }
     ]
   },
   showcase: {
     type: 'mobile',
+    alert: {
+      variant: 'info',
+      text: 'These interfaces were originally designed in the native language for the regional market, following a Right-to-Left (RTL) layout and typographic structure.'
+    },
     items: [
       {
         gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))',
@@ -151,8 +161,8 @@ export const pinketCustomerData = {
         label: 'Marketplace Explore (Translated)'
       },
       {
-        gradient: 'linear-gradient(135deg, var(--color-orange-light), var(--color-purple-light))',
-        label: 'In-Store Purchase Flow'
+        bg: '/assets/projects/pinket-customer/mockups/showcase-map-store.png',
+        label: 'Finding Vendors by Maps'
       },
       {
         gradient: 'linear-gradient(135deg, var(--color-primary-light), var(--color-green))',
@@ -165,13 +175,13 @@ export const pinketCustomerData = {
     ]
   },
   comments: [
-    {
-      initials: 'PM',
-      avatarBg: 'primary',
-      name: '[Teammate Name]',
-      role: 'Product Manager',
-      quote: '[Replace with a short, honest quote from a colleague about how it was to work with you on this project.]'
-    },
+    // {
+    //   initials: 'PM',
+    //   avatarBg: 'primary',
+    //   name: '[Teammate Name]',
+    //   role: 'Product Manager',
+    //   quote: '[Replace with a short, honest quote from a colleague about how it was to work with you on this project.]'
+    // },
     {
       initials: 'FE',
       avatarBg: 'purple',

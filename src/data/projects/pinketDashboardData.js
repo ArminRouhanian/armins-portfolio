@@ -11,7 +11,7 @@ export const pinketDashboardData = {
     meta: [
       { label: 'Role', value: 'UI/UX Designer' },
       { label: 'Timeline', value: 'June 2022 – June 2026' },
-      { label: 'Team', value: 'Squad of 6–9 people' },
+      { label: 'Team', value: 'Panels: 9 persons' },
       { label: 'Platform', value: 'Responsive website' }
     ]
   },
@@ -137,6 +137,10 @@ export const pinketDashboardData = {
   },
   showcase: {
     type: 'desktop',
+    alert: {
+      variant: 'info',
+      text: 'These interfaces were originally designed in the native language for the regional market, following a Right-to-Left (RTL) layout and typographic structure.'
+    },
     items: [
       {
         gradient: 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))',

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
 import Button from '../../common/Button/Button'
+import Alert from '../../common/Alert/Alert'
 import ShowcaseItems from '../ShowcaseItems/ShowcaseItems'
 import styles from './ProjectShowcase.module.css'
 
@@ -166,6 +167,16 @@ export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) 
             label={label}
             title="Design mockups"
           />
+          {showcase.alert && (
+            <div className={styles.alertWrap}>
+              <Alert
+                dark
+                variant={showcase.alert.variant || 'info'}
+              >
+                {showcase.alert.text || showcase.alert}
+              </Alert>
+            </div>
+          )}
           <p className={styles.subtitleDesktop}>
             Click any mockup to open the viewer. Use arrow keys to step through.
           </p>
