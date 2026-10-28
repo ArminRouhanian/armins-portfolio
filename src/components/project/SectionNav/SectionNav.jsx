@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './FloatingNav.module.css'
+import styles from './SectionNav.module.css'
 
 const defaultItems = [
   { href: '#preview', label: 'Preview' },
@@ -10,7 +10,7 @@ const defaultItems = [
   { href: '#comments', label: 'Comments' }
 ]
 
-export default function FloatingNav({ items = defaultItems }) {
+export default function SectionNav({ items = defaultItems }) {
   return (
     <div className={styles.wrapper}>
       <nav

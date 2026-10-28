@@ -7,8 +7,8 @@ import Impact from '../Impact/Impact'
 import Timeline from '../Timeline/Timeline'
 import Showcase from '../Showcase/Showcase'
 import Comments from '../Comments/Comments'
-import Nav from '../Nav/Nav'
-import FloatingNav from '../FloatingNav/FloatingNav'
+import ProjectPagination from '../ProjectPagination/ProjectPagination'
+import SectionNav from '../SectionNav/SectionNav'
 import { useCaseStudyInteractions } from '../../../hooks/useCaseStudyInteractions'
 import styles from './ProjectLayout.module.css'
 
@@ -116,8 +116,8 @@ export default function ProjectLayout({ project }) {
         className={`${styles.mainContent} pgs`}
       >
         {order.map((key) => renderSection(key))}
-        <Nav nav={project.nav} />
-        <FloatingNav items={project.navItems} />
+        <ProjectPagination nav={project.nav} />
+        <SectionNav items={project.navItems} />
       </main>
       <Footer />
     </div>
