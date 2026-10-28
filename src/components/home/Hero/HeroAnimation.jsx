@@ -1,5 +1,5 @@
 import React from 'react'
-import Cursor from '../../common/Cursor/Cursor'
+import Cursor from '../../ui/Cursor/Cursor'
 import styles from './HeroAnimation.module.css'
 
 export default function HeroAnimation() {

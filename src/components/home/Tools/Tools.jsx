@@ -1,6 +1,6 @@
 import React from 'react'
 import ToolsAnimation from './ToolsAnimation'
-import SectionHeader from '../../common/SectionHeader/SectionHeader'
+import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import styles from './Tools.module.css'
 
 export default function Tools() {

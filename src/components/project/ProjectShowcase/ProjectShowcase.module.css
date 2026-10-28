@@ -2,33 +2,33 @@
   background-color: var(--color-surface-dark);
   background-image: radial-gradient(var(--color-dot-dark) 1px, transparent 1px);
   background-size: 24px 24px;
-  padding: 96px 0 120px;
+  padding: var(--spacing-4xl) 0 var(--spacing-5xl);
   color: var(--color-text-light);
-  margin-top: 48px;
+  margin-top: var(--spacing-2xl);
 }
 
 .headerContainer {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 32px 32px;
+  padding: 0 var(--spacing-xl) var(--spacing-xl);
 }
 
 .alertWrap {
-  margin-top: 16px;
-  margin-bottom: 4px;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-2xs);
   max-width: 680px;
 }
 
 .subtitleDesktop {
   display: block;
-  margin-top: 8px;
+  margin-top: var(--spacing-xs);
   color: var(--color-text-dim);
   font-size: var(--font-size-body-alt);
 }
 
 .subtitleMobile {
   display: none;
-  margin-top: 8px;
+  margin-top: var(--spacing-xs);
   color: var(--color-text-dim);
   font-size: var(--font-size-body-alt);
 }
@@ -38,279 +38,14 @@
   display: none;
 }
 
-/* Lightbox Modal */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 48px 24px 24px;
-  background: var(--color-overlay-lightbox);
-  backdrop-filter: blur(8px);
-  box-sizing: border-box;
-}
-
-.closeButton {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  z-index: 1010;
-}
-
-.prevButton {
-  position: absolute;
-  top: 50%;
-  left: 24px;
-  transform: translateY(-50%);
-  z-index: 1010;
-}
-
-.nextButton {
-  position: absolute;
-  top: 50%;
-  right: 24px;
-  transform: translateY(-50%);
-  z-index: 1010;
-}
-
-.prevButton:hover,
-.nextButton:hover {
-  transform: translateY(-50%) !important;
-}
-
-.lightboxStage {
-  width: min(1100px, calc(100% - 112px), calc((100vh - 240px) * (1440 / 900)));
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.slide {
-  display: none;
-}
-
-.slideActiveNext {
-  display: block;
-  animation: slideInNext 0.25s ease-out;
-}
-
-.slideActivePrev {
-  display: block;
-  animation: slideInPrev 0.25s ease-out;
-}
-
-@keyframes slideInNext {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInPrev {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.mobileFrame {
-  height: min(68vh, 600px);
-  aspect-ratio: 9 / 19.5;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6);
-  margin: 0 auto;
-}
-
-.browserFrame {
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--color-surface);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  max-height: calc(100vh - 240px);
-}
-
-.browserBar {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  padding: 10px 12px;
-  background: var(--color-bg-subtle);
-  border-bottom: 1px solid var(--color-border);
-  flex-shrink: 0;
-}
-
-.browserDot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--color-border-subtle);
-}
-
-.browserUrl {
-  margin-left: 12px;
-  flex: 1;
-  background: var(--color-surface);
-  border-radius: 6px;
-  font-size: 11px;
-  padding: 3px 10px;
-  color: var(--color-text-caption);
-}
-
-.browserImageWrap {
-  width: 100%;
-  aspect-ratio: 1440 / 900;
-  max-height: calc(100vh - 280px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  background: var(--color-surface);
-  display: block;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-}
-
-.browserImageWrap::-webkit-scrollbar {
-  width: 6px;
-}
-
-.browserImageWrap::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.browserImageWrap::-webkit-scrollbar-thumb {
-  background: var(--color-border-subtle);
-  border-radius: 99px;
-}
-
-.browserImageWrap::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-dim);
-}
-
-.browserImageContainer {
-  width: 100%;
-  min-height: 100%;
-  aspect-ratio: 1440 / 900;
-  display: block;
-}
-
-.desktopImg {
-  display: block;
-  width: 100%;
-  height: auto;
-  vertical-align: top;
-  transition: opacity 0.2s ease;
-}
-
-.desktopImgLoading {
-  opacity: 0;
-}
-
-.browserImage {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1440 / 900;
-  background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.caption {
-  margin: 0;
-  color: var(--color-text-light);
-  font-size: var(--font-size-body-sm);
-  font-weight: var(--font-weight-medium);
-  max-width: min(100%, calc(100vw - 48px));
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.thumbnailStrip {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  max-width: 100%;
-  padding: 8px 12px 16px;
-  box-sizing: border-box;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.08);
-  flex-shrink: 0;
-  margin: 0 auto;
-}
-
-.thumbnailStrip::-webkit-scrollbar {
-  height: 6px;
-}
-
-.thumbnailStrip::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 99px;
-  margin: 0 16px;
-}
-
-.thumbnailStrip::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.32);
-  border-radius: 99px;
-  transition: background-color 0.2s;
-}
-
-.thumbnailStrip::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.thumbnail {
-  flex: none;
-  width: 96px;
-  height: 60px;
-  border-radius: 8px;
-  border: 0;
-  padding: 0;
-  outline: 2px solid transparent;
-  outline-offset: 3px;
-  opacity: 0.55;
-  cursor: pointer;
-  transition:
-    opacity 0.2s,
-    outline-color 0.2s;
-}
-
-.thumbnailMobileType {
-  width: 38px;
-  height: 60px;
-}
-
-.thumbnailActive {
-  outline-color: var(--color-primary);
-  opacity: 1;
-}
-
 @media (max-width: 640px) {
   .section {
-    padding: 48px 0 64px;
-    margin-top: 32px;
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+    margin-top: var(--spacing-xl);
   }
 
   .headerContainer {
-    padding: 0 16px 36px;
+    padding: 0 var(--spacing-md) 36px;
   }
 
   .subtitleDesktop {
@@ -325,14 +60,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    margin-top: 16px;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-md);
   }
 
   .dot {
     width: 8px;
     height: 8px;
-    border-radius: 50%;
+    border-radius: var(--radius-circle);
     background: rgba(255, 255, 255, 0.25);
     border: none;
     padding: 0;
@@ -342,131 +77,7 @@
 
   .dotActive {
     width: 22px;
-    border-radius: 99px;
+    border-radius: var(--radius-pill);
     background: var(--color-primary);
-  }
-
-  .lightbox {
-    padding: 44px 12px max(12px, env(safe-area-inset-bottom));
-    gap: 10px;
-    justify-content: space-between;
-  }
-
-  .lightboxStage {
-    width: 100%;
-    max-width: 100%;
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 0;
-    touch-action: pan-y;
-  }
-
-  .slide {
-    display: none;
-    width: 100%;
-  }
-
-  .slideActiveNext,
-  .slideActivePrev {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-
-  /* No next or prev buttons in mobile lightbox view */
-  .prevButton,
-  .nextButton {
-    display: none !important;
-  }
-
-  .closeButton {
-    top: 10px;
-    right: 12px;
-  }
-
-  .mobileFrame {
-    height: min(calc(100dvh - 160px), 580px);
-    max-height: 100%;
-    aspect-ratio: 9 / 19.5;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
-    margin: 0 auto;
-    width: auto;
-    max-width: calc(100vw - 32px);
-  }
-
-  .browserFrame {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    background: var(--color-surface);
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
-  }
-
-  .browserBar {
-    padding: 8px 10px;
-  }
-
-  .browserImageWrap {
-    width: 100%;
-    aspect-ratio: 1440 / 900;
-    max-height: calc(100dvh - 220px);
-  }
-
-  .browserImage {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1440 / 900;
-  }
-
-  .caption {
-    font-size: var(--font-size-caption);
-    margin: 0;
-    flex-shrink: 0;
-    text-align: center;
-  }
-
-  .thumbnailStrip {
-    flex-shrink: 0;
-    margin: 0 auto;
-    width: max-content;
-    max-width: 100%;
-    gap: 6px;
-    padding: 4px 8px 8px;
-    box-sizing: border-box;
-  }
-
-  .thumbnail {
-    width: 48px;
-    height: 32px;
-    border-radius: 6px;
-    outline-offset: 2px;
-  }
-
-  .thumbnailMobileType {
-    width: 20px;
-    height: 34px;
-    border-radius: 6px;
-    outline-offset: 2px;
-  }
-
-  .thumbnailStrip::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  .thumbnailStrip::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 99px;
-    margin: 0 12px;
-  }
-
-  .thumbnailStrip::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.35);
-    border-radius: 99px;
   }
 }

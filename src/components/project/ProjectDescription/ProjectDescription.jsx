@@ -1,6 +1,6 @@
 import React from 'react'
-import SectionHeader from '../../common/SectionHeader/SectionHeader'
-import Alert from '../../common/Alert/Alert'
+import SectionHeader from '../../ui/SectionHeader/SectionHeader'
+import Alert from '../../ui/Alert/Alert'
 import styles from './ProjectDescription.module.css'
 
 export default function ProjectDescription({ overview, label = '01 · OVERVIEW' }) {

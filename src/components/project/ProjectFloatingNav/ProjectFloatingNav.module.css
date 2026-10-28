@@ -1,7 +1,7 @@
 .wrapper {
   position: sticky;
-  bottom: 24px;
-  margin-bottom: 24px;
+  bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
   z-index: 40;
   display: flex;
   justify-content: center;
@@ -13,14 +13,14 @@
   pointer-events: auto;
   position: relative;
   display: flex;
-  gap: 4px;
+  gap: var(--spacing-2xs);
   padding: 6px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   width: max-content;
-  max-width: calc(100% - 32px);
+  max-width: calc(100% - var(--spacing-xl));
   box-sizing: border-box;
 }
 
@@ -30,8 +30,8 @@
   color: var(--color-text-primary);
   font-size: var(--font-size-body-sm);
   font-weight: var(--font-weight-medium);
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
   transition:
     color 0.25s,
     background-color 0.25s;
@@ -47,7 +47,7 @@
   top: 0;
   width: 0;
   height: 0;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background: var(--color-primary);
   opacity: 0;
   z-index: 0;
@@ -63,17 +63,17 @@
 
 @media (max-width: 640px) {
   .wrapper {
-    bottom: 16px;
-    margin-bottom: 16px;
+    bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
   }
 
   .nav {
-    padding: 4px;
-    max-width: calc(100% - 16px);
+    padding: var(--spacing-2xs);
+    max-width: calc(100% - var(--spacing-md));
     overflow-x: auto;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    scroll-padding: 0 12px;
+    scroll-padding: 0 var(--spacing-sm);
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -84,7 +84,7 @@
 
   .nav a {
     font-size: var(--font-size-micro);
-    padding: 6px 8px;
+    padding: 6px var(--spacing-xs);
     white-space: nowrap;
   }
 }

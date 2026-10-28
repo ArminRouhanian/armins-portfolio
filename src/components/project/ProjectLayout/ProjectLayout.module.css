@@ -12,7 +12,7 @@
   flex: 1;
   min-height: 0;
   position: relative;
-  padding-top: 65px;
+  padding-top: var(--header-height);
 }
 
 @media (max-width: 640px) {

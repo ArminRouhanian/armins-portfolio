@@ -24,7 +24,7 @@
   z-index: 1;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 96px 32px;
+  padding: var(--spacing-4xl) var(--spacing-xl);
 }
 
 .desktopStickyLayout {
@@ -37,10 +37,10 @@
 
 .stickyLayout {
   position: sticky;
-  top: calc(var(--header-height, 65px) + 24px);
+  top: calc(var(--header-height, 65px) + var(--spacing-lg));
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 48px;
+  gap: var(--spacing-2xl);
   align-items: center;
 }
 
@@ -101,7 +101,7 @@
 }
 
 .intro {
-  margin-top: 12px;
+  margin-top: var(--spacing-sm);
   font-size: var(--font-size-body-lg);
   line-height: var(--line-height-body-lg);
 }
@@ -109,7 +109,7 @@
 .descContainer {
   position: relative;
   height: 210px;
-  margin-top: 32px;
+  margin-top: var(--spacing-xl);
 }
 
 .descSlide {
@@ -129,14 +129,14 @@
 }
 
 .descTitle {
-  margin-top: 8px;
+  margin-top: var(--spacing-xs);
   font-size: var(--font-size-h2);
   line-height: var(--line-height-h2);
   font-weight: var(--font-weight-bold);
 }
 
 .descBody {
-  margin-top: 12px;
+  margin-top: var(--spacing-sm);
   font-size: var(--font-size-body-lg);
   line-height: var(--line-height-body-lg);
 }
@@ -144,8 +144,8 @@
 .progressRail {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-top: 8px;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xs);
 }
 
 .progressTicks {
@@ -157,7 +157,7 @@
 .progressTick {
   flex: 1;
   height: 4px;
-  border-radius: 2px;
+  border-radius: var(--spacing-3xs);
   background: var(--color-border-subtle);
 }
 
@@ -168,7 +168,7 @@
 }
 
 .progressHint {
-  margin-top: 16px;
+  margin-top: var(--spacing-md);
   font-size: var(--font-size-caption);
 }
 
@@ -226,7 +226,7 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 48px 16px;
+    padding: var(--spacing-2xl) var(--spacing-md);
   }
 
   .desktopStickyLayout {

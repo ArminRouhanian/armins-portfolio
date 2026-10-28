@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroAnimation from './HeroAnimation'
-import Button from '../../common/Button/Button'
-import Badge from '../../common/Badge/Badge'
+import Button from '../../ui/Button/Button'
+import Badge from '../../ui/Badge/Badge'
 import styles from './Hero.module.css'
 
 export default function Hero() {

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react'
-import SectionHeader from '../../common/SectionHeader/SectionHeader'
-import CommentCard from '../../common/CommentCard/CommentCard'
+import SectionHeader from '../../ui/SectionHeader/SectionHeader'
+import CommentCard from './CommentCard/CommentCard'
 import styles from './ProjectComments.module.css'
 
 export default function ProjectComments({ comments, label = '05 · FEEDBACK' }) {

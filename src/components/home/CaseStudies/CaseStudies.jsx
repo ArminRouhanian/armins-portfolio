@@ -1,6 +1,6 @@
 import React from 'react'
-import Badge from '../../common/Badge/Badge'
-import SectionHeader from '../../common/SectionHeader/SectionHeader'
+import Badge from '../../ui/Badge/Badge'
+import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import styles from './CaseStudies.module.css'
 
 export default function CaseStudies() {

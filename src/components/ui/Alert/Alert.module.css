@@ -1,0 +1,77 @@
+.alert {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 10px;
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-body);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: block;
+  background-color: currentColor;
+}
+
+.message {
+  flex: 1;
+  min-width: 0;
+}
+
+.info {
+  background: var(--color-primary-tint);
+  border: 1px solid rgba(13, 153, 255, 0.25);
+  color: var(--color-primary);
+}
+
+.info .message {
+  color: var(--color-text-secondary);
+}
+
+.warning {
+  background: var(--color-orange-tint);
+  border: 1px solid rgba(242, 78, 30, 0.25);
+  color: var(--color-orange);
+}
+
+.warning .message {
+  color: var(--color-text-secondary);
+}
+
+/* Dark Mode Variants */
+.dark.info {
+  background: rgba(13, 153, 255, 0.12);
+  border: 1px solid rgba(13, 153, 255, 0.32);
+  color: var(--color-primary-light);
+}
+
+.dark.info .message {
+  color: var(--color-text-light-subtle);
+}
+
+.dark.warning {
+  background: rgba(242, 78, 30, 0.12);
+  border: 1px solid rgba(242, 78, 30, 0.32);
+  color: var(--color-orange-light);
+}
+
+.dark.warning .message {
+  color: var(--color-text-light-subtle);
+}
+
+@media (max-width: 640px) {
+  .alert {
+    padding: 12px 14px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .icon {
+    margin-top: 2px;
+  }
+}

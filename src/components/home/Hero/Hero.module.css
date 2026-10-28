@@ -2,7 +2,7 @@
   position: relative;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 96px 32px 72px;
+  padding: var(--spacing-4xl) var(--spacing-xl) 72px;
 }
 
 .badgeWrapper {
@@ -10,7 +10,7 @@
 }
 
 .title {
-  margin-top: 24px;
+  margin-top: var(--spacing-lg);
   font-size: clamp(40px, 7vw, 84px);
   line-height: 1.15;
   font-weight: var(--font-weight-bold);
@@ -93,7 +93,7 @@
 }
 
 .subtitle {
-  margin-top: 24px;
+  margin-top: var(--spacing-lg);
   max-width: 560px;
   font-size: var(--font-size-h4);
   line-height: var(--line-height-body);
@@ -102,40 +102,40 @@
 }
 
 .actions {
-  margin-top: 32px;
+  margin-top: var(--spacing-xl);
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--spacing-sm);
   position: relative;
 }
 
 @media (max-width: 1000px) {
   .section {
-    padding: 32px 20px 48px;
+    padding: var(--spacing-xl) var(--spacing-md-lg) var(--spacing-2xl);
   }
 }
 
 @media (max-width: 640px) {
   .section {
-    padding: 24px 16px 40px;
+    padding: var(--spacing-lg) var(--spacing-md) 40px;
   }
 
   .badgeWrapper {
-    margin-top: 12px;
+    margin-top: var(--spacing-sm);
   }
 
   .title {
-    margin-top: 16px;
+    margin-top: var(--spacing-md);
     font-size: clamp(32px, 8.5vw, 44px);
   }
 
   .subtitle {
-    margin-top: 16px;
+    margin-top: var(--spacing-md);
     font-size: var(--font-size-body);
   }
 
   .actions {
-    margin-top: 24px;
+    margin-top: var(--spacing-lg);
   }
 }
 

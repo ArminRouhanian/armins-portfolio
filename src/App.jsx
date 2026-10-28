@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import ScrollToTop from './components/ScrollToTop'
+import ScrollToTop from './components/layout/ScrollToTop/ScrollToTop'
 import Home from './pages/Home'
 
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'))

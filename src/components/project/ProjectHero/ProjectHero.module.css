@@ -1,7 +1,7 @@
 .section {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 48px 32px 0;
+  padding: var(--spacing-2xl) var(--spacing-xl) 0;
 }
 
 .backButton {
@@ -9,14 +9,14 @@
 }
 
 .tags {
-  margin-top: 32px;
+  margin-top: var(--spacing-xl);
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--spacing-xs);
 }
 
 .title {
-  margin-top: 16px;
+  margin-top: var(--spacing-md);
   font-size: var(--font-size-hero);
   line-height: var(--line-height-hero);
   font-weight: var(--font-weight-bold);
@@ -24,7 +24,7 @@
 }
 
 .subtitle {
-  margin-top: 16px;
+  margin-top: var(--spacing-md);
   font-size: var(--font-size-h3);
   line-height: var(--line-height-h3);
   color: var(--color-text-secondary);
@@ -32,12 +32,12 @@
 
 .mockupWrapper {
   margin-top: 40px;
-  border-radius: 24px;
-  padding: clamp(16px, 4vw, 56px);
+  border-radius: var(--radius-xl);
+  padding: clamp(var(--spacing-md), 4vw, 56px);
 }
 
 .browserFrame {
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-surface);
   box-shadow: 0 32px 64px rgba(30, 30, 30, 0.35);
@@ -57,22 +57,22 @@
   display: flex;
   gap: 6px;
   align-items: center;
-  padding: 10px 12px;
+  padding: 10px var(--spacing-sm);
   background: var(--color-bg-subtle);
 }
 
 .browserDot {
   width: 9px;
   height: 9px;
-  border-radius: 50%;
+  border-radius: var(--radius-circle);
   background: var(--color-border-subtle);
 }
 
 .browserUrl {
-  margin-left: 12px;
+  margin-left: var(--spacing-sm);
   flex: 1;
   background: var(--color-surface);
-  border-radius: 6px;
+  border-radius: var(--radius-xs);
   font-size: 11px;
   padding: 3px 10px;
   color: var(--color-text-caption);
@@ -88,17 +88,17 @@
 }
 
 .metaGrid {
-  margin-top: 24px;
+  margin-top: var(--spacing-lg);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
 .metaItem {
-  padding: 20px 24px;
+  padding: var(--spacing-md-lg) var(--spacing-lg);
 }
 
 .metaLabel {
@@ -109,17 +109,17 @@
 .metaValue {
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-body-lg);
-  margin-top: 4px;
+  margin-top: var(--spacing-2xs);
   color: var(--color-text-primary);
 }
 
 @media (max-width: 640px) {
   .section {
-    padding: 24px 16px 0;
+    padding: var(--spacing-lg) var(--spacing-md) 0;
   }
 
   .tags {
-    margin-top: 20px;
+    margin-top: var(--spacing-md-lg);
   }
 
   .title {
@@ -131,9 +131,9 @@
   }
 
   .mockupWrapper {
-    margin-top: 24px;
-    padding: 12px;
-    border-radius: 16px;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-lg);
   }
 
   .browserFrame {
@@ -148,11 +148,11 @@
 
   .metaGrid {
     grid-template-columns: 1fr 1fr;
-    margin-top: 16px;
+    margin-top: var(--spacing-md);
   }
 
   .metaItem {
-    padding: 14px 16px;
+    padding: 14px var(--spacing-md);
   }
 }
 

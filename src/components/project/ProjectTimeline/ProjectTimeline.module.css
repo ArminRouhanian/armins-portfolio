@@ -1,7 +1,7 @@
 .section {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 96px 32px;
+  padding: var(--spacing-4xl) var(--spacing-xl);
 }
 
 .header {
@@ -9,15 +9,15 @@
 }
 
 .alertWrap {
-  margin-top: 20px;
+  margin-top: var(--spacing-md-lg);
   max-width: 680px;
 }
 
 .track {
   --line-width: 1px;
-  --track-gap: 32px;
+  --track-gap: var(--spacing-xl);
   --dot-size: 19px;
-  margin-left: 8px;
+  margin-left: var(--spacing-xs);
   padding-left: var(--track-gap);
   border-left: var(--line-width) solid var(--color-border-subtle);
   display: flex;
@@ -36,7 +36,7 @@
   width: var(--dot-size);
   height: var(--dot-size);
   box-sizing: border-box;
-  border-radius: 50%;
+  border-radius: var(--radius-circle);
   border: 3px solid var(--color-bg);
 }
 
@@ -49,7 +49,7 @@
 }
 
 .title {
-  margin: 4px 0 0;
+  margin: var(--spacing-2xs) 0 0;
   font-size: var(--font-size-h3);
   line-height: var(--line-height-h3);
   font-weight: var(--font-weight-bold);
@@ -57,7 +57,7 @@
 }
 
 .desc {
-  margin: 8px 0 0;
+  margin: var(--spacing-xs) 0 0;
   font-size: var(--font-size-body-lg);
   line-height: var(--line-height-body-lg);
   color: var(--color-text-secondary);
@@ -66,17 +66,17 @@
 
 @media (max-width: 640px) {
   .section {
-    padding: 48px 16px;
+    padding: var(--spacing-2xl) var(--spacing-md);
   }
 
   .header {
-    margin-bottom: 24px;
+    margin-bottom: var(--spacing-lg);
   }
 
   .track {
-    --track-gap: 24px;
+    --track-gap: var(--spacing-lg);
     margin-left: 6px;
-    gap: 48px;
+    gap: var(--spacing-2xl);
   }
 
   .title {

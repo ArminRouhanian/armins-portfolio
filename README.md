@@ -51,16 +51,17 @@ A modern, high-performance personal portfolio built with **React 18**, **Vite**,
 │   └── favicon.ico
 ├── src/
 │   ├── components/
-│   │   ├── common/         # Core UI building blocks (Button, Badge, Alert, Cursor, etc.)
+│   │   ├── ui/             # Pure Design System primitives (Button, Badge, Alert, Cursor, etc.)
+│   │   ├── layout/         # Global layout shell (Header, Footer, ScrollToTop)
 │   │   ├── home/           # Homepage sections (Hero, SelectedWork, Tools, CaseStudies)
-│   │   └── project/        # Case study sections (Hero, Impact, Timeline, Showcase, Nav)
+│   │   └── project/        # Case study sections and co-located subcomponents
 │   ├── data/
 │   │   ├── projectsData.js # Central project registry
 │   │   └── projects/       # Typed content schemas (Pinket Customer, Dashboards, MetaMondial)
 │   ├── hooks/              # Custom hooks (scroll lock, image loading, anchor interactions)
-│   ├── pages/              # Route entry pages (Home, project case studies)
-│   ├── styles/             # Global CSS tokens (palette.css, typography.css)
-│   ├── App.jsx             # SPA routing declarations and backward-compatibility aliases
+│   ├── pages/              # Route entry pages (Home, dynamic ProjectDetailPage)
+│   ├── styles/             # Global CSS tokens (palette.css, typography.css, layout.css)
+│   ├── App.jsx             # SPA routing declarations with React.lazy code splitting
 │   ├── index.css           # Global resets and skeleton shimmer animations
 │   └── main.jsx            # Application entry point
 ├── vercel.json             # SPA routing rules for production deployment

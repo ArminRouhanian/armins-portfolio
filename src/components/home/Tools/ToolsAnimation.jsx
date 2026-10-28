@@ -1,5 +1,5 @@
 import React from 'react'
-import Cursor from '../../common/Cursor/Cursor'
+import Cursor from '../../ui/Cursor/Cursor'
 import styles from './ToolsAnimation.module.css'
 
 const ORBITS = [

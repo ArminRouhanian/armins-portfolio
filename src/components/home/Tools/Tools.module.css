@@ -1,7 +1,7 @@
 .section {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 48px 32px;
+  padding: var(--spacing-2xl) var(--spacing-xl);
 }
 
 .layout {
@@ -17,7 +17,7 @@
 }
 
 .header {
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-md-lg);
 }
 
 .paragraphs {
@@ -32,14 +32,14 @@
 }
 
 .bodyTextSpaced {
-  margin-top: 16px;
+  margin-top: var(--spacing-md);
   font-size: var(--font-size-body-lg);
   line-height: var(--line-height-body-lg);
   color: var(--color-text-secondary);
 }
 
 .toolListCaption {
-  margin-top: 20px;
+  margin-top: var(--spacing-md-lg);
   font-size: var(--font-size-body-sm);
   line-height: 1.7;
   color: var(--color-text-caption);
@@ -51,7 +51,7 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 32px 16px;
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 
   .layout {
@@ -65,12 +65,12 @@
 
   .header {
     order: 1;
-    margin-bottom: 12px;
+    margin-bottom: var(--spacing-sm);
   }
 
   .animationSlot {
     order: 2;
-    margin: 12px 0 24px;
+    margin: var(--spacing-sm) 0 var(--spacing-lg);
   }
 
   .paragraphs {

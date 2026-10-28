@@ -1,7 +1,7 @@
 .section {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 96px 32px 0;
+  padding: var(--spacing-4xl) var(--spacing-xl) 0;
 }
 
 .header {
@@ -12,7 +12,7 @@
 .carouselTrack {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  gap: var(--spacing-lg);
   align-items: stretch;
 }
 
@@ -32,23 +32,23 @@
 /* Mobile layout: swipable left-to-right carousel with snap & equal card height */
 @media (max-width: 640px) {
   .section {
-    padding: 48px 16px 0;
+    padding: var(--spacing-2xl) var(--spacing-md) 0;
   }
 
   .header {
-    margin-bottom: 24px;
+    margin-bottom: var(--spacing-lg);
   }
 
   .carouselTrack {
     display: flex;
-    gap: 16px;
+    gap: var(--spacing-md);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    margin: 0 -16px;
-    padding: 0 16px 8px;
+    margin: 0 calc(-1 * var(--spacing-md));
+    padding: 0 var(--spacing-md) var(--spacing-xs);
     align-items: stretch;
   }
 
@@ -73,14 +73,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    margin-top: 20px;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-md-lg);
   }
 
   .dot {
     width: 8px;
     height: 8px;
-    border-radius: 50%;
+    border-radius: var(--radius-circle);
     background: var(--color-border-subtle);
     border: none;
     padding: 0;
@@ -90,7 +90,7 @@
 
   .dotActive {
     width: 22px;
-    border-radius: 99px;
+    border-radius: var(--radius-pill);
     background: var(--color-primary);
   }
 }

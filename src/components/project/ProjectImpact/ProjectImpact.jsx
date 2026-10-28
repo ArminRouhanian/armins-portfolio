@@ -1,6 +1,6 @@
 import React from 'react'
-import SectionHeader from '../../common/SectionHeader/SectionHeader'
-import MetricCard from '../MetricCard/MetricCard'
+import SectionHeader from '../../ui/SectionHeader/SectionHeader'
+import MetricCard from './MetricCard/MetricCard'
 import styles from './ProjectImpact.module.css'
 
 export default function ProjectImpact({ impact, label = '02 · IMPACT' }) {

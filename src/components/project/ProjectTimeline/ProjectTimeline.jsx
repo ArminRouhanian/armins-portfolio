@@ -1,6 +1,6 @@
 import React from 'react'
-import SectionHeader from '../../common/SectionHeader/SectionHeader'
-import Alert from '../../common/Alert/Alert'
+import SectionHeader from '../../ui/SectionHeader/SectionHeader'
+import Alert from '../../ui/Alert/Alert'
 import styles from './ProjectTimeline.module.css'
 
 export default function ProjectTimeline({ timeline, label = '03 · TIMELINE' }) {

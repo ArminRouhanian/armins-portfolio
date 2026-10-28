@@ -12,7 +12,7 @@
     position: relative;
     right: auto;
     bottom: auto;
-    margin: 0 auto 20px;
+    margin: 0 auto var(--spacing-md-lg);
     transform-origin: top center;
     transform: scale(0.85);
     height: 240px;
@@ -21,7 +21,7 @@
 
 @media (max-width: 640px) {
   .stage {
-    margin: 0 auto 16px;
+    margin: 0 auto var(--spacing-md);
     transform: scale(0.85);
     height: 240px;
   }
@@ -29,7 +29,7 @@
 
 @media (max-width: 440px) {
   .stage {
-    margin: 0 auto 12px;
+    margin: 0 auto var(--spacing-sm);
     transform: scale(0.8);
     height: 225px;
   }
@@ -51,7 +51,7 @@
   top: 10px;
   width: 147px;
   height: 143px;
-  border-radius: 50%;
+  border-radius: var(--radius-circle);
   background: var(--color-purple-light);
   position: absolute;
 }
@@ -115,7 +115,7 @@
   width: 165px;
   height: 115px;
   background: var(--color-orange);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   position: absolute;
   animation: rectWidth 12s ease-in-out infinite;
 }
@@ -138,7 +138,7 @@
   width: 167px;
   height: 131px;
   background-color: var(--color-green);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
   position: absolute;
