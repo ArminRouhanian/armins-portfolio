@@ -10,14 +10,14 @@ export const pinketDashboardData = {
     mockupGradient: 'linear-gradient(135deg, var(--color-green), var(--color-primary-light))',
     meta: [
       { label: 'Role', value: 'UI/UX Designer' },
-      { label: 'Timeline', value: 'June 2022 – June 2026' },
+      { label: 'Timeline', value: '2024 – August 2026' },
       { label: 'Team', value: 'Panels: 9 persons' },
       { label: 'Platform', value: 'Responsive website' }
     ]
   },
   overview: {
     p1: 'Pinket is a B2B2C financial wallet for corporate welfare, connecting organizations, employees, and retail networks through digital credit, e-commerce, and in-store payments for over 4 million potential users. Originally an online chain-store marketplace, it completed two strategic business pivots to reach this enterprise model.',
-    p2: 'To power this enterprise ecosystem, Pinket operates three interconnected web portals: an Internal Admin Panel for operations and financial auditing, a Merchant SaaS Portal for catalog and order fulfillment, and an Organization Dashboard for corporate benefit and credit management. As the design lead, I established the multi dashboard design architecture, introducing a unified, UntitledUI-based design system and responsive layouts to ensure visual consistency, high precision data display, and accelerated developer handoffs across all three platforms. Key deliverables included:',
+    p2: 'To support this enterprise ecosystem, Pinket required three core web portals: an Internal Admin Panel for operations and financial auditing, a Merchant SaaS for catalog and order fulfillment, and an Organization Dashboard for corporate credit management. Following the 2024 wallet pivot, I expanded my scope from the customer app to establish the initial MVP design structure across all three panels. Once a dedicated dashboard designer joined the team in Spring 2025, we partnered to architect an UntitledUI-based design system and responsive layouts, unifying components and accelerating cross-platform engineering handoffs. Key deliverables included:',
     checklists: [
       {
         bg: 'var(--color-orange)',
@@ -111,27 +111,39 @@ export const pinketDashboardData = {
     steps: [
       {
         dotColor: 'var(--color-orange)',
-        period: 'June 2021 · Developer',
-        title: 'Joined Pinket as a backend and full-stack developer',
-        desc: 'Built backend features with Java and PostgreSQL, working with APIs, business logic, and data architecture, then expanded into React.js.'
+        period: 'June 2021 · Engineering',
+        title: 'Full-Stack Engineering & Data Architecture',
+        desc: 'Engineered core backend services and database models using Java and PostgreSQL before expanding into React.js—gaining first-hand mastery of the technical constraints behind high-volume enterprise transactions.'
       },
       {
         dotColor: 'var(--color-purple-light)',
-        period: 'June 2022 · Designer',
-        title: 'Moved into UI/UX design',
-        desc: 'Took over product design across B2B and B2C products and became the owner of all design files and the approver of internal design decisions.'
+        period: 'June 2022 · Customer App',
+        title: 'Transitioned to UI/UX Design on Customer Team',
+        desc: 'Shifted focus into product design within the customer team, driving user flows, marketplace interactions, and core customer experience across mobile and web platforms.'
       },
       {
-        dotColor: 'var(--color-green)',
-        period: '[Year] · First theme',
-        title: 'Updated the first dashboards theme',
-        desc: 'Refreshed the original dashboard theme and workflows. [Add what changed and the outcome.]'
+        dotColor: 'var(--color-surface-dark)',
+        period: '2024 · B2B2C Pivot',
+        title: 'Architected Initial MVP Portals',
+        desc: 'Following the corporate wallet pivot, stepped in to establish the baseline MVP information architecture and UI foundation across all 3 portals (Admin, Merchant, and Organization) to unblock early development before a dedicated dashboard designer was hired.'
       },
       {
         dotColor: 'var(--color-primary-light)',
-        period: 'April – June 2025 · Design system',
-        title: 'Applied UntitledUI across all dashboards',
-        desc: 'Rebuilt the design system for the admin, vendor, and organization dashboards. It made them responsive and easier to scale, and components and colors stopped being daily design work.'
+        period: 'Spring 2025 · Collaboration',
+        title: 'Unified Design System with UntitledUI',
+        desc: 'Partnered with the newly onboarded dashboard designer to rebuild the foundational design system using UntitledUI, standardizing components, typography, and tokens to enable rapid, scalable product iterations across all 3 panels.'
+      },
+      {
+        dotColor: 'var(--color-green)',
+        period: 'June 2025 – August 2026 · Responsive Scale',
+        title: 'Responsive Dashboards & Operational Hardening',
+        desc: 'Engineered adaptive tablet and mobile layouts across all three portals, empowering operators and store managers to conduct on-the-go order moderation, catalog inventory audits, and quota monitoring.'
+      },
+      {
+        dotColor: 'var(--color-orange-light)',
+        period: 'Winter 2026 · Automation',
+        title: 'Engineered the Vendor Commission Contract Builder',
+        desc: 'Mapped 20 legacy vendor contract models into a structured 5-dimensional rule engine, transforming manual financial engineering into an automated UI tool that cut partner onboarding from 20 days to 5 days.'
       }
     ]
   },

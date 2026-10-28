@@ -11,6 +11,29 @@ export default function CaseStudies() {
         title="How I approach problems"
         className={styles.header}
       />
+      <div className={styles.slotFrame}>
+        <i className={styles.handle} style={{ left: '-5px', top: '-5px' }} />
+        <i className={styles.handle} style={{ right: '-5px', top: '-5px' }} />
+        <i className={styles.handle} style={{ left: '-5px', bottom: '-5px' }} />
+        <i className={styles.handle} style={{ right: '-5px', bottom: '-5px' }} />
+        <div className={styles.slotContent}>
+          <span className={styles.comingSoonText}>
+            Coming Soon...
+          </span>
+          <div
+            className={styles.slotButton}
+            aria-hidden="true"
+          >
+            <img
+              src="/assets/icons/plus.svg"
+              alt=""
+              aria-hidden="true"
+              className={styles.plusIcon}
+            />
+          </div>
+        </div>
+      </div>
+      {/* 
       <div className={styles.list}>
         <a href="#" className={styles.card}>
           <span className={`${styles.number} ${styles.numOrange}`}>
@@ -58,6 +81,7 @@ export default function CaseStudies() {
           <span className={styles.arrow}>→</span>
         </a>
       </div>
+      */}
     </section>
   )
 }

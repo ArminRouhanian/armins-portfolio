@@ -53,6 +53,13 @@
   --color-orange-subtle: #ff7a59;
   --color-orange-tint: rgba(242, 78, 30, 0.15);
 
+  /* Pink / Magenta (Figma Slot) */
+  --color-pink: #ff007a;
+  --color-pink-dark: #e0006c;
+  --color-pink-light: #ff3399;
+  --color-pink-tint: rgba(255, 0, 122, 0.06);
+  --color-pink-subtle: rgba(255, 0, 122, 0.14);
+
   /* Overlays & Shadows */
   --color-overlay-hover: rgba(0, 0, 0, 0.06);
   --color-overlay-lightbox: rgba(20, 20, 20, 0.88);

@@ -38,10 +38,7 @@ export default function ProjectHero({ hero }) {
           background: hero.mockupGradient || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
         }}
       >
-        <div
-          className={styles.browserFrame}
-          data-i="0"
-        >
+        <div className={styles.browserFrame}>
           <div className={styles.browserBar}>
             <span className={styles.browserDot} aria-hidden="true" />
             <span className={styles.browserDot} aria-hidden="true" />
