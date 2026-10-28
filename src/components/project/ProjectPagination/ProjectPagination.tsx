@@ -1,72 +1,35 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import PaginationCard, { PaginationTarget } from './PaginationCard/PaginationCard'
 import styles from './ProjectPagination.module.css'
 
-export default function ProjectPagination({ nav }) {
-  if (!nav) return null
+export type { PaginationTarget }
+
+export interface ProjectPaginationData {
+  prev?: PaginationTarget | null
+  next?: PaginationTarget | null
+}
+
+export interface ProjectPaginationProps {
+  nav?: ProjectPaginationData | null
+}
+
+export default function ProjectPagination({ nav }: ProjectPaginationProps) {
+  if (!nav || (!nav.prev && !nav.next)) return null
 
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         {nav.prev && (
-          <Link
-            to={nav.prev.to}
-            className={`${styles.card} ${nav.next ? styles.cardSplit : styles.cardFull}`}
-          >
-            <span className={styles.arrowIcon}>
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M19 12H5M11 6l-6 6 6 6" />
-              </svg>
-            </span>
-            <span className={styles.textGroup}>
-              <span className={styles.label}>
-                {nav.prev.label}
-              </span>
-              <b className={styles.title}>
-                {nav.prev.title}
-              </b>
-            </span>
-          </Link>
+          <PaginationCard
+            direction="prev"
+            target={nav.prev}
+          />
         )}
         {nav.next && (
-          <Link
-            to={nav.next.to}
-            className={`${styles.card} ${styles.cardNext} ${nav.prev ? styles.cardSplit : styles.cardFull}`}
-          >
-            <span className={styles.textGroup}>
-              <span className={styles.label}>
-                {nav.next.label}
-              </span>
-              <b className={styles.title}>
-                {nav.next.title}
-              </b>
-            </span>
-            <span className={styles.arrowIcon}>
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </span>
-          </Link>
+          <PaginationCard
+            direction="next"
+            target={nav.next}
+          />
         )}
       </div>
     </section>

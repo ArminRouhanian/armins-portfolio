@@ -1,109 +1,80 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styles from './Button.module.css'
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLElement> {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'tertiary-dark' | 'iconOnly' | 'icon-only'
-  theme?: 'light' | 'dark'
-  to?: string
-  href?: string
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'iconOnly' | 'cta'
+export type ButtonTheme = 'light' | 'dark'
+export type ButtonIconPosition = 'left' | 'right'
+
+export interface ButtonProps extends Omit<React.AllHTMLAttributes<HTMLElement>, 'as'> {
+  as?: React.ElementType
+  variant?: ButtonVariant
+  theme?: ButtonTheme
   icon?: string
   iconSize?: number
-  onClick?: React.MouseEventHandler<HTMLElement>
-  children?: React.ReactNode
-  className?: string
-  type?: 'button' | 'submit' | 'reset'
-  ariaLabel?: string
-  'aria-label'?: string
-  [key: string]: any
+  iconPosition?: ButtonIconPosition
+  to?: string
+}
+
+function getVariantClass(variant: ButtonVariant, theme: ButtonTheme): string {
+  const isDark = theme === 'dark'
+
+  switch (variant) {
+    case 'secondary':
+      return `${styles.button} ${styles.secondary}`
+    case 'tertiary':
+      return `${styles.tertiary} ${isDark ? styles.tertiaryDark : styles.tertiaryLight}`
+    case 'iconOnly':
+      return `${styles.iconOnly}${isDark ? ` ${styles.iconOnlyDark}` : ''}`
+    case 'cta':
+      return styles.cta
+    case 'primary':
+    default:
+      return `${styles.button} ${styles.primary}`
+  }
 }
 
 export default function Button({
+  as,
   variant = 'primary',
   theme = 'light',
-  to,
-  href,
   icon,
   iconSize = 20,
-  onClick,
+  iconPosition = 'left',
   children,
   className = '',
-  type = 'button',
-  ariaLabel,
-  ...props
+  ...rest
 }: ButtonProps) {
-  let variantClass = ''
-
-  if (variant === 'secondary') {
-    variantClass = `${styles.button} ${styles.secondary}`
-  } else if (variant === 'tertiary' || variant === 'tertiary-dark') {
-    const isDark = theme === 'dark' || variant === 'tertiary-dark'
-    variantClass = `${styles.tertiary} ${isDark ? styles.tertiaryDark : styles.tertiaryLight}`
-  } else if (variant === 'iconOnly' || variant === 'icon-only') {
-    const isDark = theme === 'dark'
-    variantClass = `${styles.iconOnly}${isDark ? ` ${styles.iconOnlyDark}` : ''}`
-  } else {
-    variantClass = `${styles.button} ${styles.primary}`
-  }
-
+  const Component = as || 'button'
+  const variantClass = getVariantClass(variant, theme)
   const combinedClass = className ? `${variantClass} ${className}` : variantClass
-  const label = ariaLabel || props['aria-label']
 
-  const content = (
-    <>
-      {icon && (
-        <span
-          className={styles.icon}
-          style={{
-            width: `${iconSize}px`,
-            height: `${iconSize}px`,
-            WebkitMask: `url("${icon}") no-repeat center / contain`,
-            mask: `url("${icon}") no-repeat center / contain`
-          }}
-          aria-hidden="true"
-        />
-      )}
-      {children}
-    </>
+  const defaultButtonType =
+    Component === 'button' && !('type' in rest)
+      ? { type: 'button' as const }
+      : {}
+
+  const iconElement = icon && (
+    <span
+      className={styles.icon}
+      style={{
+        width: `${iconSize}px`,
+        height: `${iconSize}px`,
+        WebkitMask: `url("${icon}") no-repeat center / contain`,
+        mask: `url("${icon}") no-repeat center / contain`
+      }}
+      aria-hidden="true"
+    />
   )
 
-  if (to) {
-    return (
-      <Link
-        to={to}
-        className={combinedClass}
-        onClick={onClick}
-        aria-label={label}
-        {...props}
-      >
-        {content}
-      </Link>
-    )
-  }
-
-  if (href) {
-    return (
-      <a
-        href={href}
-        className={combinedClass}
-        onClick={onClick}
-        aria-label={label}
-        {...props}
-      >
-        {content}
-      </a>
-    )
-  }
-
   return (
-    <button
-      type={type}
+    <Component
       className={combinedClass}
-      onClick={onClick}
-      aria-label={label}
-      {...props}
+      {...defaultButtonType}
+      {...rest}
     >
-      {content}
-    </button>
+      {iconPosition === 'left' && iconElement}
+      {children}
+      {iconPosition === 'right' && iconElement}
+    </Component>
   )
 }

@@ -1,58 +1,48 @@
 import React from 'react'
 import styles from './SectionHeader.module.css'
 
-export interface SectionHeaderProps {
+export type SectionHeaderTheme = 'light' | 'dark'
+
+export interface SectionHeaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   label?: React.ReactNode
   title?: React.ReactNode
-  children?: React.ReactNode
-  className?: string
   titleClassName?: string
-  labelClassName?: string
-  style?: React.CSSProperties
-  titleStyle?: React.CSSProperties
-  labelStyle?: React.CSSProperties
-  titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div'
-  theme?: 'light' | 'dark'
-  dark?: boolean
+  titleAs?: React.ElementType
+  titleTag?: React.ElementType
+  theme?: SectionHeaderTheme
+  children?: React.ReactNode
 }
 
 export default function SectionHeader({
   label,
   title,
-  children,
-  className = '',
   titleClassName = '',
-  labelClassName = '',
-  style,
-  titleStyle,
-  labelStyle,
-  titleTag = 'h2',
+  titleAs,
+  titleTag,
   theme = 'light',
-  dark = false
+  className = '',
+  children,
+  ...rest
 }: SectionHeaderProps) {
-  const isDark = dark || theme === 'dark'
-  const TitleTag = titleTag as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div'
+  const isDark = theme === 'dark'
+  const TitleComponent = titleAs || titleTag || 'h2'
+  const containerClass = `${styles.container}${isDark ? ` ${styles.containerDark}` : ''}${className ? ` ${className}` : ''}`
+  const headingClass = `${styles.title}${titleClassName ? ` ${titleClassName}` : ''}`
 
   return (
     <div
-      className={`${styles.container}${isDark ? ` ${styles.containerDark}` : ''}${className ? ` ${className}` : ''}`}
-      style={style}
+      className={containerClass}
+      {...rest}
     >
       {label && (
-        <p
-          className={`${styles.label}${labelClassName ? ` ${labelClassName}` : ''}`}
-          style={labelStyle}
-        >
+        <p className={styles.label}>
           {label}
         </p>
       )}
       {title && (
-        <TitleTag
-          className={`${styles.title}${titleClassName ? ` ${titleClassName}` : ''}`}
-          style={titleStyle}
-        >
+        <TitleComponent className={headingClass}>
           {title}
-        </TitleTag>
+        </TitleComponent>
       )}
       {children}
     </div>

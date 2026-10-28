@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './CommentCard.module.css';
+import React from 'react'
+import styles from './CommentCard.module.css'
 
 const COLOR_MAP: Record<string, string> = {
   primary: 'var(--color-primary)',
@@ -7,22 +7,19 @@ const COLOR_MAP: Record<string, string> = {
   purple: 'var(--color-purple-light)',
   green: 'var(--color-green)',
   orange: 'var(--color-orange)'
-};
+}
 
 const resolveColor = (color?: string): string => {
-  if (!color) return 'var(--color-primary)';
-  return COLOR_MAP[color] || color;
-};
+  if (!color) return 'var(--color-primary)'
+  return COLOR_MAP[color] || color
+}
 
-export interface CommentCardProps {
-  initials?: string;
-  name?: string;
-  role?: string;
-  quote?: string;
-  avatarBg?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
+export interface CommentCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  initials?: string
+  name?: string
+  role?: string
+  quote?: string
+  avatarBg?: string
 }
 
 export default function CommentCard({
@@ -33,18 +30,22 @@ export default function CommentCard({
   avatarBg = 'primary',
   className = '',
   style,
-  children
+  children,
+  ...rest
 }: CommentCardProps) {
-  const bg = resolveColor(avatarBg);
+  const bg = resolveColor(avatarBg)
   const formattedQuote =
     typeof quote === 'string'
       ? quote.replace(/^["“](.*)["”]$/s, '$1')
-      : quote;
+      : quote
+
+  const combinedClass = className ? `${styles.card} ${className}` : styles.card
 
   return (
     <div
-      className={`${styles.card}${className ? ` ${className}` : ''}`}
+      className={combinedClass}
       style={style}
+      {...rest}
     >
       <div className={styles.header}>
         {initials && (
@@ -75,5 +76,5 @@ export default function CommentCard({
       )}
       {children}
     </div>
-  );
+  )
 }

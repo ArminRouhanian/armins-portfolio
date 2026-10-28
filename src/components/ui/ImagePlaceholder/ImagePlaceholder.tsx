@@ -1,35 +1,41 @@
 import React from 'react'
 import styles from './ImagePlaceholder.module.css'
 
-export interface ImagePlaceholderProps {
-  className?: string
-  style?: React.CSSProperties
+export type ImagePlaceholderTheme = 'light' | 'dark'
+
+export interface ImagePlaceholderProps extends React.HTMLAttributes<HTMLDivElement> {
+  theme?: ImagePlaceholderTheme
   isDark?: boolean
   iconSize?: number
   text?: string
 }
 
 export default function ImagePlaceholder({
-  className = '',
-  style = {},
+  theme = 'light',
   isDark = false,
   iconSize = 48,
-  text = 'Preview unavailable'
+  text = 'Preview unavailable',
+  className = '',
+  style,
+  ...rest
 }: ImagePlaceholderProps) {
+  const isDarkMode = theme === 'dark' || isDark
+  const combinedClass = `${styles.placeholder}${isDarkMode ? ` ${styles.dark}` : ''}${className ? ` ${className}` : ''}`
+  const isDecorative = !text
+
   return (
     <div
-      className={`${styles.placeholder}${isDark ? ` ${styles.dark}` : ''}${className ? ` ${className}` : ''}`}
+      className={combinedClass}
       style={style}
-      aria-label={text}
-      role="img"
+      role={isDecorative ? 'presentation' : 'img'}
+      aria-label={isDecorative ? undefined : text}
+      aria-hidden={isDecorative ? 'true' : undefined}
+      {...rest}
     >
       <div className={styles.inner}>
         <span
           className={styles.logo}
-          style={{
-            width: `${iconSize}px`,
-            height: `${Math.round((iconSize * 465) / 755)}px`
-          }}
+          style={{ width: `${iconSize}px` }}
           aria-hidden="true"
         />
         {text && (

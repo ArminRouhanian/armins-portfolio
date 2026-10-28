@@ -30,6 +30,7 @@
 .logo {
   display: block;
   flex-shrink: 0;
+  aspect-ratio: 755 / 465;
   background-color: currentColor;
   -webkit-mask: url("/assets/logo.svg") no-repeat center / contain;
   mask: url("/assets/logo.svg") no-repeat center / contain;
@@ -44,8 +45,3 @@
   letter-spacing: -0.01em;
   max-width: 220px;
 }
-
-.placeholder.dark .caption {
-  color: var(--color-text-dim);
-}
-

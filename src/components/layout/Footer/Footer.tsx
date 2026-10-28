@@ -8,27 +8,27 @@ const SOCIAL_LINKS = [
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/armin-rouhanian',
-    icon: '/assets/icons/icon-linkedin.svg'
+    icon: '/assets/social-icons/linkedin.svg'
   },
   {
     name: 'Medium',
     href: 'https://medium.com/@armin.rouhanian',
-    icon: '/assets/icons/icon-medium.svg'
+    icon: '/assets/social-icons/medium.svg'
   },
   {
     name: 'Figma',
     href: 'https://www.figma.com/@arminrouhanian',
-    icon: '/assets/icons/icon-figma.svg'
+    icon: '/assets/social-icons/figma.svg'
   },
   {
     name: 'Telegram',
     href: 'https://t.me/Armin_Rouhanian',
-    icon: '/assets/icons/icon-telegram.svg'
+    icon: '/assets/social-icons/telegram.svg'
   },
   {
     name: 'GitHub',
     href: 'https://github.com/ArminRouhanian',
-    icon: '/assets/icons/icon-github.svg'
+    icon: '/assets/social-icons/github.svg'
   }
 ]
 
@@ -53,35 +53,30 @@ export default function Footer() {
           you find the next step.
         </p>
         <div className={styles.actionRow}>
-          <a
+          <Button
+            as="a"
+            variant="cta"
             target="_blank"
             rel="noopener noreferrer"
             href="https://mail.google.com/mail/?view=cm&amp;to=armin.rouhanian@gmail.com"
-            className={`${styles.ctaButton} fcta`}
+            icon="/assets/icons/arrow-right.svg"
+            iconPosition="right"
+            iconSize={24}
+            className="fcta"
           >
-            Contact me{' '}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg>
-          </a>
-          <a
+            Contact me
+          </Button>
+          <Button
+            as="a"
+            variant="tertiary"
+            theme="dark"
             target="_blank"
             rel="noopener noreferrer"
             href="https://mail.google.com/mail/?view=cm&amp;to=armin.rouhanian@gmail.com"
-            className={styles.emailLink}
+            className={styles.emailButton}
           >
             armin.rouhanian@gmail.com
-          </a>
+          </Button>
         </div>
         <div className={styles.bottomBar}>
           <span className={styles.copyright}>
@@ -99,25 +94,16 @@ export default function Footer() {
             ))}
           </span>
           <Button
+            as="a"
             variant="tertiary"
             theme="dark"
             href="#top"
+            icon="/assets/icons/arrow-up.svg"
+            iconPosition="right"
+            iconSize={18}
             className={styles.backToTop}
           >
-            Back to top{' '}
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M12 19V5M6 11l6-6 6 6" />
-            </svg>
+            Back to top
           </Button>
         </div>
       </div>

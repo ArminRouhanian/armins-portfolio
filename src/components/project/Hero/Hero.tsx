@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../../ui/Button/Button'
 import Badge from '../../ui/Badge/Badge'
 import ImagePlaceholder from '../../ui/ImagePlaceholder/ImagePlaceholder'
@@ -14,6 +15,7 @@ export default function Hero({ hero }) {
   return (
     <section id="preview" className={styles.section}>
       <Button
+        as={Link}
         variant="tertiary"
         to="/"
         icon="/assets/icons/chevron-left.svg"

@@ -57,14 +57,14 @@ export default function Showcase({ showcase, mockupUrl, label = '04 · SHOWCASE'
       <section id="showcase" className={styles.section}>
         <div className={styles.headerContainer}>
           <SectionHeader
-            dark
+            theme="dark"
             label={label}
             title="Design mockups"
           />
           {showcase.alert && (
             <div className={styles.alertWrap}>
               <Alert
-                dark
+                theme="dark"
                 variant={showcase.alert.variant || 'info'}
               >
                 {showcase.alert.text || showcase.alert}

@@ -17,7 +17,7 @@ export default function Impact({ impact, label = '02 · IMPACT' }) {
           <div className={styles.stickyLayout}>
             <div>
               <SectionHeader
-                dark
+                theme="dark"
                 label={label}
                 title="Impact at a glance"
                 titleClassName={styles.textPrimary}
@@ -84,7 +84,7 @@ export default function Impact({ impact, label = '02 · IMPACT' }) {
         {/* Mobile vertical flow with compact cards under each title */}
         <div className={styles.mobileLayout}>
           <SectionHeader
-            dark
+            theme="dark"
             label={label}
             title="Impact at a glance"
             titleClassName={styles.textPrimary}

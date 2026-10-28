@@ -64,7 +64,7 @@ export function LightboxMobileSlide({ item }) {
     >
       {hasError && (
         <ImagePlaceholder
-          isDark
+          theme="dark"
           iconSize={48}
         />
       )}

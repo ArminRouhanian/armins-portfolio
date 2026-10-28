@@ -48,10 +48,18 @@ export default function Hero() {
         want to use.
       </p>
       <div className={styles.actions}>
-        <Button variant="primary" href="#work">
+        <Button
+          as="a"
+          variant="primary"
+          href="#work"
+        >
           View work
         </Button>
-        <Button variant="secondary" href="#contact">
+        <Button
+          as="a"
+          variant="secondary"
+          href="#contact"
+        >
           Contact me
         </Button>
       </div>

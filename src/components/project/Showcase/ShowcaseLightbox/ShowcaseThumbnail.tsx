@@ -27,7 +27,7 @@ export default function ShowcaseThumbnail({
     >
       {hasError && (
         <ImagePlaceholder
-          isDark
+          theme="dark"
           iconSize={20}
           text=""
         />

@@ -1,12 +1,10 @@
 import React from 'react'
 import styles from './Cursor.module.css'
 
-export interface CursorProps {
+export interface CursorProps extends React.HTMLAttributes<HTMLDivElement> {
   name?: string
   thinking?: boolean
   color?: string
-  className?: string
-  style?: React.CSSProperties
 }
 
 export default function Cursor({
@@ -14,13 +12,17 @@ export default function Cursor({
   thinking = false,
   color = 'var(--color-purple)',
   className = '',
-  style
+  style,
+  ...rest
 }: CursorProps) {
+  const combinedClass = className ? `${styles.cursorWrapper} ${className}` : styles.cursorWrapper
+
   return (
     <div
-      className={`${styles.cursorWrapper}${className ? ` ${className}` : ''}`}
+      className={combinedClass}
       style={style}
       aria-hidden="true"
+      {...rest}
     >
       <svg
         width="16"

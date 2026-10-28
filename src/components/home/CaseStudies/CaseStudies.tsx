@@ -42,10 +42,10 @@ export default function CaseStudies() {
           <h3 className={styles.title}>
             [Case study title]
           </h3>
-          <Badge variant="grey">
+          <Badge variant="gray">
             [Role]
           </Badge>
-          <Badge variant="grey">
+          <Badge variant="gray">
             [Year]
           </Badge>
           <span className={styles.arrow}>→</span>
@@ -57,10 +57,10 @@ export default function CaseStudies() {
           <h3 className={styles.title}>
             [Case study title]
           </h3>
-          <Badge variant="grey">
+          <Badge variant="gray">
             [Role]
           </Badge>
-          <Badge variant="grey">
+          <Badge variant="gray">
             [Year]
           </Badge>
           <span className={styles.arrow}>→</span>
@@ -72,10 +72,10 @@ export default function CaseStudies() {
           <h3 className={styles.title}>
             [Case study title]
           </h3>
-          <Badge variant="grey">
+          <Badge variant="gray">
             [Role]
           </Badge>
-          <Badge variant="grey">
+          <Badge variant="gray">
             [Year]
           </Badge>
           <span className={styles.arrow}>→</span>

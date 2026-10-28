@@ -1,15 +1,28 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Button from '../../ui/Button/Button'
+import useSectionLink from '../../../hooks/useSectionLink'
 import styles from './Header.module.css'
 
+interface NavLinkItem {
+  label: string
+  section: string
+}
+
+const NAV_LINKS: NavLinkItem[] = [
+  { label: 'Work', section: 'work' },
+  { label: 'Case studies', section: 'cases' }
+]
+
 export default function Header() {
-  const location = useLocation()
-  const isHome = location.pathname === '/'
+  const getSectionLink = useSectionLink()
 
   return (
     <header className={styles.header}>
-      <Link to="/" className={styles.brand}>
+      <Link
+        to="/"
+        className={styles.brand}
+      >
         <img
           src="/assets/logo.svg"
           alt=""
@@ -21,41 +34,19 @@ export default function Header() {
       </Link>
       <nav className={styles.nav}>
         <div className={styles.navLinks}>
-          {isHome ? (
-            <>
-              <Button
-                variant="tertiary"
-                href="#work"
-              >
-                Work
-              </Button>
-              <Button
-                variant="tertiary"
-                href="#cases"
-              >
-                Case studies
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button
-                variant="tertiary"
-                to="/#work"
-              >
-                Work
-              </Button>
-              <Button
-                variant="tertiary"
-                to="/#cases"
-              >
-                Case studies
-              </Button>
-            </>
-          )}
+          {NAV_LINKS.map(({ label, section }) => (
+            <Button
+              key={section}
+              variant="tertiary"
+              {...getSectionLink(section)}
+            >
+              {label}
+            </Button>
+          ))}
         </div>
         <Button
           variant="primary"
-          href="#contact"
+          {...getSectionLink('contact')}
           className={styles.contactButton}
         >
           Contact me

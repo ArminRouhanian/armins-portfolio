@@ -1,0 +1,84 @@
+.card {
+  flex: 1 1 280px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md-lg) var(--spacing-lg);
+  min-height: 84px;
+  box-sizing: border-box;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* Next variant: reverse order and align text to the right */
+.next {
+  flex-direction: row-reverse;
+}
+
+.next .textGroup {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.arrow {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-color: currentColor;
+  color: var(--color-text-primary);
+  -webkit-mask: url("/assets/icons/arrow-left.svg") no-repeat center / contain;
+  mask: url("/assets/icons/arrow-left.svg") no-repeat center / contain;
+}
+
+.next .arrow {
+  -webkit-mask-image: url("/assets/icons/arrow-right.svg");
+  mask-image: url("/assets/icons/arrow-right.svg");
+}
+
+.textGroup {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs);
+}
+
+.label {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-muted);
+  line-height: 1;
+}
+
+.title {
+  font-size: var(--font-size-h3);
+  color: var(--color-text-primary);
+  line-height: 1.25;
+}
+
+@media (max-width: 640px) {
+  .card {
+    min-height: 72px;
+    padding: 14px 18px;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .title {
+    font-size: var(--font-size-body);
+  }
+}

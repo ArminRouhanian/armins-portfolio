@@ -1,7 +1,16 @@
 import React from 'react'
 import styles from './SectionNav.module.css'
 
-const defaultItems = [
+export interface SectionNavItem {
+  href: string
+  label: string
+}
+
+export interface SectionNavProps {
+  items?: SectionNavItem[]
+}
+
+const DEFAULT_ITEMS: SectionNavItem[] = [
   { href: '#preview', label: 'Preview' },
   { href: '#description', label: 'Description' },
   { href: '#impact', label: 'Impact' },
@@ -10,7 +19,7 @@ const defaultItems = [
   { href: '#comments', label: 'Comments' }
 ]
 
-export default function SectionNav({ items = defaultItems }) {
+export default function SectionNav({ items = DEFAULT_ITEMS }: SectionNavProps) {
   return (
     <div className={styles.wrapper}>
       <nav
@@ -19,7 +28,10 @@ export default function SectionNav({ items = defaultItems }) {
       >
         <i aria-hidden="true" />
         {items.map((item) => (
-          <a key={item.href} href={item.href}>
+          <a
+            key={item.href}
+            href={item.href}
+          >
             {item.label}
           </a>
         ))}

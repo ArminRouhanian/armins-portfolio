@@ -66,42 +66,6 @@
   gap: 20px 28px;
 }
 
-.ctaButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-sm);
-  height: 64px;
-  padding: 0 var(--spacing-xl);
-  border-radius: var(--radius-sm);
-  background: var(--color-surface);
-  color: var(--color-text-primary);
-  font-size: var(--font-size-h4);
-  font-weight: var(--font-weight-bold);
-  box-sizing: border-box;
-  transition:
-    background-color 0.25s,
-    color 0.25s,
-    transform 0.25s,
-    border-radius 0.25s;
-}
-
-.ctaButton:hover {
-  background: var(--color-primary);
-  color: var(--color-text-light);
-  transform: translateY(-3px);
-  border-radius: var(--radius-pill);
-}
-
-.ctaButton svg {
-  transition: transform 0.25s;
-  flex-shrink: 0;
-}
-
-.ctaButton:hover svg {
-  transform: translateX(6px);
-}
-
 :global(.fcta.nudge) {
   animation: nudgeDesktop 1s ease-in-out;
 }
@@ -125,11 +89,19 @@
   }
 }
 
-.emailLink {
-  color: var(--color-text-light-subtle);
+.emailButton {
   font-size: var(--font-size-body-lg);
+  color: var(--color-text-light-subtle);
   border-bottom: 1px solid var(--color-text-caption);
-  text-decoration: none;
+  border-radius: 0;
+  transition:
+    color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.emailButton:hover {
+  color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
 }
 
 .bottomBar {
@@ -202,26 +174,12 @@
     gap: 14px;
   }
 
-  .ctaButton {
-    width: 100%;
-    height: 56px;
-    font-size: var(--font-size-body-lg);
-    border-radius: var(--radius-md);
-    padding: 0 var(--spacing-md-lg);
-    transform-origin: center center;
-  }
-
-  .ctaButton:hover {
-    border-radius: var(--radius-md);
-    transform: none;
-  }
-
   /* Rotation wiggle animation without expanding width or shifting upward */
   :global(.fcta.nudge) {
     animation: nudgeMobile 1s ease-in-out;
   }
 
-  .emailLink {
+  .emailButton {
     text-align: center;
     font-size: var(--font-size-body);
     align-self: center;

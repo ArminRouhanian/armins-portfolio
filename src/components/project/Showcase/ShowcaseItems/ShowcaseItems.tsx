@@ -41,7 +41,12 @@ function ShowcaseCardItem({ item, index, isMobile, onItemClick }: ShowcaseCardIt
             className={`${styles.mobileScreen}${img && !isLoaded ? ' skeletonDark' : ''}`}
             style={bgStyle}
           >
-            {hasError && <ImagePlaceholder isDark iconSize={36} />}
+            {hasError && (
+              <ImagePlaceholder
+                theme="dark"
+                iconSize={36}
+              />
+            )}
           </div>
           <div className={styles.homeIndicator} />
         </div>

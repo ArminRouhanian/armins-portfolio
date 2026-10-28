@@ -3,38 +3,32 @@ import styles from './SocialButton.module.css'
 
 export interface SocialButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
-  ariaLabel?: string
   icon?: string
   iconSize?: number
-  target?: string
-  rel?: string
-  className?: string
-  style?: React.CSSProperties
-  children?: React.ReactNode
+  ariaLabel?: string
 }
 
 export default function SocialButton({
   href,
-  ariaLabel,
   icon,
   iconSize = 20,
   target = '_blank',
   rel = 'noopener noreferrer',
   className = '',
-  style,
+  ariaLabel,
   children,
   ...rest
 }: SocialButtonProps) {
   const label = ariaLabel || rest['aria-label']
+  const combinedClass = className ? `${styles.button} ${className}` : styles.button
 
   return (
     <a
       href={href}
-      className={`${styles.button}${className ? ` ${className}` : ''}`}
-      aria-label={label}
       target={target}
       rel={rel}
-      style={style}
+      aria-label={label}
+      className={combinedClass}
       {...rest}
     >
       {icon ? (

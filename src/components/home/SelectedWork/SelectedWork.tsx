@@ -89,7 +89,7 @@ export default function SelectedWork() {
                 {tags.length > 0 && (
                   <div className={styles.badgeRow}>
                     {tags.map((tag) => (
-                      <Badge key={tag} variant="grey">
+                      <Badge key={tag} variant="gray">
                         {tag}
                       </Badge>
                     ))}

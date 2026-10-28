@@ -1,30 +1,53 @@
 import React, { useState, useRef, useCallback } from 'react'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
-import CommentCard from './CommentCard/CommentCard'
+import CommentCard, { CommentCardProps } from './CommentCard/CommentCard'
 import styles from './Comments.module.css'
 
-export default function Comments({ comments, label = '05 · FEEDBACK' }) {
+export type CommentItem = CommentCardProps
+
+export interface CommentsProps {
+  comments?: CommentItem[]
+  label?: string
+}
+
+export default function Comments({
+  comments,
+  label = '05 · FEEDBACK'
+}: CommentsProps) {
   const [activeIdx, setActiveIdx] = useState(0)
-  const trackRef = useRef(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+
+  const getSlideStride = (): number => {
+    const el = trackRef.current
+    if (!el || el.children.length === 0) return 1
+
+    const first = el.children[0] as HTMLElement | undefined
+    const second = el.children[1] as HTMLElement | undefined
+
+    if (first && second) {
+      return second.offsetLeft - first.offsetLeft
+    }
+    return first?.offsetWidth || 1
+  }
 
   const handleScroll = useCallback(() => {
     const el = trackRef.current
-    if (!el) return
-    const cardWidth = el.firstElementChild?.offsetWidth || 1
-    const gap = 16
-    const totalItemWidth = cardWidth + gap
-    const scrollPos = el.scrollLeft
-    const idx = Math.round(scrollPos / totalItemWidth)
-    setActiveIdx(Math.max(0, Math.min(comments.length - 1, idx)))
-  }, [comments?.length])
+    if (!el || !comments || comments.length === 0) return
 
-  const scrollToSlide = (index) => {
+    const stride = getSlideStride()
+    const idx = Math.round(el.scrollLeft / stride)
+    setActiveIdx(Math.max(0, Math.min(comments.length - 1, idx)))
+  }, [comments])
+
+  const scrollToSlide = (index: number) => {
     const el = trackRef.current
     if (!el) return
-    const cardWidth = el.firstElementChild?.offsetWidth || 1
-    const gap = 16
-    const targetLeft = index * (cardWidth + gap)
-    el.scrollTo({ left: targetLeft, behavior: 'smooth' })
+
+    const stride = getSlideStride()
+    el.scrollTo({
+      left: index * stride,
+      behavior: 'smooth'
+    })
     setActiveIdx(index)
   }
 
@@ -43,25 +66,28 @@ export default function Comments({ comments, label = '05 · FEEDBACK' }) {
         onScroll={handleScroll}
       >
         {comments.map((item, index) => (
-          <div key={index} className={styles.cardSlide}>
+          <div
+            key={item.name ? `${item.name}-${index}` : index}
+            className={styles.cardSlide}
+          >
             <CommentCard
-              initials={item.initials}
-              avatarBg={item.avatarBg}
-              name={item.name}
-              role={item.role}
-              quote={item.quote}
+              {...item}
               className={styles.commentCard}
             />
           </div>
         ))}
       </div>
-      <div className={styles.dots} aria-label="Comment pagination">
-        {comments.map((_, index) => (
+      <div
+        className={styles.dots}
+        aria-label="Comment pagination"
+      >
+        {comments.map((item, index) => (
           <button
-            key={index}
+            key={item.name ? `dot-${item.name}-${index}` : index}
             type="button"
             className={`${styles.dot}${index === activeIdx ? ` ${styles.dotActive}` : ''}`}
             aria-label={`Go to comment ${index + 1}`}
+            aria-current={index === activeIdx ? 'true' : undefined}
             onClick={() => scrollToSlide(index)}
           />
         ))}
