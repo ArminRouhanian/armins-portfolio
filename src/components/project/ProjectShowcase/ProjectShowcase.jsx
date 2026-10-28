@@ -98,13 +98,42 @@ export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) 
     setActiveIdx(index)
     setSlideDirection('next')
     setIsOpen(true)
-    document.documentElement.style.overflow = 'hidden'
+    window.history.pushState({ showcaseLightbox: true }, '')
   }, [])
 
   const closeLightbox = useCallback(() => {
     setIsOpen(false)
-    document.documentElement.style.overflow = ''
+    if (window.history.state?.showcaseLightbox) {
+      window.history.back()
+    }
   }, [])
+
+  // Manage body/html scroll locking reliably with cleanup
+  useEffect(() => {
+    if (!isOpen) return
+
+    const originalOverflow = document.documentElement.style.overflow
+    const originalBodyOverflow = document.body.style.overflow
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.documentElement.style.overflow = originalOverflow
+      document.body.style.overflow = originalBodyOverflow
+    }
+  }, [isOpen])
+
+  // Handle browser back button (popstate) to close lightbox without leaving page
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handlePopState = () => {
+      setIsOpen(false)
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [isOpen])
 
   const nextSlide = useCallback(() => {
     setSlideDirection('next')
