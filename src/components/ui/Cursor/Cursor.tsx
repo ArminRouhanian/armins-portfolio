@@ -1,13 +1,21 @@
 import React from 'react'
 import styles from './Cursor.module.css'
 
+export interface CursorProps {
+  name?: string
+  thinking?: boolean
+  color?: string
+  className?: string
+  style?: React.CSSProperties
+}
+
 export default function Cursor({
   name = 'Armin Rouhanian',
   thinking = false,
   color = 'var(--color-purple)',
   className = '',
   style
-}) {
+}: CursorProps) {
   return (
     <div
       className={`${styles.cursorWrapper}${className ? ` ${className}` : ''}`}

@@ -143,7 +143,7 @@ export default function ShowcaseLightbox({
       aria-modal="true"
       aria-label="Mockup viewer"
       onClick={(e) => {
-        if (e.target.id === 'lb') handleClose()
+        if ((e.target as HTMLElement).id === 'lb') handleClose()
       }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}

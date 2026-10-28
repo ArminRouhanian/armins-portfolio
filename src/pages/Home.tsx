@@ -10,14 +10,14 @@ import styles from './Home.module.css'
 export default function Home() {
   useEffect(() => {
     // Intersecting observer for footer CTA nudge animation
-    const cta = document.querySelector('.fcta')
+    const cta = document.querySelector('.fcta') as HTMLElement | null
     if (
       cta &&
       window.IntersectionObserver &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
       let seen = false
-      let timeoutId
+      let timeoutId: ReturnType<typeof setTimeout> | undefined
       const observer = new IntersectionObserver(
         entries => {
           entries.forEach(entry => {

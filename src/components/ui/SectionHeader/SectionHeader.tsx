@@ -1,6 +1,21 @@
 import React from 'react'
 import styles from './SectionHeader.module.css'
 
+export interface SectionHeaderProps {
+  label?: React.ReactNode
+  title?: React.ReactNode
+  children?: React.ReactNode
+  className?: string
+  titleClassName?: string
+  labelClassName?: string
+  style?: React.CSSProperties
+  titleStyle?: React.CSSProperties
+  labelStyle?: React.CSSProperties
+  titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div'
+  theme?: 'light' | 'dark'
+  dark?: boolean
+}
+
 export default function SectionHeader({
   label,
   title,
@@ -14,9 +29,9 @@ export default function SectionHeader({
   titleTag = 'h2',
   theme = 'light',
   dark = false
-}) {
+}: SectionHeaderProps) {
   const isDark = dark || theme === 'dark'
-  const TitleTag = titleTag
+  const TitleTag = titleTag as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div'
 
   return (
     <div

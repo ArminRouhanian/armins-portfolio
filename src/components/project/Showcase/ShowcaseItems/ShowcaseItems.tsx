@@ -3,7 +3,14 @@ import ImagePlaceholder from '../../../ui/ImagePlaceholder/ImagePlaceholder'
 import useImageLoaded from '../../../../hooks/useImageLoaded'
 import styles from './ShowcaseItems.module.css'
 
-function ShowcaseCardItem({ item, index, isMobile, onItemClick }) {
+interface ShowcaseCardItemProps {
+  item: any
+  index: number
+  isMobile: boolean
+  onItemClick?: (index: number) => void
+}
+
+function ShowcaseCardItem({ item, index, isMobile, onItemClick }: ShowcaseCardItemProps) {
   const img = item.image || item.src || (item.bg && !item.bg.includes('gradient') ? item.bg : null)
   const { isLoaded, hasError } = useImageLoaded(img)
 
@@ -71,7 +78,16 @@ function ShowcaseCardItem({ item, index, isMobile, onItemClick }) {
   )
 }
 
-const ShowcaseItems = forwardRef(function ShowcaseItems(
+export interface ShowcaseItemsProps {
+  items?: any[]
+  type?: 'desktop' | 'mobile' | string
+  onItemClick?: (index: number) => void
+  onScroll?: React.UIEventHandler<HTMLDivElement>
+  className?: string
+  style?: React.CSSProperties
+}
+
+const ShowcaseItems = forwardRef<HTMLDivElement, ShowcaseItemsProps>(function ShowcaseItems(
   {
     items = [],
     type = 'desktop',

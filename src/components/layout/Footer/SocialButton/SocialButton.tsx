@@ -1,6 +1,18 @@
 import React from 'react'
 import styles from './SocialButton.module.css'
 
+export interface SocialButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string
+  ariaLabel?: string
+  icon?: string
+  iconSize?: number
+  target?: string
+  rel?: string
+  className?: string
+  style?: React.CSSProperties
+  children?: React.ReactNode
+}
+
 export default function SocialButton({
   href,
   ariaLabel,
@@ -12,7 +24,7 @@ export default function SocialButton({
   style,
   children,
   ...rest
-}) {
+}: SocialButtonProps) {
   const label = ariaLabel || rest['aria-label']
 
   return (

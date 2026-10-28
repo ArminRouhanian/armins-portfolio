@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CommentCard.module.css';
 
-const COLOR_MAP = {
+const COLOR_MAP: Record<string, string> = {
   primary: 'var(--color-primary)',
   blue: 'var(--color-primary)',
   purple: 'var(--color-purple-light)',
@@ -9,10 +9,21 @@ const COLOR_MAP = {
   orange: 'var(--color-orange)'
 };
 
-const resolveColor = (color) => {
+const resolveColor = (color?: string): string => {
   if (!color) return 'var(--color-primary)';
   return COLOR_MAP[color] || color;
 };
+
+export interface CommentCardProps {
+  initials?: string;
+  name?: string;
+  role?: string;
+  quote?: string;
+  avatarBg?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  children?: React.ReactNode;
+}
 
 export default function CommentCard({
   initials,
@@ -23,7 +34,7 @@ export default function CommentCard({
   className = '',
   style,
   children
-}) {
+}: CommentCardProps) {
   const bg = resolveColor(avatarBg);
   const formattedQuote =
     typeof quote === 'string'

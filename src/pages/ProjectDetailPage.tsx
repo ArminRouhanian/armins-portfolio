@@ -4,8 +4,8 @@ import ProjectLayout from '../components/project/ProjectLayout/ProjectLayout'
 import { projectsData } from '../data/projectsData'
 
 export default function ProjectDetailPage() {
-  const { slug } = useParams()
-  const project = projectsData[slug]
+  const { slug } = useParams<{ slug: string }>()
+  const project = slug ? (projectsData as Record<string, any>)[slug] : null
 
   if (!project) {
     return <Navigate to="/" replace />

@@ -58,7 +58,7 @@ export default function SelectedWork() {
       />
       <div className={styles.grid}>
         {PROJECT_LIST.map((p) => {
-          const project = projectsData[p.key]
+          const project = (projectsData as Record<string, any>)[p.key]
           if (!project) return null
 
           const title = project.hero?.title || project.title

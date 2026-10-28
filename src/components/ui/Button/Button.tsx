@@ -1,6 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Button.module.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import styles from './Button.module.css'
+
+export interface ButtonProps extends React.HTMLAttributes<HTMLElement> {
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'tertiary-dark' | 'iconOnly' | 'icon-only'
+  theme?: 'light' | 'dark'
+  to?: string
+  href?: string
+  icon?: string
+  iconSize?: number
+  onClick?: React.MouseEventHandler<HTMLElement>
+  children?: React.ReactNode
+  className?: string
+  type?: 'button' | 'submit' | 'reset'
+  ariaLabel?: string
+  'aria-label'?: string
+  [key: string]: any
+}
 
 export default function Button({
   variant = 'primary',
@@ -15,23 +31,23 @@ export default function Button({
   type = 'button',
   ariaLabel,
   ...props
-}) {
-  let variantClass = '';
+}: ButtonProps) {
+  let variantClass = ''
 
   if (variant === 'secondary') {
-    variantClass = `${styles.button} ${styles.secondary}`;
+    variantClass = `${styles.button} ${styles.secondary}`
   } else if (variant === 'tertiary' || variant === 'tertiary-dark') {
-    const isDark = theme === 'dark' || variant === 'tertiary-dark';
-    variantClass = `${styles.tertiary} ${isDark ? styles.tertiaryDark : styles.tertiaryLight}`;
+    const isDark = theme === 'dark' || variant === 'tertiary-dark'
+    variantClass = `${styles.tertiary} ${isDark ? styles.tertiaryDark : styles.tertiaryLight}`
   } else if (variant === 'iconOnly' || variant === 'icon-only') {
-    const isDark = theme === 'dark';
-    variantClass = `${styles.iconOnly}${isDark ? ` ${styles.iconOnlyDark}` : ''}`;
+    const isDark = theme === 'dark'
+    variantClass = `${styles.iconOnly}${isDark ? ` ${styles.iconOnlyDark}` : ''}`
   } else {
-    variantClass = `${styles.button} ${styles.primary}`;
+    variantClass = `${styles.button} ${styles.primary}`
   }
 
-  const combinedClass = className ? `${variantClass} ${className}` : variantClass;
-  const label = ariaLabel || props['aria-label'];
+  const combinedClass = className ? `${variantClass} ${className}` : variantClass
+  const label = ariaLabel || props['aria-label']
 
   const content = (
     <>
@@ -49,7 +65,7 @@ export default function Button({
       )}
       {children}
     </>
-  );
+  )
 
   if (to) {
     return (
@@ -62,7 +78,7 @@ export default function Button({
       >
         {content}
       </Link>
-    );
+    )
   }
 
   if (href) {
@@ -76,7 +92,7 @@ export default function Button({
       >
         {content}
       </a>
-    );
+    )
   }
 
   return (
@@ -89,5 +105,5 @@ export default function Button({
     >
       {content}
     </button>
-  );
+  )
 }

@@ -84,7 +84,7 @@ export default function ToolsAnimation() {
                     '--h': orbit.h,
                     '--dx': delays.dx,
                     '--dy': delays.dy
-                  }}
+                  } as React.CSSProperties}
                 >
                   <div
                     className={styles.orbitY}
@@ -92,7 +92,7 @@ export default function ToolsAnimation() {
                       '--ry': orbit.ry,
                       '--s0': orbit.s0,
                       '--s1': orbit.s1
-                    }}
+                    } as React.CSSProperties}
                   >
                     <div
                       className={styles.toolIcon}
@@ -190,7 +190,7 @@ export default function ToolsAnimation() {
               '--px': '-40px',
               '--pd': '0s',
               background: 'var(--color-orange)'
-            }}
+            } as React.CSSProperties}
           />
           <i
             className={styles.particle}
@@ -198,7 +198,7 @@ export default function ToolsAnimation() {
               '--px': '30px',
               '--pd': '0.7s',
               background: 'var(--color-primary-light)'
-            }}
+            } as React.CSSProperties}
           />
           <i
             className={styles.particle}
@@ -206,7 +206,7 @@ export default function ToolsAnimation() {
               '--px': '-15px',
               '--pd': '1.4s',
               background: 'var(--color-green)'
-            }}
+            } as React.CSSProperties}
           />
           <i
             className={styles.particle}
@@ -214,7 +214,7 @@ export default function ToolsAnimation() {
               '--px': '50px',
               '--pd': '2.1s',
               background: 'var(--color-orange-light)'
-            }}
+            } as React.CSSProperties}
           />
           <i
             className={styles.particle}
@@ -222,7 +222,7 @@ export default function ToolsAnimation() {
               '--px': '-55px',
               '--pd': '2.8s',
               background: 'var(--color-purple-light)'
-            }}
+            } as React.CSSProperties}
           />
           <i
             className={styles.particle}
@@ -230,7 +230,7 @@ export default function ToolsAnimation() {
               '--px': '10px',
               '--pd': '3.5s',
               background: '#fff'
-            }}
+            } as React.CSSProperties}
           />
           <i
             className={styles.particle}
@@ -238,7 +238,7 @@ export default function ToolsAnimation() {
               '--px': '-30px',
               '--pd': '4.2s',
               background: 'var(--color-primary-light)'
-            }}
+            } as React.CSSProperties}
           />
           <i
             className={styles.particle}
@@ -246,7 +246,7 @@ export default function ToolsAnimation() {
               '--px': '40px',
               '--pd': '4.9s',
               background: 'var(--color-orange)'
-            }}
+            } as React.CSSProperties}
           />
         </div>
         <Cursor
