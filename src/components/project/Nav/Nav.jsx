@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from './ProjectNav.module.css'
+import styles from './Nav.module.css'
 
-export default function ProjectNav({ nav }) {
+export default function Nav({ nav }) {
   if (!nav) return null
 
   return (

@@ -1,9 +1,9 @@
 import React from 'react'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import Alert from '../../ui/Alert/Alert'
-import styles from './ProjectTimeline.module.css'
+import styles from './Timeline.module.css'
 
-export default function ProjectTimeline({ timeline, label = '03 · TIMELINE' }) {
+export default function Timeline({ timeline, label = '03 · TIMELINE' }) {
   if (!timeline) return null
 
   return (

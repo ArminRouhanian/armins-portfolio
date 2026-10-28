@@ -1,9 +1,9 @@
 import React from 'react'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import Alert from '../../ui/Alert/Alert'
-import styles from './ProjectDescription.module.css'
+import styles from './Description.module.css'
 
-export default function ProjectDescription({ overview, label = '01 · OVERVIEW' }) {
+export default function Description({ overview, label = '01 · OVERVIEW' }) {
   if (!overview) return null
 
   return (

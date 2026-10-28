@@ -3,9 +3,9 @@ import Button from '../../ui/Button/Button'
 import Badge from '../../ui/Badge/Badge'
 import ImagePlaceholder from '../../ui/ImagePlaceholder/ImagePlaceholder'
 import useImageLoaded from '../../../hooks/useImageLoaded'
-import styles from './ProjectHero.module.css'
+import styles from './Hero.module.css'
 
-export default function ProjectHero({ hero }) {
+export default function Hero({ hero }) {
   if (!hero) return null
 
   const thumbnail = hero.thumbnail || hero.mockupImage

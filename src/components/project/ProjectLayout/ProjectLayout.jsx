@@ -1,14 +1,14 @@
 import React from 'react'
 import Header from '../../layout/Header/Header'
 import Footer from '../../layout/Footer/Footer'
-import ProjectHero from '../ProjectHero/ProjectHero'
-import ProjectDescription from '../ProjectDescription/ProjectDescription'
-import ProjectImpact from '../ProjectImpact/ProjectImpact'
-import ProjectTimeline from '../ProjectTimeline/ProjectTimeline'
-import ProjectShowcase from '../ProjectShowcase/ProjectShowcase'
-import ProjectComments from '../ProjectComments/ProjectComments'
-import ProjectNav from '../ProjectNav/ProjectNav'
-import ProjectFloatingNav from '../ProjectFloatingNav/ProjectFloatingNav'
+import Hero from '../Hero/Hero'
+import Description from '../Description/Description'
+import Impact from '../Impact/Impact'
+import Timeline from '../Timeline/Timeline'
+import Showcase from '../Showcase/Showcase'
+import Comments from '../Comments/Comments'
+import Nav from '../Nav/Nav'
+import FloatingNav from '../FloatingNav/FloatingNav'
 import { useCaseStudyInteractions } from '../../../hooks/useCaseStudyInteractions'
 import styles from './ProjectLayout.module.css'
 
@@ -56,10 +56,15 @@ export default function ProjectLayout({ project }) {
   const renderSection = (key) => {
     switch (key) {
       case 'hero':
-        return <ProjectHero key="hero" hero={project.hero} />
+        return (
+          <Hero
+            key="hero"
+            hero={project.hero}
+          />
+        )
       case 'description':
         return (
-          <ProjectDescription
+          <Description
             key="desc"
             overview={project.overview}
             label={getSectionLabel('description')}
@@ -67,7 +72,7 @@ export default function ProjectLayout({ project }) {
         )
       case 'impact':
         return project.impact ? (
-          <ProjectImpact
+          <Impact
             key="impact"
             impact={project.impact}
             label={getSectionLabel('impact')}
@@ -75,7 +80,7 @@ export default function ProjectLayout({ project }) {
         ) : null
       case 'timeline':
         return project.timeline ? (
-          <ProjectTimeline
+          <Timeline
             key="timeline"
             timeline={project.timeline}
             label={getSectionLabel('timeline')}
@@ -83,7 +88,7 @@ export default function ProjectLayout({ project }) {
         ) : null
       case 'showcase':
         return project.showcase ? (
-          <ProjectShowcase
+          <Showcase
             key="showcase"
             showcase={project.showcase}
             mockupUrl={project.hero?.mockupUrl}
@@ -92,7 +97,7 @@ export default function ProjectLayout({ project }) {
         ) : null
       case 'comments':
         return project.comments ? (
-          <ProjectComments
+          <Comments
             key="comments"
             comments={project.comments}
             label={getSectionLabel('comments')}
@@ -111,8 +116,8 @@ export default function ProjectLayout({ project }) {
         className={`${styles.mainContent} pgs`}
       >
         {order.map((key) => renderSection(key))}
-        <ProjectNav nav={project.nav} />
-        <ProjectFloatingNav items={project.navItems} />
+        <Nav nav={project.nav} />
+        <FloatingNav items={project.navItems} />
       </main>
       <Footer />
     </div>

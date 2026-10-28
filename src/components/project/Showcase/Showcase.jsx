@@ -3,9 +3,9 @@ import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import Alert from '../../ui/Alert/Alert'
 import ShowcaseItems from './ShowcaseItems/ShowcaseItems'
 import ShowcaseLightbox from './ShowcaseLightbox/ShowcaseLightbox'
-import styles from './ProjectShowcase.module.css'
+import styles from './Showcase.module.css'
 
-export default function ProjectShowcase({ showcase, mockupUrl, label = '04 · SHOWCASE' }) {
+export default function Showcase({ showcase, mockupUrl, label = '04 · SHOWCASE' }) {
   const [lightboxIndex, setLightboxIndex] = useState(null)
   const [listActiveIdx, setListActiveIdx] = useState(0)
   const listTrackRef = useRef(null)

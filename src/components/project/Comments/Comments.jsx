@@ -1,9 +1,9 @@
 import React, { useState, useRef, useCallback } from 'react'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import CommentCard from './CommentCard/CommentCard'
-import styles from './ProjectComments.module.css'
+import styles from './Comments.module.css'
 
-export default function ProjectComments({ comments, label = '05 · FEEDBACK' }) {
+export default function Comments({ comments, label = '05 · FEEDBACK' }) {
   const [activeIdx, setActiveIdx] = useState(0)
   const trackRef = useRef(null)
 
