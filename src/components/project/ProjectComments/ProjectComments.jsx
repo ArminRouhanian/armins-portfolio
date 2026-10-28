@@ -3,7 +3,7 @@ import SectionHeader from '../../common/SectionHeader/SectionHeader'
 import CommentCard from '../../common/CommentCard/CommentCard'
 import styles from './ProjectComments.module.css'
 
-export default function ProjectComments({ comments }) {
+export default function ProjectComments({ comments, label = '05 · FEEDBACK' }) {
   const [activeIdx, setActiveIdx] = useState(0)
   const trackRef = useRef(null)
 
@@ -33,7 +33,7 @@ export default function ProjectComments({ comments }) {
   return (
     <section id="comments" className={styles.section}>
       <SectionHeader
-        label="05 · FEEDBACK"
+        label={label}
         title="What the team says"
         className={styles.header}
       />

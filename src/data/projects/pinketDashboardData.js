@@ -50,7 +50,6 @@ export const pinketDashboardData = {
       'Unifying our tri-portal architecture under a shared design system eliminated redundant handoffs, accelerated sprint velocity, and streamlined complex enterprise operations.',
     metrics: [
       {
-        numLabel: 'METRIC 1 OF 4',
         kClass: 'k0',
         title: 'Drastic Reduction in One-Off UI Requests',
         desc: 'Consolidating three disparate portals into a unified component library removed design ambiguity, eliminating 90% of custom UI rebuilds.',
@@ -64,7 +63,6 @@ export const pinketDashboardData = {
         barColor: 'var(--color-primary)'
       },
       {
-        numLabel: 'METRIC 2 OF 4',
         kClass: 'k1',
         title: '5x Acceleration in Screen Delivery Velocity',
         desc: 'Pre-built responsive layouts and semantic tokens cut prototyping time fivefold, allowing the team to dedicate more sprint capacity to UX validation.',
@@ -78,7 +76,6 @@ export const pinketDashboardData = {
         barColor: 'var(--color-purple-light)'
       },
       {
-        numLabel: 'METRIC 3 OF 4',
         kClass: 'k2',
         title: '67% Reduction in Design Debt & Redundant Assets',
         desc: 'Pruned duplicate components into a centralized tokenized system, cutting library bloat by 67% while unlocking native responsive tablet and mobile views.',
@@ -92,7 +89,6 @@ export const pinketDashboardData = {
         barColor: 'var(--color-green)'
       },
       {
-        numLabel: 'METRIC 4 OF 4',
         kClass: 'k3',
         title: '75% Faster Merchant Contract & Commission Onboarding',
         desc: 'Designed an automated contract builder that translated 20 legacy commission models into a structured rule engine, cutting partner setup from 20 to 5 days.',

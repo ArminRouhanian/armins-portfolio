@@ -1,28 +1,26 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import React, { Suspense, lazy } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
-import PinketDashboard from './pages/projects/PinketDashboard'
-import PinketCustomer from './pages/projects/PinketCustomer'
-import MetaMondial3D from './pages/projects/MetaMondial3D'
+
+const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'))
 
 export default function App() {
   return (
     <>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/works/pinket-dashboard" element={<PinketDashboard />} />
-        <Route path="/works/pinket-customer" element={<PinketCustomer />} />
-        <Route path="/works/metamondial3d" element={<MetaMondial3D />} />
-        {/* Backward-compatibility aliases */}
-        <Route
-          path="/projects/pinket-dashboard"
-          element={<PinketDashboard />}
-        />
-        <Route path="/projects/pinket-customer" element={<PinketCustomer />} />
-        <Route path="/projects/metamondial3d" element={<MetaMondial3D />} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/works/:slug" element={<ProjectDetailPage />} />
+          {/* Backward-compatibility aliases */}
+          <Route
+            path="/projects/:slug"
+            element={<ProjectDetailPage />}
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Suspense>
     </>
   )
 }

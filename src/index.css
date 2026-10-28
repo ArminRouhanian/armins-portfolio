@@ -1,5 +1,6 @@
 @import "./styles/palette.css";
 @import "./styles/typography.css";
+@import "./styles/layout.css";
 
 /* ==========================================================================
    Global Base & Resets
@@ -18,17 +19,13 @@ body {
 }
 
 body {
-  cursor:
-    url("/assets/cursor.svg") 2 2,
-    auto;
+  cursor: var(--cursor-custom);
 }
 
 a,
 button,
 [data-i] {
-  cursor:
-    url("/assets/cursor.svg") 2 2,
-    pointer;
+  cursor: var(--cursor-pointer);
 }
 
 a {

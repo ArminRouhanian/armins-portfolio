@@ -1,6 +1,6 @@
 import React from 'react'
-import Badge from '../../common/Badge/Badge'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
+import MetricCard from '../MetricCard/MetricCard'
 import styles from './ProjectImpact.module.css'
 
 export default function ProjectImpact({ impact, label = '02 · IMPACT' }) {
@@ -28,11 +28,11 @@ export default function ProjectImpact({ impact, label = '02 · IMPACT' }) {
               <div className={styles.descContainer}>
                 {impact.metrics.map((m, i) => (
                   <div
-                    key={m.numLabel || m.title || i}
+                    key={m.title || i}
                     className={`${styles.descSlide} is-desc`}
                   >
                     <p className={`${styles.descNumLabel} ${styles[m.kClass] || styles[`k${i % 4}`] || ''}`}>
-                      {m.numLabel || `METRIC ${i + 1} OF ${impact.metrics.length}`}
+                      METRIC {i + 1} OF {impact.metrics.length}
                     </p>
                     <h3 className={`${styles.descTitle} ${styles.textPrimary}`}>
                       {m.title}
@@ -70,34 +70,7 @@ export default function ProjectImpact({ impact, label = '02 · IMPACT' }) {
                   <p className={`${styles.cardIndexLabel} ${styles.textMuted}`}>
                     Metric {i + 1}
                   </p>
-                  <div className={styles.metricCard}>
-                    <div
-                      className={styles.cardTopAccent}
-                      style={{ background: m.barColor || 'var(--color-primary)' }}
-                    />
-                    <div className={styles.cardHeader}>
-                      <Badge
-                        style={{
-                          background: m.cardTagBg || 'var(--color-primary-tint)',
-                          color: m.cardTagColor || 'var(--color-primary-dark)'
-                        }}
-                      >
-                        {m.cardLabel}
-                      </Badge>
-                      <span className={styles.cardPeriod}>
-                        {m.cardPeriod}
-                      </span>
-                    </div>
-                    <p
-                      className={styles.cardStatValue}
-                      style={{ color: m.cardValueColor || 'var(--color-primary-dark)' }}
-                    >
-                      {m.cardValue}
-                    </p>
-                    <p className={styles.cardSub}>
-                      {m.cardSub}
-                    </p>
-                  </div>
+                  <MetricCard metric={m} />
                 </div>
               ))}
             </div>
@@ -123,39 +96,12 @@ export default function ProjectImpact({ impact, label = '02 · IMPACT' }) {
             {impact.metrics.map((m, i) => (
               <div key={i} className={styles.mobileItem}>
                 <p className={`${styles.descNumLabel} ${styles[m.kClass] || styles[`k${i % 4}`] || ''}`}>
-                  {m.numLabel || `METRIC ${i + 1} OF ${impact.metrics.length}`}
+                  METRIC {i + 1} OF {impact.metrics.length}
                 </p>
                 <h3 className={`${styles.mobileItemTitle} ${styles.textPrimary}`}>
                   {m.title}
                 </h3>
-                <div className={styles.compactCard}>
-                  <div
-                    className={styles.compactCardBar}
-                    style={{ background: m.barColor || 'var(--color-primary)' }}
-                  />
-                  <div className={styles.compactCardHeader}>
-                    <Badge
-                      style={{
-                        background: m.cardTagBg || 'var(--color-primary-tint)',
-                        color: m.cardTagColor || 'var(--color-primary-dark)'
-                      }}
-                    >
-                      {m.cardLabel}
-                    </Badge>
-                    <span className={styles.compactCardPeriod}>
-                      {m.cardPeriod}
-                    </span>
-                  </div>
-                  <p
-                    className={styles.compactCardValue}
-                    style={{ color: m.cardValueColor || 'var(--color-primary-dark)' }}
-                  >
-                    {m.cardValue}
-                  </p>
-                  <p className={styles.compactCardSub}>
-                    {m.cardSub}
-                  </p>
-                </div>
+                <MetricCard metric={m} variant="compact" />
                 <p className={`${styles.mobileItemDesc} ${styles.textSecondary}`}>
                   {m.desc}
                 </p>

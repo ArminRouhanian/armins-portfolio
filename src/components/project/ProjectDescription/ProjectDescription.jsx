@@ -3,13 +3,13 @@ import SectionHeader from '../../common/SectionHeader/SectionHeader'
 import Alert from '../../common/Alert/Alert'
 import styles from './ProjectDescription.module.css'
 
-export default function ProjectDescription({ overview }) {
+export default function ProjectDescription({ overview, label = '01 · OVERVIEW' }) {
   if (!overview) return null
 
   return (
     <section id="description" className={styles.section}>
       <SectionHeader
-        label="01 · OVERVIEW"
+        label={label}
         title="About the business"
       />
       <div className={styles.content}>

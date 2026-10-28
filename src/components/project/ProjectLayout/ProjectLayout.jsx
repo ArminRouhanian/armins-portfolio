@@ -17,15 +17,91 @@ export default function ProjectLayout({ project }) {
 
   if (!project) return null
 
-  const isMetamondial = project.id === 'metamondial3d'
-
-  const metamondialNavItems = [
-    { href: '#preview', label: 'Preview' },
-    { href: '#description', label: 'Description' },
-    { href: '#showcase', label: 'Showcase' },
-    { href: '#timeline', label: 'Timeline' },
-    { href: '#impact', label: 'Impact' }
+  const order = project.sectionOrder || [
+    'hero',
+    'description',
+    'impact',
+    'timeline',
+    'showcase',
+    'comments'
   ]
+
+  const SECTION_TITLES = {
+    description: 'OVERVIEW',
+    impact: 'IMPACT',
+    timeline: 'TIMELINE',
+    showcase: 'SHOWCASE',
+    comments: 'FEEDBACK'
+  }
+
+  // Filter out sections that are not present in data (or hero which has no section label)
+  const numberedSections = order.filter((key) => {
+    if (key === 'hero') return false
+    if (key === 'description' && !project.overview) return false
+    if (key === 'impact' && !project.impact) return false
+    if (key === 'timeline' && !project.timeline) return false
+    if (key === 'showcase' && !project.showcase) return false
+    if (key === 'comments' && (!project.comments || project.comments.length === 0)) return false
+    return true
+  })
+
+  const getSectionLabel = (key) => {
+    const idx = numberedSections.indexOf(key)
+    if (idx === -1) return undefined
+    const numPrefix = String(idx + 1).padStart(2, '0')
+    const title = SECTION_TITLES[key] || key.toUpperCase()
+    return `${numPrefix} · ${title}`
+  }
+
+  const renderSection = (key) => {
+    switch (key) {
+      case 'hero':
+        return <ProjectHero key="hero" hero={project.hero} />
+      case 'description':
+        return (
+          <ProjectDescription
+            key="desc"
+            overview={project.overview}
+            label={getSectionLabel('description')}
+          />
+        )
+      case 'impact':
+        return project.impact ? (
+          <ProjectImpact
+            key="impact"
+            impact={project.impact}
+            label={getSectionLabel('impact')}
+          />
+        ) : null
+      case 'timeline':
+        return project.timeline ? (
+          <ProjectTimeline
+            key="timeline"
+            timeline={project.timeline}
+            label={getSectionLabel('timeline')}
+          />
+        ) : null
+      case 'showcase':
+        return project.showcase ? (
+          <ProjectShowcase
+            key="showcase"
+            showcase={project.showcase}
+            mockupUrl={project.hero?.mockupUrl}
+            label={getSectionLabel('showcase')}
+          />
+        ) : null
+      case 'comments':
+        return project.comments ? (
+          <ProjectComments
+            key="comments"
+            comments={project.comments}
+            label={getSectionLabel('comments')}
+          />
+        ) : null
+      default:
+        return null
+    }
+  }
 
   return (
     <div id="top" className={styles.pageContainer}>
@@ -34,37 +110,9 @@ export default function ProjectLayout({ project }) {
         id="pgs"
         className={`${styles.mainContent} pgs`}
       >
-        <ProjectHero hero={project.hero} />
-        <ProjectDescription overview={project.overview} />
-        {isMetamondial ? (
-          <>
-            <ProjectShowcase
-              showcase={project.showcase}
-              mockupUrl={project.hero?.mockupUrl}
-              label="02 · SHOWCASE"
-            />
-            <ProjectTimeline
-              timeline={project.timeline}
-              label="03 · TIMELINE"
-            />
-            <ProjectImpact
-              impact={project.impact}
-              label="04 · IMPACT"
-            />
-          </>
-        ) : (
-          <>
-            <ProjectImpact impact={project.impact} />
-            <ProjectTimeline timeline={project.timeline} />
-            <ProjectShowcase
-              showcase={project.showcase}
-              mockupUrl={project.hero?.mockupUrl}
-            />
-            <ProjectComments comments={project.comments} />
-          </>
-        )}
+        {order.map((key) => renderSection(key))}
         <ProjectNav nav={project.nav} />
-        <ProjectFloatingNav items={isMetamondial ? metamondialNavItems : undefined} />
+        <ProjectFloatingNav items={project.navItems} />
       </main>
       <Footer />
     </div>

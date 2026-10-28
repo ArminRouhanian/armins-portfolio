@@ -1,6 +1,14 @@
 export const metamondial3dData = {
   id: 'metamondial3d',
   thumbnail: '/assets/projects/metamondial3d/thumbnail.webp',
+  navItems: [
+    { href: '#preview', label: 'Preview' },
+    { href: '#description', label: 'Description' },
+    { href: '#showcase', label: 'Showcase' },
+    { href: '#timeline', label: 'Timeline' },
+    { href: '#impact', label: 'Impact' }
+  ],
+  sectionOrder: ['hero', 'description', 'showcase', 'timeline', 'impact'],
   hero: {
     tags: ['Web3 Design', 'Design system', 'B2C'],
     title: 'MetaMondial3D',
@@ -40,7 +48,6 @@ export const metamondial3dData = {
     hint: 'Keep scrolling to move through deliverables and process outcomes.',
     metrics: [
       {
-        numLabel: 'METRIC 1 OF 3',
         kClass: 'k0',
         title: 'Pitch-Ready Platform Deliverables',
         desc: 'Designed 6 core modules—Landing, 3D Preview, NFT Marketplace, Artist Profiles, Bidding System, and Metaverse Explore—packaged into high-fidelity desktop prototypes for early fundraising.',
@@ -54,7 +61,6 @@ export const metamondial3dData = {
         barColor: 'var(--color-primary)'
       },
       {
-        numLabel: 'METRIC 2 OF 3',
         kClass: 'k1',
         title: 'Standardized Project Template & Design Ops',
         desc: 'Built a reusable Figma project template with modular page structures, dark-theme tokens, and layout grids to dramatically accelerate future kickoff and developer handoff times.',
@@ -68,7 +74,6 @@ export const metamondial3dData = {
         barColor: 'var(--color-purple-light)'
       },
       {
-        numLabel: 'METRIC 3 OF 3',
         kClass: 'k2',
         title: 'Contract Scoping & Process Automation',
         desc: 'Developed a formal freelance contract and scoping system with automated sprint milestones, explicit scope boundaries, and change-request guidelines to eliminate timeline misalignment.',

@@ -50,7 +50,6 @@ export const pinketCustomerData = {
       'Re-architecting the customer app across Pinket’s business pivots required aligning core flows with enterprise employee habits while scaling our interface to support diverse retail models.',
     metrics: [
       {
-        numLabel: 'METRIC 1 OF 4',
         kClass: 'k0',
         title: 'Unlocking High-Volume In-Store Redemptions',
         desc: 'Recognizing that employees preferred in-person grocery redemption, we designed an intuitive in-store barcode/QR payment flow, tripling monthly transaction volumes.',
@@ -64,7 +63,6 @@ export const pinketCustomerData = {
         barColor: 'var(--color-primary)'
       },
       {
-        numLabel: 'METRIC 2 OF 4',
         kClass: 'k1',
         title: 'Pragmatic Discovery to Diagnose Drop-Off',
         desc: 'Conducted in-depth phone interviews with drop-off users, uncovering critical friction in branch delivery radius and vendor matching that led to an overhauled purchase journey.',
@@ -78,7 +76,6 @@ export const pinketCustomerData = {
         barColor: 'var(--color-purple-light)'
       },
       {
-        numLabel: 'METRIC 3 OF 4',
         kClass: 'k2',
         title: 'Multi-Tenant Theming on One Shared System',
         desc: 'Engineered a semantic design token hierarchy allowing our React web app to dynamically adopt corporate partner branding while maintaining usability consistency.',
@@ -92,7 +89,6 @@ export const pinketCustomerData = {
         barColor: 'var(--color-green)'
       },
       {
-        numLabel: 'METRIC 4 OF 4',
         kClass: 'k3',
         title: 'Scaling from FMCG to 17 Service Sectors',
         desc: 'Expanded information architecture and credit allocation flows beyond grocery into comprehensive organizational welfare, encompassing retail, dining, and wellness.',

@@ -1,5 +1,5 @@
 .section {
-  max-width: 1120px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 48px 32px 0;
 }
@@ -42,7 +42,7 @@
   background: var(--color-surface);
   box-shadow: 0 32px 64px rgba(30, 30, 30, 0.35);
   outline: 2px solid transparent;
-  cursor: url("/assets/cursor.svg") 2 2, auto;
+  cursor: var(--cursor-custom);
   transition:
     outline-color 0.2s,
     transform 0.3s;

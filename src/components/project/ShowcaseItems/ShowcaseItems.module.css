@@ -1,6 +1,6 @@
 /* Container & Grids */
 .gridDesktop {
-  max-width: 1120px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 32px;
   display: grid;
@@ -9,7 +9,7 @@
 }
 
 .gridMobile {
-  max-width: 1120px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 32px;
   display: grid;
@@ -52,24 +52,24 @@
 }
 
 .label:hover {
-  color: var(--color-primary-light, #1abcfe);
+  color: var(--color-primary-light);
 }
 
 /* Desktop Mockup Frame */
 .desktopFrame {
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-surface, #ffffff);
-  box-shadow: var(--shadow-dark, 0 16px 32px rgba(0, 0, 0, 0.35));
+  background: var(--color-surface);
+  box-shadow: var(--shadow-dark);
   outline: 2px solid transparent;
   cursor: pointer;
   transition:
-    outline-color 0.2s,
-    transform 0.3s;
+    outline-color var(--transition-base),
+    transform var(--transition-smooth);
 }
 
 .desktopFrame:hover {
-  outline-color: var(--color-primary, #0d99ff);
+  outline-color: var(--color-primary);
   transform: translateY(-4px);
 }
 
@@ -78,14 +78,14 @@
   gap: 6px;
   align-items: center;
   padding: 10px 12px;
-  background: var(--color-bg-subtle, #f0f0f0);
+  background: var(--color-bg-subtle);
 }
 
 .desktopBar i {
   width: 9px;
   height: 9px;
-  border-radius: 50%;
-  background: var(--color-border-subtle, #d0d0d0);
+  border-radius: var(--radius-circle);
+  background: var(--color-border-subtle);
   display: block;
 }
 
@@ -108,17 +108,17 @@
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.45),
     inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-  background: var(--color-surface-dark, #1e1e1e);
+  background: var(--color-surface-dark);
   overflow: hidden;
   cursor: pointer;
   outline: 2px solid transparent;
   transition:
-    outline-color 0.2s,
-    transform 0.3s;
+    outline-color var(--transition-base),
+    transform var(--transition-smooth);
 }
 
 .mobileFrame:hover {
-  outline-color: var(--color-primary, #0d99ff);
+  outline-color: var(--color-primary);
   transform: translateY(-4px);
 }
 

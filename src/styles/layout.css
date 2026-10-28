@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Design Tokens - Layout & Spacing
+   ========================================================================== */
+
+:root {
+  /* Container Constraints */
+  --container-max-width: 1120px;
+  --header-height: 65px;
+
+  /* Spacing Scale (4px / 8px Grid) */
+  --spacing-2xs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+
+  /* Border Radii Hierarchy */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 99px;
+  --radius-circle: 50%;
+
+  /* Cursors */
+  --cursor-custom: url("/assets/cursor.svg") 2 2, auto;
+  --cursor-pointer: url("/assets/cursor.svg") 2 2, pointer;
+
+  /* Animation Timings */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-smooth: 0.3s ease;
+}

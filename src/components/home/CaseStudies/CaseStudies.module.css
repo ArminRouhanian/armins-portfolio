@@ -1,5 +1,5 @@
 .section {
-  max-width: 1120px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 48px 32px;
   scroll-margin-top: 0px;
@@ -33,7 +33,7 @@
   width: 10px;
   height: 10px;
   box-sizing: border-box;
-  background: var(--color-surface, #ffffff);
+  background: var(--color-surface);
   border: 1.5px solid var(--color-pink);
   z-index: 2;
 }
