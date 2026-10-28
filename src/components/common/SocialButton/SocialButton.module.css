@@ -25,4 +25,6 @@
 
 .icon {
   display: block;
+  background-color: currentColor;
+  flex-shrink: 0;
 }

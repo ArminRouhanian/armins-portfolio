@@ -11,11 +11,11 @@ const ORBITS = [
     s0: '0.72',
     s1: '1.18',
     tools: [
-      { name: 'Figma', icon: '/assets/logo-figma.svg' },
-      { name: 'Claude Code', icon: '/assets/logo-claude.svg' },
-      { name: 'Notion', icon: '/assets/logo-notion.svg' },
-      { name: 'Google Analytics', icon: '/assets/logo-google-analytics.svg' },
-      { name: 'Jira', icon: '/assets/logo-jira.svg' }
+      { name: 'Figma', icon: '/assets/tools/logo-figma.svg' },
+      { name: 'Claude Code', icon: '/assets/tools/logo-claude.svg' },
+      { name: 'Notion', icon: '/assets/tools/logo-notion.svg' },
+      { name: 'Google Analytics', icon: '/assets/tools/logo-google-analytics.svg' },
+      { name: 'Jira', icon: '/assets/tools/logo-jira.svg' }
     ],
     delays: [
       { dx: '-0.00s', dy: '-6.00s' },
@@ -33,10 +33,10 @@ const ORBITS = [
     s0: '0.58',
     s1: '1.02',
     tools: [
-      { name: 'Figma Make', icon: '/assets/logo-figma-make.svg' },
-      { name: 'Cursor', icon: '/assets/logo-cursor.svg' },
-      { name: 'Hotjar', icon: '/assets/logo-hotjar.svg' },
-      { name: 'n8n', icon: '/assets/logo-n8n.svg' }
+      { name: 'Figma Make', icon: '/assets/tools/logo-figma-make.svg' },
+      { name: 'Cursor', icon: '/assets/tools/logo-cursor.svg' },
+      { name: 'Hotjar', icon: '/assets/tools/logo-hotjar.svg' },
+      { name: 'n8n', icon: '/assets/tools/logo-n8n.svg' }
     ],
     delays: [
       { dx: '-0.00s', dy: '4.50s' },
@@ -53,10 +53,10 @@ const ORBITS = [
     s0: '0.46',
     s1: '0.86',
     tools: [
-      { name: 'Claude Design', icon: '/assets/logo-claude-design.svg' },
-      { name: 'Trello', icon: '/assets/logo-trello.svg' },
-      { name: 'ChatGPT', icon: '/assets/logo-chatgpt.svg' },
-      { name: 'VS Code', icon: '/assets/logo-vscode.svg' }
+      { name: 'Claude Design', icon: '/assets/tools/logo-claude-design.svg' },
+      { name: 'Trello', icon: '/assets/tools/logo-trello.svg' },
+      { name: 'ChatGPT', icon: '/assets/tools/logo-chatgpt.svg' },
+      { name: 'VS Code', icon: '/assets/tools/logo-vscode.svg' }
     ],
     delays: [
       { dx: '-0.00s', dy: '-3.25s' },

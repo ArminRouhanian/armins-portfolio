@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const loadedCache = new Set()
+const errorCache = new Set()
 
 export function getImageSrc(item) {
   if (!item) return null
@@ -11,19 +12,32 @@ export function getImageSrc(item) {
 }
 
 export default function useImageLoaded(src) {
-  const [loaded, setLoaded] = useState(() => {
-    if (!src || src.includes('gradient')) return true
-    return loadedCache.has(src)
+  const [state, setState] = useState(() => {
+    if (!src || src.includes('gradient')) {
+      return { isLoaded: true, hasError: false }
+    }
+    if (loadedCache.has(src)) {
+      return { isLoaded: true, hasError: false }
+    }
+    if (errorCache.has(src)) {
+      return { isLoaded: true, hasError: true }
+    }
+    return { isLoaded: false, hasError: false }
   })
 
   useEffect(() => {
     if (!src || src.includes('gradient')) {
-      setLoaded(true)
+      setState({ isLoaded: true, hasError: false })
       return
     }
 
     if (loadedCache.has(src)) {
-      setLoaded(true)
+      setState({ isLoaded: true, hasError: false })
+      return
+    }
+
+    if (errorCache.has(src)) {
+      setState({ isLoaded: true, hasError: true })
       return
     }
 
@@ -31,20 +45,25 @@ export default function useImageLoaded(src) {
     const img = new Image()
     img.src = src
 
-    if (img.complete && img.naturalWidth > 0) {
-      loadedCache.add(src)
-      setLoaded(true)
+    if (img.complete) {
+      if (img.naturalWidth > 0) {
+        loadedCache.add(src)
+        setState({ isLoaded: true, hasError: false })
+      } else {
+        errorCache.add(src)
+        setState({ isLoaded: true, hasError: true })
+      }
       return
     }
 
     img.onload = () => {
       loadedCache.add(src)
-      if (active) setLoaded(true)
+      if (active) setState({ isLoaded: true, hasError: false })
     }
 
     img.onerror = () => {
-      // Avoid hanging in skeleton state on error
-      if (active) setLoaded(true)
+      errorCache.add(src)
+      if (active) setState({ isLoaded: true, hasError: true })
     }
 
     return () => {
@@ -52,5 +71,5 @@ export default function useImageLoaded(src) {
     }
   }, [src])
 
-  return loaded
+  return state
 }

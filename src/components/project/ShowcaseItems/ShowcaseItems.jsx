@@ -1,12 +1,13 @@
 import React, { forwardRef } from 'react'
+import ImagePlaceholder from '../../common/ImagePlaceholder/ImagePlaceholder'
 import useImageLoaded from '../../../hooks/useImageLoaded'
 import styles from './ShowcaseItems.module.css'
 
 function ShowcaseCardItem({ item, index, isMobile, onItemClick }) {
   const img = item.image || item.src || (item.bg && !item.bg.includes('gradient') ? item.bg : null)
-  const isLoaded = useImageLoaded(img)
+  const { isLoaded, hasError } = useImageLoaded(img)
 
-  const bgStyle = isLoaded
+  const bgStyle = !hasError && isLoaded
     ? {
         background: img
           ? `url("${img}") top center / cover no-repeat`
@@ -32,7 +33,9 @@ function ShowcaseCardItem({ item, index, isMobile, onItemClick }) {
           <div
             className={`${styles.mobileScreen}${img && !isLoaded ? ' skeletonDark' : ''}`}
             style={bgStyle}
-          />
+          >
+            {hasError && <ImagePlaceholder isDark iconSize={36} />}
+          </div>
           <div className={styles.homeIndicator} />
         </div>
       </div>
@@ -60,7 +63,9 @@ function ShowcaseCardItem({ item, index, isMobile, onItemClick }) {
         <div
           className={`${styles.desktopScreen}${img && !isLoaded ? ' skeletonDark' : ''}`}
           style={bgStyle}
-        />
+        >
+          {hasError && <ImagePlaceholder iconSize={48} />}
+        </div>
       </div>
     </div>
   )

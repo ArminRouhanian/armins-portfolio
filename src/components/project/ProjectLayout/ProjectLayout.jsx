@@ -40,6 +40,7 @@ export default function ProjectLayout({ project }) {
           <>
             <ProjectShowcase
               showcase={project.showcase}
+              mockupUrl={project.hero?.mockupUrl}
               label="02 · SHOWCASE"
             />
             <ProjectTimeline
@@ -55,7 +56,10 @@ export default function ProjectLayout({ project }) {
           <>
             <ProjectImpact impact={project.impact} />
             <ProjectTimeline timeline={project.timeline} />
-            <ProjectShowcase showcase={project.showcase} />
+            <ProjectShowcase
+              showcase={project.showcase}
+              mockupUrl={project.hero?.mockupUrl}
+            />
             <ProjectComments comments={project.comments} />
           </>
         )}

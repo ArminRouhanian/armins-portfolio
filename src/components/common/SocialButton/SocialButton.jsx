@@ -26,13 +26,15 @@ export default function SocialButton({
       {...rest}
     >
       {icon ? (
-        <img
-          src={icon}
-          alt=""
-          width={iconSize}
-          height={iconSize}
-          aria-hidden="true"
+        <span
           className={styles.icon}
+          style={{
+            width: `${iconSize}px`,
+            height: `${iconSize}px`,
+            WebkitMask: `url("${icon}") no-repeat center / contain`,
+            mask: `url("${icon}") no-repeat center / contain`
+          }}
+          aria-hidden="true"
         />
       ) : (
         children

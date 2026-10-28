@@ -33,17 +33,22 @@ export default function Button({
   const combinedClass = className ? `${variantClass} ${className}` : variantClass;
   const label = ariaLabel || props['aria-label'];
 
-  const content = icon ? (
-    <img
-      src={icon}
-      alt=""
-      width={iconSize}
-      height={iconSize}
-      aria-hidden="true"
-      className={styles.icon}
-    />
-  ) : (
-    children
+  const content = (
+    <>
+      {icon && (
+        <span
+          className={styles.icon}
+          style={{
+            width: `${iconSize}px`,
+            height: `${iconSize}px`,
+            WebkitMask: `url("${icon}") no-repeat center / contain`,
+            mask: `url("${icon}") no-repeat center / contain`
+          }}
+          aria-hidden="true"
+        />
+      )}
+      {children}
+    </>
   );
 
   if (to) {

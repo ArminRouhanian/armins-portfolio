@@ -2,12 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Badge from '../../common/Badge/Badge'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
+import ImagePlaceholder from '../../common/ImagePlaceholder/ImagePlaceholder'
 import useImageLoaded from '../../../hooks/useImageLoaded'
 import { projectsData } from '../../../data/projectsData'
 import styles from './SelectedWork.module.css'
 
 function WorkThumbnail({ thumbnail, fallbackColor }) {
-  const isLoaded = useImageLoaded(thumbnail)
+  const { isLoaded, hasError } = useImageLoaded(thumbnail)
+
+  if (hasError) {
+    return (
+      <div className={styles.cardBanner}>
+        <ImagePlaceholder iconSize={56} />
+      </div>
+    )
+  }
 
   return (
     <div

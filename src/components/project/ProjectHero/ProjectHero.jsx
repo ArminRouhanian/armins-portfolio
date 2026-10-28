@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../../common/Button/Button'
 import Badge from '../../common/Badge/Badge'
+import ImagePlaceholder from '../../common/ImagePlaceholder/ImagePlaceholder'
 import useImageLoaded from '../../../hooks/useImageLoaded'
 import styles from './ProjectHero.module.css'
 
@@ -8,16 +9,18 @@ export default function ProjectHero({ hero }) {
   if (!hero) return null
 
   const thumbnail = hero.thumbnail || hero.mockupImage
-  const isLoaded = useImageLoaded(thumbnail)
+  const { isLoaded, hasError } = useImageLoaded(thumbnail)
 
   return (
     <section id="preview" className={styles.section}>
       <Button
         variant="tertiary"
         to="/"
+        icon="/assets/icons/chevron-left.svg"
+        iconSize={16}
         className={styles.backButton}
       >
-        ← Back to home
+        Back to home
       </Button>
       <div className={styles.tags}>
         {hero.tags.map(tag => (
@@ -50,14 +53,18 @@ export default function ProjectHero({ hero }) {
           <div
             className={`${styles.mockupContent}${thumbnail && !isLoaded ? ' skeletonDark' : ''}`}
             style={{
-              background: isLoaded
+              background: !hasError && isLoaded
                 ? (thumbnail
                     ? `url("${thumbnail}") center / cover no-repeat`
                     : hero.mockupGradient || 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))')
                 : undefined
             }}
           >
-            {thumbnail ? null : (hero.mockupContent || null)}
+            {hasError ? (
+              <ImagePlaceholder iconSize={64} />
+            ) : thumbnail ? null : (
+              hero.mockupContent || null
+            )}
           </div>
         </div>
       </div>

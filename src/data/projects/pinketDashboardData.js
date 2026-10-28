@@ -155,29 +155,29 @@ export const pinketDashboardData = {
     },
     items: [
       {
-        gradient: 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))',
-        label: 'Dashboard Overview'
+        bg: '/assets/projects/pinket-dashboard/mockups/showcase-organization-credits.webp',
+        label: 'Organization Dashboard Example'
       },
       {
-        gradient: 'linear-gradient(135deg, var(--color-green), var(--color-primary-light))',
-        label: 'Vendor Management'
+        bg: '/assets/projects/pinket-dashboard/mockups/showcase-product-information.webp',
+        label: 'Vendor Product Management'
       },
       {
-        gradient: 'linear-gradient(135deg, var(--color-orange-light), var(--color-purple-light))',
-        label: 'Organization Credit Panel'
-      },
-      {
-        gradient: 'linear-gradient(135deg, var(--color-primary-light), var(--color-green))',
-        label: 'Smart Contract Tool'
-      },
-      {
-        gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-purple-light))',
-        label: 'Responsive Tablet View'
-      },
-      {
-        gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))',
-        label: 'Responsive Mobile Moderation'
+        bg: '/assets/projects/pinket-dashboard/mockups/showcase-tokenized-design-system.webp',
+        label: 'Token System That Unified Our Design'
       }
+      // {
+      //   gradient: 'linear-gradient(135deg, var(--color-primary-light), var(--color-green))',
+      //   label: 'Smart Contract Tool'
+      // },
+      // {
+      //   gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-purple-light))',
+      //   label: 'Responsive Tablet View'
+      // },
+      // {
+      //   gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))',
+      //   label: 'Responsive Mobile Moderation'
+      // }
     ]
   },
   comments: [
@@ -193,7 +193,7 @@ export const pinketDashboardData = {
       avatarBg: 'purple',
       name: 'Hossein Yadegari',
       role: 'Frontend Developer',
-      quote: '[Replace with a quote about handoff, communication, design system clarity, or edge-case handling.]'
+      quote: 'Working with someone as intelligent, dedicated, and detail-oriented as Armin is both a pleasure and a challenge. A pleasure, because his creativity and attention to detail shine through in the final results, often in ways that make the work genuinely stand out. A challenge, because he cares about every detail, no matter how small, and never settles for overlooking something that could be better. That combination is what makes working with him such a rewarding experience.'
     },
     {
       initials: 'UXD',

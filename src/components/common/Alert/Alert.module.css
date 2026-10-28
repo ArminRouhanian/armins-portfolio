@@ -15,6 +15,7 @@
   height: 18px;
   flex-shrink: 0;
   display: block;
+  background-color: currentColor;
 }
 
 .message {
@@ -22,17 +23,23 @@
   min-width: 0;
 }
 
-/* Info Variant */
 .info {
   background: var(--color-primary-tint);
   border: 1px solid rgba(13, 153, 255, 0.25);
+  color: var(--color-primary);
+}
+
+.info .message {
   color: var(--color-text-secondary);
 }
 
-/* Warning Variant */
 .warning {
   background: var(--color-orange-tint);
   border: 1px solid rgba(242, 78, 30, 0.25);
+  color: var(--color-orange);
+}
+
+.warning .message {
   color: var(--color-text-secondary);
 }
 
@@ -40,12 +47,20 @@
 .dark.info {
   background: rgba(13, 153, 255, 0.12);
   border: 1px solid rgba(13, 153, 255, 0.32);
+  color: var(--color-primary-light);
+}
+
+.dark.info .message {
   color: var(--color-text-light-subtle);
 }
 
 .dark.warning {
   background: rgba(242, 78, 30, 0.12);
   border: 1px solid rgba(242, 78, 30, 0.32);
+  color: var(--color-orange-light);
+}
+
+.dark.warning .message {
   color: var(--color-text-light-subtle);
 }
 

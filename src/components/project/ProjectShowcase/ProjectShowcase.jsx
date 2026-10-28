@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
 import Button from '../../common/Button/Button'
 import Alert from '../../common/Alert/Alert'
+import ImagePlaceholder from '../../common/ImagePlaceholder/ImagePlaceholder'
 import useImageLoaded from '../../../hooks/useImageLoaded'
 import ShowcaseItems from '../ShowcaseItems/ShowcaseItems'
 import styles from './ProjectShowcase.module.css'
@@ -22,7 +23,7 @@ const getItemImage = (item) => {
 
 function LightboxDesktopSlide({ item }) {
   const img = getItemImage(item)
-  const isLoaded = useImageLoaded(img)
+  const { isLoaded, hasError } = useImageLoaded(img)
 
   if (!img) {
     return (
@@ -32,6 +33,14 @@ function LightboxDesktopSlide({ item }) {
           background: item.gradient || item.bg || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
         }}
       />
+    )
+  }
+
+  if (hasError) {
+    return (
+      <div className={styles.browserImageContainer}>
+        <ImagePlaceholder iconSize={64} />
+      </div>
     )
   }
 
@@ -48,37 +57,41 @@ function LightboxDesktopSlide({ item }) {
 
 function LightboxMobileSlide({ item }) {
   const img = getItemImage(item)
-  const isLoaded = useImageLoaded(img)
+  const { isLoaded, hasError } = useImageLoaded(img)
 
   return (
     <div
-      className={`${styles.mobileFrame}${img && !isLoaded ? ' skeletonDark' : ''}`}
+      className={`${styles.mobileFrame}${img && !isLoaded && !hasError ? ' skeletonDark' : ''}`}
       style={{
-        background: isLoaded ? getItemBackground(item) : undefined
+        background: !hasError && isLoaded ? getItemBackground(item) : undefined
       }}
-    />
+    >
+      {hasError && <ImagePlaceholder isDark iconSize={48} />}
+    </div>
   )
 }
 
 function LightboxThumbnail({ item, index, isMobile, isActive, onClick, thumbRef }) {
   const img = getItemImage(item)
-  const isLoaded = useImageLoaded(img)
+  const { isLoaded, hasError } = useImageLoaded(img)
 
   return (
     <button
       ref={thumbRef}
       type="button"
-      className={`${styles.thumbnail}${isMobile ? ` ${styles.thumbnailMobileType}` : ''}${isActive ? ` ${styles.thumbnailActive}` : ''}${img && !isLoaded ? ' skeletonDark' : ''}`}
+      className={`${styles.thumbnail}${isMobile ? ` ${styles.thumbnailMobileType}` : ''}${isActive ? ` ${styles.thumbnailActive}` : ''}${img && !isLoaded && !hasError ? ' skeletonDark' : ''}`}
       aria-label={item.label}
       onClick={onClick}
       style={{
-        background: isLoaded ? getItemBackground(item) : undefined
+        background: !hasError && isLoaded ? getItemBackground(item) : undefined
       }}
-    />
+    >
+      {hasError && <ImagePlaceholder isDark iconSize={20} text="" />}
+    </button>
   )
 }
 
-export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) {
+export default function ProjectShowcase({ showcase, mockupUrl, label = '04 · SHOWCASE' }) {
   const [activeIdx, setActiveIdx] = useState(0)
   const [slideDirection, setSlideDirection] = useState('next')
   const [isOpen, setIsOpen] = useState(false)
@@ -93,6 +106,7 @@ export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) 
   const count = items.length
   const type = showcase?.type || 'desktop'
   const isMobile = type === 'mobile'
+  const resolvedUrl = showcase?.mockupUrl || mockupUrl || 'yourproduct.com'
 
   const openLightbox = useCallback((index) => {
     setActiveIdx(index)
@@ -353,7 +367,9 @@ export default function ProjectShowcase({ showcase, label = '04 · SHOWCASE' }) 
                       <span className={styles.browserDot} aria-hidden="true" />
                       <span className={styles.browserDot} aria-hidden="true" />
                       <span className={styles.browserDot} aria-hidden="true" />
-                      <span className={styles.browserUrl}>yourproduct.com</span>
+                      <span className={styles.browserUrl}>
+                        {item.mockupUrl || resolvedUrl}
+                      </span>
                     </div>
                     <div className={styles.browserImageWrap}>
                       <LightboxDesktopSlide item={item} />

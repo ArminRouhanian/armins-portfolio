@@ -19,9 +19,11 @@ export default function Alert({
       className={`${styles.alert} ${styles[variant] || styles.info}${isDark ? ` ${styles.dark}` : ''}${className ? ` ${className}` : ''}`}
       role="alert"
     >
-      <img
-        src={iconSrc}
-        alt=""
+      <span
+        style={{
+          WebkitMask: `url("${iconSrc}") no-repeat center / contain`,
+          mask: `url("${iconSrc}") no-repeat center / contain`
+        }}
         aria-hidden="true"
         className={styles.icon}
       />

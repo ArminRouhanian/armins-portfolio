@@ -139,11 +139,9 @@
 
 .icon {
   display: block;
-  transition: filter 0.2s;
-}
-
-.iconOnly:hover .icon {
-  filter: brightness(0) invert(1);
+  background-color: currentColor;
+  flex-shrink: 0;
+  transition: background-color 0.2s;
 }
 
 @media (prefers-reduced-motion: reduce) {
