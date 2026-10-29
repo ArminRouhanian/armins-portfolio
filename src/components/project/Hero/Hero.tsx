@@ -40,7 +40,7 @@ export default function Hero({ hero }) {
       <div
         className={styles.mockupWrapper}
         style={{
-          background: hero.mockupGradient || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
+          background: hero.mockupGradient || 'linear-gradient(135deg, var(--color-fg-accent-purple_light), var(--color-fg-brand-secondary))'
         }}
       >
         <div className={styles.browserFrame}>
@@ -58,7 +58,7 @@ export default function Hero({ hero }) {
               background: !hasError && isLoaded
                 ? (thumbnail
                     ? `url("${thumbnail}") center / cover no-repeat`
-                    : hero.mockupGradient || 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))')
+                    : hero.mockupGradient || 'linear-gradient(135deg, var(--color-fg-accent-orange), var(--color-fg-accent-orange_light))')
                 : undefined
             }}
           >

@@ -48,13 +48,13 @@ export default function MetricCard({
     >
       <div
         className={cardClasses.bar}
-        style={{ background: metric.barColor || 'var(--color-primary)' }}
+        style={{ background: metric.barColor || 'var(--color-bg-brand-primary)' }}
       />
       <div className={cardClasses.header}>
         <Badge
           style={{
             background: metric.cardTagBg || 'var(--color-primary-tint)',
-            color: metric.cardTagColor || 'var(--color-primary-dark)'
+            color: metric.cardTagColor || 'var(--color-text-brand-secondary)'
           }}
         >
           {metric.cardLabel}
@@ -65,7 +65,7 @@ export default function MetricCard({
       </div>
       <p
         className={cardClasses.value}
-        style={{ color: metric.cardValueColor || 'var(--color-primary-dark)' }}
+        style={{ color: metric.cardValueColor || 'var(--color-text-brand-secondary)' }}
       >
         {metric.cardValue}
       </p>

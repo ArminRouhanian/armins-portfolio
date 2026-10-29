@@ -56,7 +56,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
   overflow: hidden;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--color-border-solid);
 }
 
 .toolImage {
@@ -114,10 +114,10 @@
   border-radius: var(--radius-circle);
   background: radial-gradient(
     circle,
-    var(--color-surface) 0,
-    var(--color-purple-subtle) 22%,
-    rgba(162, 89, 255, 0.55) 45%,
-    rgba(26, 188, 254, 0.18) 62%,
+    var(--color-bg-primary) 0,
+    var(--color-util-purple-300) 22%,
+    var(--color-glow-purple) 45%,
+    var(--color-glow-blue) 62%,
     transparent 72%
   );
   animation: glowAnim 3s ease-in-out infinite;

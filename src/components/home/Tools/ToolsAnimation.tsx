@@ -122,7 +122,7 @@ export default function ToolsAnimation() {
             >
               <path
                 d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="#fff"
+                fill="var(--color-fg-solid)"
               />
             </svg>
           </span>
@@ -141,7 +141,7 @@ export default function ToolsAnimation() {
             >
               <path
                 d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="var(--color-purple-subtle)"
+                fill="var(--color-util-purple-300)"
               />
             </svg>
           </span>
@@ -160,7 +160,7 @@ export default function ToolsAnimation() {
             >
               <path
                 d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="var(--color-primary-light)"
+                fill="var(--color-fg-brand-secondary)"
               />
             </svg>
           </span>
@@ -180,7 +180,7 @@ export default function ToolsAnimation() {
             >
               <path
                 d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="var(--color-green-light)"
+                fill="var(--color-fg-accent-green_light)"
               />
             </svg>
           </span>
@@ -189,7 +189,7 @@ export default function ToolsAnimation() {
             style={{
               '--px': '-40px',
               '--pd': '0s',
-              background: 'var(--color-orange)'
+              background: 'var(--color-fg-accent-orange)'
             } as React.CSSProperties}
           />
           <i
@@ -197,7 +197,7 @@ export default function ToolsAnimation() {
             style={{
               '--px': '30px',
               '--pd': '0.7s',
-              background: 'var(--color-primary-light)'
+              background: 'var(--color-fg-brand-secondary)'
             } as React.CSSProperties}
           />
           <i
@@ -205,7 +205,7 @@ export default function ToolsAnimation() {
             style={{
               '--px': '-15px',
               '--pd': '1.4s',
-              background: 'var(--color-green)'
+              background: 'var(--color-fg-accent-green)'
             } as React.CSSProperties}
           />
           <i
@@ -213,7 +213,7 @@ export default function ToolsAnimation() {
             style={{
               '--px': '50px',
               '--pd': '2.1s',
-              background: 'var(--color-orange-light)'
+              background: 'var(--color-fg-accent-orange_light)'
             } as React.CSSProperties}
           />
           <i
@@ -221,7 +221,7 @@ export default function ToolsAnimation() {
             style={{
               '--px': '-55px',
               '--pd': '2.8s',
-              background: 'var(--color-purple-light)'
+              background: 'var(--color-fg-accent-purple_light)'
             } as React.CSSProperties}
           />
           <i
@@ -229,7 +229,7 @@ export default function ToolsAnimation() {
             style={{
               '--px': '10px',
               '--pd': '3.5s',
-              background: '#fff'
+              background: 'var(--color-fg-solid)'
             } as React.CSSProperties}
           />
           <i
@@ -237,7 +237,7 @@ export default function ToolsAnimation() {
             style={{
               '--px': '-30px',
               '--pd': '4.2s',
-              background: 'var(--color-primary-light)'
+              background: 'var(--color-fg-brand-secondary)'
             } as React.CSSProperties}
           />
           <i
@@ -245,7 +245,7 @@ export default function ToolsAnimation() {
             style={{
               '--px': '40px',
               '--pd': '4.9s',
-              background: 'var(--color-orange)'
+              background: 'var(--color-fg-accent-orange)'
             } as React.CSSProperties}
           />
         </div>

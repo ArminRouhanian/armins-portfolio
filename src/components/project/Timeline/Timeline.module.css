@@ -19,7 +19,7 @@
   --dot-size: 19px;
   margin-left: var(--spacing-xs);
   padding-left: var(--track-gap);
-  border-left: var(--line-width) solid var(--color-border-subtle);
+  border-left: var(--line-width) solid var(--color-border-secondary);
   display: flex;
   flex-direction: column;
   gap: 40px;

@@ -39,7 +39,7 @@
 .browserFrame {
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-surface);
+  background: var(--color-bg-primary);
   box-shadow: 0 32px 64px rgba(30, 30, 30, 0.35);
   outline: 2px solid transparent;
   cursor: var(--cursor-custom);
@@ -49,7 +49,7 @@
 }
 
 .browserFrame:hover {
-  outline-color: var(--color-primary);
+  outline-color: var(--color-border-brand-primary);
   transform: translateY(-4px);
 }
 
@@ -58,20 +58,20 @@
   gap: 6px;
   align-items: center;
   padding: 10px var(--spacing-sm);
-  background: var(--color-bg-subtle);
+  background: var(--color-bg-secondary);
 }
 
 .browserDot {
   width: 9px;
   height: 9px;
   border-radius: var(--radius-circle);
-  background: var(--color-border-subtle);
+  background: var(--color-border-secondary);
 }
 
 .browserUrl {
   margin-left: var(--spacing-sm);
   flex: 1;
-  background: var(--color-surface);
+  background: var(--color-bg-primary);
   border-radius: var(--radius-xs);
   font-size: 11px;
   padding: 3px 10px;
@@ -83,7 +83,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-light);
+  color: var(--color-text-solid);
   font-weight: var(--font-weight-medium);
 }
 
@@ -91,8 +91,8 @@
   margin-top: var(--spacing-lg);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-primary);
   border-radius: var(--radius-lg);
   overflow: hidden;
 }

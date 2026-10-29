@@ -1,9 +1,9 @@
 .footer {
   margin-top: var(--spacing-2xl);
-  background-color: var(--color-surface-dark);
+  background-color: var(--color-bg-solid);
   background-image: radial-gradient(var(--color-dot-dark) 1px, transparent 1px);
   background-size: 24px 24px;
-  color: var(--color-text-light);
+  color: var(--color-text-solid);
   position: relative;
   overflow: hidden;
 }
@@ -19,7 +19,7 @@
 .label {
   font-size: var(--font-size-caption);
   font-weight: var(--font-weight-bold);
-  color: var(--color-primary-light);
+  color: var(--color-fg-brand-secondary);
   letter-spacing: 0.08em;
 }
 
@@ -39,22 +39,22 @@
 }
 
 .valClarity {
-  color: var(--color-primary-light);
+  color: var(--color-fg-brand-secondary);
 }
 
 .valStructure {
-  color: var(--color-purple-subtle);
+  color: var(--color-util-purple-300);
 }
 
 .valValue {
-  color: var(--color-green-light);
+  color: var(--color-fg-accent-green_light);
 }
 
 .description {
   margin-top: var(--spacing-md);
   font-size: var(--font-size-body-lg);
   line-height: 1.55;
-  color: var(--color-text-light-muted);
+  color: var(--color-text-solid-muted);
   max-width: 520px;
 }
 
@@ -91,7 +91,7 @@
 
 .emailButton {
   font-size: var(--font-size-body-lg);
-  color: var(--color-text-light-subtle);
+  color: var(--color-text-solid-muted);
   border-bottom: 1px solid var(--color-text-caption);
   border-radius: 0;
   transition:
@@ -100,8 +100,8 @@
 }
 
 .emailButton:hover {
-  color: var(--color-primary-light);
-  border-color: var(--color-primary-light);
+  color: var(--color-fg-brand-secondary);
+  border-color: var(--color-fg-brand-secondary);
 }
 
 .bottomBar {
@@ -113,7 +113,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-md-lg) var(--spacing-xl);
-  color: var(--color-text-light-muted);
+  color: var(--color-text-solid-muted);
   font-size: var(--font-size-body-sm);
 }
 

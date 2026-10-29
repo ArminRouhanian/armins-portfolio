@@ -68,7 +68,7 @@ export function useImpactScroller(): void {
         const fillPercent = Math.round(clamp(normalizedProgress - index, 0, 1) * 100)
         if (lastProgressTickValues[index] !== fillPercent) {
           lastProgressTickValues[index] = fillPercent
-          tick.style.background = `linear-gradient(90deg, var(--color-primary) ${fillPercent}%, var(--pgc, var(--color-border)) ${fillPercent}%)`
+          tick.style.background = `linear-gradient(90deg, var(--color-bg-brand-primary) ${fillPercent}%, var(--pgc, var(--color-border-primary)) ${fillPercent}%)`
         }
       })
 

@@ -1,9 +1,9 @@
 .section {
-  background-color: var(--color-surface-dark);
+  background-color: var(--color-bg-solid);
   background-image: radial-gradient(var(--color-dot-dark) 1px, transparent 1px);
   background-size: 24px 24px;
   padding: var(--spacing-4xl) 0 var(--spacing-5xl);
-  color: var(--color-text-light);
+  color: var(--color-text-solid);
   margin-top: var(--spacing-2xl);
 }
 
@@ -68,7 +68,7 @@
     width: 8px;
     height: 8px;
     border-radius: var(--radius-circle);
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--color-white-alpha-25);
     border: none;
     padding: 0;
     cursor: pointer;
@@ -78,6 +78,6 @@
   .dotActive {
     width: 22px;
     border-radius: var(--radius-pill);
-    background: var(--color-primary);
+    background: var(--color-bg-brand-primary);
   }
 }

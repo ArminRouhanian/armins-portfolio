@@ -27,7 +27,7 @@ export default function Description({ overview, label = '01 · OVERVIEW' }) {
               <div key={item.text || index} className={styles.checklistItem}>
                 <b
                   className={styles.checkNumber}
-                  style={{ background: item.bg || 'var(--color-surface-dark)' }}
+                  style={{ background: item.bg || 'var(--color-bg-solid)' }}
                 >
                   {index + 1}
                 </b>

@@ -41,7 +41,7 @@
   width: 120px;
   height: 120px;
   border-radius: var(--radius-circle);
-  background: var(--color-purple-light);
+  background: var(--color-fg-accent-purple_light);
 }
 
 .orangeRect {
@@ -51,7 +51,7 @@
   width: 160px;
   height: 80px;
   border-radius: var(--radius-md);
-  background: var(--color-orange);
+  background: var(--color-fg-accent-orange);
   animation: animWidth 10s ease-in-out infinite;
 }
 
@@ -62,7 +62,7 @@
   width: 64px;
   height: 64px;
   border-radius: var(--radius-md);
-  background: var(--color-primary-light);
+  background: var(--color-fg-brand-secondary);
   animation: animTop 10s ease-in-out infinite;
 }
 
@@ -73,13 +73,13 @@
   width: 90px;
   height: 90px;
   border-radius: 50% 50% 0 50%;
-  background: var(--color-green);
+  background: var(--color-fg-accent-green);
 }
 
 .selectionBox {
   position: absolute;
   box-sizing: border-box;
-  border: 1.5px solid var(--color-primary);
+  border: 1.5px solid var(--color-border-brand-primary);
   opacity: 0;
 }
 
@@ -108,8 +108,8 @@
   width: 10px;
   height: 10px;
   box-sizing: border-box;
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-primary);
+  background: var(--color-bg-primary);
+  border: 1.5px solid var(--color-border-brand-primary);
 }
 
 .cursor {

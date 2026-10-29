@@ -34,17 +34,17 @@ const PROJECT_LIST = [
   {
     key: 'pinket-customer',
     to: '/works/pinket-customer',
-    fallbackColor: 'var(--color-purple-light)'
+    fallbackColor: 'var(--color-fg-accent-purple_light)'
   },
   {
     key: 'pinket-dashboard',
     to: '/works/pinket-dashboard',
-    fallbackColor: 'var(--color-green)'
+    fallbackColor: 'var(--color-fg-accent-green)'
   },
   {
     key: 'metamondial3d',
     to: '/works/metamondial3d',
-    fallbackColor: 'var(--color-orange)'
+    fallbackColor: 'var(--color-fg-accent-orange)'
   }
 ]
 

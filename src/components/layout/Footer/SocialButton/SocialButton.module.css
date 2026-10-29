@@ -6,7 +6,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-light);
+  color: var(--color-text-solid);
   background-color: transparent;
   text-decoration: none;
   padding: 0;
@@ -18,8 +18,8 @@
 }
 
 .button:hover {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: var(--color-bg-brand-primary);
+  border-color: var(--color-border-brand-primary);
   transform: translateY(-3px);
 }
 

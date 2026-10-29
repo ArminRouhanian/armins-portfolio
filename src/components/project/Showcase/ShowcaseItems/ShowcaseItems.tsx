@@ -18,7 +18,7 @@ function ShowcaseCardItem({ item, index, isMobile, onItemClick }: ShowcaseCardIt
     ? {
         background: img
           ? `url("${img}") top center / cover no-repeat`
-          : item.gradient || item.bg || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
+          : item.gradient || item.bg || 'linear-gradient(135deg, var(--color-fg-accent-purple_light), var(--color-fg-brand-secondary))'
       }
     : undefined
 

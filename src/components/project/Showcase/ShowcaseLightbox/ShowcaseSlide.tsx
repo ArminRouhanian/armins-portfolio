@@ -4,12 +4,12 @@ import useImageLoaded from '../../../../hooks/useImageLoaded'
 import styles from './ShowcaseLightbox.module.css'
 
 export const getItemBackground = (item) => {
-  if (!item) return 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
+  if (!item) return 'linear-gradient(135deg, var(--color-fg-accent-purple_light), var(--color-fg-brand-secondary))'
   const img = item.image || item.src || (item.bg && !item.bg.includes('gradient') ? item.bg : null)
   if (img) {
     return `url("${img}") top center / cover no-repeat`
   }
-  return item.gradient || item.bg || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
+  return item.gradient || item.bg || 'linear-gradient(135deg, var(--color-fg-accent-purple_light), var(--color-fg-brand-secondary))'
 }
 
 export const getItemImage = (item) => {
@@ -26,7 +26,7 @@ export function LightboxDesktopSlide({ item }) {
       <div
         className={styles.browserImage}
         style={{
-          background: item.gradient || item.bg || 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))'
+          background: item.gradient || item.bg || 'linear-gradient(135deg, var(--color-fg-accent-purple_light), var(--color-fg-brand-secondary))'
         }}
       />
     )

@@ -1,78 +1,303 @@
 /* ==========================================================================
-   Design Tokens - Color Palette
+   Design Tokens - Color Palette & System
+
+   File Formatting Convention:
+   - 2-space indentation for all token declarations.
+   - All token values (hex codes, var() references, rgba values, shadows, etc.)
+     must be strictly aligned into the exact same column (Column 41 / index 40).
+   - Use space padding after the colon to guarantee identical vertical alignment
+     across all editors, IDEs, and environments regardless of tab size settings.
    ========================================================================== */
 
 :root {
+  /* ==========================================================================
+     1. Primitive Color Scale (100 - 950)
+     ========================================================================== */
+
+  /* Base Primitives */
+  --color-black:                        #000000;
+  --color-white:                        #ffffff;
+  --color-transparent:                  transparent;
+
+  /* Neutral Scale */
+  --color-neutral-100:                  #f5f5f5;
+  --color-neutral-200:                  #e5e5e5;
+  --color-neutral-300:                  #d0d0d0;
+  --color-neutral-400:                  #a0a0a0;
+  --color-neutral-500:                  #777777;
+  --color-neutral-600:                  #555555;
+  --color-neutral-700:                  #444444;
+  --color-neutral-800:                  #333333;
+  --color-neutral-900:                  #1e1e1e;
+  --color-neutral-950:                  #121212;
+
+  /* Blue Scale (Brand Primary) */
+  --color-blue-100:                     #e6f4fe;
+  --color-blue-200:                     #c5e6fe;
+  --color-blue-300:                     #8dd1fd;
+  --color-blue-400:                     #1abcfe;
+  --color-blue-500:                     #0d99ff;
+  --color-blue-600:                     #0c7bd1;
+  --color-blue-700:                     #095ea0;
+  --color-blue-800:                     #074575;
+  --color-blue-900:                     #052e4f;
+  --color-blue-950:                     #031b30;
+
+  /* Purple Scale */
+  --color-purple-100:                   #f6edff;
+  --color-purple-200:                   #e7d1ff;
+  --color-purple-300:                   #c39bff;
+  --color-purple-400:                   #a259ff;
+  --color-purple-500:                   #8a3ff0;
+  --color-purple-600:                   #742fe0;
+  --color-purple-700:                   #5a1eb8;
+  --color-purple-800:                   #421487;
+  --color-purple-900:                   #2c0b5c;
+  --color-purple-950:                   #1a0538;
+
+  /* Green Scale */
+  --color-green-100:                    #e5fbf1;
+  --color-green-200:                    #bdf6dc;
+  --color-green-300:                    #7eeec1;
+  --color-green-400:                    #3ddc9b;
+  --color-green-500:                    #0acf83;
+  --color-green-600:                    #09ab6c;
+  --color-green-700:                    #07875a;
+  --color-green-800:                    #056141;
+  --color-green-900:                    #033d29;
+  --color-green-950:                    #022418;
+
+  /* Orange Scale */
+  --color-orange-100:                   #ffede5;
+  --color-orange-200:                   #ffd3c2;
+  --color-orange-300:                   #ffa78f;
+  --color-orange-400:                   #ff7262;
+  --color-orange-500:                   #f24e1e;
+  --color-orange-600:                   #e03e12;
+  --color-orange-700:                   #b82e09;
+  --color-orange-800:                   #8a2004;
+  --color-orange-900:                   #5c1300;
+  --color-orange-950:                   #380a00;
+
+  /* Pink Scale (Magenta) */
+  --color-pink-100:                     #ffe6f0;
+  --color-pink-200:                     #ffbcd8;
+  --color-pink-300:                     #ff7cb3;
+  --color-pink-400:                     #ff3399;
+  --color-pink-500:                     #ff007a;
+  --color-pink-600:                     #e0006c;
+  --color-pink-700:                     #ba0059;
+  --color-pink-800:                     #8c0043;
+  --color-pink-900:                     #5e002d;
+  --color-pink-950:                     #3b001c;
+
+  /* ==========================================================================
+     2. Semantic Tokens - Type 1: Alias Tokens
+     ========================================================================== */
+
+  /* Backgrounds (bg) */
+  --color-bg-primary:                   var(--color-white);
+  --color-bg-secondary:                 var(--color-neutral-100);
+  --color-bg-tertiary:                  var(--color-neutral-200);
+  --color-bg-solid:                     var(--color-neutral-900);
+  --color-bg-solid_hover:               var(--color-neutral-800);
+  --color-bg-brand-primary:             var(--color-blue-500);
+  --color-bg-brand-primary_hover:       var(--color-blue-600);
+  --color-bg-brand-secondary:           var(--color-blue-100);
+  --color-bg-info-primary:              var(--color-blue-500);
+  --color-bg-info-secondary:            var(--color-blue-100);
+  --color-bg-warning-primary:           var(--color-orange-500);
+  --color-bg-warning-secondary:         var(--color-orange-100);
+  --color-bg-success-primary:           var(--color-green-500);
+  --color-bg-success-secondary:         var(--color-green-100);
+  --color-bg-error-primary:             var(--color-orange-600);
+  --color-bg-error-secondary:           var(--color-orange-100);
+
+  /* Typography (text) */
+  --color-text-primary:                 var(--color-neutral-900);
+  --color-text-secondary:               var(--color-neutral-700);
+  --color-text-tertiary:                var(--color-neutral-600);
+  --color-text-muted:                   var(--color-neutral-600);
+  --color-text-caption:                 var(--color-neutral-500);
+  --color-text-placeholder:             var(--color-neutral-400);
+  --color-text-dim:                     var(--color-neutral-400);
+  --color-text-solid:                   var(--color-white);
+  --color-text-solid-muted:             var(--color-neutral-300);
+  --color-text-brand-primary:           var(--color-blue-500);
+  --color-text-brand-secondary:         var(--color-blue-600);
+  --color-text-info-primary:            var(--color-blue-600);
+  --color-text-warning-primary:         var(--color-orange-600);
+  --color-text-success-primary:         var(--color-green-700);
+  --color-text-error-primary:           var(--color-orange-700);
+
+  /* Borders & Strokes (border) */
+  --color-border-primary:               var(--color-neutral-200);
+  --color-border-secondary:             var(--color-neutral-300);
+  --color-border-solid:                 rgba(255, 255, 255, 0.12);
+  --color-border-brand-primary:         var(--color-blue-500);
+  --color-border-brand-primary_hover:   var(--color-blue-600);
+  --color-border-info-primary:          var(--color-blue-500);
+  --color-border-info-secondary:        var(--color-blue-300);
+  --color-border-warning-primary:       var(--color-orange-500);
+  --color-border-warning-secondary:     var(--color-orange-300);
+  --color-border-success-primary:       var(--color-green-500);
+  --color-border-success-secondary:     var(--color-green-300);
+
+  /* Foreground & Shapes (fg) */
+  --color-fg-solid:                     var(--color-white);
+  --color-fg-brand-primary:             var(--color-blue-500);
+  --color-fg-brand-secondary:           var(--color-blue-400);
+  --color-fg-accent-purple:             var(--color-purple-500);
+  --color-fg-accent-purple_light:       var(--color-purple-400);
+  --color-fg-accent-green:              var(--color-green-500);
+  --color-fg-accent-green_light:        var(--color-green-400);
+  --color-fg-accent-orange:             var(--color-orange-500);
+  --color-fg-accent-orange_light:       var(--color-orange-400);
+  --color-fg-accent-pink:               var(--color-pink-500);
+  --color-fg-accent-pink_light:         var(--color-pink-400);
+
+  /* ==========================================================================
+     3. Semantic Tokens - Type 3: Utility Tokens
+     ========================================================================== */
+
+  /* Neutral Utility */
+  --color-util-neutral-100:             var(--color-neutral-100);
+  --color-util-neutral-200:             var(--color-neutral-200);
+  --color-util-neutral-300:             var(--color-neutral-300);
+  --color-util-neutral-400:             var(--color-neutral-400);
+  --color-util-neutral-500:             var(--color-neutral-500);
+  --color-util-neutral-600:             var(--color-neutral-600);
+  --color-util-neutral-700:             var(--color-neutral-700);
+  --color-util-neutral-800:             var(--color-neutral-800);
+  --color-util-neutral-900:             var(--color-neutral-900);
+  --color-util-neutral-950:             var(--color-neutral-950);
+
+  /* Blue Utility */
+  --color-util-blue-100:                var(--color-blue-100);
+  --color-util-blue-200:                var(--color-blue-200);
+  --color-util-blue-300:                var(--color-blue-300);
+  --color-util-blue-400:                var(--color-blue-400);
+  --color-util-blue-500:                var(--color-blue-500);
+  --color-util-blue-600:                var(--color-blue-600);
+  --color-util-blue-700:                var(--color-blue-700);
+  --color-util-blue-800:                var(--color-blue-800);
+  --color-util-blue-900:                var(--color-blue-900);
+  --color-util-blue-950:                var(--color-blue-950);
+
+  /* Purple Utility */
+  --color-util-purple-100:              var(--color-purple-100);
+  --color-util-purple-200:              var(--color-purple-200);
+  --color-util-purple-300:              var(--color-purple-300);
+  --color-util-purple-400:              var(--color-purple-400);
+  --color-util-purple-500:              var(--color-purple-500);
+  --color-util-purple-600:              var(--color-purple-600);
+  --color-util-purple-700:              var(--color-purple-700);
+  --color-util-purple-800:              var(--color-purple-800);
+  --color-util-purple-900:              var(--color-purple-900);
+  --color-util-purple-950:              var(--color-purple-950);
+
+  /* Green Utility */
+  --color-util-green-100:               var(--color-green-100);
+  --color-util-green-200:               var(--color-green-200);
+  --color-util-green-300:               var(--color-green-300);
+  --color-util-green-400:               var(--color-green-400);
+  --color-util-green-500:               var(--color-green-500);
+  --color-util-green-600:               var(--color-green-600);
+  --color-util-green-700:               var(--color-green-700);
+  --color-util-green-800:               var(--color-green-800);
+  --color-util-green-900:               var(--color-green-900);
+  --color-util-green-950:               var(--color-green-950);
+
+  /* Orange Utility */
+  --color-util-orange-100:              var(--color-orange-100);
+  --color-util-orange-200:              var(--color-orange-200);
+  --color-util-orange-300:              var(--color-orange-300);
+  --color-util-orange-400:              var(--color-orange-400);
+  --color-util-orange-500:              var(--color-orange-500);
+  --color-util-orange-600:              var(--color-orange-600);
+  --color-util-orange-700:              var(--color-orange-700);
+  --color-util-orange-800:              var(--color-orange-800);
+  --color-util-orange-900:              var(--color-orange-900);
+  --color-util-orange-950:              var(--color-orange-950);
+
+  /* Pink Utility */
+  --color-util-pink-100:                var(--color-pink-100);
+  --color-util-pink-200:                var(--color-pink-200);
+  --color-util-pink-300:                var(--color-pink-300);
+  --color-util-pink-400:                var(--color-pink-400);
+  --color-util-pink-500:                var(--color-pink-500);
+  --color-util-pink-600:                var(--color-pink-600);
+  --color-util-pink-700:                var(--color-pink-700);
+  --color-util-pink-800:                var(--color-pink-800);
+  --color-util-pink-900:                var(--color-pink-900);
+  --color-util-pink-950:                var(--color-pink-950);
+
+  /* ==========================================================================
+     4. Backward Compatibility Aliases (Derived from New Tokens)
+     ========================================================================== */
+
   /* Surfaces & Backgrounds */
-  --color-bg: #faf9f5;
-  --color-bg-alt: #f5f5f5;
-  --color-bg-subtle: #f0f0f0;
-  --color-surface: #ffffff;
-  --color-surface-dark: #1e1e1e;
-  --color-surface-dark-alt: #202026;
-  --color-surface-dark-hover: #333333;
-
-  /* Borders & Dividers */
-  --color-border: #e5e5e5;
-  --color-border-subtle: #d0d0d0;
-  --color-border-dark: rgba(255, 255, 255, 0.12);
-
-  /* Typography Colors */
-  --color-text-primary: #1e1e1e;
-  --color-text-secondary: #444444;
-  --color-text-muted: #555555;
-  --color-text-caption: #777777;
-  --color-text-dim: #9a9a9a;
-  --color-text-placeholder: #a0a0a0;
-  --color-text-light: #ffffff;
-  --color-text-card-dark: #222222;
+  --color-bg:                           #faf9f5;
+  --color-bg-alt:                       var(--color-bg-secondary);
+  --color-bg-subtle:                    var(--color-neutral-100);
+  --color-surface:                      var(--color-bg-primary);
+  --color-surface-dark:                 var(--color-bg-solid);
+  --color-surface-dark-alt:             var(--color-neutral-900);
+  --color-surface-dark-hover:           var(--color-bg-solid_hover);
 
   /* Primary Brand (Blue) */
-  --color-primary: #0d99ff;
-  --color-primary-dark: #0c7bd1;
-  --color-primary-light: #1abcfe;
-  --color-primary-tint: rgba(13, 153, 255, 0.15);
+  --color-primary:                      var(--color-bg-brand-primary);
+  --color-primary-dark:                 var(--color-bg-brand-primary_hover);
+  --color-primary-light:                var(--color-fg-brand-secondary);
+  --color-primary-tint:                 rgba(13, 153, 255, 0.15);
 
   /* Secondary & Semantic Accents */
-  /* Purple */
-  --color-purple: #8a3ff0;
-  --color-purple-light: #a259ff;
-  --color-purple-subtle: #c39bff;
-  --color-purple-tint: rgba(162, 89, 255, 0.15);
+  --color-purple:                       var(--color-fg-accent-purple);
+  --color-purple-light:                 var(--color-fg-accent-purple_light);
+  --color-purple-subtle:                var(--color-purple-300);
+  --color-purple-tint:                  rgba(162, 89, 255, 0.15);
 
-  /* Green */
-  --color-green: #0acf83;
-  --color-green-dark: #07875a;
-  --color-green-light: #3ddc9b;
-  --color-green-tint: rgba(10, 207, 131, 0.15);
+  --color-green:                        var(--color-fg-accent-green);
+  --color-green-dark:                   var(--color-text-success-primary);
+  --color-green-light:                  var(--color-fg-accent-green_light);
+  --color-green-tint:                   rgba(10, 207, 131, 0.15);
 
-  /* Orange / Coral */
-  --color-orange: #f24e1e;
-  --color-orange-dark: #e03e12;
-  --color-orange-light: #ff7262;
-  --color-orange-subtle: #ff7a59;
-  --color-orange-tint: rgba(242, 78, 30, 0.15);
+  --color-orange:                       var(--color-fg-accent-orange);
+  --color-orange-dark:                  var(--color-text-warning-primary);
+  --color-orange-light:                 var(--color-fg-accent-orange_light);
+  --color-orange-subtle:                var(--color-orange-400);
+  --color-orange-tint:                  rgba(242, 78, 30, 0.15);
 
-  /* Pink / Magenta (Figma Slot) */
-  --color-pink: #ff007a;
-  --color-pink-dark: #e0006c;
-  --color-pink-light: #ff3399;
-  --color-pink-tint: rgba(255, 0, 122, 0.06);
-  --color-pink-subtle: rgba(255, 0, 122, 0.14);
+  --color-pink:                         var(--color-fg-accent-pink);
+  --color-pink-dark:                    var(--color-pink-600);
+  --color-pink-light:                   var(--color-fg-accent-pink_light);
+  --color-pink-tint:                    rgba(255, 0, 122, 0.06);
+  --color-pink-subtle:                  rgba(255, 0, 122, 0.14);
 
   /* Overlays & Shadows */
-  --color-overlay-hover: rgba(0, 0, 0, 0.06);
-  --color-overlay-lightbox: rgba(20, 20, 20, 0.88);
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.18);
-  --shadow-dark: 0 24px 48px rgba(0, 0, 0, 0.45);
+  --color-overlay-hover:                rgba(0, 0, 0, 0.06);
+  --color-overlay-lightbox:             rgba(20, 20, 20, 0.88);
+  --shadow-sm:                          0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-md:                          0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg:                          0 24px 48px rgba(0, 0, 0, 0.18);
+  --shadow-dark:                        0 24px 48px rgba(0, 0, 0, 0.45);
 
   /* Pattern & Frame Tokens */
-  --color-black: #000000;
-  --color-frame-dark: #2a2a30;
-  --color-dot-dark: #3a3a3a;
-  --color-dot-light: #d4d4d4;
-  --color-text-light-muted: #c4c4c4;
-  --color-text-light-subtle: #e0e0e0;
+  --color-frame-dark:                   #2a2a30;
+  --color-dot-dark:                     #3a3a3a;
+  --color-dot-light:                    #d4d4d4;
+  --color-text-light-muted:             var(--color-neutral-300);
+  --color-text-light-subtle:            var(--color-neutral-200);
+
+  /* Opacity & Glow Tokens (Compatibility Section) */
+  --color-pink-tint_hover:              rgba(255, 0, 122, 0.09);
+  --color-glow-purple:                  rgba(162, 89, 255, 0.55);
+  --color-glow-blue:                    rgba(26, 188, 254, 0.18);
+  --color-white-alpha-08:               rgba(255, 255, 255, 0.08);
+  --color-white-alpha-16:               rgba(255, 255, 255, 0.16);
+  --color-white-alpha-25:               rgba(255, 255, 255, 0.25);
+  --color-white-alpha-32:               rgba(255, 255, 255, 0.32);
+  --color-white-alpha-35:               rgba(255, 255, 255, 0.35);
+  --color-white-alpha-40:               rgba(255, 255, 255, 0.4);
+  --color-white-alpha-50:               rgba(255, 255, 255, 0.5);
 }

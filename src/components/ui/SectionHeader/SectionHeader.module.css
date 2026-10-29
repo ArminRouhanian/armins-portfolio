@@ -6,7 +6,7 @@
 .label {
   font-size: var(--font-size-caption);
   font-weight: var(--font-weight-bold);
-  color: var(--color-primary-dark);
+  color: var(--color-text-brand-secondary);
   letter-spacing: 0.08em;
   margin: 0;
   text-transform: uppercase;
@@ -22,9 +22,9 @@
 
 /* Dark variant for sections on dark backgrounds */
 .containerDark .label {
-  color: var(--color-primary-light);
+  color: var(--color-fg-brand-secondary);
 }
 
 .containerDark .title {
-  color: var(--color-text-light);
+  color: var(--color-text-solid);
 }

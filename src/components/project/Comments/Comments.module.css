@@ -81,7 +81,7 @@
     width: 8px;
     height: 8px;
     border-radius: var(--radius-circle);
-    background: var(--color-border-subtle);
+    background: var(--color-border-secondary);
     border: none;
     padding: 0;
     cursor: pointer;
@@ -91,6 +91,6 @@
   .dotActive {
     width: 22px;
     border-radius: var(--radius-pill);
-    background: var(--color-primary);
+    background: var(--color-bg-brand-primary);
   }
 }

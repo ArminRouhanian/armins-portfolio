@@ -10,7 +10,7 @@ export interface CursorProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function Cursor({
   name = 'Armin Rouhanian',
   thinking = false,
-  color = 'var(--color-purple)',
+  color = 'var(--color-fg-accent-purple)',
   className = '',
   style,
   ...rest
@@ -33,7 +33,7 @@ export default function Cursor({
         <path
           d="M1 1 L1 15.5 L5 12 L11.5 12 Z"
           fill={color}
-          stroke="#fff"
+          stroke="var(--color-white)"
           strokeWidth="1.5"
           strokeLinejoin="round"
         />

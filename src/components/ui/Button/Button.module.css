@@ -32,26 +32,26 @@
 
 /* 1. Primary: used in Header "Contact me", Hero "View work" */
 .primary {
-  background: var(--color-surface-dark);
-  color: var(--color-text-light);
-  border: 1.5px solid var(--color-surface-dark);
+  background: var(--color-bg-solid);
+  color: var(--color-text-solid);
+  border: 1.5px solid var(--color-bg-solid);
 }
 
 .primary:hover {
-  background: var(--color-surface-dark-hover);
-  border-color: var(--color-surface-dark-hover);
-  color: var(--color-text-light);
+  background: var(--color-bg-solid_hover);
+  border-color: var(--color-bg-solid_hover);
+  color: var(--color-text-solid);
 }
 
 /* 2. Secondary: white with border, used in Hero "Contact me" */
 .secondary {
-  background: var(--color-surface);
+  background: var(--color-bg-primary);
   color: var(--color-text-primary);
   border: 1.5px solid var(--color-text-primary);
 }
 
 .secondary:hover {
-  background: var(--color-surface);
+  background: var(--color-bg-primary);
   color: var(--color-text-primary);
 }
 
@@ -78,16 +78,16 @@
 }
 
 .tertiaryLight:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-text-brand-secondary);
 }
 
 /* Tertiary dark: used in Footer "Back to top" */
 .tertiaryDark {
-  color: var(--color-text-light);
+  color: var(--color-text-solid);
 }
 
 .tertiaryDark:hover {
-  color: var(--color-primary-light);
+  color: var(--color-fg-brand-secondary);
 }
 
 /* 4. Icon Only: circular button with icon, used in modals and controls */
@@ -100,7 +100,7 @@
   padding: 0;
   border-radius: var(--radius-circle);
   border: none;
-  background: var(--color-surface);
+  background: var(--color-bg-primary);
   color: var(--color-text-primary);
   cursor: var(--cursor-pointer);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
@@ -115,20 +115,20 @@
 }
 
 .iconOnly:hover {
-  background: var(--color-primary);
-  color: var(--color-text-light);
+  background: var(--color-bg-brand-primary);
+  color: var(--color-text-solid);
   transform: scale(1.05);
 }
 
 .iconOnlyDark {
-  background: var(--color-surface-dark);
-  color: var(--color-text-light);
-  border: 1px solid var(--color-border-dark);
+  background: var(--color-bg-solid);
+  color: var(--color-text-solid);
+  border: 1px solid var(--color-border-solid);
 }
 
 .iconOnlyDark:hover {
-  background: var(--color-primary);
-  color: var(--color-text-light);
+  background: var(--color-bg-brand-primary);
+  color: var(--color-text-solid);
 }
 
 /* 5. CTA: Large prominent conversion button (used in Footer "Contact me") */
@@ -140,7 +140,7 @@
   height: 64px;
   padding: 0 var(--spacing-xl);
   border-radius: var(--radius-sm);
-  background: var(--color-surface);
+  background: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-size: var(--font-size-h4);
   font-weight: var(--font-weight-bold);
@@ -157,8 +157,8 @@
 }
 
 .cta:hover {
-  background: var(--color-primary);
-  color: var(--color-text-light);
+  background: var(--color-bg-brand-primary);
+  color: var(--color-text-solid);
   transform: translateY(-3px);
   border-radius: var(--radius-pill);
 }

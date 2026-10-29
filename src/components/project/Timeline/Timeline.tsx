@@ -26,7 +26,7 @@ export default function Timeline({ timeline, label = '03 · TIMELINE' }) {
           <div key={index} className={styles.step}>
             <span
               className={styles.dot}
-              style={{ backgroundColor: step.dotColor || 'var(--color-purple-light)' }}
+              style={{ backgroundColor: step.dotColor || 'var(--color-fg-accent-purple_light)' }}
               aria-hidden="true"
             />
             <p className={styles.period}>

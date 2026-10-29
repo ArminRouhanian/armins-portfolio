@@ -16,12 +16,12 @@
 
 /* White badge with border (e.g. Hero "Product designer", Project tags) */
 .white {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-primary);
 }
 
 /* Gray badge without border (e.g. SelectedWork & CaseStudies card tags) */
 .gray {
-  background: var(--color-bg-subtle);
+  background: var(--color-bg-secondary);
   border: 1px solid transparent;
 }

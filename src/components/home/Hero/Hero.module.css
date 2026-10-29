@@ -21,7 +21,7 @@
   position: relative;
   display: inline-block;
   vertical-align: top;
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-border-brand-primary);
   outline-offset: 4px;
   margin: 0 0.15em;
 }
@@ -31,8 +31,8 @@
   width: 10px;
   height: 10px;
   box-sizing: border-box;
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-primary);
+  background: var(--color-bg-primary);
+  border: 1.5px solid var(--color-border-brand-primary);
 }
 
 .cyclingText {
@@ -55,19 +55,19 @@
 }
 
 .cycleClarity {
-  color: var(--color-primary-dark);
+  color: var(--color-text-brand-secondary);
 }
 
 .cycleStructure {
-  color: var(--color-purple);
+  color: var(--color-fg-accent-purple);
 }
 
 .cycleValue {
-  color: var(--color-green-dark);
+  color: var(--color-text-success-primary);
 }
 
 .cycleDesign {
-  color: var(--color-orange-dark);
+  color: var(--color-text-warning-primary);
 }
 
 @keyframes slideText {

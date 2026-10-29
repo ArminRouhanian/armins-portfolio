@@ -12,8 +12,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--spacing-xl);
-  background: #ffffff;
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border-primary);
 }
 
 /* Extends solid white background upwards behind iOS Safari status bar & browser chrome */
@@ -24,7 +24,7 @@
   left: 0;
   right: 0;
   height: 100vh;
-  background: #ffffff;
+  background: var(--color-bg-primary);
   pointer-events: none;
 }
 

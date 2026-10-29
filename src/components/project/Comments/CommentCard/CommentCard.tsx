@@ -2,15 +2,15 @@ import React from 'react'
 import styles from './CommentCard.module.css'
 
 const COLOR_MAP: Record<string, string> = {
-  primary: 'var(--color-primary)',
-  blue: 'var(--color-primary)',
-  purple: 'var(--color-purple-light)',
-  green: 'var(--color-green)',
-  orange: 'var(--color-orange)'
+  primary: 'var(--color-bg-brand-primary)',
+  blue: 'var(--color-bg-brand-primary)',
+  purple: 'var(--color-fg-accent-purple_light)',
+  green: 'var(--color-fg-accent-green)',
+  orange: 'var(--color-fg-accent-orange)'
 }
 
 const resolveColor = (color?: string): string => {
-  if (!color) return 'var(--color-primary)'
+  if (!color) return 'var(--color-bg-brand-primary)'
   return COLOR_MAP[color] || color
 }
 

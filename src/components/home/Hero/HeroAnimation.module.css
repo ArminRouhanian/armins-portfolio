@@ -52,14 +52,14 @@
   width: 147px;
   height: 143px;
   border-radius: var(--radius-circle);
-  background: var(--color-purple-light);
+  background: var(--color-fg-accent-purple_light);
   position: absolute;
 }
 
 .selectionBox {
   z-index: 1;
   box-sizing: border-box;
-  border: 1.5px solid var(--color-primary);
+  border: 1.5px solid var(--color-border-brand-primary);
   opacity: 0;
   position: absolute;
 }
@@ -99,8 +99,8 @@
   width: 10px;
   height: 10px;
   box-sizing: border-box;
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-primary);
+  background: var(--color-bg-primary);
+  border: 1.5px solid var(--color-border-brand-primary);
   z-index: 1;
 }
 
@@ -114,7 +114,7 @@
   top: 79px;
   width: 165px;
   height: 115px;
-  background: var(--color-orange);
+  background: var(--color-fg-accent-orange);
   border-radius: var(--radius-sm);
   position: absolute;
   animation: rectWidth 12s ease-in-out infinite;
@@ -126,7 +126,7 @@
   width: 93px;
   height: 88px;
   border-radius: 20px;
-  background: var(--color-primary-light);
+  background: var(--color-fg-brand-secondary);
   position: absolute;
   animation: squarePos 12s ease-in-out infinite;
 }
@@ -137,7 +137,7 @@
   flex-direction: column;
   width: 167px;
   height: 131px;
-  background-color: var(--color-green);
+  background-color: var(--color-fg-accent-green);
   border-radius: var(--radius-sm);
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
