@@ -69,8 +69,12 @@
 
 @media (max-width: 640px) {
   .card {
+    flex: none;
+    width: 100%;
+    min-width: 0;
     min-height: 72px;
     padding: 14px 18px;
+    box-sizing: border-box;
   }
 
   .card:hover {
