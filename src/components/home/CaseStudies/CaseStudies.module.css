@@ -59,6 +59,7 @@
   height: 32px;
   border-radius: var(--radius-sm);
   background: var(--color-fg-accent-pink);
+  color: var(--color-text-solid);
   border: none;
   padding: 0;
   pointer-events: none;
@@ -67,6 +68,7 @@
 .plusIcon {
   width: 16px;
   height: 16px;
+  color: var(--color-text-solid);
   display: block;
 }
 

@@ -15,21 +15,21 @@ export default function Tools() {
           />
           <div className={styles.paragraphs}>
             <p className={styles.bodyText}>
-              I use AI, including Claude Code and Claude Design, to speed up
-              ideation and execution without lowering the quality of the design.
+              I use AI tools like Claude Code and Cursor to move quickly from ideas
+              to interactive prototypes, speeding up execution without sacrificing craft.
             </p>
             <p className={styles.bodyTextSpaced}>
-              Figma carries ideas from sketch to prototype, Notion, Jira and Trello keep
-              decisions and delivery organized, and Google Analytics and Hotjar
-              show me what people actually do.
+              Figma holds a focused role, Including housing design system details, tokens,
+              and component structures. While Notion, Jira, and Hotjar keep delivery
+              and feedback organized.
             </p>
             <p className={styles.bodyTextSpaced}>
-              My background as a developer lets me use Cursor, VS Code and n8n to
-              build and automate what would otherwise slow a team down.
+              My coding background means handoffs aren't guesswork. I understand how
+              developers build, anticipate technical constraints, and deliver clear
+              specs that teams can ship without friction.
             </p>
             <p className={styles.toolListCaption}>
-              Figma · Figma Make · Claude Design · Claude Code · Notion · Trello · Jira ·
-              Cursor · Google Analytics · Hotjar · ChatGPT · n8n · VS Code
+              Figma · Claude Code · Cursor · VS Code · Notion · Jira · Trello · Hotjar · Google Analytics · n8n
             </p>
           </div>
         </div>
