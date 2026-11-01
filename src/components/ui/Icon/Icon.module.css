@@ -1,0 +1,7 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: currentColor;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast, 0.2s);
+}

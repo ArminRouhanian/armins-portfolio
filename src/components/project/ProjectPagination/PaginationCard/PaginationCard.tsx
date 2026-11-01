@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Icon } from '../../../ui/Icon'
 import styles from './PaginationCard.module.css'
 
 export type PaginationDirection = 'prev' | 'next'
@@ -29,9 +30,10 @@ export default function PaginationCard({
       to={target.to}
       className={cardClass}
     >
-      <span
+      <Icon
+        name={isNext ? 'arrow-right' : 'arrow-left'}
+        size={24}
         className={styles.arrow}
-        aria-hidden="true"
       />
       <span className={styles.textGroup}>
         <span className={styles.label}>

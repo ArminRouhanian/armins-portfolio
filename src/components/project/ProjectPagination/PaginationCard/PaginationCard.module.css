@@ -33,18 +33,7 @@
 
 .arrow {
   flex: 0 0 24px;
-  width: 24px;
-  height: 24px;
-  display: block;
-  background-color: currentColor;
   color: var(--color-text-primary);
-  -webkit-mask: url("/assets/icons/arrow-left.svg") no-repeat center / contain;
-  mask: url("/assets/icons/arrow-left.svg") no-repeat center / contain;
-}
-
-.next .arrow {
-  -webkit-mask-image: url("/assets/icons/arrow-right.svg");
-  mask-image: url("/assets/icons/arrow-right.svg");
 }
 
 .textGroup {

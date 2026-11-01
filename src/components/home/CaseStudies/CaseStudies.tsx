@@ -1,6 +1,7 @@
 import React from 'react'
 import Badge from '../../ui/Badge/Badge'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
+import { Icon } from '../../ui/Icon'
 import styles from './CaseStudies.module.css'
 
 export default function CaseStudies() {
@@ -24,10 +25,9 @@ export default function CaseStudies() {
             className={styles.slotButton}
             aria-hidden="true"
           >
-            <img
-              src="/assets/icons/plus.svg"
-              alt=""
-              aria-hidden="true"
+            <Icon
+              name="plus"
+              size={16}
               className={styles.plusIcon}
             />
           </div>

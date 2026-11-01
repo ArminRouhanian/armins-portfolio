@@ -65,6 +65,15 @@
   flex-shrink: 0;
 }
 
+.mobileAboutButton {
+  display: none;
+}
+
+.activeLink {
+  color: var(--color-brand-primary) !important;
+  font-weight: var(--font-weight-semibold);
+}
+
 @media (max-width: 640px) {
   .header {
     height: 60px;
@@ -84,7 +93,16 @@
   }
 
   .nav {
-    gap: 0;
+    gap: var(--spacing-xs);
+  }
+
+  .mobileAboutButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    padding: 0 var(--spacing-sm);
+    font-size: var(--font-size-caption);
   }
 
   .contactButton {

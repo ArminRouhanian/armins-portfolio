@@ -4,6 +4,7 @@ import ScrollToTop from './components/layout/ScrollToTop/ScrollToTop'
 import Home from './pages/Home'
 
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
 
 export default function App() {
   return (
@@ -12,11 +13,16 @@ export default function App() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/works/:slug" element={<ProjectDetailPage />} />
           {/* Backward-compatibility aliases */}
           <Route
             path="/projects/:slug"
             element={<ProjectDetailPage />}
+          />
+          <Route
+            path="/about-me"
+            element={<Navigate to="/about" replace />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

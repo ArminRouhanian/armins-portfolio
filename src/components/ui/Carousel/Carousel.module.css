@@ -1,0 +1,56 @@
+.carouselWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.bleed {
+  margin-left: calc(-1 * var(--page-padding-x, var(--spacing-md)));
+  margin-right: calc(-1 * var(--page-padding-x, var(--spacing-md)));
+  width: calc(100% + 2 * var(--page-padding-x, var(--spacing-md)));
+}
+
+.bleedController {
+  padding-left: var(--page-padding-x, var(--spacing-md));
+  padding-right: var(--page-padding-x, var(--spacing-md));
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 12px 0;
+  margin: -12px 0;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  box-sizing: border-box;
+}
+
+.carouselTrack {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  will-change: transform;
+}
+
+.carouselSlide {
+  flex: 0 0 var(--carousel-slide-width, calc(100% - 56px));
+  width: var(--carousel-slide-width, calc(100% - 56px));
+  max-width: var(--carousel-slide-width, calc(100% - 56px));
+  box-sizing: border-box;
+  display: flex;
+}
+
+.carouselSlide > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carouselSlide > *:hover,
+.carouselSlide > *:active {
+  transform: none !important;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Button from '../../ui/Button/Button'
 import useSectionLink from '../../../hooks/useSectionLink'
 import styles from './Header.module.css'
@@ -16,6 +16,8 @@ const NAV_LINKS: NavLinkItem[] = [
 
 export default function Header() {
   const getSectionLink = useSectionLink()
+  const { pathname } = useLocation()
+  const isAbout = pathname === '/about'
 
   return (
     <header className={styles.header}>
@@ -43,7 +45,23 @@ export default function Header() {
               {label}
             </Button>
           ))}
+          <Button
+            as={Link}
+            to="/about"
+            variant="tertiary"
+            className={isAbout ? styles.activeLink : ''}
+          >
+            About me
+          </Button>
         </div>
+        <Button
+          as={Link}
+          to="/about"
+          variant="tertiary"
+          className={`${styles.mobileAboutButton} ${isAbout ? styles.activeLink : ''}`}
+        >
+          About
+        </Button>
         <Button
           variant="primary"
           {...getSectionLink('contact')}

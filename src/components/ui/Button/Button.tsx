@@ -1,4 +1,5 @@
 import React from 'react'
+import { Icon } from '../Icon'
 import styles from './Button.module.css'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'iconOnly' | 'cta'
@@ -54,15 +55,10 @@ export default function Button({
       : {}
 
   const iconElement = icon && (
-    <span
+    <Icon
+      src={icon}
+      size={iconSize}
       className={styles.icon}
-      style={{
-        width: `${iconSize}px`,
-        height: `${iconSize}px`,
-        WebkitMask: `url("${icon}") no-repeat center / contain`,
-        mask: `url("${icon}") no-repeat center / contain`
-      }}
-      aria-hidden="true"
     />
   )
 
