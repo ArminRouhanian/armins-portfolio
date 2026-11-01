@@ -47,11 +47,12 @@
 }
 
 .cardTitle {
-  font-size: var(--font-size-h4);
+  composes: text-h4 from global;
   color: var(--color-text-primary);
 }
 
 .cardDescription {
+  composes: text-body from global;
   color: var(--color-text-muted);
 }
 

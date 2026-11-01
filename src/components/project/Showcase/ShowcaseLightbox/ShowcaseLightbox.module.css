@@ -125,11 +125,11 @@
 }
 
 .browserUrl {
+  composes: text-url from global;
   margin-left: var(--spacing-sm);
   flex: 1;
   background: var(--color-bg-primary);
   border-radius: var(--radius-xs);
-  font-size: 11px;
   padding: 3px 10px;
   color: var(--color-text-caption);
 }
@@ -343,7 +343,7 @@
   }
 
   .caption {
-    font-size: var(--font-size-caption);
+    composes: text-caption from global;
     margin: 0;
     flex-shrink: 0;
     text-align: center;

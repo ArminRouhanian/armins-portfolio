@@ -8,13 +8,13 @@
 }
 
 .cursorTag {
+  composes: text-xs from global;
   position: absolute;
   left: var(--spacing-sm);
   top: var(--spacing-md);
   white-space: nowrap;
   background: var(--color-fg-accent-purple);
   color: var(--color-text-solid);
-  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
   padding: var(--spacing-2xs) 10px;
   border-radius: var(--radius-pill);

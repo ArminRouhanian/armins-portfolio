@@ -47,10 +47,8 @@
 }
 
 .comingSoonText {
-  font-size: var(--font-size-h3, 24px);
-  font-weight: var(--font-weight-bold, 700);
+  composes: text-h3 from global;
   color: var(--color-fg-accent-pink);
-  letter-spacing: -0.01em;
 }
 
 .slotButton {
@@ -116,9 +114,9 @@
 }
 
 .title {
+  composes: text-h3 from global;
   flex: 1;
   min-width: 200px;
-  font-size: var(--font-size-h3);
   color: var(--color-text-primary);
 }
 
@@ -134,10 +132,6 @@
 
   .slotFrame {
     min-height: 160px;
-  }
-
-  .comingSoonText {
-    font-size: var(--font-size-h4, 20px);
   }
 
   .card {

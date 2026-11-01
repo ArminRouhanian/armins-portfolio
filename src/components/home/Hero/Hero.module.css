@@ -10,10 +10,8 @@
 }
 
 .title {
+  composes: text-hero from global;
   margin-top: var(--spacing-lg);
-  font-size: clamp(40px, 7vw, 84px);
-  line-height: 1.15;
-  font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
 }
 
@@ -126,7 +124,6 @@
 
   .title {
     margin-top: var(--spacing-md);
-    font-size: clamp(32px, 8.5vw, 44px);
   }
 
   .subtitle {

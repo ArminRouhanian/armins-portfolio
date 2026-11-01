@@ -27,10 +27,11 @@
 }
 
 .nav a {
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-body-sm);
   position: relative;
   z-index: 1;
   color: var(--color-text-primary);
-  font-size: var(--font-size-body-sm);
   font-weight: var(--font-weight-medium);
   padding: var(--spacing-xs) var(--spacing-md);
   border-radius: var(--radius-sm);
@@ -87,7 +88,7 @@
 
   .nav a {
     font-size: var(--font-size-caption);
-    line-height: 1;
+    line-height: var(--line-height-none);
     padding: var(--spacing-xs) var(--spacing-sm);
     white-space: nowrap;
     display: inline-flex;

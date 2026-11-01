@@ -17,18 +17,13 @@
 }
 
 .label {
-  font-size: var(--font-size-caption);
-  font-weight: var(--font-weight-bold);
+  composes: text-label from global;
   color: var(--color-fg-brand-secondary);
-  letter-spacing: 0.08em;
 }
 
 .heading {
+  composes: text-hero from global;
   margin-top: var(--spacing-md);
-  font-size: clamp(44px, 8vw, 104px);
-  line-height: 1;
-  font-weight: var(--font-weight-bold);
-  letter-spacing: -0.02em;
   max-width: 640px;
 }
 
@@ -51,9 +46,8 @@
 }
 
 .description {
+  composes: text-body-lg from global;
   margin-top: var(--spacing-md);
-  font-size: var(--font-size-body-lg);
-  line-height: 1.55;
   color: var(--color-text-solid-muted);
   max-width: 520px;
 }
@@ -118,7 +112,7 @@
 }
 
 .copyright {
-  line-height: 1.5;
+  line-height: var(--line-height-body);
 }
 
 .socialRow {
@@ -159,11 +153,6 @@
 
   .container {
     padding: 36px 16px 24px;
-  }
-
-  .heading {
-    font-size: clamp(30px, 9vw, 44px);
-    line-height: 1.15;
   }
 
   .actionRow {

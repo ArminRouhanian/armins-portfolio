@@ -36,10 +36,9 @@
 
 /* Item Label above top-left */
 .label {
-  font-size: var(--font-size-caption, 13px);
-  font-weight: var(--font-weight-medium, 500);
+  composes: text-caption from global;
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-solid-muted);
-  line-height: 1.2;
   cursor: pointer;
   align-self: flex-start;
   transition: color 0.2s;

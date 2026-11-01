@@ -26,22 +26,20 @@
 }
 
 .bodyText {
-  font-size: var(--font-size-body-lg);
-  line-height: var(--line-height-body-lg);
+  composes: text-body-lg from global;
   color: var(--color-text-secondary);
 }
 
 .bodyTextSpaced {
+  composes: text-body-lg from global;
   margin-top: var(--spacing-md);
-  font-size: var(--font-size-body-lg);
-  line-height: var(--line-height-body-lg);
   color: var(--color-text-secondary);
 }
 
 .toolListCaption {
+  composes: text-body-sm from global;
   margin-top: var(--spacing-md-lg);
-  font-size: var(--font-size-body-sm);
-  line-height: 1.7;
+  line-height: var(--line-height-relaxed);
   color: var(--color-text-caption);
 }
 

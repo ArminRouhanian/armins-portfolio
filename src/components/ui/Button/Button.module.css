@@ -4,15 +4,14 @@
 
 /* Primary & Secondary Base Shape */
 .button {
+  composes: text-button from global;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 44px;
   padding: 0 var(--spacing-md-lg);
   border-radius: var(--radius-sm);
-  font-size: 15px;
-  font-weight: var(--font-weight-medium, 500);
-  font-family: inherit;
+  font-weight: var(--font-weight-medium);
   text-decoration: none;
   cursor: var(--cursor-pointer);
   transition:
@@ -133,6 +132,7 @@
 
 /* 5. CTA: Large prominent conversion button (used in Footer "Contact me") */
 .cta {
+  composes: text-h4 from global;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -142,8 +142,6 @@
   border-radius: var(--radius-sm);
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
-  font-size: var(--font-size-h4);
-  font-weight: var(--font-weight-bold);
   box-sizing: border-box;
   text-decoration: none;
   cursor: var(--cursor-pointer);

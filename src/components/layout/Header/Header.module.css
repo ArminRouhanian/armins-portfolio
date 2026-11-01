@@ -29,11 +29,10 @@
 }
 
 .brand {
+  composes: text-h4 from global;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-h4);
   color: var(--color-text-primary);
   flex-shrink: 0;
 }

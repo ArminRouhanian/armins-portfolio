@@ -38,10 +38,9 @@
 }
 
 .caption {
-  font-size: var(--font-size-caption, 13px);
-  line-height: 1.4;
-  font-weight: var(--font-weight-medium, 500);
+  composes: text-caption from global;
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-dim);
-  letter-spacing: -0.01em;
+  letter-spacing: var(--letter-spacing-snug);
   max-width: 220px;
 }

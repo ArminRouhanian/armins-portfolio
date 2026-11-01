@@ -3,8 +3,8 @@
    ========================================================================== */
 
 .badge {
+  composes: text-caption from global;
   display: inline-block;
-  font-size: var(--font-size-caption);
   font-weight: var(--font-weight-medium);
   padding: var(--spacing-2xs) 10px;
   border-radius: var(--radius-pill);

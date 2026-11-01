@@ -16,6 +16,7 @@
 }
 
 .avatar {
+  composes: text-body-sm from global;
   width: 40px;
   height: 40px;
   border-radius: var(--radius-circle);
@@ -24,7 +25,6 @@
   align-items: center;
   justify-content: center;
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-body-sm);
   color: var(--color-text-solid);
   flex-shrink: 0;
 }
@@ -35,23 +35,21 @@
 }
 
 .name {
+  composes: text-body from global;
   margin: 0;
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-body);
   color: var(--color-text-primary);
-  line-height: var(--line-height-body-sm);
 }
 
 .role {
+  composes: text-caption from global;
   margin: var(--spacing-3xs) 0 0;
-  font-size: var(--font-size-caption);
   color: var(--color-text-caption);
-  line-height: var(--line-height-caption);
 }
 
 .quote {
+  composes: text-body from global;
   margin: 0;
-  font-size: var(--font-size-body);
   line-height: var(--line-height-body-lg);
   color: var(--color-text-secondary);
   white-space: pre-line;
