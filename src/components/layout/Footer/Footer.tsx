@@ -2,6 +2,7 @@ import React from 'react'
 import FooterAnimation from './FooterAnimation'
 import Button from '../../ui/Button/Button'
 import SocialButton from './SocialButton/SocialButton'
+import { getMailtoHref, EMAIL_ADDRESS } from '../../../utils/contact'
 import styles from './Footer.module.css'
 
 const SOCIAL_LINKS = [
@@ -56,9 +57,7 @@ export default function Footer() {
           <Button
             as="a"
             variant="cta"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mail.google.com/mail/?view=cm&amp;to=armin.rouhanian@gmail.com"
+            href={getMailtoHref()}
             icon="/assets/icons/arrow-right.svg"
             iconPosition="right"
             iconSize={24}
@@ -70,12 +69,10 @@ export default function Footer() {
             as="a"
             variant="tertiary"
             theme="dark"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mail.google.com/mail/?view=cm&amp;to=armin.rouhanian@gmail.com"
+            href={getMailtoHref()}
             className={styles.emailButton}
           >
-            armin.rouhanian@gmail.com
+            {EMAIL_ADDRESS}
           </Button>
         </div>
         <div className={styles.bottomBar}>

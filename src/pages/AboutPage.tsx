@@ -6,6 +6,7 @@ import SectionHeader from '../components/ui/SectionHeader/SectionHeader'
 import Button from '../components/ui/Button/Button'
 import { Carousel } from '../components/ui/Carousel'
 import { Icon } from '../components/ui/Icon'
+import { getMailtoHref } from '../utils/contact'
 import { useFooterCtaNudge } from '../hooks/useFooterCtaNudge'
 import styles from './AboutPage.module.css'
 
@@ -538,9 +539,7 @@ export default function AboutPage() {
               <Button
                 as="a"
                 variant="primary"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://mail.google.com/mail/?view=cm&amp;to=armin.rouhanian@gmail.com"
+                href={getMailtoHref()}
               >
                 Get in touch
               </Button>
