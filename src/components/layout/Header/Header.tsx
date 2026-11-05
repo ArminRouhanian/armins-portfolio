@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Button from '../../ui/Button/Button'
+import MobileNavDrawer from '../MobileNavDrawer/MobileNavDrawer'
 import useSectionLink from '../../../hooks/useSectionLink'
 import styles from './Header.module.css'
 
@@ -14,61 +16,68 @@ const NAV_LINKS: NavLinkItem[] = [
 ]
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const getSectionLink = useSectionLink()
   const { pathname } = useLocation()
   const isAbout = pathname === '/about'
 
   return (
-    <header className={styles.header}>
-      <Link
-        to="/"
-        className={styles.brand}
-      >
-        <img
-          src="/assets/logo.svg"
-          alt=""
-          className={styles.logo}
-        />
-        <span className={styles.brandName}>
-          Armin Rouhanian
-        </span>
-      </Link>
-      <nav className={styles.nav}>
-        <div className={styles.navLinks}>
-          {NAV_LINKS.map(({ label, section }) => (
+    <>
+      <header className={styles.header}>
+        <Link
+          to="/"
+          className={styles.brand}
+        >
+          <img
+            src="/assets/logo.svg"
+            alt=""
+            className={styles.logo}
+          />
+          <span className={styles.brandName}>
+            Armin Rouhanian
+          </span>
+        </Link>
+        <nav className={styles.nav}>
+          <div className={styles.navLinks}>
+            {NAV_LINKS.map(({ label, section }) => (
+              <Button
+                key={section}
+                variant="tertiary"
+                {...getSectionLink(section)}
+              >
+                {label}
+              </Button>
+            ))}
             <Button
-              key={section}
+              as={Link}
+              to="/about"
               variant="tertiary"
-              {...getSectionLink(section)}
+              className={isAbout ? styles.activeLink : ''}
             >
-              {label}
+              About me
             </Button>
-          ))}
+          </div>
           <Button
-            as={Link}
-            to="/about"
-            variant="tertiary"
-            className={isAbout ? styles.activeLink : ''}
+            variant="primary"
+            {...getSectionLink('contact')}
+            className={styles.contactButton}
           >
-            About me
+            Contact me
           </Button>
-        </div>
-        <Button
-          as={Link}
-          to="/about"
-          variant="tertiary"
-          className={`${styles.mobileAboutButton} ${isAbout ? styles.activeLink : ''}`}
-        >
-          About
-        </Button>
-        <Button
-          variant="primary"
-          {...getSectionLink('contact')}
-          className={styles.contactButton}
-        >
-          Contact me
-        </Button>
-      </nav>
-    </header>
+          <Button
+            variant="iconPlain"
+            icon="menu"
+            iconSize={22}
+            onClick={() => setIsMenuOpen(true)}
+            className={styles.menuButton}
+            aria-label="Open menu"
+          />
+        </nav>
+      </header>
+      <MobileNavDrawer
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+      />
+    </>
   )
 }

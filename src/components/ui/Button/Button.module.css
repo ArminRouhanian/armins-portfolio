@@ -1,22 +1,15 @@
-/* ==========================================================================
-   Button Component Styles
-   ========================================================================== */
-
-/* Primary & Secondary Base Shape */
 .button {
   composes: text-button from global;
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 44px;
-  padding: 0 var(--spacing-md-lg);
   border-radius: var(--radius-sm);
   font-weight: var(--font-weight-medium);
   text-decoration: none;
   cursor: var(--cursor-pointer);
   transition:
-    transform 0.2s,
-    box-shadow 0.2s,
     background-color 0.2s,
     color 0.2s,
     border-color 0.2s;
@@ -24,16 +17,12 @@
   white-space: nowrap;
 }
 
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* 1. Primary: used in Header "Contact me", Hero "View work" */
 .primary {
   background: var(--color-bg-solid);
   color: var(--color-text-solid);
   border: 1.5px solid var(--color-bg-solid);
+  padding: 0 28px;
+  overflow: hidden;
 }
 
 .primary:hover {
@@ -42,19 +31,47 @@
   color: var(--color-text-solid);
 }
 
-/* 2. Secondary: white with border, used in Hero "Contact me" */
+.primary:hover .label {
+  transform: translateX(-9px);
+}
+
+.primary:hover .primaryArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.primaryArrow {
+  position: absolute;
+  right: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  color: currentColor;
+}
+
 .secondary {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
-  border: 1.5px solid var(--color-text-primary);
+  border: 1.5px solid var(--color-border-secondary);
+  padding: 0 var(--spacing-md-lg);
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    color 0.2s;
 }
 
 .secondary:hover {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
 }
 
-/* 3. Tertiary: backgroundless */
 .tertiary {
   display: inline-flex;
   align-items: center;
@@ -71,7 +88,18 @@
   box-sizing: border-box;
 }
 
-/* Tertiary light: used in Header nav "Work" and Project "Back to home" */
+.tertiary .label {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  transition: text-decoration-color var(--transition-base);
+}
+
+.tertiary:hover .label {
+  text-decoration-color: currentColor;
+}
+
 .tertiaryLight {
   color: var(--color-text-primary);
 }
@@ -80,7 +108,6 @@
   color: var(--color-text-brand-secondary);
 }
 
-/* Tertiary dark: used in Footer "Back to top" */
 .tertiaryDark {
   color: var(--color-text-solid);
 }
@@ -89,7 +116,6 @@
   color: var(--color-fg-brand-secondary);
 }
 
-/* 4. Icon Only: circular button with icon, used in modals and controls */
 .iconOnly {
   display: inline-flex;
   align-items: center;
@@ -130,9 +156,41 @@
   color: var(--color-text-solid);
 }
 
-/* 5. CTA: Large prominent conversion button (used in Footer "Contact me") */
+.iconPlain {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--color-text-primary);
+  cursor: var(--cursor-pointer);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+}
+
+.iconPlain:hover {
+  color: var(--color-text-brand-secondary);
+}
+
+.iconPlainDark {
+  color: var(--color-text-solid);
+}
+
+.iconPlainDark:hover {
+  color: var(--color-fg-brand-secondary);
+}
+
 .cta {
   composes: text-h4 from global;
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -140,29 +198,41 @@
   height: 64px;
   padding: 0 var(--spacing-xl);
   border-radius: var(--radius-sm);
-  background: var(--color-bg-primary);
+  background: transparent;
   color: var(--color-text-primary);
   box-sizing: border-box;
   text-decoration: none;
   cursor: var(--cursor-pointer);
   white-space: nowrap;
   border: none;
-  transition:
-    background-color 0.25s,
-    color 0.25s,
-    transform 0.25s,
-    border-radius 0.25s;
+  isolation: isolate;
+  transition: color 0.25s ease;
 }
 
-.cta:hover {
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-primary);
+  transition:
+    background-color 0.25s ease,
+    border-radius 0.25s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.cta:hover::before {
   background: var(--color-bg-brand-primary);
-  color: var(--color-text-solid);
-  transform: translateY(-3px);
   border-radius: var(--radius-pill);
 }
 
+.cta:hover {
+  color: var(--color-text-solid);
+}
+
 .cta .icon {
-  transition: transform 0.25s;
+  transition: transform 0.25s ease;
 }
 
 .cta:hover .icon {
@@ -176,13 +246,21 @@
     font-size: var(--font-size-body-lg);
     border-radius: var(--radius-md);
     padding: 0 var(--spacing-md-lg);
-    transform-origin: center center;
   }
 
-  .cta:hover {
+  .cta::before {
     border-radius: var(--radius-md);
-    transform: none;
   }
+
+  .cta:hover::before {
+    border-radius: var(--radius-md);
+  }
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .icon {
@@ -195,18 +273,24 @@
 @media (prefers-reduced-motion: reduce) {
   .button,
   .tertiary,
+  .tertiary .label,
   .iconOnly,
-  .cta {
+  .cta,
+  .cta::before,
+  .primaryArrow,
+  .label {
     transition: none;
   }
 
-  .button:hover,
-  .iconOnly:hover,
-  .cta:hover {
+  .cta:hover .icon {
     transform: none;
   }
 
-  .cta:hover .icon {
+  .primary:hover .label {
+    transform: none;
+  }
+
+  .primary:hover .primaryArrow {
     transform: none;
   }
 }

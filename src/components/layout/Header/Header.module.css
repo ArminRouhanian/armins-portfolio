@@ -16,7 +16,6 @@
   border-bottom: 1px solid var(--color-border-primary);
 }
 
-/* Extends solid white background upwards behind iOS Safari status bar & browser chrome */
 .header::before {
   content: '';
   position: absolute;
@@ -35,6 +34,7 @@
   gap: 10px;
   color: var(--color-text-primary);
   flex-shrink: 0;
+  text-decoration: none;
 }
 
 .brandName {
@@ -65,7 +65,7 @@
   flex-shrink: 0;
 }
 
-.mobileAboutButton {
+.menuButton {
   display: none;
 }
 
@@ -96,18 +96,15 @@
     gap: var(--spacing-xs);
   }
 
-  .mobileAboutButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 38px;
-    padding: 0 var(--spacing-sm);
-    font-size: var(--font-size-caption);
-  }
-
   .contactButton {
     height: 38px;
     padding: 0 var(--spacing-md);
     font-size: var(--font-size-caption);
+  }
+
+  .menuButton {
+    display: inline-flex;
+    height: 38px;
+    width: 38px;
   }
 }

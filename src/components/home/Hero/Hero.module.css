@@ -119,11 +119,11 @@
   }
 
   .badgeWrapper {
-    margin-top: var(--spacing-sm);
+    margin-top: var(--spacing-md);
   }
 
   .title {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-md-lg);
   }
 
   .subtitle {

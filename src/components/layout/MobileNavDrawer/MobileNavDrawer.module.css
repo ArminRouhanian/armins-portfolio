@@ -1,0 +1,124 @@
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition:
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.32s;
+  box-sizing: border-box;
+}
+
+.drawerOpen {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.topBar {
+  height: 60px;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-primary);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  filter: brightness(0);
+}
+
+.closeButton {
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.navRows {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--spacing-sm);
+}
+
+.navRow {
+  composes: text-h3 from global;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) 0;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  border-bottom: 1px solid var(--color-border-primary);
+  transition:
+    color var(--transition-fast),
+    padding-left var(--transition-fast);
+}
+
+.navRow:hover,
+.navRow:active {
+  color: var(--color-text-brand-secondary);
+  padding-left: var(--spacing-2xs);
+}
+
+.activeRow {
+  color: var(--color-text-brand-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.bottomArea {
+  padding: var(--spacing-lg) var(--spacing-md) max(var(--spacing-xl), env(safe-area-inset-bottom, 24px));
+  border-top: 1px solid var(--color-border-primary);
+  background-color: var(--color-bg-primary);
+  flex-shrink: 0;
+}
+
+.contactButton {
+  width: 100%;
+  height: 48px;
+  font-size: var(--font-size-body);
+}
+
+@media (min-width: 641px) {
+  .drawer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer {
+    transition: visibility 0.2s;
+    transform: none;
+    opacity: 0;
+  }
+
+  .drawerOpen {
+    opacity: 1;
+  }
+
+  .navRow:hover,
+  .navRow:active {
+    padding-left: 0;
+  }
+}

@@ -1,8 +1,7 @@
-import React from 'react'
 import { Icon } from '../Icon'
 import styles from './Button.module.css'
 
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'iconOnly' | 'cta'
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'iconOnly' | 'iconPlain' | 'cta'
 export type ButtonTheme = 'light' | 'dark'
 export type ButtonIconPosition = 'left' | 'right'
 
@@ -26,6 +25,8 @@ function getVariantClass(variant: ButtonVariant, theme: ButtonTheme): string {
       return `${styles.tertiary} ${isDark ? styles.tertiaryDark : styles.tertiaryLight}`
     case 'iconOnly':
       return `${styles.iconOnly}${isDark ? ` ${styles.iconOnlyDark}` : ''}`
+    case 'iconPlain':
+      return `${styles.iconPlain}${isDark ? ` ${styles.iconPlainDark}` : ''}`
     case 'cta':
       return styles.cta
     case 'primary':
@@ -62,6 +63,20 @@ export default function Button({
     />
   )
 
+  if (variant === 'iconOnly' || variant === 'iconPlain') {
+    return (
+      <Component
+        className={combinedClass}
+        {...defaultButtonType}
+        {...rest}
+      >
+        {iconElement || children}
+      </Component>
+    )
+  }
+
+  const isPrimary = variant === 'primary'
+
   return (
     <Component
       className={combinedClass}
@@ -69,8 +84,21 @@ export default function Button({
       {...rest}
     >
       {iconPosition === 'left' && iconElement}
-      {children}
+      <span className={styles.label}>
+        {children}
+      </span>
       {iconPosition === 'right' && iconElement}
+      {isPrimary && !icon && (
+        <span
+          className={styles.primaryArrow}
+          aria-hidden="true"
+        >
+          <Icon
+            name="arrow-right"
+            size={16}
+          />
+        </span>
+      )}
     </Component>
   )
 }

@@ -43,8 +43,8 @@ export default function Hero() {
         to your product
       </h1>
       <p className={styles.subtitle}>
-        Hi, I am Armin. I turn fuzzy ideas into products people understand and
-        want to use.
+        Hi, I am Armin, a product designer with +4 years of experience turning fuzzy ideas into products people understand and
+        want to use.  
       </p>
       <div className={styles.actions}>
         <Button

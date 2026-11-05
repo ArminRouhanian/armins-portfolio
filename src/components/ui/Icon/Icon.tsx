@@ -12,6 +12,7 @@ export type IconName =
   | 'plus'
   | 'star'
   | 'warning'
+  | 'menu'
   | (string & {})
 
 export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
