@@ -148,9 +148,3 @@ The project is preconfigured for zero-config deployments on **Vercel** with SPA 
   ]
 }
 ```
-
----
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
