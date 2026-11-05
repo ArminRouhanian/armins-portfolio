@@ -1,6 +1,6 @@
 # Armin Rouhanian — Product Design & UX Engineering Portfolio
 
-A modern, high-performance personal portfolio built with **React 18**, **Vite**, and **CSS Modules**. Designed to showcase end-to-end product design, systems architecture, responsive interfaces, and technical collaboration across complex enterprise, B2B, and B2B2C platforms.
+A modern, high-performance personal portfolio built with **React 18**, **TypeScript**, **Vite**, and **CSS Modules**. Designed to showcase end-to-end product design, systems architecture, responsive interfaces, and technical collaboration across complex enterprise, B2B, and B2B2C platforms.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com)
 
@@ -8,19 +8,28 @@ A modern, high-performance personal portfolio built with **React 18**, **Vite**,
 
 ## Highlights & Features
 
-- **Component-Driven Architecture**: Modular, maintainable components built with strict separation of concerns, zero bloated UI libraries, and pure CSS Modules.
+- **Component-Driven & Fully Typed Architecture**: Built with strict TypeScript (`strict: true`, `noImplicitAny: true`), pure CSS Modules, and zero third-party UI library bloat.
+- **Unified Page Shell (`MainLayout`)**: Consistent, reusable page layout consolidating header, main landmark, footer, and scroll behaviors across all routes.
 - **Figma-Inspired Micro-Interactions**: Custom multiplayer-style cursor, animated selection bounding boxes, and an orbit system spotlighting everyday product & development tools.
-- **Interactive Design Showcase**: 
+- **Full-Page Mobile Navigation**: Sleek, mobile-first slide drawer with a 2-line hamburger button, frameless icon buttons, aligned brand anchor, and body scroll lock.
+- **Modular About Experience**: Fully decomposed sections covering Design Philosophy, Track Record & Experience, Capabilities Matrix (with mobile Carousel), Beyond Work personal snapshot, and CTA banner.
+- **Interactive Design Showcase & Lightbox**:
   - Dynamic desktop browser frames & mobile device skins with responsive previews.
-  - Fullscreen Lightbox viewer with touch swipe gestures, thumbnail strip auto-centering, keyboard navigation (`ArrowLeft` / `ArrowRight` / `Escape`), and custom scrollable mockup views.
-  - Deep history management using native `popstate` / `history.pushState` to intercept mobile back button gestures without triggering ghost scroll-lock bugs.
-- **Bulletproof Fallback & Preloading**:
-  - Dark shimmer skeleton loading states (`useImageLoaded.js`) with cache persistence.
-  - Clean brand-aligned fallback placeholders (`ImagePlaceholder.jsx`) using CSS mask-mode vectors and low-contrast palette tokens.
+  - Standardized `<Carousel>` on mobile viewports with centered peek mode and dark-themed `dots-only` pagination.
+  - Fullscreen Lightbox viewer with touch swipe gestures, thumbnail strip auto-centering, keyboard navigation (`ArrowLeft` / `ArrowRight` / `Escape`), and deep history state management (`history.pushState` / `popstate`) for native back-gesture support.
+- **Micro-Interactions on Design System Buttons**:
+  - `primary`: Wider comfortable padding with a smooth arrow reveal on hover that shifts the text without resizing button width.
+  - `secondary`: Lighter neutral idle border transitioning smoothly to dark on hover with zero elevation.
+  - `tertiary`: Clean text-only underline on hover without underlining leading/trailing icons.
+  - `cta`: Prominent conversion button with an isolated hover hitbox that eliminates lag when rounding corners.
+  - `iconPlain` & `iconOnly`: Lightweight, accessible icon button primitives.
+- **Bulletproof Fallback & Shimmer States**:
+  - Dark skeleton shimmer loading states (`useImageLoaded.ts`) with cache persistence.
+  - Clean brand-aligned fallback placeholders (`ImagePlaceholder.tsx`) using CSS mask-mode vectors.
 - **Tokenized Design System**:
-  - Strict semantic design tokens (`palette.css`, `typography.css`) defining surfaces, borders, text hierarchies, and brand accent colors.
-- **Accessible & Performance-Focused**:
-  - Accessible dialog overlays, ARIA labels, semantic landmark regions, reduced motion queries (`prefers-reduced-motion`), and pure `.webp` asset optimizations.
+  - Strict semantic design tokens (`palette.css`, `typography.css`, `layout.css`) defining surfaces, borders, text hierarchies, and brand accent colors.
+- **SEO & Social Previews**:
+  - Retina 2400×1260 Open Graph and Twitter Card preview tags optimized for Telegram, X (Twitter), and LinkedIn.
 
 ---
 
@@ -29,10 +38,11 @@ A modern, high-performance personal portfolio built with **React 18**, **Vite**,
 | Layer | Technology |
 |---|---|
 | **Core Framework** | [React 18](https://react.dev/) |
+| **Language** | [TypeScript 5](https://www.typescriptlang.org/) (Strict Mode) |
 | **Build Tooling** | [Vite 5](https://vitejs.dev/) |
 | **Routing** | [React Router v6](https://reactrouter.com/) |
 | **Styling** | CSS Modules + Custom Design Tokens (Pure CSS, CSS Masks, zero CSS-in-JS overhead) |
-| **Code Formatting** | [Prettier](https://prettier.io/) |
+| **Icons** | Custom currentColor SVG Icon Mask System |
 | **Hosting & Deployment** | [Vercel](https://vercel.com/) (configured with SPA client-side rewrite in `vercel.json`) |
 
 ---
@@ -46,25 +56,31 @@ A modern, high-performance personal portfolio built with **React 18**, **Vite**,
 │   │   ├── tools/          # Brand logos for the tools animation stage
 │   │   ├── projects/       # Optimized .webp thumbnails and showcase mockups
 │   │   ├── cursor.svg      # Custom multiplayer Figma cursor
-│   │   └── logo.svg        # Brand vector logo with currentColor inheritance
+│   │   ├── logo.svg        # Brand vector logo with currentColor inheritance
+│   │   └── profile.webp    # Profile photography for the About page
+│   ├── og-image.jpg        # High-res 2400x1260 Open Graph social preview
 │   ├── favicon.png
 │   └── favicon.ico
 ├── src/
 │   ├── components/
-│   │   ├── ui/             # Pure Design System primitives (Button, Badge, Alert, Cursor, etc.)
-│   │   ├── layout/         # Global layout shell (Header, Footer, ScrollToTop)
+│   │   ├── about/          # Modular About page sections (Hero, Philosophy, Experience, etc.)
 │   │   ├── home/           # Homepage sections (Hero, SelectedWork, Tools, CaseStudies)
-│   │   └── project/        # Case study sections and co-located subcomponents
+│   │   ├── layout/         # Shell components (Header, Footer, MainLayout, MobileNavDrawer, ScrollToTop)
+│   │   ├── project/        # Case study layout & sections (Hero, Description, Impact, Timeline, Showcase)
+│   │   └── ui/             # Reusable primitives (Button, Badge, Alert, Carousel, Icon, ImagePlaceholder)
 │   ├── data/
-│   │   ├── projectsData.js # Central project registry
-│   │   └── projects/       # Typed content schemas (Pinket Customer, Dashboards, MetaMondial)
-│   ├── hooks/              # Custom hooks (scroll lock, image loading, anchor interactions)
-│   ├── pages/              # Route entry pages (Home, dynamic ProjectDetailPage)
+│   │   ├── projects/       # Strongly typed project data (Pinket Customer, Dashboards, MetaMondial)
+│   │   └── projectsData.ts # Central project registry & slug resolver
+│   ├── hooks/              # Custom hooks (scroll lock, image loading, footer CTA nudge, smooth scroll)
+│   ├── pages/              # Route entry pages (HomePage, AboutPage, ProjectDetailPage)
 │   ├── styles/             # Global CSS tokens (palette.css, typography.css, layout.css)
-│   ├── App.jsx             # SPA routing declarations with React.lazy code splitting
+│   ├── types/              # Centralized TypeScript definitions (ProjectData, Hero, Impact, Showcase, etc.)
+│   ├── utils/              # Helper utilities (mailto URL generator, contact handlers)
+│   ├── App.tsx             # SPA routing declarations with React.lazy code splitting
 │   ├── index.css           # Global resets and skeleton shimmer animations
-│   └── main.jsx            # Application entry point
+│   └── main.tsx            # Application entry point
 ├── vercel.json             # SPA routing rules for production deployment
+├── tsconfig.json           # TypeScript strict compiler configuration
 ├── vite.config.js          # Vite build configuration
 └── package.json
 ```
@@ -96,6 +112,14 @@ npm run dev
 ```
 
 Visit `http://localhost:5173` in your browser.
+
+### Type Checking
+
+To run the TypeScript compiler in check-only mode:
+
+```bash
+npm run typecheck
+```
 
 ### Production Build
 
