@@ -7,7 +7,7 @@ export const pinketCustomerData: ProjectData = {
     tags: ['B2B2C', 'Web app', 'Platform'],
     title: 'Pinket: Customer App',
     subtitle: 'Smart Wallet for Organizational Welfare',
-    mockupUrl: 'yourproduct.com',
+    mockupUrl: 'pinket.com',
     thumbnail: '/assets/projects/pinket-customer/thumbnail.webp',
     mockupGradient: 'linear-gradient(135deg, var(--color-purple-light), var(--color-primary-light))',
     meta: [
