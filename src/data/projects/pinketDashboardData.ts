@@ -1,4 +1,6 @@
-export const pinketDashboardData = {
+import { ProjectData } from '../../types/project'
+
+export const pinketDashboardData: ProjectData = {
   id: 'pinket-dashboard',
   thumbnail: '/assets/projects/pinket-dashboard/thumbnail.webp',
   hero: {
@@ -162,18 +164,6 @@ export const pinketDashboardData = {
         bg: '/assets/projects/pinket-dashboard/mockups/showcase-tokenized-design-system.webp',
         label: 'Token System That Unified Our Design'
       }
-      // {
-      //   gradient: 'linear-gradient(135deg, var(--color-primary-light), var(--color-green))',
-      //   label: 'Smart Contract Tool'
-      // },
-      // {
-      //   gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-purple-light))',
-      //   label: 'Responsive Tablet View'
-      // },
-      // {
-      //   gradient: 'linear-gradient(135deg, var(--color-orange), var(--color-orange-light))',
-      //   label: 'Responsive Mobile Moderation'
-      // }
     ]
   },
   comments: [

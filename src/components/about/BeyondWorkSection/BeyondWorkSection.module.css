@@ -1,0 +1,104 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.personalCard {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: var(--shadow-sm);
+}
+
+.personalText {
+  background: var(--color-bg-brand-primary);
+  padding: var(--spacing-3xl) var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+.personalTitle {
+  composes: text-h3 from global;
+  color: var(--color-text-solid);
+  margin: 0;
+}
+
+.personalBody {
+  composes: text-body from global;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  line-height: var(--line-height-body);
+}
+
+.personalList {
+  background: var(--color-bg-primary);
+  padding: var(--spacing-3xl) var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  justify-content: center;
+}
+
+.personalItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.personalItemHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.personalBulletIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-brand-primary);
+  flex-shrink: 0;
+  display: block;
+}
+
+.cardTitle {
+  composes: text-h4 from global;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.personalItemBody {
+  composes: text-body from global;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+  margin: 0;
+  padding-left: calc(16px + var(--spacing-xs));
+}
+
+@media (max-width: 860px) {
+  .personalCard {
+    grid-template-columns: 1fr;
+  }
+
+  .personalText {
+    padding: var(--spacing-2xl) var(--spacing-xl);
+  }
+
+  .personalList {
+    padding: var(--spacing-2xl) var(--spacing-xl);
+  }
+}
+
+@media (max-width: 640px) {
+  .personalText {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .personalList {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+}

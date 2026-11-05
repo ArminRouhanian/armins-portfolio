@@ -1,9 +1,13 @@
-import React from 'react'
 import ImagePlaceholder from '../../../ui/ImagePlaceholder/ImagePlaceholder'
 import useImageLoaded from '../../../../hooks/useImageLoaded'
+import { ShowcaseItem } from '../../../../types/project'
 import styles from './ShowcaseLightbox.module.css'
 
-export const getItemBackground = (item) => {
+export interface ShowcaseSlideItem extends ShowcaseItem {
+  mockupUrl?: string
+}
+
+export const getItemBackground = (item?: ShowcaseSlideItem): string => {
   if (!item) return 'linear-gradient(135deg, var(--color-fg-accent-purple_light), var(--color-fg-brand-secondary))'
   const img = item.image || item.src || (item.bg && !item.bg.includes('gradient') ? item.bg : null)
   if (img) {
@@ -12,12 +16,12 @@ export const getItemBackground = (item) => {
   return item.gradient || item.bg || 'linear-gradient(135deg, var(--color-fg-accent-purple_light), var(--color-fg-brand-secondary))'
 }
 
-export const getItemImage = (item) => {
+export const getItemImage = (item?: ShowcaseSlideItem): string | null => {
   if (!item) return null
   return item.image || item.src || (item.bg && !item.bg.includes('gradient') ? item.bg : null)
 }
 
-export function LightboxDesktopSlide({ item }) {
+export function LightboxDesktopSlide({ item }: { item: ShowcaseSlideItem }) {
   const img = getItemImage(item)
   const { isLoaded, hasError } = useImageLoaded(img)
 
@@ -51,7 +55,7 @@ export function LightboxDesktopSlide({ item }) {
   )
 }
 
-export function LightboxMobileSlide({ item }) {
+export function LightboxMobileSlide({ item }: { item: ShowcaseSlideItem }) {
   const img = getItemImage(item)
   const { isLoaded, hasError } = useImageLoaded(img)
 
@@ -72,13 +76,21 @@ export function LightboxMobileSlide({ item }) {
   )
 }
 
+export interface ShowcaseSlideProps {
+  item: ShowcaseSlideItem
+  isActive: boolean
+  slideDirection: 'next' | 'prev' | string
+  isMobile: boolean
+  resolvedUrl: string
+}
+
 export default function ShowcaseSlide({
   item,
   isActive,
   slideDirection,
   isMobile,
   resolvedUrl
-}) {
+}: ShowcaseSlideProps) {
   return (
     <div
       className={`${styles.slide}${
@@ -91,9 +103,7 @@ export default function ShowcaseSlide({
       data-n={item.label}
     >
       {isMobile ? (
-        <LightboxMobileSlide
-          item={item}
-        />
+        <LightboxMobileSlide item={item} />
       ) : (
         <div className={styles.browserFrame}>
           <div className={styles.browserBar}>
@@ -105,9 +115,7 @@ export default function ShowcaseSlide({
             </span>
           </div>
           <div className={styles.browserImageWrap}>
-            <LightboxDesktopSlide
-              item={item}
-            />
+            <LightboxDesktopSlide item={item} />
           </div>
         </div>
       )}

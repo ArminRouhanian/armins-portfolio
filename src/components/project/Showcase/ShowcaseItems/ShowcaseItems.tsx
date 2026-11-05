@@ -1,16 +1,22 @@
 import React, { forwardRef } from 'react'
 import ImagePlaceholder from '../../../ui/ImagePlaceholder/ImagePlaceholder'
 import useImageLoaded from '../../../../hooks/useImageLoaded'
+import { ShowcaseItem } from '../../../../types/project'
 import styles from './ShowcaseItems.module.css'
 
-interface ShowcaseCardItemProps {
-  item: any
+export interface ShowcaseCardItemProps {
+  item: ShowcaseItem
   index: number
   isMobile: boolean
   onItemClick?: (index: number) => void
 }
 
-function ShowcaseCardItem({ item, index, isMobile, onItemClick }: ShowcaseCardItemProps) {
+export function ShowcaseCardItem({
+  item,
+  index,
+  isMobile,
+  onItemClick
+}: ShowcaseCardItemProps) {
   const img = item.image || item.src || (item.bg && !item.bg.includes('gradient') ? item.bg : null)
   const { isLoaded, hasError } = useImageLoaded(img)
 
@@ -76,7 +82,9 @@ function ShowcaseCardItem({ item, index, isMobile, onItemClick }: ShowcaseCardIt
           className={`${styles.desktopScreen}${img && !isLoaded ? ' skeletonDark' : ''}`}
           style={bgStyle}
         >
-          {hasError && <ImagePlaceholder iconSize={48} />}
+          {hasError && (
+            <ImagePlaceholder iconSize={48} />
+          )}
         </div>
       </div>
     </div>
@@ -84,7 +92,7 @@ function ShowcaseCardItem({ item, index, isMobile, onItemClick }: ShowcaseCardIt
 }
 
 export interface ShowcaseItemsProps {
-  items?: any[]
+  items?: ShowcaseItem[]
   type?: 'desktop' | 'mobile' | string
   onItemClick?: (index: number) => void
   onScroll?: React.UIEventHandler<HTMLDivElement>

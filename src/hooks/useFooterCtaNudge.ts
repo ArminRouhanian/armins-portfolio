@@ -1,11 +1,9 @@
 import { useEffect } from 'react'
 
-/**
- * Triggers a subtle nudge animation on the footer CTA button (.fcta)
- * after it has been in the viewport for 2 seconds.
- */
-export function useFooterCtaNudge(): void {
+export function useFooterCtaNudge(enabled: boolean = true): void {
   useEffect(() => {
+    if (!enabled) return
+
     const cta = document.querySelector<HTMLElement>('.fcta')
     if (
       !cta ||
@@ -49,5 +47,5 @@ export function useFooterCtaNudge(): void {
       if (timeoutId) clearTimeout(timeoutId)
       cta.removeEventListener('animationend', handleAnimEnd)
     }
-  }, [])
+  }, [enabled])
 }

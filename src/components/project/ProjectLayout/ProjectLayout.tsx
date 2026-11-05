@@ -1,6 +1,4 @@
-import React from 'react'
-import Header from '../../layout/Header/Header'
-import Footer from '../../layout/Footer/Footer'
+import MainLayout from '../../layout/MainLayout/MainLayout'
 import Hero from '../Hero/Hero'
 import Description from '../Description/Description'
 import Impact from '../Impact/Impact'
@@ -10,9 +8,21 @@ import Comments from '../Comments/Comments'
 import ProjectPagination from '../ProjectPagination/ProjectPagination'
 import SectionNav from '../SectionNav/SectionNav'
 import { useCaseStudyInteractions } from '../../../hooks/useCaseStudyInteractions'
-import styles from './ProjectLayout.module.css'
+import { ProjectData } from '../../../types/project'
 
-export default function ProjectLayout({ project }) {
+export interface ProjectLayoutProps {
+  project?: ProjectData | null
+}
+
+const SECTION_TITLES: Record<string, string> = {
+  description: 'OVERVIEW',
+  impact: 'IMPACT',
+  timeline: 'TIMELINE',
+  showcase: 'SHOWCASE',
+  comments: 'FEEDBACK'
+}
+
+export default function ProjectLayout({ project }: ProjectLayoutProps) {
   useCaseStudyInteractions()
 
   if (!project) return null
@@ -26,15 +36,6 @@ export default function ProjectLayout({ project }) {
     'comments'
   ]
 
-  const SECTION_TITLES = {
-    description: 'OVERVIEW',
-    impact: 'IMPACT',
-    timeline: 'TIMELINE',
-    showcase: 'SHOWCASE',
-    comments: 'FEEDBACK'
-  }
-
-  // Filter out sections that are not present in data (or hero which has no section label)
   const numberedSections = order.filter((key) => {
     if (key === 'hero') return false
     if (key === 'description' && !project.overview) return false
@@ -45,7 +46,7 @@ export default function ProjectLayout({ project }) {
     return true
   })
 
-  const getSectionLabel = (key) => {
+  const getSectionLabel = (key: string): string | undefined => {
     const idx = numberedSections.indexOf(key)
     if (idx === -1) return undefined
     const numPrefix = String(idx + 1).padStart(2, '0')
@@ -53,7 +54,7 @@ export default function ProjectLayout({ project }) {
     return `${numPrefix} · ${title}`
   }
 
-  const renderSection = (key) => {
+  const renderSection = (key: string) => {
     switch (key) {
       case 'hero':
         return (
@@ -91,7 +92,7 @@ export default function ProjectLayout({ project }) {
           <Showcase
             key="showcase"
             showcase={project.showcase}
-            mockupUrl={project.hero?.mockupUrl}
+            mockupUrl={project.hero.mockupUrl}
             label={getSectionLabel('showcase')}
           />
         ) : null
@@ -109,17 +110,10 @@ export default function ProjectLayout({ project }) {
   }
 
   return (
-    <div id="top" className={styles.pageContainer}>
-      <Header />
-      <main
-        id="pgs"
-        className={`${styles.mainContent} pgs`}
-      >
-        {order.map((key) => renderSection(key))}
-        <ProjectPagination nav={project.nav} />
-        <SectionNav items={project.navItems} />
-      </main>
-      <Footer />
-    </div>
+    <MainLayout>
+      {order.map((key) => renderSection(key))}
+      <ProjectPagination nav={project.nav} />
+      <SectionNav items={project.navItems} />
+    </MainLayout>
   )
 }

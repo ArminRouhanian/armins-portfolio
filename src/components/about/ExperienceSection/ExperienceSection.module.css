@@ -1,0 +1,96 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.timelineItem {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base);
+}
+
+.timelineItem:hover {
+  border-color: var(--color-border-brand-primary);
+}
+
+.timelineHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.timelineRoleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+}
+
+.timelineRole {
+  composes: text-h4 from global;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.timelineCompany {
+  composes: text-body from global;
+  color: var(--color-text-brand-primary);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+}
+
+.timelineMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.timelinePeriod {
+  composes: text-caption from global;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-secondary);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.timelineDescription {
+  composes: text-body from global;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+  margin: 0;
+}
+
+.timelineHighlights {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  color: var(--color-text-secondary);
+}
+
+.timelineHighlightItem {
+  composes: text-body-sm from global;
+  line-height: var(--line-height-body-sm);
+}
+
+@media (max-width: 640px) {
+  .timelineItem {
+    padding: var(--spacing-lg);
+  }
+}

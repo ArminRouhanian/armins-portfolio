@@ -1,4 +1,3 @@
-import React from 'react'
 import FooterAnimation from './FooterAnimation'
 import Button from '../../ui/Button/Button'
 import SocialButton from './SocialButton/SocialButton'

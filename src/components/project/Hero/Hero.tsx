@@ -1,15 +1,19 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../../ui/Button/Button'
 import Badge from '../../ui/Badge/Badge'
 import ImagePlaceholder from '../../ui/ImagePlaceholder/ImagePlaceholder'
 import useImageLoaded from '../../../hooks/useImageLoaded'
+import { ProjectHeroData } from '../../../types/project'
 import styles from './Hero.module.css'
 
-export default function Hero({ hero }) {
+export interface HeroProps {
+  hero: ProjectHeroData
+}
+
+export default function Hero({ hero }: HeroProps) {
   if (!hero) return null
 
-  const thumbnail = hero.thumbnail || hero.mockupImage
+  const thumbnail = hero.thumbnail
   const { isLoaded, hasError } = useImageLoaded(thumbnail)
 
   return (
@@ -25,7 +29,7 @@ export default function Hero({ hero }) {
         Back to home
       </Button>
       <div className={styles.tags}>
-        {hero.tags.map(tag => (
+        {hero.tags.map((tag) => (
           <Badge key={tag} variant="white">
             {tag}
           </Badge>
@@ -62,16 +66,12 @@ export default function Hero({ hero }) {
                 : undefined
             }}
           >
-            {hasError ? (
-              <ImagePlaceholder iconSize={64} />
-            ) : thumbnail ? null : (
-              hero.mockupContent || null
-            )}
+            {hasError && <ImagePlaceholder iconSize={64} />}
           </div>
         </div>
       </div>
       <div className={styles.metaGrid}>
-        {hero.meta.map(item => (
+        {hero.meta.map((item) => (
           <div key={item.label} className={styles.metaItem}>
             <p className={styles.metaLabel}>
               {item.label}

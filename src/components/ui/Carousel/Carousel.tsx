@@ -1,5 +1,9 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react'
-import CarouselController, { CarouselControllerProps } from './CarouselController'
+import CarouselController, {
+  CarouselControllerProps,
+  CarouselControllerVariant,
+  CarouselTheme
+} from './CarouselController'
 import styles from './Carousel.module.css'
 
 export interface CarouselProps {
@@ -21,6 +25,10 @@ export interface CarouselProps {
   showController?: boolean
   /** Controller position relative to slides */
   controllerPosition?: 'bottom' | 'top'
+  /** Variant of the controller (default: dots and buttons, 'dots-only': centered dots with no buttons, 'buttons-only') */
+  controllerVariant?: CarouselControllerVariant
+  /** Theme of the controller ('light' | 'dark') */
+  theme?: CarouselTheme
   /** Custom options passed directly to the controller */
   controllerProps?: Partial<
     Omit<
@@ -53,6 +61,8 @@ export default function Carousel({
   gap = '16px',
   showController = true,
   controllerPosition = 'bottom',
+  controllerVariant = 'default',
+  theme = 'light',
   controllerProps,
   initialIndex = 0,
   onIndexChange,
@@ -200,6 +210,8 @@ export default function Carousel({
         total={total}
         activeIndex={activeIndex}
         infinite={isInfinite}
+        variant={controllerVariant}
+        theme={theme}
         onPrev={handlePrev}
         onNext={handleNext}
         onSelectIndex={handleSelectIndex}

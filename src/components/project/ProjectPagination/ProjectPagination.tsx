@@ -1,4 +1,3 @@
-import React from 'react'
 import PaginationCard, { PaginationTarget } from './PaginationCard/PaginationCard'
 import styles from './ProjectPagination.module.css'
 

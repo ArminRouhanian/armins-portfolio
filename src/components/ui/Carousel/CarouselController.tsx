@@ -1,6 +1,8 @@
-import React from 'react'
 import { Icon } from '../Icon'
 import styles from './CarouselController.module.css'
+
+export type CarouselControllerVariant = 'default' | 'dots-only' | 'buttons-only'
+export type CarouselTheme = 'light' | 'dark'
 
 export interface CarouselControllerProps {
   total: number
@@ -9,6 +11,8 @@ export interface CarouselControllerProps {
   onNext: () => void
   onSelectIndex?: (index: number) => void
   infinite?: boolean
+  variant?: CarouselControllerVariant
+  theme?: CarouselTheme
   showDots?: boolean
   showButtons?: boolean
   showCounter?: boolean
@@ -24,6 +28,8 @@ export default function CarouselController({
   onNext,
   onSelectIndex,
   infinite = false,
+  variant = 'default',
+  theme = 'light',
   showDots = true,
   showButtons = true,
   showCounter = true,
@@ -36,11 +42,16 @@ export default function CarouselController({
   const isPrevDisabled = !infinite && activeIndex <= 0
   const isNextDisabled = !infinite && activeIndex >= total - 1
 
-  const isOnlyDots = showDots && !showButtons
-  const isOnlyButtons = !showDots && showButtons
+  const effectiveShowDots = variant === 'buttons-only' ? false : showDots
+  const effectiveShowButtons = variant === 'dots-only' ? false : showButtons
+  const effectiveShowCounter = variant === 'dots-only' ? false : showCounter
+
+  const isOnlyDots = effectiveShowDots && !effectiveShowButtons
+  const isOnlyButtons = !effectiveShowDots && effectiveShowButtons
 
   const containerClasses = [
     styles.carouselControls,
+    theme === 'dark' ? styles.dark : '',
     isOnlyDots ? styles.onlyDots : '',
     isOnlyButtons ? styles.onlyButtons : '',
     className || ''
@@ -50,7 +61,7 @@ export default function CarouselController({
 
   return (
     <div className={containerClasses}>
-      {showDots && (
+      {effectiveShowDots && (
         <div
           className={styles.carouselDots}
           role="tablist"
@@ -73,7 +84,7 @@ export default function CarouselController({
         </div>
       )}
 
-      {showButtons && (
+      {effectiveShowButtons && (
         <div className={styles.carouselButtons}>
           <button
             type="button"
@@ -89,7 +100,7 @@ export default function CarouselController({
             />
           </button>
 
-          {showCounter && (
+          {effectiveShowCounter && (
             <span className={styles.carouselCounter}>
               {activeIndex + 1} / {total}
             </span>

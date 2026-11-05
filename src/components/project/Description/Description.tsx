@@ -1,9 +1,14 @@
-import React from 'react'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import Alert from '../../ui/Alert/Alert'
+import { ProjectOverviewData } from '../../../types/project'
 import styles from './Description.module.css'
 
-export default function Description({ overview, label = '01 · OVERVIEW' }) {
+export interface DescriptionProps {
+  overview?: ProjectOverviewData
+  label?: string
+}
+
+export default function Description({ overview, label = '01 · OVERVIEW' }: DescriptionProps) {
   if (!overview) return null
 
   return (
@@ -39,7 +44,7 @@ export default function Description({ overview, label = '01 · OVERVIEW' }) {
         {overview.alert && (
           <div className={styles.alertWrap}>
             <Alert variant={overview.alert.variant || 'info'}>
-              {overview.alert.text || overview.alert}
+              {overview.alert.text}
             </Alert>
           </div>
         )}

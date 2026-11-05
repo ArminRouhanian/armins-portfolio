@@ -1,0 +1,163 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.cardsGrid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.cardClarity {
+  background: linear-gradient(180deg, rgba(230, 244, 254, 0.65) 0%, var(--color-bg-primary) 130px);
+  border-top: 3px solid var(--color-blue-500);
+}
+
+.cardClarity:hover {
+  border-color: var(--color-blue-400);
+  box-shadow: 0 12px 28px -4px rgba(13, 153, 255, 0.16);
+}
+
+.badgeClarity {
+  composes: text-label from global;
+  background: var(--color-blue-100);
+  color: var(--color-blue-700);
+  border: 1px solid var(--color-blue-200);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dotClarity {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-blue-500);
+  box-shadow: 0 0 0 2px var(--color-blue-200);
+}
+
+.accentClarity {
+  color: var(--color-blue-600);
+}
+
+.cardStructure {
+  background: linear-gradient(180deg, rgba(246, 237, 255, 0.65) 0%, var(--color-bg-primary) 130px);
+  border-top: 3px solid var(--color-purple-500);
+}
+
+.cardStructure:hover {
+  border-color: var(--color-purple-400);
+  box-shadow: 0 12px 28px -4px rgba(138, 63, 240, 0.16);
+}
+
+.badgeStructure {
+  composes: text-label from global;
+  background: var(--color-purple-100);
+  color: var(--color-purple-700);
+  border: 1px solid var(--color-purple-200);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dotStructure {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-purple-500);
+  box-shadow: 0 0 0 2px var(--color-purple-200);
+}
+
+.accentStructure {
+  color: var(--color-purple-600);
+}
+
+.cardValue {
+  background: linear-gradient(180deg, rgba(229, 251, 241, 0.65) 0%, var(--color-bg-primary) 130px);
+  border-top: 3px solid var(--color-green-500);
+}
+
+.cardValue:hover {
+  border-color: var(--color-green-400);
+  box-shadow: 0 12px 28px -4px rgba(10, 207, 131, 0.16);
+}
+
+.badgeValue {
+  composes: text-label from global;
+  background: var(--color-green-100);
+  color: var(--color-green-700);
+  border: 1px solid var(--color-green-200);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dotValue {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-green-500);
+  box-shadow: 0 0 0 2px var(--color-green-200);
+}
+
+.accentValue {
+  color: var(--color-green-600);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardTitle {
+  composes: text-h4 from global;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.cardBody {
+  composes: text-body from global;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: var(--line-height-body);
+}
+
+@media (max-width: 860px) {
+  .cardsGrid3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--spacing-lg);
+  }
+}

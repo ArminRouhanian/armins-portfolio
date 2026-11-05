@@ -1,0 +1,88 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.cardsGrid4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.carouselWrapper {
+  display: none;
+  width: 100%;
+}
+
+.card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.carouselWrapper .card {
+  height: 100%;
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  composes: text-h4 from global;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.cardBody {
+  composes: text-body from global;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: var(--line-height-body);
+}
+
+.skillPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-2xs);
+}
+
+.skillPill {
+  composes: text-body-sm from global;
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 860px) {
+  .cardsGrid4 {
+    display: none;
+  }
+
+  .carouselWrapper {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--spacing-lg);
+  }
+}

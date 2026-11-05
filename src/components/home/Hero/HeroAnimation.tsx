@@ -1,4 +1,3 @@
-import React from 'react'
 import Cursor from '../../ui/Cursor/Cursor'
 import styles from './HeroAnimation.module.css'
 

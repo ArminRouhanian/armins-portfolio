@@ -1,8 +1,15 @@
-import React from 'react'
 import ImagePlaceholder from '../../../ui/ImagePlaceholder/ImagePlaceholder'
 import useImageLoaded from '../../../../hooks/useImageLoaded'
-import { getItemBackground, getItemImage } from './ShowcaseSlide'
+import { getItemBackground, getItemImage, ShowcaseSlideItem } from './ShowcaseSlide'
 import styles from './ShowcaseLightbox.module.css'
+
+export interface ShowcaseThumbnailProps {
+  item: ShowcaseSlideItem
+  isMobile: boolean
+  isActive: boolean
+  onClick: () => void
+  buttonRef: (el: HTMLButtonElement | null) => void
+}
 
 export default function ShowcaseThumbnail({
   item,
@@ -10,7 +17,7 @@ export default function ShowcaseThumbnail({
   isActive,
   onClick,
   buttonRef
-}) {
+}: ShowcaseThumbnailProps) {
   const img = getItemImage(item)
   const { isLoaded, hasError } = useImageLoaded(img)
 

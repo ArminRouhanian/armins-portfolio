@@ -1,4 +1,3 @@
-import React from 'react'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import CommentCard, { CommentCardProps } from './CommentCard/CommentCard'
 import { Carousel } from '../../ui/Carousel'

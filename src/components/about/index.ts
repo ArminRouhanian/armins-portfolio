@@ -1,0 +1,6 @@
+export { default as AboutHero } from './AboutHero/AboutHero'
+export { default as PhilosophySection } from './PhilosophySection/PhilosophySection'
+export { default as ExperienceSection } from './ExperienceSection/ExperienceSection'
+export { default as CapabilitiesSection } from './CapabilitiesSection/CapabilitiesSection'
+export { default as BeyondWorkSection } from './BeyondWorkSection/BeyondWorkSection'
+export { default as AboutCtaBanner } from './AboutCtaBanner/AboutCtaBanner'

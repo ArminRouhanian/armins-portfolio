@@ -1,9 +1,14 @@
-import React from 'react'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import MetricCard from './MetricCard/MetricCard'
+import { ProjectImpactData } from '../../../types/project'
 import styles from './Impact.module.css'
 
-export default function Impact({ impact, label = '02 · IMPACT' }) {
+export interface ImpactProps {
+  impact: ProjectImpactData
+  label?: string
+}
+
+export default function Impact({ impact, label = '02 · IMPACT' }: ImpactProps) {
   if (!impact) return null
 
   return (
@@ -12,7 +17,6 @@ export default function Impact({ impact, label = '02 · IMPACT' }) {
         <div className={styles.backgroundGrid} />
       </div>
       <section id="impact" className={styles.section}>
-        {/* Desktop interactive sticky layout */}
         <div className={styles.desktopStickyLayout}>
           <div className={styles.stickyLayout}>
             <div>
@@ -81,7 +85,6 @@ export default function Impact({ impact, label = '02 · IMPACT' }) {
           />
         </div>
 
-        {/* Mobile vertical flow with compact cards under each title */}
         <div className={styles.mobileLayout}>
           <SectionHeader
             theme="dark"

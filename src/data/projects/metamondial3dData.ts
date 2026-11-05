@@ -1,4 +1,6 @@
-export const metamondial3dData = {
+import { ProjectData } from '../../types/project'
+
+export const metamondial3dData: ProjectData = {
   id: 'metamondial3d',
   thumbnail: '/assets/projects/metamondial3d/thumbnail.webp',
   navItems: [

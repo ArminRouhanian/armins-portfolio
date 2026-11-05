@@ -1,14 +1,24 @@
-import React, { useState, useCallback, useRef } from 'react'
+import { useState, useCallback } from 'react'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import Alert from '../../ui/Alert/Alert'
-import ShowcaseItems from './ShowcaseItems/ShowcaseItems'
+import { Carousel } from '../../ui/Carousel'
+import ShowcaseItems, { ShowcaseCardItem } from './ShowcaseItems/ShowcaseItems'
 import ShowcaseLightbox from './ShowcaseLightbox/ShowcaseLightbox'
+import { ShowcaseData } from '../../../types/project'
 import styles from './Showcase.module.css'
 
-export default function Showcase({ showcase, mockupUrl, label = '04 · SHOWCASE' }) {
-  const [lightboxIndex, setLightboxIndex] = useState(null)
-  const [listActiveIdx, setListActiveIdx] = useState(0)
-  const listTrackRef = useRef(null)
+export interface ShowcaseProps {
+  showcase: ShowcaseData
+  mockupUrl?: string
+  label?: string
+}
+
+export default function Showcase({
+  showcase,
+  mockupUrl,
+  label = '04 · SHOWCASE'
+}: ShowcaseProps) {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   const items = showcase?.items || []
   const count = items.length
@@ -16,7 +26,7 @@ export default function Showcase({ showcase, mockupUrl, label = '04 · SHOWCASE'
   const isMobile = type === 'mobile'
   const resolvedUrl = showcase?.mockupUrl || mockupUrl || 'yourproduct.com'
 
-  const openLightbox = useCallback((index) => {
+  const openLightbox = useCallback((index: number) => {
     setLightboxIndex(index)
   }, [])
 
@@ -24,33 +34,15 @@ export default function Showcase({ showcase, mockupUrl, label = '04 · SHOWCASE'
     setLightboxIndex(null)
   }, [])
 
-  // Track horizontal scroll of showcase list on mobile
-  const handleListScroll = useCallback(() => {
-    const el = listTrackRef.current
-    if (!el) return
-    const firstChild = el.firstElementChild
-    if (!firstChild) return
-    const itemWidth = firstChild.offsetWidth
-    const gap = 16
-    const totalItemWidth = itemWidth + gap
-    const scrollPos = el.scrollLeft
-    const idx = Math.round(scrollPos / totalItemWidth)
-    setListActiveIdx(Math.max(0, Math.min(count - 1, idx)))
-  }, [count])
-
-  const scrollToListSlide = (index) => {
-    const el = listTrackRef.current
-    if (!el) return
-    const firstChild = el.firstElementChild
-    if (!firstChild) return
-    const itemWidth = firstChild.offsetWidth
-    const gap = 16
-    const targetLeft = index * (itemWidth + gap)
-    el.scrollTo({ left: targetLeft, behavior: 'smooth' })
-    setListActiveIdx(index)
-  }
-
   if (!showcase || count === 0) return null
+
+  const alertText = typeof showcase.alert === 'string'
+    ? showcase.alert
+    : showcase.alert?.text
+
+  const alertVariant = typeof showcase.alert === 'string'
+    ? 'info'
+    : showcase.alert?.variant || 'info'
 
   return (
     <>
@@ -65,9 +57,9 @@ export default function Showcase({ showcase, mockupUrl, label = '04 · SHOWCASE'
             <div className={styles.alertWrap}>
               <Alert
                 theme="dark"
-                variant={showcase.alert.variant || 'info'}
+                variant={alertVariant}
               >
-                {showcase.alert.text || showcase.alert}
+                {alertText}
               </Alert>
             </div>
           )}
@@ -78,23 +70,38 @@ export default function Showcase({ showcase, mockupUrl, label = '04 · SHOWCASE'
             Tap any mockup to open viewer. Swipe to browse.
           </p>
         </div>
-        <ShowcaseItems
-          ref={listTrackRef}
-          items={items}
-          type={type}
-          onItemClick={openLightbox}
-          onScroll={handleListScroll}
-        />
-        <div className={styles.dots} aria-label="Mockup pagination">
-          {items.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              className={`${styles.dot}${index === listActiveIdx ? ` ${styles.dotActive}` : ''}`}
-              aria-label={`Go to mockup ${index + 1}`}
-              onClick={() => scrollToListSlide(index)}
-            />
-          ))}
+
+        <div className={styles.desktopView}>
+          <ShowcaseItems
+            items={items}
+            type={type}
+            onItemClick={openLightbox}
+          />
+        </div>
+
+        <div className={styles.mobileView}>
+          <Carousel
+            infinite={false}
+            centered={true}
+            bleed={true}
+            slideWidth={isMobile ? '220px' : 'calc(100% - 56px)'}
+            gap="16px"
+            showController={true}
+            controllerVariant="dots-only"
+            theme="dark"
+            ariaLabel="Design mockups carousel"
+          >
+            {items.map((item, index) => (
+              <div key={index} className={styles.carouselSlide}>
+                <ShowcaseCardItem
+                  item={item}
+                  index={index}
+                  isMobile={isMobile}
+                  onItemClick={openLightbox}
+                />
+              </div>
+            ))}
+          </Carousel>
         </div>
       </section>
 

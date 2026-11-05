@@ -1,8 +1,16 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import Button from '../../../ui/Button/Button'
-import ShowcaseSlide from './ShowcaseSlide'
+import ShowcaseSlide, { ShowcaseSlideItem } from './ShowcaseSlide'
 import ShowcaseThumbnail from './ShowcaseThumbnail'
 import styles from './ShowcaseLightbox.module.css'
+
+export interface ShowcaseLightboxProps {
+  items: ShowcaseSlideItem[]
+  initialIndex?: number
+  isMobile?: boolean
+  resolvedUrl?: string
+  onClose?: () => void
+}
 
 export default function ShowcaseLightbox({
   items = [],
@@ -10,13 +18,18 @@ export default function ShowcaseLightbox({
   isMobile = false,
   resolvedUrl = '',
   onClose
-}) {
+}: ShowcaseLightboxProps) {
   const [activeIdx, setActiveIdx] = useState(initialIndex)
-  const [slideDirection, setSlideDirection] = useState('next')
+  const [slideDirection, setSlideDirection] = useState<'next' | 'prev'>('next')
 
-  const touchStartRef = useRef({ x: 0, y: 0, time: 0, valid: false })
-  const thumbStripRef = useRef(null)
-  const thumbRefs = useRef([])
+  const touchStartRef = useRef<{ x: number; y: number; time: number; valid: boolean }>({
+    x: 0,
+    y: 0,
+    time: 0,
+    valid: false
+  })
+  const thumbStripRef = useRef<HTMLDivElement | null>(null)
+  const thumbRefs = useRef<(HTMLButtonElement | null)[]>([])
   const count = items.length
 
   const handleClose = useCallback(() => {
@@ -36,12 +49,10 @@ export default function ShowcaseLightbox({
     setActiveIdx((prev) => (prev - 1 + count) % count)
   }, [count])
 
-  // Push history state on mount
   useEffect(() => {
     window.history.pushState({ showcaseLightbox: true }, '')
   }, [])
 
-  // Manage body/html scroll locking reliably with cleanup
   useEffect(() => {
     const originalOverflow = document.documentElement.style.overflow
     const originalBodyOverflow = document.body.style.overflow
@@ -54,7 +65,6 @@ export default function ShowcaseLightbox({
     }
   }, [])
 
-  // Handle browser back button (popstate) to close lightbox without leaving page
   useEffect(() => {
     const handlePopState = () => {
       onClose?.()
@@ -64,9 +74,8 @@ export default function ShowcaseLightbox({
     return () => window.removeEventListener('popstate', handlePopState)
   }, [onClose])
 
-  // Lightbox keyboard navigation
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') handleClose()
       else if (e.key === 'ArrowRight') nextSlide()
       else if (e.key === 'ArrowLeft') prevSlide()
@@ -76,13 +85,13 @@ export default function ShowcaseLightbox({
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [handleClose, nextSlide, prevSlide])
 
-  // Lightbox touch swipe handlers
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!e.touches || e.touches.length === 0) return
+    const target = e.target as HTMLElement | null
     if (
-      e.target.closest &&
-      (e.target.closest(`.${styles.thumbnailStrip}`) ||
-        e.target.closest(`.${styles.closeButton}`))
+      target?.closest &&
+      (target.closest(`.${styles.thumbnailStrip}`) ||
+        target.closest(`.${styles.closeButton}`))
     ) {
       return
     }
@@ -94,10 +103,11 @@ export default function ShowcaseLightbox({
     }
   }
 
-  const handleTouchEnd = (e) => {
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!touchStartRef.current.valid) return
     touchStartRef.current.valid = false
     if (!e.changedTouches || e.changedTouches.length === 0) return
+
     const dx = e.changedTouches[0].clientX - touchStartRef.current.x
     const dy = e.changedTouches[0].clientY - touchStartRef.current.y
     const dt = Date.now() - touchStartRef.current.time
@@ -114,7 +124,6 @@ export default function ShowcaseLightbox({
     }
   }
 
-  // Ensure active thumbnail is smoothly centered into view and slide content resets to top
   useEffect(() => {
     const selectedThumb = thumbRefs.current[activeIdx]
     const strip = thumbStripRef.current
@@ -127,7 +136,7 @@ export default function ShowcaseLightbox({
       })
     }
 
-    const wraps = document.querySelectorAll(`.${styles.browserImageWrap}`)
+    const wraps = document.querySelectorAll<HTMLElement>(`.${styles.browserImageWrap}`)
     wraps.forEach((w) => {
       w.scrollTop = 0
     })

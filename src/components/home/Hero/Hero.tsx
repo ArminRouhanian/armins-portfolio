@@ -1,4 +1,3 @@
-import React from 'react'
 import HeroAnimation from './HeroAnimation'
 import Button from '../../ui/Button/Button'
 import Badge from '../../ui/Badge/Badge'

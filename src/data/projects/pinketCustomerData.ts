@@ -1,4 +1,6 @@
-export const pinketCustomerData = {
+import { ProjectData } from '../../types/project'
+
+export const pinketCustomerData: ProjectData = {
   id: 'pinket-customer',
   thumbnail: '/assets/projects/pinket-customer/thumbnail.webp',
   hero: {
@@ -156,7 +158,6 @@ export const pinketCustomerData = {
         bg: '/assets/projects/pinket-customer/mockups/showcase-in-store-explore.webp',
         label: 'In Store Explore'
       },
-
       {
         bg: '/assets/projects/pinket-customer/mockups/showcase-map-store.webp',
         label: 'Finding Vendors by Maps'
@@ -172,13 +173,6 @@ export const pinketCustomerData = {
     ]
   },
   comments: [
-    // {
-    //   initials: 'PM',
-    //   avatarBg: 'primary',
-    //   name: '[Teammate Name]',
-    //   role: 'Product Manager',
-    //   quote: '[Replace with a short, honest quote from a colleague about how it was to work with you on this project.]'
-    // },
     {
       initials: 'FE',
       avatarBg: 'purple',

@@ -1,9 +1,14 @@
-import React from 'react'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import Alert from '../../ui/Alert/Alert'
+import { ProjectTimelineData } from '../../../types/project'
 import styles from './Timeline.module.css'
 
-export default function Timeline({ timeline, label = '03 · TIMELINE' }) {
+export interface TimelineProps {
+  timeline: ProjectTimelineData
+  label?: string
+}
+
+export default function Timeline({ timeline, label = '03 · TIMELINE' }: TimelineProps) {
   if (!timeline) return null
 
   return (
@@ -16,7 +21,7 @@ export default function Timeline({ timeline, label = '03 · TIMELINE' }) {
         {timeline.alert && (
           <div className={styles.alertWrap}>
             <Alert variant={timeline.alert.variant || 'warning'}>
-              {timeline.alert.text || timeline.alert}
+              {timeline.alert.text}
             </Alert>
           </div>
         )}

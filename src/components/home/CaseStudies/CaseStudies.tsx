@@ -1,5 +1,3 @@
-import React from 'react'
-import Badge from '../../ui/Badge/Badge'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import { Icon } from '../../ui/Icon'
 import styles from './CaseStudies.module.css'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Badge from '../../ui/Badge/Badge'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
@@ -7,7 +6,12 @@ import useImageLoaded from '../../../hooks/useImageLoaded'
 import { projectsData } from '../../../data/projectsData'
 import styles from './SelectedWork.module.css'
 
-function WorkThumbnail({ thumbnail, fallbackColor }) {
+interface WorkThumbnailProps {
+  thumbnail?: string
+  fallbackColor?: string
+}
+
+function WorkThumbnail({ thumbnail, fallbackColor }: WorkThumbnailProps) {
   const { isLoaded, hasError } = useImageLoaded(thumbnail)
 
   if (hasError) {
@@ -30,7 +34,13 @@ function WorkThumbnail({ thumbnail, fallbackColor }) {
   )
 }
 
-const PROJECT_LIST = [
+interface ProjectListItem {
+  key: string
+  to: string
+  fallbackColor: string
+}
+
+const PROJECT_LIST: ProjectListItem[] = [
   {
     key: 'pinket-customer',
     to: '/works/pinket-customer',
@@ -58,14 +68,14 @@ export default function SelectedWork() {
       />
       <div className={styles.grid}>
         {PROJECT_LIST.map((p) => {
-          const project = (projectsData as Record<string, any>)[p.key]
+          const project = projectsData[p.key]
           if (!project) return null
 
-          const title = project.hero?.title || project.title
-          const subtitle = project.hero?.subtitle || project.subtitle
-          const tags = project.hero?.tags || []
-          const thumbnail = project.thumbnail || project.hero?.thumbnail
-          const fallback = project.hero?.mockupGradient || p.fallbackColor
+          const title = project.hero.title
+          const subtitle = project.hero.subtitle
+          const tags = project.hero.tags || []
+          const thumbnail = project.thumbnail || project.hero.thumbnail
+          const fallback = project.hero.mockupGradient || p.fallbackColor
 
           return (
             <Link

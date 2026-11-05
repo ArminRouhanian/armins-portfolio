@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './SectionNav.module.css'
 
 export interface SectionNavItem {

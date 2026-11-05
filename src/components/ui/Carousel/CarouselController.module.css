@@ -106,3 +106,38 @@
   box-shadow: none;
   transform: none !important;
 }
+
+.dark .carouselDot {
+  background-color: var(--color-white-alpha-25);
+}
+
+.dark .carouselDot:hover:not(.carouselDotActive) {
+  background-color: var(--color-white-alpha-40);
+}
+
+.dark .carouselDotActive {
+  background-color: var(--color-bg-brand-primary);
+}
+
+.dark .carouselNavButton {
+  background: var(--color-white-alpha-08);
+  border-color: var(--color-white-alpha-16);
+  color: var(--color-text-solid);
+}
+
+.dark .carouselNavButton:hover:not(:disabled) {
+  background-color: var(--color-bg-brand-primary);
+  border-color: var(--color-bg-brand-primary);
+  color: var(--color-text-solid);
+}
+
+.dark .carouselNavButton:disabled {
+  opacity: 0.25;
+  background: transparent;
+  border-color: var(--color-white-alpha-08);
+  color: var(--color-white-alpha-25);
+}
+
+.dark .carouselCounter {
+  color: var(--color-text-dim);
+}
