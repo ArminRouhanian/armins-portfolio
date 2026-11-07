@@ -5,7 +5,7 @@
   right: 0;
   height: var(--header-height);
   box-sizing: border-box;
-  z-index: 100;
+  z-index: var(--z-header);
   display: flex;
   flex-wrap: nowrap;
   gap: var(--spacing-sm);

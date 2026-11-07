@@ -38,4 +38,14 @@
   --transition-fast: 0.15s ease;
   --transition-base: 0.2s ease;
   --transition-smooth: 0.3s ease;
+
+  /* Z-Index Scale */
+  --z-negative: -1;
+  --z-base: 1;
+  --z-elevated: 2;
+  --z-sticky-nav: 40;
+  --z-header: 100;
+  --z-drawer: 1000;
+  --z-lightbox: 1100;
+  --z-lightbox-controls: 1110;
 }

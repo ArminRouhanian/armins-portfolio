@@ -67,6 +67,38 @@ const ORBITS = [
   }
 ]
 
+interface SparkleSvgProps {
+  size: number
+  fill: string
+}
+
+function SparkleSvg({ size, fill }: SparkleSvgProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      aria-hidden="true"
+    >
+      <path
+        d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
+        fill={fill}
+      />
+    </svg>
+  )
+}
+
+const PARTICLES = [
+  { px: '-40px', pd: '0s', bg: 'var(--color-fg-accent-orange)' },
+  { px: '30px', pd: '0.7s', bg: 'var(--color-fg-brand-secondary)' },
+  { px: '-15px', pd: '1.4s', bg: 'var(--color-fg-accent-green)' },
+  { px: '50px', pd: '2.1s', bg: 'var(--color-fg-accent-orange_light)' },
+  { px: '-55px', pd: '2.8s', bg: 'var(--color-fg-accent-purple_light)' },
+  { px: '10px', pd: '3.5s', bg: 'var(--color-fg-solid)' },
+  { px: '-30px', pd: '4.2s', bg: 'var(--color-fg-brand-secondary)' },
+  { px: '40px', pd: '4.9s', bg: 'var(--color-fg-accent-orange)' }
+]
+
 export default function ToolsAnimation() {
   return (
     <div className={styles.stage}>
@@ -114,17 +146,10 @@ export default function ToolsAnimation() {
         <div className={styles.core}>
           <div className={styles.glow} />
           <span className={styles.sparkleBig}>
-            <svg
-              viewBox="0 0 24 24"
-              width="70"
-              height="70"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="var(--color-fg-solid)"
-              />
-            </svg>
+            <SparkleSvg
+              size={70}
+              fill="var(--color-fg-solid)"
+            />
           </span>
           <span
             className={styles.sparkleMedium}
@@ -133,17 +158,10 @@ export default function ToolsAnimation() {
               top: '-46px'
             }}
           >
-            <svg
-              viewBox="0 0 24 24"
-              width="18"
-              height="18"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="var(--color-util-purple-300)"
-              />
-            </svg>
+            <SparkleSvg
+              size={18}
+              fill="var(--color-util-purple-300)"
+            />
           </span>
           <span
             className={styles.sparkleSmall}
@@ -152,17 +170,10 @@ export default function ToolsAnimation() {
               top: '-58px'
             }}
           >
-            <svg
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="var(--color-fg-brand-secondary)"
-              />
-            </svg>
+            <SparkleSvg
+              size={14}
+              fill="var(--color-fg-brand-secondary)"
+            />
           </span>
           <span
             className={styles.sparkleMedium}
@@ -172,82 +183,22 @@ export default function ToolsAnimation() {
               animationDelay: '-.8s'
             }}
           >
-            <svg
-              viewBox="0 0 24 24"
-              width="12"
-              height="12"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 0C12.6 7.4 16.6 11.4 24 12C16.6 12.6 12.6 16.6 12 24C11.4 16.6 7.4 12.6 0 12C7.4 11.4 11.4 7.4 12 0Z"
-                fill="var(--color-fg-accent-green_light)"
-              />
-            </svg>
+            <SparkleSvg
+              size={12}
+              fill="var(--color-fg-accent-green_light)"
+            />
           </span>
-          <i
-            className={styles.particle}
-            style={{
-              '--px': '-40px',
-              '--pd': '0s',
-              background: 'var(--color-fg-accent-orange)'
-            } as React.CSSProperties}
-          />
-          <i
-            className={styles.particle}
-            style={{
-              '--px': '30px',
-              '--pd': '0.7s',
-              background: 'var(--color-fg-brand-secondary)'
-            } as React.CSSProperties}
-          />
-          <i
-            className={styles.particle}
-            style={{
-              '--px': '-15px',
-              '--pd': '1.4s',
-              background: 'var(--color-fg-accent-green)'
-            } as React.CSSProperties}
-          />
-          <i
-            className={styles.particle}
-            style={{
-              '--px': '50px',
-              '--pd': '2.1s',
-              background: 'var(--color-fg-accent-orange_light)'
-            } as React.CSSProperties}
-          />
-          <i
-            className={styles.particle}
-            style={{
-              '--px': '-55px',
-              '--pd': '2.8s',
-              background: 'var(--color-fg-accent-purple_light)'
-            } as React.CSSProperties}
-          />
-          <i
-            className={styles.particle}
-            style={{
-              '--px': '10px',
-              '--pd': '3.5s',
-              background: 'var(--color-fg-solid)'
-            } as React.CSSProperties}
-          />
-          <i
-            className={styles.particle}
-            style={{
-              '--px': '-30px',
-              '--pd': '4.2s',
-              background: 'var(--color-fg-brand-secondary)'
-            } as React.CSSProperties}
-          />
-          <i
-            className={styles.particle}
-            style={{
-              '--px': '40px',
-              '--pd': '4.9s',
-              background: 'var(--color-fg-accent-orange)'
-            } as React.CSSProperties}
-          />
+          {PARTICLES.map((p, idx) => (
+            <i
+              key={idx}
+              className={styles.particle}
+              style={{
+                '--px': p.px,
+                '--pd': p.pd,
+                background: p.bg
+              } as React.CSSProperties}
+            />
+          ))}
         </div>
         <Cursor
           thinking

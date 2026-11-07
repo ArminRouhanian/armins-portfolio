@@ -2,7 +2,7 @@
   position: sticky;
   bottom: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
-  z-index: 40;
+  z-index: var(--z-sticky-nav);
   display: flex;
   justify-content: center;
   pointer-events: none;
@@ -13,7 +13,7 @@
 .nav {
   pointer-events: auto;
   position: relative;
-  z-index: 1;
+  z-index: var(--z-base);
   display: flex;
   gap: var(--spacing-2xs);
   padding: 6px;

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import Button from '../../../ui/Button/Button'
 import ShowcaseSlide, { ShowcaseSlideItem } from './ShowcaseSlide'
 import ShowcaseThumbnail from './ShowcaseThumbnail'
+import { useFocusTrap } from '../../../../hooks/useFocusTrap'
 import styles from './ShowcaseLightbox.module.css'
 
 export interface ShowcaseLightboxProps {
@@ -28,9 +29,12 @@ export default function ShowcaseLightbox({
     time: 0,
     valid: false
   })
+  const lightboxRef = useRef<HTMLDivElement | null>(null)
   const thumbStripRef = useRef<HTMLDivElement | null>(null)
   const thumbRefs = useRef<(HTMLButtonElement | null)[]>([])
   const count = items.length
+
+  useFocusTrap(lightboxRef, count > 0)
 
   const handleClose = useCallback(() => {
     if (window.history.state?.showcaseLightbox) {
@@ -146,11 +150,13 @@ export default function ShowcaseLightbox({
 
   return (
     <div
+      ref={lightboxRef}
       id="lb"
       className={styles.lightbox}
       role="dialog"
       aria-modal="true"
       aria-label="Mockup viewer"
+      tabIndex={-1}
       onClick={(e) => {
         if ((e.target as HTMLElement).id === 'lb') handleClose()
       }}

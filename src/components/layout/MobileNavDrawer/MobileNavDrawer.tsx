@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Button from '../../ui/Button/Button'
-import useSectionLink from '../../../hooks/useSectionLink'
+import useSectionLink, { SectionLinkTarget } from '../../../hooks/useSectionLink'
+import { useFocusTrap } from '../../../hooks/useFocusTrap'
 import styles from './MobileNavDrawer.module.css'
 
 export interface MobileNavDrawerProps {
@@ -9,13 +10,50 @@ export interface MobileNavDrawerProps {
   onClose: () => void
 }
 
+interface DrawerNavRowProps {
+  target: SectionLinkTarget
+  onClick: () => void
+  children: React.ReactNode
+}
+
+function DrawerNavRow({
+  target,
+  onClick,
+  children
+}: DrawerNavRowProps) {
+  if (target.as === 'a') {
+    return (
+      <a
+        href={target.href}
+        onClick={onClick}
+        className={styles.navRow}
+      >
+        {children}
+      </a>
+    )
+  }
+
+  return (
+    <Link
+      to={target.to}
+      onClick={onClick}
+      className={styles.navRow}
+    >
+      {children}
+    </Link>
+  )
+}
+
 export default function MobileNavDrawer({
   isOpen,
   onClose
 }: MobileNavDrawerProps) {
+  const drawerRef = useRef<HTMLDivElement>(null)
   const getSectionLink = useSectionLink()
   const { pathname } = useLocation()
   const isAbout = pathname === '/about'
+
+  useFocusTrap(drawerRef, isOpen)
 
   useEffect(() => {
     if (!isOpen) return
@@ -47,10 +85,12 @@ export default function MobileNavDrawer({
 
   return (
     <div
+      ref={drawerRef}
       className={`${styles.drawer}${isOpen ? ` ${styles.drawerOpen}` : ''}`}
       role="dialog"
       aria-modal="true"
       aria-label="Mobile navigation menu"
+      tabIndex={-1}
     >
       <div className={styles.topBar}>
         <Link
@@ -76,41 +116,19 @@ export default function MobileNavDrawer({
 
       <div className={styles.content}>
         <nav className={styles.navRows}>
-          {workLink.as === 'a' ? (
-            <a
-              href={workLink.href}
-              onClick={handleRowClick}
-              className={styles.navRow}
-            >
-              Works
-            </a>
-          ) : (
-            <Link
-              to={workLink.to}
-              onClick={handleRowClick}
-              className={styles.navRow}
-            >
-              Works
-            </Link>
-          )}
+          <DrawerNavRow
+            target={workLink}
+            onClick={handleRowClick}
+          >
+            Works
+          </DrawerNavRow>
 
-          {casesLink.as === 'a' ? (
-            <a
-              href={casesLink.href}
-              onClick={handleRowClick}
-              className={styles.navRow}
-            >
-              Case Study
-            </a>
-          ) : (
-            <Link
-              to={casesLink.to}
-              onClick={handleRowClick}
-              className={styles.navRow}
-            >
-              Case Study
-            </Link>
-          )}
+          <DrawerNavRow
+            target={casesLink}
+            onClick={handleRowClick}
+          >
+            Case Study
+          </DrawerNavRow>
 
           <Link
             to="/about"

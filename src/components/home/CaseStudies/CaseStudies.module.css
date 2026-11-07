@@ -35,7 +35,7 @@
   box-sizing: border-box;
   background: var(--color-bg-primary);
   border: 1.5px solid var(--color-fg-accent-pink);
-  z-index: 2;
+  z-index: var(--z-elevated);
 }
 
 .slotContent {

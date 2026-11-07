@@ -28,19 +28,35 @@ export function ShowcaseCardItem({
       }
     : undefined
 
+  const handleActivate = () => {
+    onItemClick?.(index)
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleActivate()
+    }
+  }
+
   if (isMobile) {
     return (
       <div className={styles.itemWrapperMobile}>
-        <span
-          onClick={() => onItemClick && onItemClick(index)}
+        <button
+          type="button"
+          onClick={handleActivate}
           className={styles.label}
           title={item.label}
         >
           {item.label}
-        </span>
+        </button>
         <div
+          role="button"
+          tabIndex={0}
+          aria-label={`View ${item.label} mockup`}
           className={styles.mobileFrame}
-          onClick={() => onItemClick && onItemClick(index)}
+          onClick={handleActivate}
+          onKeyDown={handleKeyDown}
         >
           <div className={styles.mobileNotch} />
           <div
@@ -62,16 +78,21 @@ export function ShowcaseCardItem({
 
   return (
     <div className={styles.itemWrapper}>
-      <span
-        onClick={() => onItemClick && onItemClick(index)}
+      <button
+        type="button"
+        onClick={handleActivate}
         className={styles.label}
         title={item.label}
       >
         {item.label}
-      </span>
+      </button>
       <div
+        role="button"
+        tabIndex={0}
+        aria-label={`View ${item.label} mockup`}
         className={styles.desktopFrame}
-        onClick={() => onItemClick && onItemClick(index)}
+        onClick={handleActivate}
+        onKeyDown={handleKeyDown}
       >
         <div className={styles.desktopBar}>
           <i />
