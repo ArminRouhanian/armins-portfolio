@@ -59,16 +59,16 @@
   height: 32px;
   border-radius: var(--radius-sm);
   background: var(--color-fg-accent-pink);
-  color: var(--color-text-solid);
+  color: var(--color-white);
   border: none;
   padding: 0;
   pointer-events: none;
 }
 
-.plusIcon {
-  width: 16px;
-  height: 16px;
-  color: var(--color-text-solid);
+.slotIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-white);
   display: block;
 }
 

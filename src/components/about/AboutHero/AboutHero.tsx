@@ -50,8 +50,7 @@ export default function AboutHero() {
 
           <div className={styles.introBio}>
             <p className={styles.bioLead}>
-              I turn complex, fuzzy ideas into software people understand and
-              want to use.
+              A product designer with +4 years of experience turning fuzzy ideas into products people understand and want to use.
             </p>
             <p className={styles.bioText}>
               With a background in software development and a strong interest in user

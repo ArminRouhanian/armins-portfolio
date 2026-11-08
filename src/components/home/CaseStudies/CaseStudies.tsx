@@ -24,9 +24,9 @@ export default function CaseStudies() {
             aria-hidden="true"
           >
             <Icon
-              name="plus"
-              size={16}
-              className={styles.plusIcon}
+              name="pending"
+              size={18}
+              className={styles.slotIcon}
             />
           </div>
         </div>
