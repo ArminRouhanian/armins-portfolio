@@ -31,7 +31,7 @@
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  max-width: 220px;
+  max-width: 300px;
 }
 
 /* Item Label above top-left */
@@ -167,6 +167,10 @@
 }
 
 @media (max-width: 640px) {
+  .itemWrapperMobile {
+    max-width: 240px;
+  }
+
   .gridDesktop,
   .gridMobile {
     display: flex;

@@ -42,33 +42,20 @@ export default function Hero({ hero }: HeroProps) {
         {hero.subtitle}
       </p>
       <div
-        className={styles.mockupWrapper}
-        style={{
-          background: hero.mockupGradient || 'linear-gradient(135deg, var(--color-fg-accent-purple_light), var(--color-fg-brand-secondary))'
-        }}
+        className={`${styles.imageContainer}${thumbnail && !isLoaded ? ' skeletonDark' : ''}`}
+        style={!thumbnail && hero.mockupGradient ? { background: hero.mockupGradient } : undefined}
       >
-        <div className={styles.browserFrame}>
-          <div className={styles.browserBar}>
-            <span className={styles.browserDot} aria-hidden="true" />
-            <span className={styles.browserDot} aria-hidden="true" />
-            <span className={styles.browserDot} aria-hidden="true" />
-            <span className={styles.browserUrl}>
-              {hero.mockupUrl || 'yourproduct.com'}
-            </span>
+        {!hasError && isLoaded && thumbnail ? (
+          <img
+            src={thumbnail}
+            alt={hero.title}
+            className={styles.heroImage}
+          />
+        ) : hasError ? (
+          <div className={styles.placeholderWrap}>
+            <ImagePlaceholder iconSize={64} />
           </div>
-          <div
-            className={`${styles.mockupContent}${thumbnail && !isLoaded ? ' skeletonDark' : ''}`}
-            style={{
-              background: !hasError && isLoaded
-                ? (thumbnail
-                    ? `url("${thumbnail}") center / cover no-repeat`
-                    : hero.mockupGradient || 'linear-gradient(135deg, var(--color-fg-accent-orange), var(--color-fg-accent-orange_light))')
-                : undefined
-            }}
-          >
-            {hasError && <ImagePlaceholder iconSize={64} />}
-          </div>
-        </div>
+        ) : null}
       </div>
       <div className={styles.metaGrid}>
         {hero.meta.map((item) => (

@@ -28,6 +28,7 @@
   user-select: none;
   -webkit-user-select: none;
   box-sizing: border-box;
+  outline: none;
 }
 
 .carouselTrack {

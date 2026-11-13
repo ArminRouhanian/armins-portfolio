@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react'
 import SectionHeader from '../../ui/SectionHeader/SectionHeader'
 import Alert from '../../ui/Alert/Alert'
 import { Carousel } from '../../ui/Carousel'
-import ShowcaseItems, { ShowcaseCardItem } from './ShowcaseItems/ShowcaseItems'
+import { ShowcaseCardItem } from './ShowcaseItems/ShowcaseItems'
 import ShowcaseLightbox from './ShowcaseLightbox/ShowcaseLightbox'
 import { ShowcaseData } from '../../../types/project'
 import styles from './Showcase.module.css'
@@ -44,6 +44,10 @@ export default function Showcase({
     ? 'info'
     : showcase.alert?.variant || 'info'
 
+  const carouselThemeClass = isMobile
+    ? styles.carouselMobileMockup
+    : styles.carouselDesktopMockup
+
   return (
     <>
       <section id="showcase" className={styles.section}>
@@ -71,24 +75,17 @@ export default function Showcase({
           </p>
         </div>
 
-        <div className={styles.desktopView}>
-          <ShowcaseItems
-            items={items}
-            type={type}
-            onItemClick={openLightbox}
-          />
-        </div>
-
-        <div className={styles.mobileView}>
+        <div className={styles.carouselSection}>
           <Carousel
             infinite={false}
             centered={true}
-            bleed={true}
-            slideWidth={isMobile ? '220px' : 'calc(100% - 56px)'}
-            gap="16px"
+            bleed={false}
+            slideWidth="var(--showcase-slide-width)"
+            gap="var(--showcase-slide-gap)"
             showController={true}
             controllerVariant="dots-only"
             theme="dark"
+            className={carouselThemeClass}
             ariaLabel="Design mockups carousel"
           >
             {items.map((item, index) => (

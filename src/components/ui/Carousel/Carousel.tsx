@@ -98,6 +98,10 @@ export default function Carousel({
 
   const touchStartX = useRef(0)
   const touchStartY = useRef(0)
+  const isMouseDownRef = useRef(false)
+  const isDraggingRef = useRef(false)
+  const mouseStartXRef = useRef(0)
+  const mouseStartYRef = useRef(0)
 
   const activeIndex = isInfinite
     ? (displayIndex - 2 + total) % total
@@ -186,6 +190,56 @@ export default function Carousel({
     }
   }
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (isTransitioning || e.button !== 0) return
+    isMouseDownRef.current = true
+    isDraggingRef.current = false
+    mouseStartXRef.current = e.clientX
+    mouseStartYRef.current = e.clientY
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isMouseDownRef.current) return
+    const dx = e.clientX - mouseStartXRef.current
+    const dy = e.clientY - mouseStartYRef.current
+    if (Math.hypot(dx, dy) > 8) {
+      isDraggingRef.current = true
+    }
+  }
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isMouseDownRef.current) return
+    isMouseDownRef.current = false
+    const dx = e.clientX - mouseStartXRef.current
+    const dy = e.clientY - mouseStartYRef.current
+
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > swipeThreshold) {
+      if (dx < 0) {
+        handleNext()
+      } else {
+        handlePrev()
+      }
+    }
+  }
+
+  const handleClickCapture = (e: React.MouseEvent) => {
+    if (isDraggingRef.current) {
+      e.preventDefault()
+      e.stopPropagation()
+      isDraggingRef.current = false
+    }
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault()
+      handlePrev()
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault()
+      handleNext()
+    }
+  }
+
   if (total === 0) return null
 
   const transform = centered
@@ -250,8 +304,15 @@ export default function Carousel({
 
       <div
         className={containerClasses}
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        onClickCapture={handleClickCapture}
       >
         <div
           className={trackClasses}

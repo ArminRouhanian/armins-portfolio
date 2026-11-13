@@ -26,61 +26,32 @@
   color: var(--color-text-secondary);
 }
 
-.mockupWrapper {
+.imageContainer {
   margin-top: 40px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius-xl);
-  padding: clamp(var(--spacing-md), 4vw, 56px);
-}
-
-.browserFrame {
-  border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-bg-primary);
-  box-shadow: 0 32px 64px rgba(30, 30, 30, 0.35);
-  outline: 2px solid transparent;
-  cursor: var(--cursor-custom);
-  transition:
-    outline-color 0.2s,
-    transform 0.3s;
-}
-
-.browserFrame:hover {
-  outline-color: var(--color-border-brand-primary);
-  transform: translateY(-4px);
-}
-
-.browserBar {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  padding: 10px var(--spacing-sm);
   background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-primary);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  position: relative;
+  box-sizing: border-box;
 }
 
-.browserDot {
-  width: 9px;
-  height: 9px;
-  border-radius: var(--radius-circle);
-  background: var(--color-border-secondary);
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.browserUrl {
-  composes: text-url from global;
-  margin-left: var(--spacing-sm);
-  flex: 1;
-  background: var(--color-bg-primary);
-  border-radius: var(--radius-xs);
-  padding: 3px 10px;
-  color: var(--color-text-caption);
-}
-
-.mockupContent {
-  height: clamp(220px, 40vw, 460px);
+.placeholderWrap {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-solid);
-  font-weight: var(--font-weight-medium);
 }
 
 .metaGrid {
@@ -98,13 +69,12 @@
 }
 
 .metaLabel {
-  composes: text-caption from global;
-  color: var(--color-text-muted);
+  composes: text-body from global;
+  color: var(--color-text-caption);
 }
 
 .metaValue {
-  composes: text-body-lg from global;
-  font-weight: var(--font-weight-bold);
+  composes: text-body from global;
   margin-top: var(--spacing-2xs);
   color: var(--color-text-primary);
 }
@@ -122,20 +92,9 @@
     font-size: var(--font-size-body);
   }
 
-  .mockupWrapper {
+  .imageContainer {
     margin-top: var(--spacing-lg);
-    padding: var(--spacing-sm);
     border-radius: var(--radius-lg);
-  }
-
-  .browserFrame {
-    box-shadow: 0 12px 28px rgba(30, 30, 30, 0.2);
-  }
-
-  .browserFrame:hover,
-  .browserFrame:active {
-    outline-color: transparent;
-    transform: none;
   }
 
   .metaGrid {
@@ -145,14 +104,6 @@
 
   .metaItem {
     padding: 14px var(--spacing-md);
-  }
-}
-
-@media (hover: none) {
-  .browserFrame:hover,
-  .browserFrame:active {
-    outline-color: transparent;
-    transform: none;
   }
 }
 

@@ -12,15 +12,14 @@
   min-width: 0;
 }
 
-.leadText {
-  composes: text-h4 from global;
+.leadText,
+.secondaryText {
+  composes: text-body-lg from global;
   color: var(--color-text-secondary);
 }
 
 .secondaryText {
-  composes: text-body-lg from global;
   margin-top: var(--spacing-md-lg);
-  color: var(--color-text-secondary);
 }
 
 .checklistGrid {
@@ -69,12 +68,10 @@
     grid-column: auto;
   }
 
-  .leadText {
-    font-size: var(--font-size-body);
-  }
-
+  .leadText,
   .secondaryText {
-    font-size: var(--font-size-body-sm);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
   }
 
   .checklistGrid {
