@@ -2,11 +2,14 @@ import { Suspense, lazy } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import ScrollToTop from './components/layout/ScrollToTop/ScrollToTop'
 import HomePage from './pages/HomePage'
+import { useUtmTracker } from './hooks/useUtmTracker'
 
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 
 export default function App() {
+  useUtmTracker()
+
   return (
     <>
       <ScrollToTop />

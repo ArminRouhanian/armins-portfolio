@@ -25,19 +25,9 @@
   overflow: hidden;
 }
 
-.primary:hover {
+.primary:active {
   background: var(--color-bg-solid_hover);
   border-color: var(--color-bg-solid_hover);
-  color: var(--color-text-solid);
-}
-
-.primary:hover .label {
-  transform: translateX(-9px);
-}
-
-.primary:hover .primaryArrow {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .primaryArrow {
@@ -53,6 +43,53 @@
     transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   color: currentColor;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 641px) {
+  .primary:hover {
+    background: var(--color-bg-solid_hover);
+    border-color: var(--color-bg-solid_hover);
+    color: var(--color-text-solid);
+  }
+
+  .primary:hover .label {
+    transform: translateX(-9px);
+  }
+
+  .primary:hover .primaryArrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .primary {
+    padding: 0 var(--spacing-lg);
+  }
+
+  .primaryArrow {
+    display: none !important;
+  }
+
+  .primary .label,
+  .primary:hover .label,
+  .primary:active .label,
+  .primary:focus .label {
+    transform: none !important;
+  }
+}
+
+@media (hover: none) {
+  .primaryArrow {
+    display: none !important;
+  }
+
+  .primary .label,
+  .primary:hover .label,
+  .primary:active .label,
+  .primary:focus .label {
+    transform: none !important;
+  }
 }
 
 .secondary {
@@ -235,8 +272,10 @@
   transition: transform 0.25s ease;
 }
 
-.cta:hover .icon {
-  transform: translateX(6px);
+@media (hover: hover) and (pointer: fine) and (min-width: 641px) {
+  .cta:hover .icon {
+    transform: translateX(6px);
+  }
 }
 
 @media (max-width: 600px) {
@@ -254,6 +293,11 @@
 
   .cta:hover::before {
     border-radius: var(--radius-md);
+  }
+
+  .cta:hover .icon,
+  .cta:active .icon {
+    transform: none;
   }
 }
 

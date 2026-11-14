@@ -144,7 +144,30 @@ The project is preconfigured for zero-config deployments on **Vercel** with SPA 
 ```json
 {
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
 ```
+
+---
+
+## Analytics & Telemetry (Neon PostgreSQL + Vercel Serverless)
+
+A lightweight, privacy-conscious UTM and visitor telemetry system that tracks outbound campaign performance without bulky third-party tracking scripts.
+
+### Key Capabilities
+
+- **Priority Sources**: First-class tracking for `resume` and `linkedin` campaigns (e.g. `?utm_source=resume&utm_campaign=portfolio_pdf` or `?utm_source=linkedin&utm_campaign=profile_bio`).
+- **Device & Browser Detection**: Classifies device (`mobile`, `desktop`, `tablet`) and browser (`Chrome`, `Safari`, `Firefox`, `Edge`, etc.) on the server side using the request's User-Agent string without client fingerprinting.
+- **Privacy & Deduplication**: Employs a 365-day first-party cookie (`pf_device_id`) and session-scoped storage (`pf_session_id`). Composite database indexing strictly prevents duplicate entries on page refreshes or route changes.
+- **Serverless Performance**: Built with `@neondatabase/serverless` using lightweight HTTP transport to eliminate TCP pool bloat on Vercel's Hobby tier.
+
+### Target Campaign URL Examples
+
+- Resume PDF Link: `https://yourdomain.com/?utm_source=resume&utm_medium=pdf&utm_campaign=product_design_lead`
+- LinkedIn Bio Link: `https://yourdomain.com/?utm_source=linkedin&utm_medium=social&utm_campaign=profile_bio`
+
+### Database Queries
+
+Ready-to-use analytical queries for inspection (sessions by source, device ratios, returning visitors) are located in [`db/queries.sql`](./db/queries.sql). Run database migrations with `npm run db:migrate`.

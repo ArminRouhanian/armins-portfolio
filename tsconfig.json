@@ -26,5 +26,5 @@
     "checkJs": false,
     "esModuleInterop": true
   },
-  "include": ["src", "vite.config.js"]
+  "include": ["src", "vite.config.js", "api"]
 }
